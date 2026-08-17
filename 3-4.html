@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2.2 · H1 – 3-4. Ders · DELE Simülasyonu</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--c1:#eaf7e6;--c2:#bfe6ac;--c3:#d3ecc9;--c4:#8fcf95;--c5:#559d6a;--dark:#20402a;--mid:#5c7d63;--white:#fff;--green:#3f8f52;--red:#d97070;--gold1:#f5dca0;--gold2:#dcac48;--blue1:#dcedf9;--blue2:#3d7ea6;--r:14px}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1,#eefaf3 60%,#f7fdf3);min-height:100vh;color:var(--dark)}
+.header{background:linear-gradient(135deg,var(--c4),var(--c5));padding:18px 20px 14px;text-align:center;box-shadow:0 4px 18px rgba(85,157,106,.35);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.1) 14px,rgba(255,255,255,.1) 15px)}
+.htag{display:inline-block;background:rgba(255,255,255,.35);border:1.5px solid rgba(255,255,255,.55);border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 14px;margin-bottom:8px;color:#fff;position:relative}
+.header h1{font-size:clamp(16px,4vw,23px);font-weight:800;color:#fff;position:relative}
+.header-sub{font-size:12px;color:rgba(255,255,255,.9);margin-top:4px;position:relative}
+.screen{display:none;animation:fi .3s ease}.screen.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.nb{max-width:440px;margin:0 auto;padding:32px 20px;text-align:center}
+.nb h2{font-size:20px;color:var(--dark);margin-bottom:5px}
+.nb p{font-size:13px;color:var(--mid);margin-bottom:20px}
+.sel{width:100%;padding:13px 16px;font-size:15px;background:#fff;border:2px solid var(--c3);border-radius:var(--r);color:var(--dark);appearance:none;cursor:pointer;margin-bottom:14px;font-family:inherit}
+.sel:focus{outline:none;border-color:var(--c4)}
+.ib{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:14px 16px;margin-bottom:18px;text-align:left;font-size:13px;line-height:1.75}
+.ibr{display:flex;align-items:flex-start;gap:9px;margin-bottom:5px}
+.ibd{width:8px;height:8px;border-radius:50%;background:var(--c4);flex-shrink:0;margin-top:5px}
+.ibh{height:1px;background:var(--c3);margin:9px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 24px;border:none;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.bm{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;box-shadow:0 4px 12px rgba(85,157,106,.35)}
+.bm:hover{transform:translateY(-2px)}
+.bg{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--dark);box-shadow:0 4px 12px rgba(220,172,72,.4)}
+.bg:hover{transform:translateY(-2px)}
+.bo{background:#fff;border:2px solid var(--c3);color:var(--dark)}
+.bo:hover{background:var(--c3)}
+.bs{padding:9px 18px;font-size:13px}
+.bf{width:100%}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important}
+.qw{max-width:700px;margin:0 auto;padding:16px}
+.topsub{display:flex;justify-content:center;margin-bottom:14px}
+.tb{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:10px 16px;margin-bottom:12px;gap:8px;flex-wrap:wrap}
+.ts{font-size:12px;color:var(--mid);font-weight:600}
+.tsc{display:flex;gap:14px}
+.si{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:700}
+.sok{color:var(--green)}.ser{color:var(--red)}
+.pgw{margin-bottom:14px}
+.pgb{height:7px;background:var(--c3);border-radius:4px;overflow:hidden}
+.pgf{height:100%;background:linear-gradient(90deg,var(--c4),var(--c2));border-radius:4px;transition:width .4s;width:0%}
+.pgi{display:flex;justify-content:space-between;font-size:11px;color:var(--mid);margin-top:3px}
+.sb{display:inline-flex;align-items:center;background:linear-gradient(90deg,var(--c4),var(--c5));border-radius:20px;padding:6px 16px;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:10px;box-shadow:0 2px 8px rgba(85,157,106,.3)}
+.instr{background:var(--blue1);border-left:3px solid var(--blue2);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:12px;font-size:12.5px;line-height:1.75;color:#1a3a4c}
+.instrl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue2);margin-bottom:4px}
+.resw{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:14px}
+.resh{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:var(--c1);cursor:pointer}
+.resh h3{font-size:13px;font-weight:800;color:var(--dark)}
+.rest{font-size:11px;font-weight:700;color:var(--c5);background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:4px 12px;white-space:nowrap}
+.resb{padding:14px 18px;font-size:13px;line-height:1.85;color:var(--dark);white-space:pre-wrap;max-height:360px;overflow-y:auto}
+.resb.collapsed{display:none}
+.textgrid{display:grid;grid-template-columns:1fr;gap:8px;padding:14px 16px}
+.textgrid.collapsed{display:none}
+.textitem{background:#f7fcf5;border:1.5px solid var(--c3);border-radius:10px;padding:10px 12px;font-size:12.5px;line-height:1.6}
+.textitem b{color:var(--c5);margin-right:4px}
+.exmpl{background:var(--c1);border:1.5px dashed var(--c4);border-radius:12px;padding:12px 16px;margin-bottom:14px;font-size:13px;line-height:1.7}
+.exmpll{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--c5);margin-bottom:6px}
+.exmplans{display:inline-flex;align-items:center;gap:6px;background:var(--green);color:#fff;border-radius:8px;padding:3px 10px;font-weight:800;font-size:12px;margin-left:6px}
+.qc{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:12px}
+.qh{padding:16px 18px 14px;border-bottom:1px solid var(--c3);display:flex;gap:12px;align-items:flex-start}
+.qn{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;margin-top:1px}
+.qt{font-size:14.5px;line-height:1.65;flex:1;color:var(--dark);font-weight:500}
+.t3text{background:var(--c1);border:1.5px solid var(--c3);border-radius:10px;padding:12px 14px;margin:14px 16px 0;font-size:12.5px;line-height:1.7;color:var(--dark)}
+.qo{padding:12px 16px 14px;display:grid;gap:8px}
+.ob{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:#f7fcf5;border:1.5px solid var(--c3);border-radius:10px;color:var(--dark);font-size:13.5px;line-height:1.5;cursor:pointer;text-align:left;width:100%;transition:all .18s;font-family:inherit}
+.ob:hover:not(:disabled){background:var(--c1);border-color:var(--c4);transform:translateX(4px)}
+.ob:disabled{cursor:default}
+.ol{background:var(--c3);color:var(--dark);border-radius:6px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.ob.ok{background:#eaf7ec;border-color:#8dcca0}
+.ob.ok .ol{background:var(--green);color:#fff}
+.ob.er{background:#fdf0f0;border-color:#e8a0a0}
+.ob.er .ol{background:var(--red);color:#fff}
+.lgrid{padding:0 16px 14px;display:flex;flex-wrap:wrap;gap:8px}
+.lbtn{width:42px;height:42px;border-radius:10px;border:1.5px solid var(--c3);background:#f7fcf5;color:var(--dark);font-weight:800;font-size:14px;cursor:pointer;transition:all .18s;font-family:inherit}
+.lbtn:hover:not(:disabled){background:var(--c1);border-color:var(--c4);transform:translateY(-2px)}
+.lbtn:disabled{cursor:default}
+.lbtn.ok{background:var(--green);border-color:var(--green);color:#fff}
+.lbtn.er{background:var(--red);border-color:var(--red);color:#fff}
+.lbtn.hint{background:#eaf7ec;border-color:var(--green);color:var(--green)}
+.ex{display:none;margin:0 16px 14px;background:var(--c1);border-left:3px solid var(--c2);border-radius:0 8px 8px 0;padding:11px 14px;font-size:13px;line-height:1.75;color:var(--mid)}
+.ex.show{display:block}
+.exl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#3d7a4c;margin-bottom:4px}
+.tnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;margin-bottom:16px;flex-wrap:wrap}
+.tnc{font-size:13px;color:var(--mid);font-weight:700;text-align:center;flex:1}
+.fb{position:sticky;bottom:0;background:rgba(245,251,241,.97);backdrop-filter:blur(10px);border-top:1.5px solid var(--c3);padding:11px 16px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;box-shadow:0 -4px 14px rgba(143,207,149,.18)}
+.fi{font-size:12px;color:var(--mid)}
+.fi strong{color:var(--dark);font-size:14px}
+.cfw{max-width:420px;margin:0 auto;padding:40px 20px;text-align:center}
+.cfw h2{font-size:22px;color:var(--dark);margin-bottom:8px}
+.cfw p{font-size:14px;color:var(--mid);margin-bottom:20px;line-height:1.6}
+.ns{background:rgba(85,157,106,.1);border:2px solid var(--c4);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;font-size:14px;font-weight:700;color:var(--c5)}
+.rw{max-width:460px;margin:0 auto;padding:28px 20px;text-align:center}
+.rc{background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:28px 22px;margin-bottom:14px;box-shadow:0 6px 24px rgba(143,207,149,.2)}
+.re{font-size:50px;margin-bottom:10px}
+.rn{font-size:14px;color:var(--mid);margin-bottom:3px}
+.rt{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:16px}
+.rbig{font-size:62px;font-weight:900;line-height:1;color:var(--dark)}
+.rbig span{font-size:24px;font-weight:400;color:var(--mid)}
+.rp{font-size:13px;color:var(--mid);margin-top:4px;margin-bottom:18px}
+.rst{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.ri{background:linear-gradient(135deg,var(--c3),var(--c1));border:1px solid var(--c4);border-radius:12px;padding:11px 16px;min-width:76px;text-align:center}
+.ri .rnum{font-size:28px;font-weight:800;line-height:1}
+.ri .rl{font-size:11px;color:var(--mid);margin-top:3px}
+.rok .rnum{color:var(--green)}.rer .rnum{color:var(--red)}.rbl .rnum{color:#bbb}
+.bd{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.bdr{display:flex;justify-content:space-between;align-items:center;background:rgba(191,230,172,.2);border:1px solid var(--c3);border-radius:8px;padding:8px 14px;font-size:13px}
+.bdl{color:var(--mid)}.bds{font-weight:700;color:var(--dark)}
+.stb{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;font-size:13px;font-weight:700;margin-bottom:14px}
+.stok{background:rgba(63,143,82,.15);border:1.5px solid rgba(63,143,82,.4);color:#2c6b3a}
+.ster{background:rgba(217,112,112,.15);border:1.5px solid rgba(217,112,112,.4);color:#a04040}
+.stpnd{background:rgba(220,172,72,.2);border:1.5px solid rgba(220,172,72,.5);color:#8a6a1a}
+.ra{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}</style>
+</head>
+<body>
+<div class="header">
+  <div class="htag">1. Hafta Ödevi &nbsp;|&nbsp; A2.2 (3-4. Ders)</div>
+  <h1>&#x1F1EA;&#x1F1F8; A2.2 – H1 3-4. Ders</h1>
+  <div class="header-sub">DELE B1 Simülasyonu &nbsp;&bull;&nbsp; Prueba de Comprensión de Lectura &nbsp;&bull;&nbsp; 5 Tarea &nbsp;&bull;&nbsp; 30 soru &nbsp;&bull;&nbsp; @ispanyolcacim &nbsp;&bull;&nbsp; Profe Hazel</div>
+</div>
+<div class="screen active" id="sc-name">
+  <div class="nb">
+    <h2>&#x1F4DA; Adınızı seçin</h2>
+    <p>Ödeve başlamadan önce lütfen listeden adınızı seçin.</p>
+    <select class="sel" id="name-sel"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option>
+      <option>Zumeyra Dogan</option></select>
+    <div class="ib">
+      <div class="ibr"><div class="ibd"></div><span><strong>TAREA 1:</strong> Emparejamiento — 7 enunciado / 11 texto</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>TAREA 2:</strong> Correo electrónico — 5 soru</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>TAREA 3:</strong> Anuncios — 6 soru</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>TAREA 4:</strong> Emparejamiento (parques) — 6 enunciado / 10 texto</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>TAREA 5:</strong> Biografía — 6 soru</span></div>
+      <div class="ibh"></div>
+      <div class="ibr"><div class="ibd" style="background:var(--c5)"></div><span><strong>Her Tarea, kendi metinleriyle birlikte tek ekranda</strong> gelir. Tarea içindeki tüm soruları yanıtladıktan sonra bir sonraki Tarea'ya geçebilirsiniz.</span></div>
+    </div>
+    <button class="btn bm bf" onclick="startQuiz()">&#x25b6; Başla</button>
+  </div>
+</div>
+<div class="screen" id="sc-quiz">
+  <div class="qw">
+    <div class="topsub">
+      <button class="btn bg bs" onclick="goConfirm()">&#x2714; Ödevi Teslim Et</button>
+    </div>
+    <div class="tb">
+      <div class="ts" id="top-st">&#x2014;</div>
+      <div class="tsc">
+        <div class="si sok">&#x2713; <span id="sc-ok">0</span></div>
+        <div class="si ser">&#x2717; <span id="sc-er">0</span></div>
+      </div>
+    </div>
+    <div class="pgw">
+      <div class="pgb"><div class="pgf" id="pgf"></div></div>
+      <div class="pgi"><span id="pg-tarea">Tarea 1 / 5</span><span><span id="fin-ans">0</span> / 30 yanıtlandı</span></div>
+    </div>
+    <div id="tarea-area"></div>
+    <div class="tnav">
+      <button class="btn bo bs" id="btn-prev" onclick="navT(-1)">&#x2190; Önceki Tarea</button>
+      <div class="tnc" id="tnav-ctr">Tarea 1 / 5</div>
+      <button class="btn bm bs" id="btn-next" onclick="navT(1)">Sonraki Tarea &#x2192;</button>
+    </div>
+  </div>
+</div>
+<div class="screen" id="sc-confirm">
+  <div class="cfw">
+    <div style="font-size:48px;margin-bottom:12px">&#x1F4CB;</div>
+    <h2>Ödevi Teslim Et</h2>
+    <div class="ns">&#x26a0;&#xfe0f; ÖDEVİNİZ HENÜZ TESLİM EDİLMEDİ</div>
+    <p>Teslim etmeden önce listeden adınızı seçin ve onaylayın.</p>
+    <select class="sel" id="cf-sel" style="margin-bottom:16px"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option>
+      <option>Zumeyra Dogan</option></select>
+    <button class="btn bg bf" id="cf-btn" onclick="confirmSubmit()">&#x2714; Evet, Teslim Et</button>
+  </div>
+</div>
+<div class="screen" id="sc-result">
+  <div class="rw">
+    <div class="rc">
+      <div class="re">&#x1F1EA;&#x1F1F8;</div>
+      <div class="rn" id="rs-name">&#x2014;</div>
+      <div class="rt">A2.2 · H1 – 3-4. Ders · DELE B1 Simülasyonu</div>
+      <div class="rbig" id="rs-score">0<span>/100</span></div>
+      <div class="rp" id="rs-pct"></div>
+      <div class="bd">
+        <div class="bdr"><span class="bdl">TAREA 1 — Emparejamiento</span><span class="bds" id="br1">0 / 7</span></div>
+        <div class="bdr"><span class="bdl">TAREA 2 — Correo</span><span class="bds" id="br2">0 / 5</span></div>
+        <div class="bdr"><span class="bdl">TAREA 3 — Anuncios</span><span class="bds" id="br3">0 / 6</span></div>
+        <div class="bdr"><span class="bdl">TAREA 4 — Emparejamiento</span><span class="bds" id="br4">0 / 6</span></div>
+        <div class="bdr"><span class="bdl">TAREA 5 — Biografía</span><span class="bds" id="br5">0 / 6</span></div>
+      </div>
+      <div class="rst">
+        <div class="ri rok"><div class="rnum" id="rs-c">0</div><div class="rl">Doğru</div></div>
+        <div class="ri rer"><div class="rnum" id="rs-w">0</div><div class="rl">Yanlış</div></div>
+        <div class="ri rbl"><div class="rnum" id="rs-b">0</div><div class="rl">Boş</div></div>
+      </div>
+      <div class="stb stpnd" id="rs-status">&#x23f3; Kaydediliyor&#x2026;</div>
+    </div>
+    <div class="ra"><button class="btn bo" onclick="goName()">&#x1F504; Yeniden Başla</button></div>
+  </div>
+</div>
+<script>
+const ASU='https://script.google.com/macros/s/AKfycbw-BwEhVOhO6GkkQHNWJA8LQLMkEGwNCtJ3BXSqik1RnzqZLl4a_a3HmYEoIlJAgY4Wkg/exec';
+const SID='1wziyxdRdIGL7OEq4yRib0i_CaCWJGI14fwDyMKB4abw';
+const SHN='A2.2';
+const TCL='H1 – 3-4.Ders';
+const LTR3=['A','B','C'];
+
+const TAREAS=[
+{
+  id:1,title:'TAREA 1',type:'match',
+  instrucciones:'Lea los siete enunciados y los diez textos. Seleccione el texto (A-J) que corresponde a cada enunciado (1-7). Hay once textos, incluido el ejemplo. Seleccione siete. Marque las opciones elegidas en la Hoja de respuestas.',
+  example:{enunciado:'Hay un animal peligroso.',letter:'K',text:'Cuidado con el perro'},
+  letters:['A','B','C','D','E','F','G','H','I','J'],
+  texts:[
+    {letter:'A',text:'Guarden silencio en la sala de biblioteca. Está prohibido comer y beber en el edificio.'},
+    {letter:'B',text:'Se suspende la obra de teatro por enfermedad de uno de los actores.'},
+    {letter:'C',text:'Para participar en el foro, envíe sus textos y sus preguntas por correo electrónico a la siguiente dirección: losabemostodo@yomeloinvento.com'},
+    {letter:'D',text:'Para reservar una mesa, llamen al 948 234 421.'},
+    {letter:'E',text:'El domingo próximo, los miembros de la Asociación de Vecinos van a visitar el parque de atracciones. Entrada gratuita para los socios.'},
+    {letter:'F',text:'Busco compañero para compartir piso.'},
+    {letter:'G',text:'Es obligatorio el uso de gorro y ropa de baño adecuada para utilizar la piscina del hotel.'},
+    {letter:'H',text:'Hay buenas razones para no fumar más. ¿Cuáles son tus razones?'},
+    {letter:'I',text:'Ingredientes: azúcar, harina de trigo, naranja deshidratada, vitaminas E, B6 y B1.'},
+    {letter:'J',text:'Cuidado con la nieve. Reduzca la velocidad de su coche.'}
+  ],
+  questions:[
+    {id:1,q:'Puedes publicar tus ideas.',ans:'C',exp:'Enunciado kısmındaki "fikirlerini yayımlayabilirsin/paylaşabilirsin" ifadesi, Texto C\'deki bir foruma katılıp (participar en el foro) kendi metinlerini ve sorularını gönderme (envíe sus textos y sus preguntas) eylemiyle doğrudan eşleşmektedir.'},
+    {id:2,q:'Mal tiempo en la carretera.',ans:'J',exp:'Yoldaki (en la carretera) kötü hava şartları (mal tiempo), Texto J\'de "Cuidado con la nieve" (Kara dikkat edin) ve arabanın hızını düşürme "Reduzca la velocidad de su coche" uyarılarıyla anlatılmaktadır. "Nieve" kötü hava koşulunu, "coche" ise trafiği/yolu temsil eder.'},
+    {id:3,q:'Motivos para dejar el tabaco.',ans:'H',exp:'Tütünü/sigarayı bırakmak (dejar el tabaco) için nedenler arayan bu ifade, Texto H\'deki "buenas razones para no fumar más" (artık sigara içmemek için iyi nedenler) sorusuyla birebir örtüşür. Motivos ve razones eş anlamlıdır.'},
+    {id:4,q:'No se puede hablar.',ans:'A',exp:'"Konuşulamaz" (No se puede hablar) kuralı, Texto A\'daki kütüphane kuralı olan "Guarden silencio" (Sessiz olun) talimatı ile eşleşmektedir.'},
+    {id:5,q:'Algunas personas no pagan.',ans:'E',exp:'"Bazı kişiler ödeme yapmaz" ifadesi, Texto E\'nin son cümlesindeki "Entrada gratuita para los socios" (Üyelere giriş ücretsizdir) şartıyla uyumludur. Burada "bazı kişiler" ile kastedilen dernek üyeleridir (los socios).'},
+    {id:6,q:'Tiene una habitación libre.',ans:'F',exp:'Boş bir odası (una habitación libre) olan biri, evini biriyle paylaşmak ister. Bu nedenle Texto F\'deki "Busco compañero para compartir piso" (Evimi paylaşmak için ev arkadaşı arıyorum) ilanı bu ifadeyle tam olarak örtüşmektedir.'},
+    {id:7,q:'Es necesario para bañarse.',ans:'G',exp:'Yıkanmak veya yüzmek (bañarse) için "gerekli" (necesario) olan şeyler, Texto G\'de otelin havuzunu kullanmak için "zorunlu" (obligatorio) tutulan bone (gorro) ve uygun mayo (ropa de baño adecuada) kullanımı ile açıklanmaktadır.'}
+  ]
+},
+{
+  id:2,title:'TAREA 2',type:'mc-shared',
+  instrucciones:'Lea el correo electrónico y responda a las preguntas (8-12) seleccionando la respuesta correcta (A, B o C). Marque las opciones elegidas en la Hoja de respuestas. Cada pregunta tiene una sola opción correcta.',
+  resourceTitle:'&#x1F4E7; Correo electrónico',
+  resourceText:`Hola, Ángel:
+
+Alfredo me ha llamado hace un momento para invitarnos a jugar al fútbol en la playa de Jávea este sábado. Te escribo porque podemos ir juntos en coche. Trae a tu hermano y a su novia; de esta forma seguro que ganamos.
+
+Si os apetece, por la tarde podemos visitar el pueblo y pasar la noche en casa de mi tía Caridad. Ella tiene cuatro habitaciones vacías ahora mismo, ya que mis primos no vienen de vacaciones hasta agosto. Al día siguiente, mi tía nos va a preparar una paella (ella cocina muy bien), y por la tarde volveremos a Alicante.
+
+Avísame por mensaje o por teléfono sobre vuestros planes. No olvidéis llevar el traje de baño en el equipaje, porque después del partido vamos a nadar y a pasarlo genial.
+
+Un abrazo,
+Leo`,
+  questions:[
+    {id:8,q:'Alfredo invita a Ángel y a Leo a...',opts:['comer paella.','jugar al fútbol.','bañarse en el mar.'],ans:1,exp:'Metnin ikinci cümlesinde Leo, "Alfredo me ha llamado... y me dice que el sábado nos invita a jugar al fútbol en la playa de Jávea" diyerek davetin futbol oynamak için olduğunu açıkça belirtir. Paella olayını yemek için tía Caridad ertesi gün yapacaktır, davetin ana sebebi futbol oynamaktır.'},
+    {id:9,q:'En el correo electrónico se dice que...',opts:['los primos de Leo viven en Jávea.','Alfredo va a llamar por teléfono.','Leo y Ángel van a viajar en coche.'],ans:2,exp:'Leo e-postada "Te escribo para ir juntos en coche" (Birlikte arabayla gitmek için sana yazıyorum) diyor. A şıkkı yanlıştır çünkü kuzenler orada yaşamıyor, sadece Ağustos ayında tatile geliyor; B şıkkı yanlıştır çünkü Alfredo az önce aramıştır, tekrar arayacak değildir.'},
+    {id:10,q:'La casa de la tía de Leo...',opts:['está en la montaña.','tiene habitaciones libres.','tiene cuatro dormitorios.'],ans:1,exp:'Metinde tarkanın evi hakkında "tiene cuatro dormitorios libres" (dört boş odası var) ifadesi geçer. Şıklara dikkat edilirse; C şıkkı "dört yatak odası var" derken "boş" (libres) kelimesini atlamıştır, evin toplam oda sayısı değil şu an boş olan oda durumu vurgulanmaktadır. Bu yüzden doğru ifade B şıkkıdır (boş odalara sahiptir).'},
+    {id:11,q:'El domingo...',opts:['van a comer paella.','se quedan en Jávea.','pueden nadar en el mar.'],ans:0,exp:'Metinde "Al día siguiente, mi tía... nos hace una paella" (Ertesi gün teyzem bize paella yapıyor) denmektedir. Cumartesi gününden sonraki "ertesi gün" pazar olduğundan, pazar günü paella yiyecekler.'},
+    {id:12,q:'Al acabar el partido, Leo propone...',opts:['hacer una excursión.','visitar el pueblo.','bañarse en el mar.'],ans:2,exp:'E-postanın son kısmında Leo "no olvidéis poner el bañador en la maleta, porque vamos a divertirnos mucho y a nadar después del partido" (valisinize mayonuzu koymayı unutmayın, çünkü maçtan sonra yüzeceğiz) diyerek maç bitiminde yüzmeyi (bañarse en el mar) teklif/teşvik ediyor.'}
+  ]
+},
+{
+  id:3,title:'TAREA 3',type:'mc-perquestion',
+  instrucciones:'Usted va a leer seis anuncios. A continuación, responda a las preguntas (13-18). Seleccione la opción correcta (A, B o C). Marque las opciones elegidas en la Hoja de respuestas.',
+  example:{
+    textLabel:'TEXTO 0',
+    text:'Restaurante Las Batuecas. Especialidad en pescado. C/ Reina María Victoria, 83. Cierra las noches de domingo a jueves. Menús especiales para grupos. Admite tarjetas.',
+    q:'En este restaurante…',
+    opts:['se puede cenar un martes.','se puede pagar con tarjeta.','se puede pedir un menú especial.'],
+    ans:1
+  },
+  items:[
+    {id:13,textLabel:'TEXTO 1',text:'Beatriz, 24 años. Barcelona. La chaqueta es de Promak (20 €), como la bufanda (25 €) y los calcetines (4 €). El pantalón lo compré en Varados (20 €) y las botas en una zapatería de Lima (30 €). El bolso se parece a los que utiliza mi actriz favorita (115 €). Me gusta la forma de vestir de la modelo Esther Cañadas.',q:'Esta chica lleva…',opts:['el bolso de Esther Cañadas.','una prenda para el cuello.','una bufanda de Varados.'],ans:1,exp:'Metinde kıyafetlerini sayarken "la bufanda (25 €)" yani atkıdan bahsetmektedir. Atkı boyuna takılan bir giysi/aksesuar (una prenda para el cuello) olduğu için B şıkkı doğrudur. (A şıkkı yanlıştır çünkü çantası sadece favori aktrisinin çantasına benziyor, C şıkkı yanlıştır çünkü Varados\'tan atkı değil pantolon almıştır).'},
+    {id:14,textLabel:'TEXTO 2',text:'B.G. Empresa de obras y reformas. Casas, pisos, apartamentos y locales. Instalaciones de gas, calefacción, aire acondicionado, pintura, carpintería y electricidad. Más de 20 años de experiencia. Precios sin competencia. Trabajos garantizados. Tlfno.: 676 10 18 70. C/ Almendro, 13 - 28826 Valdeavero (Madrid)',q:'Según el anuncio,…',opts:['solo se hacen obras en empresas.','la empresa tiene calefacción.','se pintan todo tipo de edificaciones.'],ans:2,exp:'İlanda hizmet verilen yerler arasında evler, daireler, apartmanlar ve dükkanlar/yerel mülkler (casas, pisos, apartamentos y locales) sayılmaktadır ve hizmetler arasında boya (pintura) yer alır. Bu da her türlü yapı/binanın boyanabildiğini gösterir. (A şıkkı yanlıştır çünkü evler ve daireler de dahildir; B şıkkı yanlıştır çünkü ısıtma sistemi satmıyorlar, tesisatını kuruyorlar).'},
+    {id:15,textLabel:'TEXTO 3',text:'Viajes Triunfador y Águila Viajes te invitan a visitar Bilbao. Visita el museo Guggenheim y disfruta de la ciudad. Con salida desde Madrid el 4 de diciembre; el precio, desde 208 € por persona, incluye tren de ida y vuelta y tres noches en el hotel Fruta Jardines de Alba, de cuatro estrellas, en habitación doble, con desayuno incluido.',q:'El viaje a Bilbao…',opts:['permite ver obras de arte.','incluye todas las comidas.','es un regalo a los clientes.'],ans:0,exp:'İlanda "Visita el museo Guggenheim" (Guggenheim müzesini ziyaret et) denmektedir. Bu müze dünyaca ünlü bir sanat müzesidir, dolayısıyla sanat eserleri (obras de arte) görmenizi sağlar. (B şıkkı yanlıştır çünkü sadece "desayuno incluido" yani kahvaltı dahildir. C şıkkı yanlıştır çünkü bedava bir hediye değildir, fiyatı kişi başı 208 €\'dan başlamaktadır.)'},
+    {id:16,textLabel:'TEXTO 4',text:'Cuando tu hijo se hace mayor, no solo necesita ropa nueva. Necesita el queso Ciudad de Farias, que le da tres veces más energía que la leche. Puedes preparar tu queso Ciudad de mil maneras diferentes y divertidas. Todas le van a encantar: para desayunar, en una tostada con azúcar. A la hora de comer, con un plato de verduras. Para merendar, en un bocadillo. Para cenar, en una macedonia de frutas.',q:'El queso Ciudad de Farias…',opts:['regala pantalones y camisas.','alimenta más que la leche.','se come siempre con pan.'],ans:1,exp:'Metinde peynirin sütten üç kat daha fazla enerji verdiği belirtiliyor: "le da tres veces más energía que la leche". Bu durum, onun sütten daha fazla besleyici/enerji verici (alimenta más que la leche) olduğu anlamına gelir. (A şıkkı yanlıştır, kıyafet hediye etmez; C şıkkı yanlıştır, sadece ekmekle değil sebze ve meyve salatasıyla da yenebileceği söyleniyor.)'},
+    {id:17,textLabel:'TEXTO 5',text:'La nueva lavadora Prestige, la única del mercado que tiene magníficos resultados lavando con agua fría en su nuevo programa Superseco, con el que se consigue un ahorro de hasta un 80 % de energía. Electrofax quiere darte las gracias por ahorrar energía, en nombre del planeta y de tu economía. Págala hasta en 12 meses sin gastos. Oferta válida hasta el 30 de mayo.',q:'Este electrodoméstico…',opts:['se vende hasta final de mayo.','es el más barato del mercado.','puede pagarse en un año.'],ans:2,exp:'Çamaşır makinesi (electrodoméstico) için "Págala hasta en 12 meses sin gastos" (Masrafsız 12 aya kadar ödeyin) ifadesi kullanılmıştır. 12 ay, 1 yıla eşit olduğu için "puede pagarse en un año" (bir yıl içinde ödenebilir) şıkkı doğrudur. (A şıkkı yanlıştır, makinenin satışı değil "oferta" yani kampanya mayıs sonuna kadardır; B şıkkı yanlıştır, piyasadaki en ucuz makine olduğu söylenmemektedir.)'},
+    {id:18,textLabel:'TEXTO 6',text:'Envía tu receta desde www.pescaderiascorunesas.es antes del 28 de febrero y participa en el Concurso de Recetas de Pescado. Mejor fotografía: premio de 500 €. Mejor receta: 1500 €.',q:'El concurso premia al mejor…',opts:['pescadero.','fotógrafo.','pescador.'],ans:1,exp:'İlanda düzenlenen Balık Tarifleri Yarışması\'nda (Concurso de Recetas de Pescado) iki kategoriye ödül verilmektedir: "Mejor receta" (En iyi tarif) ve "Mejor fotografía" (En iyi fotoğraf). Fotoğrafı çeken kişiye fotoğrafçı (fotógrafo) dendiği için doğru cevap B\'dir. (A şıkkındaki pescadero "balıkçı/balık satıcısı", C şıkkındaki pescador ise "balık avlayan kişi" anlamına gelir ve bunlara özel bir ödül yoktur.)'}
+  ]
+},
+{
+  id:4,title:'TAREA 4',type:'match',
+  instrucciones:'Lea los siete enunciados y los diez textos de esta guía de parques madrileños. A continuación, seleccione el texto (A-J) que corresponde a cada enunciado (19-24). Hay diez textos, incluido el ejemplo. Seleccione seis.',
+  example:{enunciado:'Tiene un árbol muy extraño.',letter:'H',text:'(ver Texto H — Parque del Capricho)'},
+  letters:['A','B','C','D','E','F','G','H','I','J'],
+  texts:[
+    {letter:'A',text:'Jardín Tropical de Atocha — Se encuentra en la estación del tren de alta velocidad y da la bienvenida a los pasajeros que llegan a Madrid. Es un espacio diferente, en la antigua estación ferroviaria de Atocha.'},
+    {letter:'B',text:'Jardín el Príncipe de Anglona — Está junto a la plaza de la Paja y las iglesias de San Andrés y San Francisco el Grande. Desde allí hay un agradable paseo por la calle Bailén hasta la catedral de la Almudena y el Palacio Real.'},
+    {letter:'C',text:'Parque del Retiro — En el centro de la ciudad, tiene ciento dieciocho hectáreas y es un parque vivo y feliz, especialmente los fines de semana, cuando alrededor de sus árboles se reúnen miles de personas. En el paseo del gran lago hay payasos, teatro, músicos, masajistas o vendedores ambulantes.'},
+    {letter:'D',text:'Real Jardín Botánico — Cerca del antiguo observatorio astronómico y del edificio del ministerio de Agricultura. Hay visitas guiadas los sábados a las once de la mañana (incluidas en el precio de entrada, 2 €). El mejor momento para visitarlo es el otoño.'},
+    {letter:'E',text:'Parque Juan Carlos I — Su gran extensión le permite contar con grandes esculturas al aire libre, como los Dedos de Mario Irarrázabal y el Espacio México de Andrés Casillas. También está el jardín de las Tres Culturas y un lugar muy especial para jugar con los niños.'},
+    {letter:'F',text:'Casa de Campo — Con sus mil setecientas hectáreas, los madrileños pueden pasar el día con la familia o, sencillamente, salir a pasear. Está poblada por miles de árboles y caminos y tiene un gran lago en el que se alquilan pequeñas barcas y hay terrazas casi todo el año.'},
+    {letter:'G',text:'Parque Tierno Galván — Es conocido como el parque del Planetario, que incluye el museo de motos Ángel Nieto. Está en el pasillo verde del sur de Madrid. Tiene cuatro lagos artificiales, senderos para caminar, carril bici y zonas deportivas y de juegos infantiles.'},
+    {letter:'H',text:'Parque del Capricho — Lejos del centro, pero se puede llegar en metro. Es un jardín romántico, con fuentes, ríos y un laberinto de árboles pequeños, como el cercis, el árbol del amor por la forma de corazón de sus hojas. Solo abre los fines de semana y días de fiesta.'},
+    {letter:'I',text:'Parque de Rodríguez Sahagún — Está situado en el barrio del Pilar; también se conoce como parque de los Pinos. Es especialmente dinámico en verano por su programa de actividades culturales y de juegos.'},
+    {letter:'J',text:'Parque del Oeste — Dentro del parque se encuentra el templo de Debot, del siglo II antes de nuestra época, un regalo que el Gobierno de Egipto hizo a España. Tiene un pequeño museo y organiza visitas para estudiantes.'}
+  ],
+  questions:[
+    {id:19,q:'Se puede comprar un refresco o un bocadillo al aire libre.',ans:'F',exp:'Texto F, Casa de Campo parkını anlatırken içerisinde bir göl olduğunu ve yıl boyunca neredeyse her zaman açık teraslar (terrazas casi todo el año) bulunduğunu söyler. Bu teraslar açık havada bir şeyler içip atıştırmak (refresco o bocadillo) için uygun yerlerdir.'},
+    {id:20,q:'Tiene un edificio de otro país.',ans:'J',exp:'Texto J, Parque del Oeste içinde Mısır Hükümeti\'nin İspanya\'ya hediyesi olan MÖ 2. yüzyıla ait Debod Tapınağı\'nın (el templo de Debot... un regalo que el Gobierno de Egipto hizo a España) yer aldığını belirtir. Bu yapı başka bir ülkeye (Mısır\'a) ait bir binadır.'},
+    {id:21,q:'Hay espectáculos casi todos los días.',ans:'C',exp:'Texto C, Parque del Retiro için özellikle hafta sonları binlerce insanın toplandığını ve büyük gölün çevresindeki yürüyüş yolunda palyaçolar, tiyatro, müzisyenler vb. olduğunu söyler (hay payasos, teatro, músicos). Bunlar sokak gösterileri ve performanslarıdır.'},
+    {id:22,q:'Se puede salir de viaje desde allí.',ans:'A',exp:'Texto A, Jardín Tropical de Atocha\'nın yüksek hızlı tren istasyonunda yer aldığını ve Madrid\'e gelen/giden yolcuları karşıladığını belirtir (en la estación del tren de alta velocidad). Tren istasyonu olması sebebiyle oradan bir yolculuğa çıkmak mümkündür.'},
+    {id:23,q:'Hay que pagar para verlo.',ans:'D',exp:'Texto D, Real Jardín Botánico\'dan bahsederken rehberli turların giriş ücretine dahil olduğunu belirtir (incluidas en el precio de entrada, 2 €). Diğer parkların aksine burada açıkça bir giriş ücretinden (2 Euro) bahsedilmektedir.'},
+    {id:24,q:'Se puede hacer ejercicio físico.',ans:'G',exp:'Texto G, Parque Tierno Galván\'ın özelliklerini sayarken yürüyüş patikaları, bisiklet yolu, spor alanları ve çocuk oyun alanlarına sahip olduğunu vurgular (senderos para caminar, carril bici y zonas deportivas). Bunlar fiziksel egzersiz yapmak için ideal alanlardır.'}
+  ]
+},
+{
+  id:5,title:'TAREA 5',type:'mc-shared',
+  instrucciones:'Va a leer una biografía del psiquiatra español Luis Rojas Marcos. A continuación, conteste a las preguntas (25-30). Seleccione la opción correcta (A, B o C).',
+  resourceTitle:'&#x1F464; Luis Rojas Marcos — Biografía',
+  resourceText:`Luis Rojas Marcos nació en Sevilla en 1943. Fue un niño nervioso, abierto y generoso. Con talento para la música, aprendió de pequeño a tocar el piano, la guitarra y, posteriormente, la batería.
+
+Desde muy joven quiso estudiar Medicina. En 1968, a los veinticuatro años, recién terminados sus estudios de Medicina en la Universidad de Sevilla, se fue a Nueva York, donde reside desde entonces y se dedica a la medicina y la salud pública. Es doctor en Medicina por la Universidad de Bilbao y en Ciencias Médicas por la Universidad del Estado de Nueva York. En 1972, el Instituto Nacional de Salud Mental estadounidense le dio una ayuda de tres años para investigar los problemas que tienen con el lenguaje los inmigrantes. Sus estudios se publicaron en las revistas científicas más importantes de Estados Unidos.
+
+A principios de la década de 1980 lo nombraron director de los Servicios Psiquiátricos de la red de hospitales públicos de Nueva York y en 1992 pasó a ocupar el cargo de responsable de los Servicios Municipales de Salud Mental de la ciudad. En este puesto creó los primeros programas de salud para las comunidades hispanoamericana, china, rusa y caribeña. Tres años después, el alcalde lo eligió presidente ejecutivo del Sistema de Sanidad y Hospitales Públicos de Nueva York, que incluían dieciséis hospitales municipales y una gran cantidad de centros sanitarios. Este organismo tiene más de cuarenta mil trabajadores.
+
+Durante los seis años que dirigió este centro tuvo que vivir el 11 de septiembre y ayudar a los heridos como miembro del Consejo de Emergencias de Nueva York. Contó sus experiencias personales en la obra Más allá del 11 de septiembre.
+
+"Me levanto temprano, sobre las cinco de la mañana, y voy a correr al Central Park hasta cuatro veces por semana. Llevo dieciséis años corriendo en el maratón de Nueva York y espero estar en la salida el próximo 1 de noviembre", confiesa con alegría el psiquiatra español más conocido internacionalmente.
+
+En la actualidad, Rojas Marcos es profesor de Psiquiatría en la Universidad de Nueva York y autor de numerosos artículos de opinión y de varios libros, entre los que se encuentran La ciudad y sus desafíos, La pareja rota, Las semillas de la violencia y La fuerza del optimismo. Está casado, es padre de cuatro hijos, le encanta la música y cada vez que puede practica su deporte favorito.`,
+  questions:[
+    {id:25,q:'El texto habla de…',opts:['un médico español que triunfó en Estados Unidos.','un médico norteamericano famoso en España.','un cardiólogo famoso en el mundo entero.'],ans:0,exp:'Metin boyunca Sevilla doğumlu İspanyol bir doktor olan Luis Rojas Marcos\'un New York\'taki kariyerinden, hastane müdürlüğünden ve uluslararası alanda tanınan bir psikiyatrist olduğundan bahsedilmektedir. B şıkkı yanlıştır çünkü o Amerikalı değil İspanyoldur; C şıkkı yanlıştır çünkü kardiyolog (kalp doktoru) değil, psikiyatristtir.'},
+    {id:26,q:'Actualmente, Luis Rojas Marcos…',opts:['es un deportista de alta competición.','escribe libros sobre Nueva York.','trabaja en una universidad americana.'],ans:2,exp:'Metnin son paragrafında "En la actualidad, Rojas Marcos es profesor de Psiquiatría en la Universidad de Nueva York" (Günümüzde Rojas Marcos, New York Üniversitesi\'nde Psikiyatri profesörüdür) denmektedir. Bu da Amerikan bir üniversitede çalıştığını gösterir.'},
+    {id:27,q:'De pequeño, Luis quería ser…',opts:['músico.','médico.','deportista.'],ans:1,exp:'İkinci paragrafın başında "Desde muy joven quiso estudiar Medicina" (Çok genç yaşından itibaren tıp okumak istedi) cümlesi yer alır. Tıp okumak istemesi doktor olmak istediğini gösterir.'},
+    {id:28,q:'En Estados Unidos, Luis trabajó como…',opts:['alcalde de la ciudad.','escritor de novelas.','director de hospital.'],ans:2,exp:'Üçüncü paragrafta New York\'taki hastaneler ağına ve sağlık sistemine başkanlık/müdürlük yaptığı belirtilmektedir ("lo nombraron director de los Servicios Psiquiátricos..." ve "presidente ejecutivo del Sistema de Sanidad y Hospitales Públicos").'},
+    {id:29,q:'Según el texto, a Luis le gusta mucho…',opts:['ayudar a inmigrantes.','escuchar música.','levantarse temprano.'],ans:1,exp:'Metnin son cümlesinde onun kişisel zevklerinden bahsedilirken "le encanta la música y cada vez que puede practica su deporte favorito" (müziğe bayılır ve yapabildiği her an en sevdiği sporu yapar) denmektedir. Şıklardaki müzik sevgisi bu ifadeyle birebir uyuşur.'},
+    {id:30,q:'Cuando era pequeño, Luis…',opts:['era un buen estudiante.','actuaba en conciertos.','no era muy tranquilo.'],ans:2,exp:'İlk paragrafta çocukluğu anlatılırken "Fue un niño nervioso, abierto y generoso" (Ele avuca sığmaz/hareketli, açık sözlü ve cömert bir çocuktu) denmektedir. "Nervioso" kelimesi çok sakin olmadığını, hareketli/yerinde duramayan biri olduğunu gösterir.'}
+  ]
+}
+];
+
+function getAllQuestions(){
+  let out=[];
+  TAREAS.forEach(t=>{
+    if(t.type==='mc-perquestion'){
+      t.items.forEach(it=>out.push({id:it.id,ans:it.ans,tarea:t.id}));
+    } else {
+      t.questions.forEach(q=>out.push({id:q.id,ans:q.ans,tarea:t.id}));
+    }
+  });
+  return out;
+}
+const TAREA_TOTALS={1:7,2:5,3:6,4:6,5:6};
+
+let student='',answers={},curT=0;
+let resCollapsed={};
+
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('sc-'+id).classList.add('active');window.scrollTo(0,0);}
+function startQuiz(){
+  const s=document.getElementById('name-sel');
+  if(!s.value){alert('Lütfen adınızı seçin!');return;}
+  student=s.value;answers={};curT=0;
+  document.getElementById('top-st').textContent=student;
+  show('quiz');render();
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function toggleRes(key){resCollapsed[key]=!resCollapsed[key];render();}
+
+function renderMC(q,keyPrefix){
+  const ua=answers[q.id];
+  let h='<div class="qc"><div class="qh"><div class="qn">'+q.id+'</div><div class="qt">'+q.q+'</div></div><div class="qo">';
+  q.opts.forEach((o,i)=>{
+    let c='ob';
+    if(ua!==undefined){if(i===q.ans)c+=' ok';if(i===ua&&ua!==q.ans)c+=' er';}
+    h+='<button class="'+c+'" '+(ua!==undefined?'disabled':'')+' onclick="pickMC('+q.id+','+i+')"><span class="ol">'+LTR3[i]+'</span><span>'+o+'</span></button>';
+  });
+  h+='</div><div class="ex '+(ua!==undefined?'show':'')+'"><div class="exl">&#x1F4A1; Açıklama</div>'+q.exp+'</div></div>';
+  return h;
+}
+function renderMatch(q,letters){
+  const ua=answers[q.id];
+  let h='<div class="qc"><div class="qh"><div class="qn">'+q.id+'</div><div class="qt">'+q.q+'</div></div>';
+  h+='<div class="lgrid">';
+  letters.forEach(L=>{
+    let c='lbtn';
+    if(ua!==undefined){
+      if(L===ua && L===q.ans) c+=' ok';
+      else if(L===ua && L!==q.ans) c+=' er';
+      else if(L===q.ans) c+=' hint';
+    }
+    h+='<button class="'+c+'" '+(ua!==undefined?'disabled':'')+' onclick="pickMatch('+q.id+',\''+L+'\')">'+L+'</button>';
+  });
+  h+='</div>';
+  h+='<div class="ex '+(ua!==undefined?'show':'')+'"><div class="exl">&#x1F4A1; Açıklama</div>'+q.exp+'</div></div>';
+  return h;
+}
+
+function render(){
+  const t=TAREAS[curT];
+  const all=getAllQuestions();
+  const done=all.filter(q=>answers[q.id]!==undefined).length;
+  document.getElementById('pgf').style.width=(done/all.length*100)+'%';
+  document.getElementById('pg-tarea').textContent='Tarea '+(curT+1)+' / 5';
+  document.getElementById('fin-ans').textContent=done;
+  document.getElementById('tnav-ctr').textContent='Tarea '+(curT+1)+' / 5 — '+t.title;
+  document.getElementById('btn-prev').disabled=(curT===0);
+  document.getElementById('btn-next').disabled=(curT===TAREAS.length-1);
+
+  let h='<div class="sb">'+t.title+'</div>';
+  h+='<div class="instr"><div class="instrl">Instrucciones</div>'+t.instrucciones+'</div>';
+
+  if(t.type==='match'){
+    h+='<div class="exmpl"><div class="exmpll">Ejemplo</div>0. '+t.example.enunciado+' &rarr; TEXTO '+t.example.letter+'<span class="exmplans">Cevap: '+t.example.letter+'</span><br><span style="color:var(--mid);font-size:12px">'+t.example.text+'</span></div>';
+    const rk='texts'+t.id;
+    const rc=resCollapsed[rk];
+    h+='<div class="resw"><div class="resh" onclick="toggleRes(\''+rk+'\')"><h3>&#x1F4C4; Textos (A-J)</h3><span class="rest">'+(rc?'Göster':'Gizle')+'</span></div>';
+    h+='<div class="textgrid'+(rc?' collapsed':'')+'">';
+    t.texts.forEach(tx=>{h+='<div class="textitem"><b>'+tx.letter+'.</b>'+esc(tx.text)+'</div>';});
+    h+='</div></div>';
+    t.questions.forEach(q=>{h+=renderMatch(q,t.letters);});
+  } else if(t.type==='mc-shared'){
+    const rk='res'+t.id;
+    const rc=resCollapsed[rk];
+    h+='<div class="resw"><div class="resh" onclick="toggleRes(\''+rk+'\')"><h3>'+t.resourceTitle+'</h3><span class="rest">'+(rc?'Göster':'Gizle')+'</span></div>';
+    h+='<div class="resb'+(rc?' collapsed':'')+'">'+esc(t.resourceText)+'</div></div>';
+    t.questions.forEach(q=>{h+=renderMC(q);});
+  } else if(t.type==='mc-perquestion'){
+    const ex=t.example;
+    h+='<div class="exmpl"><div class="exmpll">Ejemplo — '+ex.textLabel+'</div>'+esc(ex.text)+'<br><br><strong>'+ex.q+'</strong><br>';
+    ex.opts.forEach((o,i)=>{h+=LTR3[i]+') '+o+(i===ex.ans?' <span class="exmplans">&#x2714; Doğru</span>':'')+'<br>';});
+    h+='</div>';
+    t.items.forEach(it=>{
+      h+='<div class="qc"><div class="t3text"><b>'+it.textLabel+'</b><br>'+esc(it.text)+'</div>';
+      const ua=answers[it.id];
+      h+='<div class="qh" style="border-bottom:none"><div class="qn">'+it.id+'</div><div class="qt">'+it.q+'</div></div><div class="qo">';
+      it.opts.forEach((o,i)=>{
+        let c='ob';
+        if(ua!==undefined){if(i===it.ans)c+=' ok';if(i===ua&&ua!==it.ans)c+=' er';}
+        h+='<button class="'+c+'" '+(ua!==undefined?'disabled':'')+' onclick="pickMC('+it.id+','+i+')"><span class="ol">'+LTR3[i]+'</span><span>'+o+'</span></button>';
+      });
+      h+='</div><div class="ex '+(ua!==undefined?'show':'')+'"><div class="exl">&#x1F4A1; Açıklama</div>'+it.exp+'</div></div>';
+    });
+  }
+
+  document.getElementById('tarea-area').innerHTML=h;
+  let ok=0,er=0;
+  all.forEach(q=>{const a=answers[q.id];if(a===undefined)return;if(a===q.ans)ok++;else er++;});
+  document.getElementById('sc-ok').textContent=ok;
+  document.getElementById('sc-er').textContent=er;
+}
+function navT(d){curT=Math.max(0,Math.min(TAREAS.length-1,curT+d));render();window.scrollTo(0,0);}
+function pickMC(qid,i){if(answers[qid]!==undefined)return;answers[qid]=i;render();}
+function pickMatch(qid,letter){if(answers[qid]!==undefined)return;answers[qid]=letter;render();}
+function goConfirm(){document.getElementById('cf-sel').value=student;show('confirm');}
+function confirmSubmit(){
+  try{
+    const s=document.getElementById('cf-sel');
+    if(!s||!s.value){alert('Lütfen adınızı seçin!');return;}
+    student=s.value;
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=true;b.textContent='⏳ Kaydediliyor…';}
+    doSubmit();
+  }catch(e){
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=false;b.textContent='✔ Evet, Teslim Et';}
+    alert('Hata: '+e.message);
+  }
+}
+function doSubmit(){
+  const all=getAllQuestions();
+  let ok=0,er=0,bl=0;
+  const secCounts={1:0,2:0,3:0,4:0,5:0};
+  all.forEach(q=>{
+    const a=answers[q.id];
+    if(a===undefined){bl++;return;}
+    if(a===q.ans){ok++;secCounts[q.tarea]++;}
+    else er++;
+  });
+  const score=Math.round(ok/all.length*100);
+  document.getElementById('rs-name').textContent=student;
+  document.getElementById('rs-score').innerHTML=score+'<span>/100</span>';
+  document.getElementById('rs-pct').textContent=ok+' / '+all.length+' doğru';
+  document.getElementById('rs-c').textContent=ok;
+  document.getElementById('rs-w').textContent=er;
+  document.getElementById('rs-b').textContent=bl;
+  for(let i=1;i<=5;i++){
+    document.getElementById('br'+i).textContent=secCounts[i]+' / '+TAREA_TOTALS[i];
+  }
+  show('result');
+  saveSheets(student,score,ok,er,bl);
+}
+async function saveSheets(nm,score,ok,er,bl){
+  const el=document.getElementById('rs-status');
+  try{
+    const n=new Date();
+    const dd=String(n.getDate()).padStart(2,'0'),mm=String(n.getMonth()+1).padStart(2,'0'),yy=n.getFullYear();
+    const hh=String(n.getHours()).padStart(2,'0'),mi=String(n.getMinutes()).padStart(2,'0'),ss2=String(n.getSeconds()).padStart(2,'0');
+    const fmt='✅ '+score+'/100\n✓'+ok+' ✗'+er+'\n'+dd+'.'+mm+'.'+yy+'\n'+hh+':'+mi+':'+ss2;
+    await fetch(ASU,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({spreadsheetId:SID,sheetName:SHN,studentName:nm,taskColumn:TCL,score,correct:ok,wrong:er,blank:bl,formatted:fmt})});
+    el.className='stb stok';el.textContent='✅ Ödev başarıyla kaydedildi!';
+  }catch(e){
+    el.className='stb ster';el.textContent='⚠️ Kaydedilemedi — Profeye bildirin';
+  }
+}
+function goName(){answers={};curT=0;document.getElementById('name-sel').value='';show('name');}
+</script>
+</body>
+</html>

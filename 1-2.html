@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2.2 · H1 – 1-2. Ders</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--c1:#eaf7e6;--c2:#bfe6ac;--c3:#d3ecc9;--c4:#8fcf95;--c5:#559d6a;--dark:#20402a;--mid:#5c7d63;--white:#fff;--green:#3f8f52;--red:#d97070;--gold1:#f5dca0;--gold2:#dcac48;--r:14px}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1,#eefaf3 60%,#f7fdf3);min-height:100vh;color:var(--dark)}
+.header{background:linear-gradient(135deg,var(--c4),var(--c5));padding:18px 20px 14px;text-align:center;box-shadow:0 4px 18px rgba(85,157,106,.35);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.1) 14px,rgba(255,255,255,.1) 15px)}
+.htag{display:inline-block;background:rgba(255,255,255,.35);border:1.5px solid rgba(255,255,255,.55);border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 14px;margin-bottom:8px;color:#fff;position:relative}
+.header h1{font-size:clamp(16px,4vw,23px);font-weight:800;color:#fff;position:relative}
+.header-sub{font-size:12px;color:rgba(255,255,255,.9);margin-top:4px;position:relative}
+.screen{display:none;animation:fi .3s ease}.screen.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.nb{max-width:420px;margin:0 auto;padding:32px 20px;text-align:center}
+.nb h2{font-size:20px;color:var(--dark);margin-bottom:5px}
+.nb p{font-size:13px;color:var(--mid);margin-bottom:20px}
+.sel{width:100%;padding:13px 16px;font-size:15px;background:#fff;border:2px solid var(--c3);border-radius:var(--r);color:var(--dark);appearance:none;cursor:pointer;margin-bottom:14px;font-family:inherit}
+.sel:focus{outline:none;border-color:var(--c4)}
+.ib{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:14px 16px;margin-bottom:18px;text-align:left;font-size:13px;line-height:1.75}
+.ibr{display:flex;align-items:flex-start;gap:9px;margin-bottom:5px}
+.ibd{width:8px;height:8px;border-radius:50%;background:var(--c4);flex-shrink:0;margin-top:5px}
+.ibh{height:1px;background:var(--c3);margin:9px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 24px;border:none;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.bm{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;box-shadow:0 4px 12px rgba(85,157,106,.35)}
+.bm:hover{transform:translateY(-2px)}
+.bg{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--dark);box-shadow:0 4px 12px rgba(220,172,72,.4)}
+.bg:hover{transform:translateY(-2px)}
+.bo{background:#fff;border:2px solid var(--c3);color:var(--dark)}
+.bo:hover{background:var(--c3)}
+.bs{padding:9px 18px;font-size:13px}
+.bf{width:100%}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important}
+.qw{max-width:660px;margin:0 auto;padding:16px}
+.topsub{display:flex;justify-content:center;margin-bottom:14px}
+.tb{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:10px 16px;margin-bottom:12px;gap:8px;flex-wrap:wrap}
+.ts{font-size:12px;color:var(--mid);font-weight:600}
+.tsc{display:flex;gap:14px}
+.si{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:700}
+.sok{color:var(--green)}.ser{color:var(--red)}
+.pgw{margin-bottom:14px}
+.pgb{height:7px;background:var(--c3);border-radius:4px;overflow:hidden}
+.pgf{height:100%;background:linear-gradient(90deg,var(--c4),var(--c2));border-radius:4px;transition:width .4s;width:0%}
+.pgi{display:flex;justify-content:space-between;font-size:11px;color:var(--mid);margin-top:3px}
+.sb{display:inline-flex;align-items:center;background:linear-gradient(90deg,var(--c4),var(--c5));border-radius:20px;padding:5px 14px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:10px;box-shadow:0 2px 8px rgba(85,157,106,.3)}
+.resw{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:12px}
+.resh{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:var(--c1);cursor:pointer}
+.resh h3{font-size:13px;font-weight:800;color:var(--dark)}
+.rest{font-size:11px;font-weight:700;color:var(--c5);background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:4px 12px;white-space:nowrap}
+.resb{padding:14px 18px;font-size:13px;line-height:1.85;color:var(--dark);white-space:pre-wrap;max-height:340px;overflow-y:auto}
+.resb.collapsed{display:none}
+.resv{padding:14px 16px}
+.resv.collapsed{display:none}
+.vwrap{position:relative;width:100%;padding-bottom:56.25%;border-radius:10px;overflow:hidden;background:#000;margin-bottom:8px}
+.vwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vlink{font-size:12px;color:var(--c5);text-decoration:none;font-weight:700}
+.vlink:hover{text-decoration:underline}
+.qc{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:12px}
+.qh{padding:16px 18px 14px;border-bottom:1px solid var(--c3);display:flex;gap:12px;align-items:flex-start}
+.qn{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;margin-top:1px}
+.qt{font-size:14.5px;line-height:1.65;flex:1;color:var(--dark);font-weight:500}
+.rb{background:var(--c1);border-left:3px solid var(--c2);border-radius:0 8px 8px 0;padding:12px 16px;margin:0 16px 12px;font-size:13px;line-height:1.9;color:var(--dark)}
+.qo{padding:12px 16px 14px;display:grid;gap:8px}
+.ob{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:#f7fcf5;border:1.5px solid var(--c3);border-radius:10px;color:var(--dark);font-size:13.5px;line-height:1.5;cursor:pointer;text-align:left;width:100%;transition:all .18s;font-family:inherit}
+.ob:hover:not(:disabled){background:var(--c1);border-color:var(--c4);transform:translateX(4px)}
+.ob:disabled{cursor:default}
+.ol{background:var(--c3);color:var(--dark);border-radius:6px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.ob.ok{background:#eaf7ec;border-color:#8dcca0}
+.ob.ok .ol{background:var(--green);color:#fff}
+.ob.er{background:#fdf0f0;border-color:#e8a0a0}
+.ob.er .ol{background:var(--red);color:#fff}
+.ex{display:none;margin:0 16px 14px;background:var(--c1);border-left:3px solid var(--c2);border-radius:0 8px 8px 0;padding:11px 14px;font-size:13px;line-height:1.75;color:var(--mid)}
+.ex.show{display:block}
+.exl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#3d7a4c;margin-bottom:4px}
+.nv{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:4px;margin-bottom:16px;flex-wrap:wrap}
+.nc{font-size:13px;color:var(--mid);font-weight:600;text-align:center;flex:1}
+.fb{position:sticky;bottom:0;background:rgba(245,251,241,.97);backdrop-filter:blur(10px);border-top:1.5px solid var(--c3);padding:11px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;box-shadow:0 -4px 14px rgba(143,207,149,.18)}
+.fi{font-size:12px;color:var(--mid)}
+.fi strong{color:var(--dark);font-size:14px}
+.cfw{max-width:420px;margin:0 auto;padding:40px 20px;text-align:center}
+.cfw h2{font-size:22px;color:var(--dark);margin-bottom:8px}
+.cfw p{font-size:14px;color:var(--mid);margin-bottom:20px;line-height:1.6}
+.ns{background:rgba(85,157,106,.1);border:2px solid var(--c4);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;font-size:14px;font-weight:700;color:var(--c5)}
+.rw{max-width:460px;margin:0 auto;padding:28px 20px;text-align:center}
+.rc{background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:28px 22px;margin-bottom:14px;box-shadow:0 6px 24px rgba(143,207,149,.2)}
+.re{font-size:50px;margin-bottom:10px}
+.rn{font-size:14px;color:var(--mid);margin-bottom:3px}
+.rt{font-size:16px;font-weight:700;color:var(--dark);margin-bottom:16px}
+.rbig{font-size:62px;font-weight:900;line-height:1;color:var(--dark)}
+.rbig span{font-size:24px;font-weight:400;color:var(--mid)}
+.rp{font-size:13px;color:var(--mid);margin-top:4px;margin-bottom:18px}
+.rst{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.ri{background:linear-gradient(135deg,var(--c3),var(--c1));border:1px solid var(--c4);border-radius:12px;padding:11px 16px;min-width:76px;text-align:center}
+.ri .rnum{font-size:28px;font-weight:800;line-height:1}
+.ri .rl{font-size:11px;color:var(--mid);margin-top:3px}
+.rok .rnum{color:var(--green)}.rer .rnum{color:var(--red)}.rbl .rnum{color:#bbb}
+.bd{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.bdr{display:flex;justify-content:space-between;align-items:center;background:rgba(191,230,172,.2);border:1px solid var(--c3);border-radius:8px;padding:8px 14px;font-size:13px}
+.bdl{color:var(--mid)}.bds{font-weight:700;color:var(--dark)}
+.stb{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;font-size:13px;font-weight:700;margin-bottom:14px}
+.stok{background:rgba(63,143,82,.15);border:1.5px solid rgba(63,143,82,.4);color:#2c6b3a}
+.ster{background:rgba(217,112,112,.15);border:1.5px solid rgba(217,112,112,.4);color:#a04040}
+.stpnd{background:rgba(220,172,72,.2);border:1.5px solid rgba(220,172,72,.5);color:#8a6a1a}
+.ra{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}</style>
+</head>
+<body>
+<div class="header">
+  <div class="htag">1. Hafta Ödevi &nbsp;|&nbsp; A2.2 (1-2. Ders)</div>
+  <h1>&#x1F1EA;&#x1F1F8; A2.2 – H1 1-2. Ders</h1>
+  <div class="header-sub">50 soru &nbsp;&bull;&nbsp; 2 puan/soru &nbsp;&bull;&nbsp; 100 puan &nbsp;&bull;&nbsp; Okuduğunu Anlama, Görsel-İşitsel &amp; Gramer &nbsp;&bull;&nbsp; @ispanyolcacim &nbsp;&bull;&nbsp; Profe Hazel</div>
+</div>
+<div class="screen active" id="sc-name">
+  <div class="nb">
+    <h2>&#x1F4DA; Adınızı seçin</h2>
+    <p>Ödeve başlamadan önce lütfen listeden adınızı seçin.</p>
+    <select class="sel" id="name-sel"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option>
+      <option>Zumeyra Dogan</option></select>
+    <div class="ib">
+      <div class="ibr"><div class="ibd"></div><span><strong>&#x1F4D6; 1–20: Okuduğunu Anlama:</strong> "Una Carta de Claudia desde Estambul" metni</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>&#x1F3AC; 21–36: Görsel-İşitsel Anlama:</strong> Extra Español (Ep. 1) videosu</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>&#x1F4DD; 37–50: Gramer:</strong> Pretérito Indefinido vs. Imperfecto</span></div>
+      <div class="ibh"></div>
+      <div class="ibr"><div class="ibd" style="background:var(--c5)"></div><span><strong>50 soru &times; 2 puan = 100 puan</strong></span></div>
+    </div>
+    <button class="btn bm bf" onclick="startQuiz()">&#x25b6; Başla</button>
+  </div>
+</div>
+<div class="screen" id="sc-quiz">
+  <div class="qw">
+    <div class="topsub">
+      <button class="btn bg bs" onclick="goConfirm()">&#x2714; Ödevi Teslim Et</button>
+    </div>
+    <div class="tb">
+      <div class="ts" id="top-st">&#x2014;</div>
+      <div class="tsc">
+        <div class="si sok">&#x2713; <span id="sc-ok">0</span></div>
+        <div class="si ser">&#x2717; <span id="sc-er">0</span></div>
+      </div>
+    </div>
+    <div class="pgw">
+      <div class="pgb"><div class="pgf" id="pgf"></div></div>
+      <div class="pgi"><span id="pg-sec">&#x2014;</span><span>Soru <span id="pg-cur">1</span> / 50</span></div>
+    </div>
+    <div id="res-area"></div>
+    <div id="q-area"></div>
+    <div class="nv">
+      <button class="btn bo bs" id="btn-prev" onclick="nav(-1)">&#x2190; Geri</button>
+      <div class="nc" id="nav-ctr">1 / 50</div>
+      <button class="btn bm bs" id="btn-next" onclick="nav(1)">İleri &#x2192;</button>
+    </div>
+    <div class="fb">
+      <div class="fi" style="width:100%;text-align:center"><strong id="fin-ans">0</strong> / 50 yanıtlandı</div>
+    </div>
+  </div>
+</div>
+<div class="screen" id="sc-confirm">
+  <div class="cfw">
+    <div style="font-size:48px;margin-bottom:12px">&#x1F4CB;</div>
+    <h2>Ödevi Teslim Et</h2>
+    <div class="ns">&#x26a0;&#xfe0f; ÖDEVİNİZ HENÜZ TESLİM EDİLMEDİ</div>
+    <p>Teslim etmeden önce listeden adınızı seçin ve onaylayın.</p>
+    <select class="sel" id="cf-sel" style="margin-bottom:16px"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option>
+      <option>Zumeyra Dogan</option></select>
+    <button class="btn bg bf" id="cf-btn" onclick="confirmSubmit()">&#x2714; Evet, Teslim Et</button>
+  </div>
+</div>
+<div class="screen" id="sc-result">
+  <div class="rw">
+    <div class="rc">
+      <div class="re">&#x1F1EA;&#x1F1F8;</div>
+      <div class="rn" id="rs-name">&#x2014;</div>
+      <div class="rt">A2.2 · H1 – 1-2. Ders</div>
+      <div class="rbig" id="rs-score">0<span>/100</span></div>
+      <div class="rp" id="rs-pct"></div>
+      <div class="bd">
+        <div class="bdr"><span class="bdl">&#x1F4D6; 1–20: Okuduğunu Anlama</span><span class="bds" id="br1">0 / 40</span></div>
+        <div class="bdr"><span class="bdl">&#x1F3AC; 21–36: Görsel-İşitsel</span><span class="bds" id="br2">0 / 32</span></div>
+        <div class="bdr"><span class="bdl">&#x1F4DD; 37–50: Gramer</span><span class="bds" id="br3">0 / 28</span></div>
+      </div>
+      <div class="rst">
+        <div class="ri rok"><div class="rnum" id="rs-c">0</div><div class="rl">Doğru</div></div>
+        <div class="ri rer"><div class="rnum" id="rs-w">0</div><div class="rl">Yanlış</div></div>
+        <div class="ri rbl"><div class="rnum" id="rs-b">0</div><div class="rl">Boş</div></div>
+      </div>
+      <div class="stb stpnd" id="rs-status">&#x23f3; Kaydediliyor&#x2026;</div>
+    </div>
+    <div class="ra"><button class="btn bo" onclick="goName()">&#x1F504; Yeniden Başla</button></div>
+  </div>
+</div>
+<script>
+const ASU='https://script.google.com/macros/s/AKfycbw-BwEhVOhO6GkkQHNWJA8LQLMkEGwNCtJ3BXSqik1RnzqZLl4a_a3HmYEoIlJAgY4Wkg/exec';
+const SID='1wziyxdRdIGL7OEq4yRib0i_CaCWJGI14fwDyMKB4abw';
+const SHN='A2.2';
+const TCL='H1 – 1-2.Ders';
+const TOTAL=50;
+const PTS=2;
+const LTR=['A','B','C','D'];
+
+const READING_TEXT=`¡Hola a todos otra vez, mis queridos amigos!
+
+Me llamo Claudia y soy de Madrid, España. Como ya sabéis, tengo veinticinco años y soy estudiante de arquitectura. Ahora mismo estoy muy contenta porque vivo en Turquía por el programa Erasmus. Mi nueva casa está en Estambul. Estambul es una ciudad increíble; es mucho más grande, histórica y ruidosa que Madrid. Además, el clima es un poco diferente. En Madrid el aire es más seco, pero aquí hay mucha humedad por el mar.
+
+Aquí no vivo sola. Comparto un apartamento muy bonito en el barrio de Beşiktaş con dos chicas: Ayşe, que es turca, y Giulia, que es italiana. Ayşe estudia literatura, es más alta que Giulia y es una persona muy simpática y habladora. Giulia estudia bellas artes y es un poco más tímida, pero cocina maravillosamente. Nos llevamos muy bien y siempre nos ayudamos con las tareas de la casa. Normalmente, yo barro el suelo y saco la basura, Giulia lava los platos y Ayşe limpia los cristales y el baño.
+
+Generalmente, mi rutina de lunes a viernes es muy activa. Me despierto muy temprano, a las siete y media de la mañana. Primero, me levanto, me ducho con agua tibia, me lavo los dientes y después desayuno con mis compañeras de piso. Me gusta muchísimo el desayuno turco porque tiene muchas cosas diferentes: queso, tomate, pepino, miel y pan fresco. Sin embargo, no me gustan nada las aceitunas negras. A Giulia le encanta el té turco, pero yo siempre prefiero el café. Después del desayuno, me visto, cojo el autobús y voy a la universidad. El tráfico en Estambul es mucho peor que en Madrid, así que a veces llego tarde.
+
+Después de las clases, casi siempre voy a la biblioteca. Pero hoy es diferente. En este momento, estoy sentada en una cafetería pequeña y tradicional cerca de la torre Galata. Estoy escribiendo este correo para vosotros y también estoy bebiendo un café turco. Es un poco fuerte, pero está rico. A mi alrededor, la ciudad está muy viva: la gente está caminando muy rápido, unos turistas están tomando fotos y un hombre está tocando la guitarra en la plaza. Ah, y hay un gato negro muy bonito en la puerta de la cafetería. Los dueños del café lo llaman Zeytin. ¡Está durmiendo tranquilamente bajo el sol!
+
+Esta semana ha sido una locura y muy emocionante para mí. He hecho muchas cosas diferentes. Por ejemplo, el martes he visitado el palacio de Topkapı y he caminado por el centro histórico. El miércoles, he ido al Gran Bazar. ¡Es enorme! Allí he comprado unas lámparas pequeñas y coloridas. Las voy a poner en mi habitación esta noche. También me he perdido en las calles de Sultanahmet, pero gracias a eso he descubierto tiendas muy interesantes.
+
+¿Alguna vez habéis probado el "simit" o la "baklava"? Yo los he comido hoy por primera vez y me han parecido deliciosos. ¡Nunca he estado en una ciudad tan mágica y diferente como esta! Además, esta tarde he comprado un pañuelo de seda (ipek şal) muy bonito para mi madre. Se lo voy a dar cuando vuelva a España en las vacaciones de Navidad.
+
+Por las noches, mi rutina es más tranquila. Cuando vuelvo a casa, ceno con las chicas. Después, me acuesto en el sofá y veo series turcas en la televisión para aprender mejor el idioma. A veces, nosotras jugamos a las cartas o hablamos sobre nuestras culturas.
+
+Este fin de semana no tengo clases y quiero descansar un poco, pero también quiero explorar la ciudad asiática. Mañana por la mañana, mis amigas y yo vamos a ir a Kadıköy. Vamos a tomar el famoso barco y vamos a dar pan a las gaviotas. En Kadıköy, vamos a comer pescado fresco cerca del mar y después vamos a caminar por la costa de Moda. El domingo por la tarde, nos vamos a quedar en casa. Ayşe va a cocinar un plato típico que se llama "mantı" para la cena y nosotras vamos a preparar un postre italiano. ¡Va a ser un fin de semana fantástico!
+
+¿Y vosotros? ¿Qué habéis hecho esta semana en España? ¿Cuáles son vuestros planes? ¿Qué vais a hacer este fin de semana? ¡Escribidme pronto!
+
+Un abrazo muy fuerte desde Turquía,
+Claudia`;
+
+const VIDEO_ID='7PNWi5oSP5k';
+const VIDEO_LIST='PLaSrt2uWkXLXv9YoxI_HmyFyTWdSKxgJq';
+const VIDEO_URL='https://www.youtube.com/watch?v=7PNWi5oSP5k&list=PLaSrt2uWkXLXv9YoxI_HmyFyTWdSKxgJq';
+
+const SECTIONS=[
+  {id:1, label:'&#x1F4D6; 1–20: Okuduğunu Anlama', from:1, to:20, count:20},
+  {id:2, label:'&#x1F3AC; 21–36: Görsel-İşitsel Anlama', from:21, to:36, count:16},
+  {id:3, label:'&#x1F4DD; 37–50: Gramer', from:37, to:50, count:14}
+];
+
+const QS=[
+{"id":1,"q":"Según el texto, ¿qué sabemos sobre la vida académica y el origen de Claudia?","opts":["Es española y estudia arquitectura.","Es italiana y estudia literatura.","Es turca y estudia bellas artes.","Es española y trabaja en una cafetería."],"ans":0,"exp":"Claudia metnin en başında kendini tanıtırken \"soy de Madrid, España\" (İspanya, Madrid'denim) ve \"soy estudiante de arquitectura\" (mimarlık öğrencisiyim) diyor. Diğer şıklardaki edebiyat Ayşe'nin, güzel sanatlar ise Giulia'nın bölümüdür."},
+{"id":2,"q":"¿Qué diferencia principal hay entre el clima de Estambul y el de Madrid según Claudia?","opts":["En Estambul hace más calor todos los días.","Madrid es una ciudad mucho más lluviosa.","Estambul tiene más humedad por el mar.","En Madrid el clima es más frío."],"ans":2,"exp":"Metinde iklim karşılaştırması yapılırken şu cümle geçiyor: \"En Madrid el aire es más seco, pero aquí hay mucha humedad por el mar\" (Madrid'de hava daha kuru ama burada denizden dolayı çok nem var)."},
+{"id":3,"q":"¿Cómo es la personalidad de su compañera de piso, Giulia?","opts":["Es muy habladora y simpática.","Es un poco más tímida pero cocina maravillosamente.","Es más alta que Ayşe y muy activa.","No le gusta hablar con otras personas."],"ans":1,"exp":"Giulia'yı tanıtırken metinde açıkça \"es un poco más tímida, pero cocina maravillosamente\" (biraz daha utangaç ama harika yemek yapıyor) ifadesi kullanılıyor. \"Habladora y simpática\" olan Ayşe'dir."},
+{"id":4,"q":"En la división de las tareas de la casa, ¿quién se encarga de sacar la basura?","opts":["Giulia.","Ayşe.","Giulia y Ayşe juntas.","Claudia."],"ans":3,"exp":"Claudia kendi yaptığı ev işlerini anlatırken \"yo barro el suelo y saco la basura\" (Ben yeri süpürür ve çöpü çıkarırım) diyor. Çöpü çıkaran kişi bizzat metnin yazarı olan Claudia'dır."},
+{"id":5,"q":"¿Qué alimento no come Claudia en el desayuno porque no le gusta nada?","opts":["El pan fresco.","El tomate.","El queso.","Las aceitunas negras."],"ans":3,"exp":"Kahvaltıdan bahsederken \"Sin embargo, no me gustan nada las aceitunas negras\" (Ancak, siyah zeytini hiç sevmiyorum) diyerek net bir şekilde sevmediği gıdayı belirtiyor."},
+{"id":6,"q":"¿Qué bebida prefiere Giulia por las mañanas?","opts":["El café turco.","El té turco.","El agua fría.","La leche."],"ans":1,"exp":"İçecek tercihlerinden bahsederken \"A Giulia le encanta el té turco, pero yo siempre prefiero el café\" diyor. Yani Türk çayına bayılan (encantar) kişi Giulia'dır."},
+{"id":7,"q":"¿Dónde está Claudia en el momento en que escribe el correo?","opts":["En el Gran Bazar de compras.","En la biblioteca de la universidad estudiando.","En una cafetería pequeña cerca de la torre Galata.","En su habitación descansando."],"ans":2,"exp":"Metnin \"En este momento\" (Şu anda/Şu an) ile başlayan kısmında Claudia nerede olduğunu söylüyor: \"estoy sentada en una cafetería pequeña y tradicional cerca de la torre Galata\"."},
+{"id":8,"q":"¿Qué está haciendo el gato Zeytin en ese momento?","opts":["Está durmiendo tranquilamente bajo el sol.","Está comiendo pescado fresco.","Está jugando con los turistas.","Está caminando muy rápido por la calle."],"ans":0,"exp":"Kafenin önündeki kara kedi Zeytin'in anlık (Estar+Gerundio) durumu anlatılırken \"¡Está durmiendo tranquilamente bajo el sol!\" (Güneşin altında sakince uyuyor) cümlesi kullanılmış."},
+{"id":9,"q":"Según la carta, ¿qué lugar turístico visitó Claudia el martes?","opts":["El palacio de Topkapı.","El Gran Bazar.","Kadıköy y Moda.","La torre Galata."],"ans":0,"exp":"Metinde hafta içi neler yaptığı (Pretérito Perfecto) sıralanırken \"el martes he visitado el palacio de Topkapı\" (Salı günü Topkapı Sarayı'nı ziyaret ettim) diyor. Kapalıçarşı (Gran Bazar) çarşamba günkü etkinlikti."},
+{"id":10,"q":"¿Qué compró Claudia en el Gran Bazar el miércoles?","opts":["Un pañuelo de seda.","Un poco de baklava.","Té turco y café.","Unas lámparas pequeñas y coloridas."],"ans":3,"exp":"Gran Bazar macerasını anlatırken \"Allí he comprado unas lámparas pequeñas y coloridas\" (Orada küçük ve renkli lambalar satın aldım) cümlesini kuruyor. İpek şalı daha sonra başka bir zaman diliminde (esta tarde) alıyor."},
+{"id":11,"q":"¿Qué consecuencia positiva tuvo perderse en las calles de Sultanahmet?","opts":["Llegó temprano a la universidad.","Descubrió tiendas muy interesantes.","No tuvo que caminar mucho.","Encontró el pañuelo para su madre."],"ans":1,"exp":"Sultanahmet'te kaybolmasını anlatırken \"me he perdido en las calles de Sultanahmet, pero gracias a eso he descubierto tiendas muy interesantes\" (kayboldum ama bu sayede çok ilginç dükkanlar keşfettim) diyor."},
+{"id":12,"q":"¿Para quién es el pañuelo de seda (ipek şal) que ha comprado?","opts":["Para Ayşe.","Para Giulia.","Para su madre.","Para una profesora de la universidad."],"ans":2,"exp":"Hediye alışverişinden bahsederken \"he comprado un pañuelo de seda muy bonito para mi madre\" (annem için çok güzel bir ipek şal aldım) diyor."},
+{"id":13,"q":"¿Por qué razón Claudia ve series turcas por las noches?","opts":["Porque sus compañeras de piso son actrices de televisión.","Porque no tiene libros para leer.","Porque quiere aprender mejor el idioma.","Porque le gustan mucho las historias románticas."],"ans":2,"exp":"Akşam rutininde dizi izleme sebebini \"veo series turcas en la televisión para aprender mejor el idioma\" (dili daha iyi öğrenmek için) şeklinde açıklıyor."},
+{"id":14,"q":"¿Qué medio de transporte van a usar las tres chicas para ir a Kadıköy el sábado?","opts":["El barco (vapur).","El autobús.","El tren.","El taxi."],"ans":0,"exp":"Cumartesi planlarını (Ir a + infinitivo) anlatırken \"Vamos a tomar el famoso barco (vapur)\" (Meşhur vapura bineceğiz) diyor."},
+{"id":15,"q":"Según sus planes de fin de semana, ¿qué van a hacer con las gaviotas (martılar)?","opts":["Van a tomarles muchas fotos hermosas.","Van a observarlas desde un café en la costa.","Van a comer pescado con ellas.","Van a darles pan."],"ans":3,"exp":"Kadıköy yolculuğu sırasında \"vamos a dar pan a las gaviotas\" (martılara ekmek vereceğiz) diyerek planlarını belirtiyor."},
+{"id":16,"q":"¿Qué plato principal va a cocinar Ayşe el domingo por la tarde para cenar?","opts":["Un postre italiano.","Un plato típico que se llama \"mantı\".","Pescado fresco con ensalada.","Desayuno tradicional turco."],"ans":1,"exp":"Pazar akşamı planında açıkça \"Ayşe va a cocinar un plato típico que se llama 'mantı' para la cena\" deniyor."},
+{"id":17,"q":"¿Qué van a preparar Claudia y Giulia el domingo para completar la cena?","opts":["Una ensalada típica turca.","Un postre italiano.","Un poco de pescado.","Unas bebidas calientes."],"ans":1,"exp":"Ayşe'nin mantı yapacağı cümlenin hemen devamında \"...y nosotras vamos a preparar un postre italiano\" (ve biz de İtalyan tatlısı hazırlayacağız) diyerek kendisinin ve Giulia'nın ne yapacağını açıklıyor."},
+{"id":18,"q":"En la frase \"Las voy a poner en mi habitación esta noche\", ¿a qué se refiere la palabra \"Las\"?","opts":["A las fotos.","A las chicas (Ayşe y Giulia).","A las calles de Sultanahmet.","A las lámparas pequeñas y coloridas."],"ans":3,"exp":"Bu soru öğrencilerin doğrudan nesne (Objeto Directo) zamirlerini metin içinden çıkarmasını ölçer. Kapalıçarşı'dan aldığı \"lambalar\" dişil çoğul (las lámparas) olduğu için \"Las voy a poner\" (Onları koyacağım) derken bahsettiği şey lambalardır."},
+{"id":19,"q":"¿Cuál es el objetivo principal del correo que escribe Claudia?","opts":["Contar su experiencia, rutina y planes en Estambul a sus amigos.","Pedir dinero a sus amigos de España.","Quejarse sobre el tráfico y el clima de Turquía.","Invitar a sus amigos a comer pescado en Kadıköy."],"ans":0,"exp":"Metnin genel anlamına yönelik bir sorudur. Claudia bu e-postayı İspanya'daki arkadaşlarına İstanbul'daki Erasmus deneyimini, günlük rutinlerini, yaptıklarını ve yapacaklarını (planlarını) anlatmak için (Contar su experiencia...) yazmıştır."},
+{"id":20,"q":"¿Por qué Claudia llega a veces tarde a la universidad por las mañanas?","opts":["Porque se levanta muy tarde todos los días.","Porque desayuna muy despacio con sus amigas.","Porque el tráfico en Estambul es mucho peor que en Madrid.","Porque siempre pierde el autobús."],"ans":2,"exp":"Sabah rutininde ulaşım kısmını anlatırken, derse bazen geç kalma sebebini \"El tráfico en Estambul es mucho peor que en Madrid, así que a veces llego tarde\" (İstanbul trafiği Madrid'den çok daha kötü, bu yüzden bazen geç kalıyorum) diyerek trafikle açıklıyor."},
+{"id":21,"q":"Según la introducción de la historia, ¿cuál es la situación entre Lola, Ana y Pablo?","opts":["Lola y Ana son enemigas y Pablo es el hermano de Ana.","A Lola le gusta Pablo y a Ana le gustan otras personas.","A Pablo le gusta Lola y a Ana le gusta Pablo.","Los tres comparten el mismo piso en España."],"ans":2,"exp":"Videonun en başındaki dış ses karakterler arasındaki aşk üçgenini net bir şekilde özetliyor: \"A Pablo le gusta Lola y a Ana le gusta Pablo.\" (Pablo Lola'dan hoşlanıyor, Ana ise Pablo'dan hoşlanıyor). Lola ve Ana evi paylaşan iki arkadaştır, Pablo ise onların komşusudur."},
+{"id":22,"q":"Al principio del episodio, ¿qué le dice Lola a Juan por teléfono?","opts":["Le dice que se acabó todo y le pide que no la llame más.","Le da las gracias por el cojín y le dice que lo quiere mucho.","Le pregunta a qué hora va a llegar de América.","Le invita a dormir en el piso porque no tiene cama."],"ans":0,"exp":"Lola telefonda oldukça kızgın bir şekilde ayrılık konuşması yapıyor. \"Se acabó y no me llames... y también recibí el cojín. Pero se acabó.\" (Bitti ve beni arama... yastığı da aldım. Ama her şey bitti) diyerek ilişkisini sonlandırıyor."},
+{"id":23,"q":"¿Quién trae el correo (las facturas y la carta) al piso de las chicas?","opts":["El vecino Pablo se lo trae.","Sam lo trae en persona desde América.","Juan lo deja en la puerta de la casa.","Ana y su perro Luis lo traen."],"ans":3,"exp":"Ana odaya girerken ağzında postaları tutan köpeğine sesleniyor: \"Luis y yo traemos el correo, a que sí Luis.\" (Luis ve ben postayı getirdik). Yani postaları getiren Ana ve köpeği Luis'tir."},
+{"id":24,"q":"¿Qué tipo de factura NO se menciona cuando Ana revisa el correo?","opts":["La factura del gas.","La factura del agua.","La factura del teléfono.","La factura de la electricidad."],"ans":1,"exp":"Ana postaları ayırırken sırasıyla şunları söylüyor: \"La factura del teléfono, la factura de la electricidad, la factura del gas\". Su faturasından (la factura del agua) hiç bahsedilmiyor."},
+{"id":25,"q":"¿Desde hace cuánto tiempo Lola y su corresponsal Sam no se escriben?","opts":["Desde hace siete meses.","Desde hace siete años.","Desde el 19 de febrero del año pasado.","Desde hace 22 años."],"ans":1,"exp":"Lola mektubu okurken Sam'in kim olduğunu hatırlamaya çalışıyor ve \"¿No hace 7 años? Éramos corresponsales\" (7 yıl olmadı mı? Mektup arkadaşıydık) diyor."},
+{"id":26,"q":"¿Cómo imagina Ana que será Sam al saber que es un americano rico?","opts":["Se imagina que es un chico bajo y con muchos problemas.","Piensa que es un hombre viejo pero muy amable.","Lo compara con Brad Pitt y piensa que será alto y guapo.","Cree que es un chico muy estudioso que solo lee libros."],"ans":2,"exp":"Ana, Sam'in zengin bir Amerikalı olduğunu duyduğunda hemen hayallere dalıyor ve \"Igual que Brad Pitt, alto, guapo y rico\" (Tıpkı Brad Pitt gibi; uzun, yakışıklı ve zengin) diyerek beklentisini dile getiriyor."},
+{"id":27,"q":"¿En qué fecha dice la carta que Sam llegará a España?","opts":["El 19 de febrero.","El 22 de marzo.","El 7 de febrero.","El 19 de septiembre."],"ans":0,"exp":"Lola mektubu okurken \"Cuándo llega a ver... dice 19 de febrero\" (Ne zaman geliyor bir bakalım... 19 Şubat yazıyor) diyor. Sonrasında Ana dehşet içinde o günün 19 Şubat olduğunu fark ediyor."},
+{"id":28,"q":"Cuando el vecino Pablo entra al apartamento, ¿qué les trae a las chicas?","opts":["Una caja llena de chocolates y dulces.","La bicicleta de Lola totalmente arreglada.","Una pizza muy grande y unas Coca-Colas.","Su leche que se llevó la semana pasada."],"ans":3,"exp":"Pablo kızların dairesine elinde bir süt kutusuyla giriyor ve \"Os he traído vuestra leche de vuelta... de la semana pasada\" (Geçen haftaki sütünüzü geri getirdim) diyerek aslında ne kadar tuhaf bir komşu olduğunu gösteriyor."},
+{"id":29,"q":"Cuando Lola menciona que tendrá una visita, ¿qué piensa Pablo inicialmente sobre Sam?","opts":["Se alegra mucho porque él también vivió en América.","Piensa que es un hombre viril y fuerte.","Cree que Sam es un amigo de su hermano mayor.","Piensa que es una chica porque el nombre \"Sam\" le confunde."],"ans":3,"exp":"Lola Amerika'dan Sam'in geleceğini söyleyince, Pablo isminden dolayı onun bir kadın olduğunu düşünüp heyecanlanıyor: \"¿Y qué tipo de chica es ella?\" (Peki nasıl bir kız o?). Lola ise \"Que no es una chica sino un chico\" diyerek onu düzeltiyor."},
+{"id":30,"q":"¿Por qué Lola se enfada muchísimo con Pablo antes de la llegada de Sam?","opts":["Porque Pablo quiere usar su bicicleta y ella se lo ha prohibido.","Porque Pablo bebe su Coca-Cola sin pedir permiso.","Porque Pablo lee la carta de Sam a escondidas.","Porque Pablo rompe la factura del teléfono de Ana."],"ans":0,"exp":"Pablo Lola'nın bisikletine dokunduğunda Lola çok sert bir tepki vererek \"Te dije mil veces que nadie usa mi bicicleta, está claro... si tocas mi bici te echo\" (Sana bin defa bisikletimi kimsenin kullanamayacağını söyledim... dokunursan seni kovarım) diyor."},
+{"id":31,"q":"Cuando Sam llega al piso y saluda por primera vez, ¿qué error comete al hablar español?","opts":["Dice que se llama España y que vive en América.","Llama a Ana y a Lola por nombres de animales.","Dice \"Me llama América y soy de Sam\" en lugar de \"Me llamo Sam, soy americano\".","Pide directamente la cama porque está muy cansado."],"ans":2,"exp":"Sam kapıdan girdiğinde ezberlediği İspanyolca cümleyi yanlış kurarak \"Hola, me llama América, soy de Sam\" (Benim adım Amerika, Sam'liyim) gibi komik bir hata yapıyor. Ana onu düzelterek \"Me llamo Sam, soy americano\" demesi gerektiğini anlatmaya çalışıyor."},
+{"id":32,"q":"Cuando Pablo habla con Sam, ¿qué malentendido ocurre?","opts":["Pablo piensa que Sam es un mecánico famoso de América.","Pablo cree que Sam juega con coches de juguete y vive en un museo.","Pablo piensa que Sam quiere comprar su coche en España.","Pablo cree que Sam trabaja en una fábrica de coches grandes."],"ans":1,"exp":"Pablo İngilizce bilmediği için Sam'in anlattıklarını tamamen yanlış anlıyor. Sam \"I play with cars\" der gibi davranınca Pablo \"Juegas con coches... vives en un museo\" (Arabalarla oynuyorsun ve bir müzede yaşıyorsun) diyerek onun çocuk gibi biri olduğunu zannediyor."},
+{"id":33,"q":"¿Por qué hay un problema cuando Sam pregunta dónde está su dormitorio?","opts":["Porque en el piso solo hay un dormitorio que Ana y Lola comparten.","Porque el dormitorio está pintado de un color que Sam odia.","Porque Pablo ocupa el otro dormitorio del piso.","Porque Ana cerró la puerta y perdió la llave de su dormitorio."],"ans":0,"exp":"Sam yatak odasını sorunca Ana panikliyor çünkü \"Sam no entiende, solo hay un dormitorio, uno\" (Sam anlamıyor, sadece tek bir yatak odası var) diyor. Evdeki tek odayı Ana ve Lola paylaşıyor."},
+{"id":34,"q":"Al final, ¿dónde va a dormir Sam?","opts":["En la habitación de Pablo, el vecino.","En el sofá cama de la sala de estar (salón).","En un hotel que está cerca de la torre Galata.","En la misma cama grande con Ana y Lola."],"ans":1,"exp":"Ana, Sam'e salondaki kanepenin yatak olabildiğini gösteriyor. \"Es una cama... y aquí tiene su almohada... y por supuesto esto es la tele\" (Bu bir yatak, yastığın da burada) diyerek onu salondaki çekyata yerleştiriyor."},
+{"id":35,"q":"¿Qué excusa usan Ana y Lola al final de la escena para salir rápidamente de la sala?","opts":["Dicen que necesitan llamar a la policía.","Dicen que tienen que ir a la cocina a preparar la cena.","Dicen que Ana tiene que salir a pasear a su perro Luis.","Dicen que necesitan ir al baño para hablar en privado."],"ans":3,"exp":"Sam'i salona yerleştirdikten sonra aralarında acil durum toplantısı yapmak isteyen kızlardan Lola, Ana'yı çekiştirerek \"Necesito ir al baño, Ana, al cuarto de baño, rápido\" (Ana banyoya gitmem lazım, çabuk) diyerek bir bahane uyduruyor."},
+{"id":36,"q":"Basado en el vídeo corto de Sam hablando en inglés, ¿cómo se siente respecto a su presentación en español?","opts":["Está muy orgulloso porque cree que habla como un nativo español.","Piensa que su español es tan malo que quiere regresar a América hoy mismo.","Cree que se presentó en español correctamente, aunque no está completamente seguro.","Sabe perfectamente que cometió errores porque lo hizo a propósito como una broma."],"ans":2,"exp":"Sam günlüğüne kaydettiği videoda İngilizce olarak \"I introduced myself in Spanish... at least I think that's what I said\" (Kendimi İspanyolca tanıttım... en azından öyle söylediğimi sanıyorum) diyerek hata yapıp yapmadığından tam emin olmadığını itiraf ediyor."},
+{"id":37,"q":"Mientras yo ___ (estudiar) en mi habitación, de repente ___ (sonar) el teléfono.","opts":["estudié / sonaba","estudié / sonó","estudiaba / sonaba","estudiaba / sonó"],"ans":3,"exp":"\"Mientras\" (iken) bağlacı arka planda devam eden, süreci olan bir eylemi belirtir, bu yüzden \"estudiaba\" (çalışıyordum) olmalıdır (Imperfecto). \"De repente\" (aniden) ise bu süreci bölen, anlık ve bitmiş bir eylemi gösterir, bu yüzden \"sonó\" (çaldı) kullanılır (Indefinido)."},
+{"id":38,"q":"Cuando nosotros ___ (ser) niños, ___ (ir) a la playa de Çanakkale todos los veranos.","opts":["fuimos / fuimos","éramos / fuimos","éramos / íbamos","fuimos / íbamos"],"ans":2,"exp":"Geçmişteki yaş, dönem veya \"çocukken\" gibi durumlar her zaman Imperfecto ile ifade edilir (éramos). \"Todos los veranos\" (her yaz) ifadesi geçmişte tekrarlanan, alışkanlık haline gelmiş bir eylemi anlattığı için ikinci boşluk da Imperfecto (íbamos) olmalıdır."},
+{"id":39,"q":"Ayer por la tarde, mis amigos y yo ___ (ir) al cine y ___ (ver) una película excelente.","opts":["fuimos / vimos","íbamos / veíamos","fuimos / veíamos","íbamos / vimos"],"ans":0,"exp":"\"Ayer por la tarde\" (dün öğleden sonra) net bir zaman dilimidir ve bitmiş eylemleri gösterir. Sinemaya gitmek ve film izlemek ardışık, tamamlanmış eylemler olduğu için her iki fiil de Indefinido (fuimos / vimos) olmalıdır."},
+{"id":40,"q":"___ (Hacer) mucho frío cuando salí de casa, así que ___ (ponerse) el abrigo.","opts":["Hizo / me ponía","Hacía / me puse","Hacía / me ponía","Hizo / me puse"],"ans":1,"exp":"Geçmişteki hava durumu tasvirleri (hacía mucho frío) Imperfecto ile yapılır çünkü bir durumu anlatır. Paltomu \"giydim\" eylemi ise bir anlık kararla yapılan, bitmiş bir harekettir, bu yüzden Indefinido (me puse) kullanılır."},
+{"id":41,"q":"Cuando yo ___ (tener) diez años, mi familia ___ (mudarse) a Antalya.","opts":["tuve / se mudaba","tenía / se mudó","tenía / se mudaba","tuve / se mudó"],"ans":1,"exp":"İspanyolcada geçmişteki yaşımızı söylerken \"tener\" fiili daima Imperfecto (tenía) çekiminde kullanılır. Ailenin Antalya'ya taşınması ise tek seferlik, tamamlanmış bir olaydır, bu yüzden Indefinido (se mudó) olmalıdır."},
+{"id":42,"q":"El año pasado ___ (viajar) a Madrid, ___ (visitar) muchos museos y ___ (comer) tapas riquísimas.","opts":["viajé / visité / comí","viajaba / visitaba / comía","viajé / visitaba / comí","viajaba / visité / comía"],"ans":0,"exp":"\"El año pasado\" (geçen yıl) zaman zarfı bitmiş bir dönemi işaret eder. Birbiri ardına sıralanan eylemler (gittim, gezdim, yedim) hikayeyi ileriye taşıyan ana olaylar olduğu için hepsi Indefinido ile çekimlenir."},
+{"id":43,"q":"Ana no ___ (ir) a la fiesta de cumpleaños porque ___ (estar) muy enferma.","opts":["iba / estuvo","fue / estuvo","iba / estaba","fue / estaba"],"ans":3,"exp":"Ana'nın partiye gitmemesi tek seferlik, net bir sonuçtur (fue). Gitmeme sebebi olan hastalığı ise geçmişteki bir durum/hal tasviridir. Durum, mazeret ve arka plan bildiren yapı Imperfecto'dur (estaba)."},
+{"id":44,"q":"Mientras mi madre ___ (cocinar), mi padre ___ (leer) un libro en el salón.","opts":["cocinó / leyó","cocinaba / leyó","cocinaba / leía","cocinó / leía"],"ans":2,"exp":"\"Mientras\" (iken) bağlacı aynı anda, birbirini kesmeden devam eden iki paralel eylemi bağlıyorsa, iki fiil de süreç bildirdiği için Imperfecto ile çekimlenir (cocinaba / leía - yemek yapıyorken, okuyordu)."},
+{"id":45,"q":"Nosotros ___ (pasear) por el parque cuando, de pronto, ___ (empezar) a llover muy fuerte.","opts":["paseamos / empezaba","paseamos / empezó","paseábamos / empezó","paseábamos / empezaba"],"ans":2,"exp":"Parkta yürüyüş yapmak (paseábamos) devam eden bir arka plan eylemidir (Imperfecto). \"Cuando\" (dığında) bağlacından sonra gelen ve bu huzurlu yürüyüşü bölen ani olay (yağmurun başlaması - empezó) ise Indefinido'dur."},
+{"id":46,"q":"La chica que vi ayer ___ (ser) alta, ___ (tener) el pelo rubio y ___ (llevar) un vestido rojo.","opts":["fue / tuvo / llevó","fue / tenía / llevaba","era / tuvo / llevó","era / tenía / llevaba"],"ans":3,"exp":"Geçmişteki kişilerin fiziksel özellikleri, görünüşleri, ne giydikleri ve karakter özellikleri her zaman Pretérito Imperfecto kullanılarak (era / tenía / llevaba) tasvir edilir."},
+{"id":47,"q":"___ (Ser) las tres de la madrugada cuando ___ (escuchar) un ruido extraño en la calle.","opts":["Fueron / escuchaba","Eran / escuché","Eran / escuchaba","Fueron / escuché"],"ans":1,"exp":"Geçmişte saatin kaç olduğunu söylerken her zaman Imperfecto (Eran las tres / Era la una) kullanılır. O saatte duyulan tuhaf ses (escuché - duydum) ise bir anlık, bitmiş eylemdir (Indefinido)."},
+{"id":48,"q":"Mis alumnos de español ___ (estudiar) los verbos irregulares durante tres horas ayer.","opts":["estudiaron","estudiaban","estudian","han estudiado"],"ans":0,"exp":"Eylem \"durante tres horas\" (üç saat boyunca) gibi ne kadar sürdüğü belli olan net bir zaman sınırına sahipse ve \"ayer\" (dün) gibi geçmişte bitmiş bir zaman dilimindeyse daima Indefinido (estudiaron) kullanılır. Eylemin uzun sürmesi onu imperfecto yapmaz, önemli olan sınırlarının belli olmasıdır."},
+{"id":49,"q":"Yo caminaba tranquilamente hacia mi casa y de repente ___ (ver) a mi gato Zeytin en el techo.","opts":["vi","veía","he visto","veo"],"ans":0,"exp":"İlk fiil \"caminaba\" arka planda süregelen eylemi veriyor (yürüyordum). \"De repente\" (aniden/birden) zarfı, devam eden bu eylemi bölen, anlık gelişen bir olayı işaret ettiği için boşluğa Indefinido (vi - gördüm) gelmelidir."},
+{"id":50,"q":"Antes, yo ___ (vivir) en un pueblo muy pequeño, pero en 2020 ___ (comprar) una casa en el centro de la ciudad.","opts":["viví / compraba","viví / compré","vivía / compré","vivía / compraba"],"ans":2,"exp":"\"Antes\" (eskiden) zarfıyla başlayan cümleler geçmişteki alışkanlıkları ve yaşam durumlarını anlattığı için Imperfecto (vivía) gerektirir. \"En 2020\" ise geçmişte belirli ve tamamlanmış bir tarihi işaret ettiği için ev alma eylemi Indefinido (compré) ile kullanılır."}
+];
+
+let student='',answers={},cur=0;
+let resCollapsed={1:false,2:false};
+
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('sc-'+id).classList.add('active');window.scrollTo(0,0);}
+function startQuiz(){
+  const s=document.getElementById('name-sel');
+  if(!s.value){alert('Lütfen adınızı seçin!');return;}
+  student=s.value;answers={};cur=0;
+  document.getElementById('top-st').textContent=student;
+  show('quiz');render();
+}
+function getSection(id){for(const s of SECTIONS){if(id>=s.from&&id<=s.to)return s;}return SECTIONS[0];}
+function toggleRes(sid){resCollapsed[sid]=!resCollapsed[sid];render();}
+function renderResource(sec){
+  if(sec.id===1){
+    const c=resCollapsed[1];
+    let h='<div class="resw"><div class="resh" onclick="toggleRes(1)"><h3>&#x1F4D6; Okuma Metni: Una Carta de Claudia desde Estambul</h3><span class="rest">'+(c?'Göster':'Gizle')+'</span></div>';
+    h+='<div class="resb'+(c?' collapsed':'')+'">'+READING_TEXT.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</div></div>';
+    return h;
+  }
+  if(sec.id===2){
+    const c=resCollapsed[2];
+    let h='<div class="resw"><div class="resh" onclick="toggleRes(2)"><h3>&#x1F3AC; Video: Extra Español (Ep. 1)</h3><span class="rest">'+(c?'Göster':'Gizle')+'</span></div>';
+    h+='<div class="resv'+(c?' collapsed':'')+'"><div class="vwrap"><iframe src="https://www.youtube.com/embed/'+VIDEO_ID+'?list='+VIDEO_LIST+'" title="Extra Español Ep.1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+    h+='<a class="vlink" href="'+VIDEO_URL+'" target="_blank" rel="noopener">&#x25b6; YouTube\'da aç</a></div></div>';
+    return h;
+  }
+  return '';
+}
+function render(){
+  const q=QS[cur];
+  const sec=getSection(q.id);
+  const done=Object.keys(answers).length;
+  document.getElementById('pgf').style.width=(done/TOTAL*100)+'%';
+  document.getElementById('pg-sec').innerHTML=sec.label;
+  document.getElementById('pg-cur').textContent=cur+1;
+  document.getElementById('nav-ctr').textContent=(cur+1)+' / '+TOTAL;
+  document.getElementById('fin-ans').textContent=done;
+  document.getElementById('btn-prev').disabled=(cur===0);
+  const bn=document.getElementById('btn-next');
+  if(cur===TOTAL-1){bn.textContent='✔ Teslim Et';bn.className='btn bg bs';bn.onclick=goConfirm;}
+  else{bn.textContent='İleri →';bn.className='btn bm bs';bn.onclick=()=>nav(1);}
+  document.getElementById('res-area').innerHTML=renderResource(sec);
+  const ua=answers[q.id];
+  const qText=q.q.replace(/___+/g,'<span style="color:var(--c5);font-weight:800">______</span>');
+  let h='<div class="sb">'+sec.label+'</div><div class="qc">';
+  h+='<div class="qh"><div class="qn">'+q.id+'</div><div class="qt">'+qText+'</div></div>';
+  h+='<div class="qo">';
+  q.opts.forEach((o,i)=>{
+    let c='ob';
+    if(ua!==undefined){if(i===q.ans)c+=' ok';if(i===ua&&ua!==q.ans)c+=' er';}
+    h+='<button class="'+c+'" '+(ua!==undefined?'disabled':'')+' onclick="pick('+q.id+','+i+')"><span class="ol">'+LTR[i]+'</span><span>'+o+'</span></button>';
+  });
+  h+='</div>';
+  h+='<div class="ex '+(ua!==undefined?'show':'')+'"><div class="exl">&#x1F4A1; Açıklama</div>'+q.exp+'</div>';
+  h+='</div>';
+  document.getElementById('q-area').innerHTML=h;
+  let ok=0,er=0;
+  QS.forEach(qq=>{const a=answers[qq.id];if(a===undefined)return;if(a===qq.ans)ok++;else er++;});
+  document.getElementById('sc-ok').textContent=ok;
+  document.getElementById('sc-er').textContent=er;
+}
+function nav(d){cur=Math.max(0,Math.min(TOTAL-1,cur+d));render();}
+function pick(qid,i){if(answers[qid]!==undefined)return;answers[qid]=i;render();}
+function goConfirm(){document.getElementById('cf-sel').value=student;show('confirm');}
+function confirmSubmit(){
+  try{
+    const s=document.getElementById('cf-sel');
+    if(!s||!s.value){alert('Lütfen adınızı seçin!');return;}
+    student=s.value;
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=true;b.textContent='⏳ Kaydediliyor…';}
+    doSubmit();
+  }catch(e){
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=false;b.textContent='✔ Evet, Teslim Et';}
+    alert('Hata: '+e.message);
+  }
+}
+function doSubmit(){
+  let ok=0,er=0,bl=0;
+  const secCounts={1:0,2:0,3:0};
+  QS.forEach(q=>{
+    const a=answers[q.id];
+    if(a===undefined){bl++;return;}
+    if(a===q.ans){
+      ok++;
+      const sec=getSection(q.id);
+      secCounts[sec.id]++;
+    } else er++;
+  });
+  const score=ok*PTS;
+  document.getElementById('rs-name').textContent=student;
+  document.getElementById('rs-score').innerHTML=score+'<span>/100</span>';
+  document.getElementById('rs-pct').textContent='%'+score+' başarı';
+  document.getElementById('rs-c').textContent=ok;
+  document.getElementById('rs-w').textContent=er;
+  document.getElementById('rs-b').textContent=bl;
+  SECTIONS.forEach(s=>{
+    document.getElementById('br'+s.id).textContent=(secCounts[s.id]*PTS)+' / '+(s.count*PTS);
+  });
+  show('result');
+  saveSheets(student,score,ok,er,bl);
+}
+async function saveSheets(nm,score,ok,er,bl){
+  const el=document.getElementById('rs-status');
+  try{
+    const n=new Date();
+    const dd=String(n.getDate()).padStart(2,'0'),mm=String(n.getMonth()+1).padStart(2,'0'),yy=n.getFullYear();
+    const hh=String(n.getHours()).padStart(2,'0'),mi=String(n.getMinutes()).padStart(2,'0'),ss2=String(n.getSeconds()).padStart(2,'0');
+    const fmt='✅ '+score+'/100\n✓'+ok+' ✗'+er+'\n'+dd+'.'+mm+'.'+yy+'\n'+hh+':'+mi+':'+ss2;
+    await fetch(ASU,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({spreadsheetId:SID,sheetName:SHN,studentName:nm,taskColumn:TCL,score,correct:ok,wrong:er,blank:bl,formatted:fmt})});
+    el.className='stb stok';el.textContent='✅ Ödev başarıyla kaydedildi!';
+  }catch(e){
+    el.className='stb ster';el.textContent='⚠️ Kaydedilemedi — Profeye bildirin';
+  }
+}
+function goName(){answers={};cur=0;document.getElementById('name-sel').value='';show('name');}
+</script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2.2 · H2 – 7-8. Ders · Yazma Ödevi</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--c1:#eaf7e6;--c2:#bfe6ac;--c3:#d3ecc9;--c4:#8fcf95;--c5:#559d6a;--dark:#20402a;--mid:#5c7d63;--white:#fff;--green:#3f8f52;--red:#d97070;--gold1:#f5dca0;--gold2:#dcac48;--blue1:#dcedf9;--blue2:#3d7ea6;--r:14px}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1,#eefaf3 60%,#f7fdf3);min-height:100vh;color:var(--dark)}
+.header{background:linear-gradient(135deg,var(--c4),var(--c5));padding:18px 20px 14px;text-align:center;box-shadow:0 4px 18px rgba(85,157,106,.35);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.1) 14px,rgba(255,255,255,.1) 15px)}
+.htag{display:inline-block;background:rgba(255,255,255,.35);border:1.5px solid rgba(255,255,255,.55);border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 14px;margin-bottom:8px;color:#fff;position:relative}
+.header h1{font-size:clamp(16px,4vw,23px);font-weight:800;color:#fff;position:relative}
+.header-sub{font-size:12px;color:rgba(255,255,255,.9);margin-top:4px;position:relative}
+.screen{display:none;animation:fi .3s ease}.screen.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.nb{max-width:440px;margin:0 auto;padding:32px 20px;text-align:center}
+.nb h2{font-size:20px;color:var(--dark);margin-bottom:5px}
+.nb p{font-size:13px;color:var(--mid);margin-bottom:20px}
+.sel,.tin{width:100%;padding:13px 16px;font-size:15px;background:#fff;border:2px solid var(--c3);border-radius:var(--r);color:var(--dark);appearance:none;cursor:pointer;margin-bottom:14px;font-family:inherit}
+.tin{cursor:text}
+.sel:focus,.tin:focus{outline:none;border-color:var(--c4)}
+.ib{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:14px 16px;margin-bottom:18px;text-align:left;font-size:13px;line-height:1.75}
+.ibr{display:flex;align-items:flex-start;gap:9px;margin-bottom:5px}
+.ibd{width:8px;height:8px;border-radius:50%;background:var(--c4);flex-shrink:0;margin-top:5px}
+.ibh{height:1px;background:var(--c3);margin:9px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 24px;border:none;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.bm{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;box-shadow:0 4px 12px rgba(85,157,106,.35)}
+.bm:hover:not(:disabled){transform:translateY(-2px)}
+.bg{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--dark);box-shadow:0 4px 12px rgba(220,172,72,.4)}
+.bg:hover:not(:disabled){transform:translateY(-2px)}
+.bo{background:#fff;border:2px solid var(--c3);color:var(--dark)}
+.bo:hover:not(:disabled){background:var(--c3)}
+.bs{padding:9px 18px;font-size:13px}
+.bf{width:100%}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important}
+.qw{max-width:720px;margin:0 auto;padding:16px}
+.sb{display:inline-flex;align-items:center;background:linear-gradient(90deg,var(--c4),var(--c5));border-radius:20px;padding:6px 16px;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:10px;box-shadow:0 2px 8px rgba(85,157,106,.3)}
+.konu{background:linear-gradient(135deg,rgba(143,207,149,.18),rgba(85,157,106,.12));border:1.5px solid var(--c4);border-radius:var(--r);padding:14px 18px;margin-bottom:14px}
+.konu h2{font-size:16px;color:var(--dark);margin-bottom:6px}
+.konu p{font-size:13px;color:var(--mid);line-height:1.7}
+.card{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:14px}
+.cardpad{padding:16px 18px}
+.instr{background:var(--blue1);border-left:3px solid var(--blue2);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:14px;font-size:12.5px;line-height:1.85;color:#1a3a4c}
+.instrl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue2);margin-bottom:6px}
+.instr ul{margin-left:18px}
+.instr li{margin-bottom:4px}
+.taform{display:grid;gap:10px;margin-bottom:14px}
+.tarow{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:10px;font-size:12.5px}
+.tarow label{font-weight:700;color:var(--c5)}
+.tarow .staticv{background:var(--c1);border:1.5px solid var(--c3);border-radius:8px;padding:9px 12px;font-size:13px;color:var(--dark)}
+.tarow input{padding:9px 12px;font-size:13px;border:1.5px solid var(--c3);border-radius:8px;font-family:inherit;color:var(--dark)}
+.tarow input:focus{outline:none;border-color:var(--c4)}
+.resw{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:14px}
+.resh{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:var(--c1);cursor:pointer}
+.resh h3{font-size:13px;font-weight:800;color:var(--dark)}
+.rest{font-size:11px;font-weight:700;color:var(--c5);background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:4px 12px;white-space:nowrap}
+.resb{padding:14px 18px;font-size:13px;line-height:1.85;color:var(--dark)}
+.resb.collapsed{display:none}
+.zamangrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:14px 16px}
+@media(max-width:520px){.zamangrid{grid-template-columns:repeat(2,1fr)}}
+.zamanitem{background:linear-gradient(135deg,var(--c3),var(--c1));border:1px solid var(--c4);border-radius:12px;padding:12px 8px;text-align:center}
+.zamanitem .zn{font-size:24px;font-weight:900;color:var(--c5);line-height:1}
+.zamanitem .zl{font-size:10.5px;color:var(--mid);margin-top:4px;line-height:1.35}
+.kural{background:var(--c1);border:1.5px dashed var(--gold2);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.kurall{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#8a6a1a;margin-bottom:8px}
+.kural .q{font-size:14px;font-weight:700;color:var(--dark);text-align:center;margin:10px 0;padding:10px;background:#fff;border-radius:10px;border:1px solid var(--gold1)}
+.kural .ex{font-size:13px;font-style:italic;color:var(--c5);background:#fff;border-radius:8px;padding:10px 12px;margin-top:8px}
+.promptgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px 16px}
+@media(max-width:560px){.promptgrid{grid-template-columns:1fr}}
+.promptitem{background:#f7fcf5;border:1.5px solid var(--c3);border-radius:10px;padding:9px 12px;font-size:12.5px;line-height:1.55}
+.exmpl{background:var(--c1);border:1.5px dashed var(--c4);border-radius:12px;padding:12px 16px;margin-bottom:14px;font-size:13px;line-height:1.95}
+.exmpll{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--c5);margin-bottom:6px}
+.exmpl code{background:#fff;border:1px solid var(--c3);border-radius:6px;padding:2px 7px;font-style:italic;color:var(--dark);display:inline-block;margin:2px 0}
+table.rubric{width:100%;border-collapse:collapse;font-size:12.5px}
+.rubric th{background:linear-gradient(90deg,var(--c4),var(--c5));padding:10px 14px;text-align:left;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:#fff}
+.rubric td{padding:9px 14px;border-bottom:1px solid var(--c3);vertical-align:top;line-height:1.5}
+.rubric tr:last-child td{border-bottom:none;font-weight:800;background:rgba(220,172,72,.12)}
+.rubric tr:nth-child(even) td{background:rgba(191,230,172,.15)}
+.rubric .pts{text-align:right;color:#8a6a1a;font-weight:800;white-space:nowrap}
+.wtitle{padding:16px 18px 4px;font-size:13px;font-weight:800;color:var(--dark)}
+textarea.wta{width:100%;min-height:340px;padding:14px 16px;font-size:14px;line-height:1.85;font-family:inherit;color:var(--dark);background:var(--c1);border:2px solid var(--c3);border-radius:10px;resize:vertical;margin:10px 18px 0;width:calc(100% - 36px);transition:border-color .2s}
+textarea.wta:focus{outline:none;border-color:var(--c4)}
+.wcbar{display:flex;justify-content:space-between;align-items:center;padding:8px 18px 16px;font-size:12px;color:var(--mid);flex-wrap:wrap;gap:6px}
+.wcnum{font-weight:800;font-size:13px}
+.wcnum.low{color:var(--red)}
+.wcnum.ok{color:var(--green)}
+.gatebox{display:flex;align-items:flex-start;gap:10px;background:#fdf7e8;border:1.5px solid var(--gold2);border-radius:10px;padding:12px 16px;margin:0 18px 16px}
+.gatebox input[type=checkbox]{width:19px;height:19px;margin-top:1px;accent-color:var(--c5);cursor:pointer;flex-shrink:0}
+.gatebox label{font-size:12.5px;line-height:1.6;color:var(--dark);cursor:pointer}
+.gatebox .warn{font-size:11px;color:#a04040;margin-top:4px;font-weight:700}
+.wnav{display:flex;justify-content:center;padding:0 18px 18px}
+.cfw{max-width:420px;margin:0 auto;padding:40px 20px;text-align:center}
+.cfw h2{font-size:22px;color:var(--dark);margin-bottom:8px}
+.cfw p{font-size:14px;color:var(--mid);margin-bottom:20px;line-height:1.6}
+.ns{background:rgba(85,157,106,.1);border:2px solid var(--c4);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;font-size:14px;font-weight:700;color:var(--c5)}
+.rw{max-width:460px;margin:0 auto;padding:28px 20px;text-align:center}
+.rc{background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:28px 22px;margin-bottom:14px;box-shadow:0 6px 24px rgba(143,207,149,.2)}
+.re{font-size:50px;margin-bottom:10px}
+.rn{font-size:14px;color:var(--mid);margin-bottom:3px}
+.rt{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:16px}
+.stb{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;font-size:13px;font-weight:700;margin-bottom:14px}
+.stok{background:rgba(63,143,82,.15);border:1.5px solid rgba(63,143,82,.4);color:#2c6b3a}
+.ster{background:rgba(217,112,112,.15);border:1.5px solid rgba(217,112,112,.4);color:#a04040}
+.stpnd{background:rgba(220,172,72,.2);border:1.5px solid rgba(220,172,72,.5);color:#8a6a1a}
+.rp{font-size:13px;color:var(--mid);line-height:1.7;margin-top:6px}
+.ra{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="htag">2. Hafta Ödevi &nbsp;|&nbsp; A2.2 (7-8. Ders)</div>
+  <h1>&#x1F1EA;&#x1F1F8; A2.2 – H2 7-8. Ders – Yazma Ödevi</h1>
+  <div class="header-sub">Pretérito Pluscuamperfecto &nbsp;&bull;&nbsp; Yazma Ödevi &nbsp;&bull;&nbsp; 100 puan &nbsp;&bull;&nbsp; @ispanyolcacim &nbsp;&bull;&nbsp; Profe Hazel</div>
+</div>
+
+<div class="screen active" id="sc-name">
+  <div class="nb">
+    <h2>&#x1F4DA; Adınızı seçin</h2>
+    <p>Ödeve başlamadan önce lütfen listeden adınızı seçin.</p>
+    <select class="sel" id="name-sel"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
+      <option>Zumeyra Dogan</option></select>
+    <div class="ib">
+      <div class="ibr"><div class="ibd"></div><span><strong>Konu:</strong> En son gittiğiniz bir yeri (şehir, ülke, tatil bölgesi vb.) ayrıntılı olarak anlatan bir yazı yazacaksınız.</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>Zorunlu zaman:</strong> Pretérito Pluscuamperfecto (+ Indefinido, Imperfecto, Perfecto)</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>Minimum:</strong> 450 kelime &amp; 6 paragraf</span></div>
+      <div class="ibh"></div>
+      <div class="ibr"><div class="ibd" style="background:var(--c5)"></div><span>Yazınız bu sayfadan doğrudan <strong>Profe Hazel'e e-posta ile</strong> iletilecektir.</span></div>
+    </div>
+    <button class="btn bm bf" onclick="startWriting()">&#x25b6; Başla</button>
+  </div>
+</div>
+
+<div class="screen" id="sc-writing">
+  <div class="qw">
+    <div class="sb">✍️ Yazma Ödevi &middot; 100 puan</div>
+    <div class="konu">
+      <h2>Konu: En Son Gittiğim Yer ve Gözlemlerim</h2>
+      <p>En son gittiğiniz bir şehir, ülke, tatil bölgesi veya farklı bir yeri ayrıntılı olarak anlatınız. Yazınızda yalnızca <strong>nereye gittiğinizi ve ne yaptığınızı</strong> anlatmayınız. Seyahatten önce yaptığınız hazırlıkları, oraya vardığınızda gördüklerinizi, yaşadığınız önemli bir olayı ve seyahatin sizin üzerinizde bıraktığı etkiyi de açıklayınız.</p>
+    </div>
+
+    <div class="card">
+      <div class="cardpad">
+        <div class="wtitle" style="padding:0 0 8px">&#x1F4CB; Yazınızın Başına Ekleyin</div>
+        <div class="taform">
+          <div class="tarow"><label>Nombre y Apellido</label><div class="staticv" id="ta-name">—</div></div>
+          <div class="tarow"><label>Número de tarea</label><div class="staticv">A2.2 (7+8)</div></div>
+          <div class="tarow"><label>Tema de la tarea</label><div class="staticv">Pretérito Pluscuamperfecto</div></div>
+          <div class="tarow"><label>Título de tu texto</label><input class="tin" id="ta-title" placeholder="Yazınızın başlığını yazın…" style="margin-bottom:0" oninput="updateGate()"></div>
+        </div>
+
+        <div class="instr">
+          <div class="instrl">Yönerge</div>
+          Yazınız:
+          <ul>
+            <li>En az <strong>450 kelime</strong> olmalıdır.</li>
+            <li>En az <strong>6 paragraftan</strong> oluşmalıdır.</li>
+            <li>Giriş, gelişme ve sonuç bölümleri bulunmalıdır.</li>
+            <li>Olaylar yalnızca sıralanmamalı; açıklanmalı ve birbirine bağlanmalıdır.</li>
+            <li>En az bir <strong>unutulmaz, şaşırtıcı veya beklenmedik olay</strong> ayrıntılı olarak anlatılmalıdır.</li>
+            <li>Bağlaç ve zaman ifadeleri kullanılmalıdır.</li>
+            <li>Yazım, noktalama, tilde, artikel ve fiil çekimlerine dikkat edilmelidir.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resw" style="border:none;border-radius:0;box-shadow:none;border-top:1.5px solid var(--c3);margin-bottom:0">
+        <div class="resh" onclick="toggleBox('zbox')"><h3>&#x23f3; Kullanılması Zorunlu Zamanlar</h3><span class="rest" id="zbox-tog">Gizle</span></div>
+        <div class="resb" id="zbox">
+          <div class="zamangrid" style="padding:0 0 4px">
+            <div class="zamanitem"><div class="zn">8+</div><div class="zl">Pretérito<br>Pluscuamperfecto</div></div>
+            <div class="zamanitem"><div class="zn">6+</div><div class="zl">Pretérito<br>Indefinido</div></div>
+            <div class="zamanitem"><div class="zn">5+</div><div class="zl">Pretérito<br>Imperfecto</div></div>
+            <div class="zamanitem"><div class="zn">2+</div><div class="zl">Pretérito<br>Perfecto</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kural" style="margin:14px 18px 0">
+        <div class="kurall">&#x2b50; En Önemli Kural</div>
+        Pluscuamperfecto, geçmişte gerçekleşen başka bir olaydan <strong>DAHA ÖNCE</strong> gerçekleşmiş bir olayı anlatmalıdır.
+        <div class="ex">"Cuando llegamos al hotel, ya habíamos reservado la habitación."</div>
+        <div class="q">Yazarken kendinize sorun: "Bu olay gerçekleştiğinde, daha önce ne olmuştu?"</div>
+      </div>
+
+      <div class="resw" style="margin:14px 18px 0;box-shadow:none">
+        <div class="resh" onclick="toggleBox('pbox')"><h3>&#x1F4A1; Neler Anlatabilirsiniz?</h3><span class="rest" id="pbox-tog">Gizle</span></div>
+        <div class="promptgrid" id="pbox">
+          <div class="promptitem">Nereye, ne zaman ve neden gittiniz?</div>
+          <div class="promptitem">Kiminle gittiniz?</div>
+          <div class="promptitem">Seyahatten önce hangi hazırlıkları yapmıştınız?</div>
+          <div class="promptitem">Yolculuğunuz nasıl geçti?</div>
+          <div class="promptitem">Oraya vardığınızda hava ve ortam nasıldı?</div>
+          <div class="promptitem">Hangi yerleri gezdiniz?</div>
+          <div class="promptitem">Yerel halk ve kültür hakkında neler gözlemlediniz?</div>
+          <div class="promptitem">Hangi yemekleri denediniz?</div>
+          <div class="promptitem">Daha önce hiç yaşamadığınız bir deneyim oldu mu?</div>
+          <div class="promptitem">Seyahatinizin en unutulmaz anı neydi?</div>
+          <div class="promptitem">O olaydan önce ne olmuştu?</div>
+          <div class="promptitem">Bu seyahat size ne öğretti?</div>
+          <div class="promptitem">Tekrar gitmek ister misiniz? Neden?</div>
+        </div>
+      </div>
+
+      <div class="exmpl" style="margin:14px 18px 0">
+        <div class="exmpll">&#x1F517; Kullanabileceğiniz Yapılar</div>
+        <code>Cuando llegué..., ya había...</code><br>
+        <code>Antes de viajar, había...</code><br>
+        <code>Hasta ese momento, nunca había...</code><br>
+        <code>Todavía no había...</code><br>
+        <code>Me di cuenta de que había...</code><br>
+        <code>Descubrí que habían...</code><br>
+        <code>Nunca había probado...</code><br>
+        <code>Ya habíamos reservado...</code>
+      </div>
+
+      <div class="resw" style="margin:14px 18px 0;box-shadow:none">
+        <div class="resh" onclick="toggleBox('rbox')"><h3>&#x1F4CA; Puanlama Cetveli</h3><span class="rest" id="rbox-tog">Gizle</span></div>
+        <div class="resb" id="rbox" style="padding:0;overflow-x:auto">
+          <table class="rubric">
+            <thead><tr><th>Kriter</th><th class="pts">Puan</th></tr></thead>
+            <tbody>
+              <tr><td>Başlık ve ödev bilgilerinin eksiksiz olması</td><td class="pts">5</td></tr>
+              <tr><td>En az 450 kelime ve 6 paragraf şartının karşılanması</td><td class="pts">10</td></tr>
+              <tr><td>Giriş – gelişme – sonuç düzeni</td><td class="pts">10</td></tr>
+              <tr><td>Konunun ayrıntılı ve bağlantılı biçimde anlatılması</td><td class="pts">15</td></tr>
+              <tr><td>Pluscuamperfecto'nun doğru ve uygun kullanılması</td><td class="pts">25</td></tr>
+              <tr><td>Dört geçmiş zamanın doğru ayırt edilmesi</td><td class="pts">15</td></tr>
+              <tr><td>Bağlaçlar, zaman ifadeleri ve metin akıcılığı</td><td class="pts">10</td></tr>
+              <tr><td>Dil bilgisi, kelime seçimi, artikel, tilde, yazım ve noktalama</td><td class="pts">10</td></tr>
+              <tr><td>TOPLAM</td><td class="pts">100</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="wtitle">&#x270f;&#xfe0f; Yazınızı Aşağıya Yazın</div>
+      <textarea class="wta" id="wtext" placeholder="Yazınızı buraya yazınız… (En az 450 kelime, en az 6 paragraf)" oninput="updateGate()"></textarea>
+      <div class="wcbar">
+        <span>Kelime sayısı: <span class="wcnum low" id="wc-num">0</span> / Minimum 450 kelime</span>
+        <span>Paragraf sayısı (yaklaşık): <span class="wcnum" id="pc-num">0</span> / Minimum 6</span>
+      </div>
+
+      <div class="gatebox">
+        <input type="checkbox" id="chk-photo" onchange="updateGate()">
+        <label for="chk-photo">
+          <strong>Ödevimin fotoğrafını çektim / yazımın bir kopyasını aldım.</strong>
+          <div class="warn">&#x26a0;&#xfe0f; Bu kutucuğu işaretlemeden teslim butonu aktif olmayacaktır.</div>
+        </label>
+      </div>
+
+      <div class="wnav">
+        <button class="btn bg bf" id="btn-goconfirm" onclick="goToConfirm()" disabled>&#x2714; Yazıyı Tamamladım, Teslim Et</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="sc-confirm">
+  <div class="cfw">
+    <div style="font-size:48px;margin-bottom:12px">&#x1F4CB;</div>
+    <h2>Ödevi Teslim Et</h2>
+    <div class="ns">&#x26a0;&#xfe0f; ÖDEVİNİZ HENÜZ TESLİM EDİLMEDİ</div>
+    <p>Teslim etmeden önce listeden adınızı seçin ve onaylayın.</p>
+    <select class="sel" id="cf-sel" style="margin-bottom:16px"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
+      <option>Zumeyra Dogan</option></select>
+    <button class="btn bg bf" id="cf-btn" onclick="confirmSubmit()">&#x2714; Evet, Teslim Et</button>
+    <div style="margin-top:14px"><button class="btn bo bs" onclick="backToWriting()">&#x2190; Yazıma Geri Dön</button></div>
+  </div>
+</div>
+
+<div class="screen" id="sc-result">
+  <div class="rw">
+    <div class="rc">
+      <div class="re">&#x1F1EA;&#x1F1F8;</div>
+      <div class="rn" id="rs-name">&#x2014;</div>
+      <div class="rt">A2.2 · H2 – 7-8. Ders · Pretérito Pluscuamperfecto · Yazma</div>
+      <div class="stb stpnd" id="rs-status">&#x23f3; Gönderiliyor&#x2026;</div>
+      <div class="rp">Yazınız Profe Hazel'e e-posta ile iletildi. Puanınız değerlendirme sonrasında bildirilecektir.</div>
+    </div>
+    <div class="ra"><button class="btn bo" onclick="goName()">&#x1F504; Yeniden Başla</button></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+emailjs.init('xNYEbUQNiWJPvbyoJ');
+const EMAILJS_SERVICE='service_4ee1wh7';
+const EMAILJS_TEMPLATE='template_xjyyxhf';
+const LESSON_NAME='A2.2 – 2. Hafta 7-8. Ders (Pretérito Pluscuamperfecto – Yazma Ödevi)';
+
+let student='';
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('sc-'+id).classList.add('active');window.scrollTo(0,0);}
+
+function startWriting(){
+  const s=document.getElementById('name-sel');
+  if(!s.value){alert('Lütfen adınızı seçin!');return;}
+  student=s.value;
+  document.getElementById('ta-name').textContent=student;
+  show('writing');
+  updateGate();
+}
+
+function toggleBox(id){
+  const el=document.getElementById(id);
+  const btn=document.getElementById(id+'-tog');
+  el.classList.toggle('collapsed');
+  btn.textContent=el.classList.contains('collapsed')?'Göster':'Gizle';
+}
+
+function countWords(t){t=t.trim();return t===''?0:t.split(/\s+/).length;}
+function countParas(t){return t.split('\n').map(l=>l.trim()).filter(l=>l.length>0).length;}
+
+function updateGate(){
+  const text=document.getElementById('wtext').value;
+  const wc=countWords(text), pc=countParas(text);
+  const wcEl=document.getElementById('wc-num'), pcEl=document.getElementById('pc-num');
+  wcEl.textContent=wc; pcEl.textContent=pc;
+  wcEl.className='wcnum '+(wc>=450?'ok':'low');
+  pcEl.className='wcnum '+(pc>=6?'ok':'low');
+  const title=document.getElementById('ta-title').value.trim();
+  const checked=document.getElementById('chk-photo').checked;
+  const ready = checked && title.length>0 && text.trim().length>0;
+  document.getElementById('btn-goconfirm').disabled=!ready;
+}
+
+function goToConfirm(){
+  const text=document.getElementById('wtext').value.trim();
+  const title=document.getElementById('ta-title').value.trim();
+  const checked=document.getElementById('chk-photo').checked;
+  if(!checked){alert('Lütfen önce "Ödevimin fotoğrafını çektim / yazımın bir kopyasını aldım" kutucuğunu işaretleyin.');return;}
+  if(!title){alert('Lütfen yazınızın başlığını girin.');return;}
+  if(!text){alert('Lütfen yazınızı tamamlayın.');return;}
+  const wc=countWords(text);
+  if(wc<450){
+    if(!confirm('Kelime sayınız şu anda '+wc+'. Minimum 450 kelime isteniyor. Yine de devam etmek istiyor musunuz?')) return;
+  }
+  document.getElementById('cf-sel').value=student;
+  show('confirm');
+}
+
+function backToWriting(){show('writing');}
+
+function confirmSubmit(){
+  try{
+    const s=document.getElementById('cf-sel');
+    if(!s||!s.value){alert('Lütfen adınızı seçin!');return;}
+    student=s.value;
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=true;b.textContent='⏳ Gönderiliyor…';}
+    doSubmit();
+  }catch(e){
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=false;b.textContent='✔ Evet, Teslim Et';}
+    alert('Hata: '+e.message);
+  }
+}
+
+async function doSubmit(){
+  const text=document.getElementById('wtext').value.trim();
+  const title=document.getElementById('ta-title').value.trim();
+  const wc=countWords(text), pc=countParas(text);
+  const now=new Date();
+  const tarih=now.toLocaleDateString('tr-TR')+' '+now.toLocaleTimeString('tr-TR');
+  const fullText='ÖĞRENCİ: '+student+'\nBAŞLIK: '+title+'\nNÚMERO DE TAREA: A2.2 (7+8)\nTEMA: Pretérito Pluscuamperfecto\nKELİME SAYISI: '+wc+'\nPARAGRAF SAYISI (yaklaşık): '+pc+'\nTESLİM TARİHİ: '+tarih+'\n\n--- YAZI ---\n\n'+text;
+
+  document.getElementById('rs-name').textContent=student;
+  show('result');
+  const st=document.getElementById('rs-status');
+  st.className='stb stpnd';st.textContent='⏳ Gönderiliyor…';
+
+  try{
+    await emailjs.send(EMAILJS_SERVICE,EMAILJS_TEMPLATE,{
+      student_name:student,
+      lesson:LESSON_NAME,
+      submit_date:tarih,
+      writing_text:fullText,
+      title:title,
+      word_count:wc
+    });
+    st.className='stb stok';st.textContent='✅ Yazınız başarıyla gönderildi!';
+  }catch(e){
+    st.className='stb ster';st.textContent='⚠️ Gönderilemedi — internet bağlantınızı kontrol edip tekrar deneyin';
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=false;b.textContent='✔ Evet, Teslim Et';}
+  }
+}
+
+function goName(){
+  student='';
+  document.getElementById('name-sel').value='';
+  document.getElementById('cf-sel').value='';
+  document.getElementById('ta-title').value='';
+  document.getElementById('wtext').value='';
+  document.getElementById('chk-photo').checked=false;
+  document.getElementById('ta-name').textContent='—';
+  updateGate();
+  show('name');
+}
+</script>
+</body>
+</html>

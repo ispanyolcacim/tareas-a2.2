@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2.2 · H3 – 11-12. Ders · Yazma (Dictado)</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--c1:#eaf7e6;--c2:#bfe6ac;--c3:#d3ecc9;--c4:#8fcf95;--c5:#559d6a;--dark:#20402a;--mid:#5c7d63;--white:#fff;--green:#3f8f52;--red:#d97070;--gold1:#f5dca0;--gold2:#dcac48;--blue1:#dcedf9;--blue2:#3d7ea6;--r:14px}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1,#eefaf3 60%,#f7fdf3);min-height:100vh;color:var(--dark)}
+.header{background:linear-gradient(135deg,var(--c4),var(--c5));padding:18px 20px 14px;text-align:center;box-shadow:0 4px 18px rgba(85,157,106,.35);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.1) 14px,rgba(255,255,255,.1) 15px)}
+.htag{display:inline-block;background:rgba(255,255,255,.35);border:1.5px solid rgba(255,255,255,.55);border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 14px;margin-bottom:8px;color:#fff;position:relative}
+.header h1{font-size:clamp(16px,4vw,23px);font-weight:800;color:#fff;position:relative}
+.header-sub{font-size:12px;color:rgba(255,255,255,.9);margin-top:4px;position:relative}
+.screen{display:none;animation:fi .3s ease}.screen.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.nb{max-width:440px;margin:0 auto;padding:32px 20px;text-align:center}
+.nb h2{font-size:20px;color:var(--dark);margin-bottom:5px}
+.nb p{font-size:13px;color:var(--mid);margin-bottom:20px}
+.sel{width:100%;padding:13px 16px;font-size:15px;background:#fff;border:2px solid var(--c3);border-radius:var(--r);color:var(--dark);appearance:none;cursor:pointer;margin-bottom:14px;font-family:inherit}
+.sel:focus{outline:none;border-color:var(--c4)}
+.ib{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:14px 16px;margin-bottom:18px;text-align:left;font-size:13px;line-height:1.75}
+.ibr{display:flex;align-items:flex-start;gap:9px;margin-bottom:5px}
+.ibd{width:8px;height:8px;border-radius:50%;background:var(--c4);flex-shrink:0;margin-top:5px}
+.ibh{height:1px;background:var(--c3);margin:9px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 24px;border:none;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.bm{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;box-shadow:0 4px 12px rgba(85,157,106,.35)}
+.bm:hover:not(:disabled){transform:translateY(-2px)}
+.bg{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--dark);box-shadow:0 4px 12px rgba(220,172,72,.4)}
+.bg:hover:not(:disabled){transform:translateY(-2px)}
+.bo{background:#fff;border:2px solid var(--c3);color:var(--dark)}
+.bo:hover:not(:disabled){background:var(--c3)}
+.bf{width:100%}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none!important}
+.ww{max-width:640px;margin:0 auto;padding:20px 16px}
+.tb{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:10px 16px;margin-bottom:14px;gap:8px;flex-wrap:wrap}
+.ts{font-size:12px;color:var(--mid);font-weight:600}
+.card{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:16px}
+.cardhead{background:linear-gradient(135deg,var(--c4),var(--c5));padding:14px 18px;display:flex;align-items:center;gap:10px;font-weight:700;font-size:15px;color:#fff}
+.cardpad{padding:20px}
+.instr{background:var(--blue1);border-left:3px solid var(--blue2);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:16px;font-size:13px;line-height:1.8;color:#1a3a4c}
+.instrl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue2);margin-bottom:5px}
+.audiowrap{border:1.5px solid var(--c3);border-radius:12px;overflow:hidden;margin-bottom:8px}
+.audiofallback{text-align:right;font-size:11.5px;margin-bottom:16px}
+.audiofallback a{color:var(--c5);font-weight:700;text-decoration:none}
+.audiofallback a:hover{text-decoration:underline}
+.wlabel{font-size:13px;font-weight:800;color:var(--dark);margin-bottom:8px}
+.wta{width:100%;min-height:220px;padding:14px 16px;font-size:14px;line-height:1.85;font-family:inherit;color:var(--dark);background:var(--c1);border:2px solid var(--c3);border-radius:10px;resize:vertical;transition:border-color .2s}
+.wta:focus{outline:none;border-color:var(--c4)}
+.wta:disabled{background:#f3f3f3;color:var(--mid);cursor:not-allowed}
+.wcount{font-size:11.5px;color:var(--mid);text-align:right;margin-top:5px;margin-bottom:16px}
+.finrow{text-align:center;margin-bottom:6px}
+.send-status{display:none;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;font-size:13px;font-weight:700;margin-top:12px}
+.stok{background:rgba(63,143,82,.15);border:1.5px solid rgba(63,143,82,.4);color:#2c6b3a}
+.ster{background:rgba(217,112,112,.15);border:1.5px solid rgba(217,112,112,.4);color:#a04040}
+.stpnd{background:rgba(220,172,72,.2);border:1.5px solid rgba(220,172,72,.5);color:#8a6a1a}
+.correctbox{display:none;background:var(--c1);border:1.5px dashed var(--c4);border-radius:12px;padding:16px 18px;margin-top:18px;font-size:13.5px;line-height:1.85;color:var(--dark)}
+.correctbox.show{display:block}
+.correctl{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--c5);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.correctbox p{margin-bottom:12px}
+.correctbox p:last-child{margin-bottom:0}
+.remind{display:flex;align-items:flex-start;gap:10px;background:var(--blue1);border:1.5px solid var(--blue2);border-radius:var(--r);padding:12px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.65;color:#1a3a4c;text-align:left}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="htag">3. Hafta Ödevi &nbsp;|&nbsp; A2.2 (11-12. Ders) &nbsp;&bull;&nbsp; Yazma</div>
+  <h1>&#x1F1EA;&#x1F1F8; A2.2 – H3 11-12. Ders — Yazma Ödevi</h1>
+  <div class="header-sub">Dictado (Dikte) &nbsp;&bull;&nbsp; @ispanyolcacim &nbsp;&bull;&nbsp; Profe Hazel</div>
+</div>
+
+<div class="screen active" id="sc-name">
+  <div class="nb">
+    <h2>&#x1F4DA; Adınızı seçin</h2>
+    <p>Ödeve başlamadan önce lütfen listeden adınızı seçin.</p>
+    <select class="sel" id="name-sel"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
+      <option>Zumeyra Dogan</option></select>
+    <div class="ib">
+      <div class="ibr"><div class="ibd"></div><span><strong>Görev:</strong> Ses kaydını dinleyip duyduğunuz metni yazıya dökeceksiniz (dictado).</span></div>
+      <div class="ibr"><div class="ibd"></div><span>Kaydı istediğiniz kadar tekrar dinleyebilirsiniz.</span></div>
+      <div class="ibr"><div class="ibd"></div><span>Yazmayı bitirince <strong>"Bitirdim"</strong> butonuna basınca hem doğru metni göreceksiniz hem de yazınız otomatik olarak Profe Hazel'e gönderilecektir.</span></div>
+      <div class="ibh"></div>
+      <div class="ibr"><div class="ibd" style="background:var(--c5)"></div><span>&#x26a0;&#xfe0f; Doğru metni gördükten sonra yazınızı <strong>değiştiremezsiniz</strong>, bu yüzden göndermeden önce dikkatlice kontrol edin.</span></div>
+    </div>
+    <button class="btn bm bf" onclick="startWriting()">&#x25b6; Başla</button>
+  </div>
+</div>
+
+<div class="screen" id="sc-writing">
+  <div class="ww">
+    <div class="tb"><div class="ts" id="top-st">&#x2014;</div></div>
+
+    <div class="card">
+      <div class="cardhead">&#x1F3A7; &nbsp;Dictado — Ses Kaydını Dinleyin</div>
+      <div class="cardpad">
+        <div class="instr">
+          <div class="instrl">Talimat</div>
+          Aşağıdaki ses kaydını dinleyin ve duyduğunuz metni, aşağıdaki kutuya <strong>kelime kelime</strong> yazmaya çalışın. Kaydı istediğiniz kadar durdurup tekrar dinleyebilirsiniz. Noktalama işaretlerine, büyük harflere ve aksanlara (á, é, í, ó, ú, ñ) dikkat edin.<br><br>
+          &#x23f1;&#xfe0f; <strong>Dictado bölümü kaydın yalnızca 0:38 – 10:53 aralığındadır.</strong> Oynatıcı otomatik olarak bu aralıkta başlayıp bu noktada duracaktır; cihazınızda otomatik başlama/durma çalışmazsa lütfen kaydırma çubuğunu elle 0:38'e getirin ve 10:53'te durdurun.
+        </div>
+        <div class="audiowrap">
+          <iframe id="sc-player" width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/profe-hazel/a2-2-11-12-dictado&color=%23559d6a&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+        </div>
+        <div class="audiofallback"><a href="https://soundcloud.com/profe-hazel/a2-2-11-12-dictado#t=0:38" target="_blank" rel="noopener">SoundCloud'da aç (0:38'den itibaren) &#x2197;</a></div>
+
+        <div class="wlabel">&#x270f;&#xfe0f; Duyduğunuzu buraya yazın:</div>
+        <textarea class="wta" id="dictate-input" placeholder="Ses kaydında duyduğunuz metni buraya yazın…" oninput="updateCount()"></textarea>
+        <div class="wcount"><span id="wc-num">0</span> kelime yazıldı</div>
+
+        <div class="finrow">
+          <button class="btn bg bf" id="btn-finish" onclick="finishDictation()">&#x2705; Yazma / Dikte Çalışmamı Bitirdim — Doğru Metni Gör</button>
+          <div class="send-status" id="send-status"></div>
+        </div>
+
+        <div class="correctbox" id="correctbox">
+          <div class="correctl">&#x2705; Doğru Metin — Kendinizi Kontrol Edin</div>
+          <p>En mi tiempo libre me gusta aprender cosas nuevas. Una de mis aficiones es estudiar español. Leo textos fáciles, hago dictados y veo vídeos cortos. También me gusta hacer deporte. Tres veces por semana voy al gimnasio y los fines de semana hago senderismo o corro en el parque. Además, me encanta viajar. Disfruto organizando viajes y conociendo nuevas culturas.</p>
+          <p>Mis amigos tienen aficiones diferentes. Ana prefiere leer el periódico y escribir en su diario. Pedro toca la guitarra y escucha música. Los fines de semana salimos juntos. A veces tomamos un café y hablamos. Otras veces vemos una película o damos un paseo. Tener aficiones diferentes es bueno porque aprendemos unos de otros y disfrutamos del tiempo libre.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="remind"><span>&#x2139;&#xfe0f;</span><span>Yazınız gönderildikten sonra bu sayfayı kapatabilirsiniz. Sonuç veya geri bildirim Profe Hazel tarafından ayrıca paylaşılacaktır.</span></div>
+  </div>
+</div>
+
+<script src="https://w.soundcloud.com/player/api.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+emailjs.init('xNYEbUQNiWJPvbyoJ');
+const EMAILJS_SERVICE='service_4ee1wh7';
+const EMAILJS_TEMPLATE='template_xjyyxhf';
+const LESSON_NAME='A2.2 – H3 11-12. Ders (Dictado – Yazma Ödevi)';
+const CLIP_START_MS=38000;
+const CLIP_END_MS=653000;
+
+try{
+  if(typeof SC!=='undefined'){
+    const scPlayer=document.getElementById('sc-player');
+    const scWidget=SC.Widget(scPlayer);
+    scWidget.bind(SC.Widget.Events.READY,function(){
+      scWidget.seekTo(CLIP_START_MS);
+    });
+    scWidget.bind(SC.Widget.Events.PLAY_PROGRESS,function(e){
+      if(e && e.currentPosition>=CLIP_END_MS){
+        scWidget.pause();
+      }
+    });
+  }
+}catch(e){}
+const CORRECT_TEXT=`En mi tiempo libre me gusta aprender cosas nuevas. Una de mis aficiones es estudiar español. Leo textos fáciles, hago dictados y veo vídeos cortos. También me gusta hacer deporte. Tres veces por semana voy al gimnasio y los fines de semana hago senderismo o corro en el parque. Además, me encanta viajar. Disfruto organizando viajes y conociendo nuevas culturas.
+
+Mis amigos tienen aficiones diferentes. Ana prefiere leer el periódico y escribir en su diario. Pedro toca la guitarra y escucha música. Los fines de semana salimos juntos. A veces tomamos un café y hablamos. Otras veces vemos una película o damos un paseo. Tener aficiones diferentes es bueno porque aprendemos unos de otros y disfrutamos del tiempo libre.`;
+
+let student='',revealed=false;
+
+function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('sc-'+id).classList.add('active');window.scrollTo(0,0);}
+
+function startWriting(){
+  const s=document.getElementById('name-sel');
+  if(!s.value){alert('Lütfen adınızı seçin!');return;}
+  student=s.value;
+  document.getElementById('top-st').textContent=student;
+  showScreen('writing');
+}
+
+function countWords(t){t=t.trim();return t===''?0:t.split(/\s+/).length;}
+function updateCount(){
+  document.getElementById('wc-num').textContent=countWords(document.getElementById('dictate-input').value);
+}
+
+async function finishDictation(){
+  if(revealed)return;
+  const ta=document.getElementById('dictate-input');
+  const text=ta.value.trim();
+  if(text.length<3){
+    if(!confirm('Henüz hiçbir şey yazmamışsınız gibi görünüyor. Yine de doğru metni görüp göndermek istiyor musunuz?'))return;
+  }
+  if(!confirm('Doğru metni gördükten sonra yazınızı değiştiremezsiniz ve yazınız öğretmeninize gönderilecektir. Devam edilsin mi?'))return;
+
+  revealed=true;
+  ta.disabled=true;
+  document.getElementById('correctbox').classList.add('show');
+  const btn=document.getElementById('btn-finish');
+  btn.disabled=true;
+  btn.textContent='&#x2705; Doğru Metin Gösterildi';
+  btn.innerHTML='&#x2705; Doğru Metin Gösterildi';
+
+  const st=document.getElementById('send-status');
+  st.style.display='inline-flex';
+  st.className='send-status stpnd';
+  st.textContent='&#x23f3; Gönderiliyor…';
+  st.innerHTML='&#x23f3; Gönderiliyor…';
+
+  const now=new Date();
+  const tarih=now.toLocaleDateString('tr-TR')+' '+now.toLocaleTimeString('tr-TR');
+  const wc=countWords(text);
+  const fullText='ÖĞRENCİ: '+student+'\nDERS: '+LESSON_NAME+'\nTARİH: '+tarih+'\nKELİME SAYISI: '+wc+'\n\n--- ÖĞRENCİNİN YAZDIĞI (DİCTADO) ---\n\n'+text+'\n\n--- DOĞRU METİN (KARŞILAŞTIRMA İÇİN) ---\n\n'+CORRECT_TEXT;
+
+  try{
+    await emailjs.send(EMAILJS_SERVICE,EMAILJS_TEMPLATE,{
+      student_name:student,
+      lesson:LESSON_NAME,
+      submit_date:tarih,
+      writing_text:fullText
+    });
+    st.className='send-status stok';
+    st.innerHTML='&#x2705; Yazınız gönderildi!';
+  }catch(e){
+    st.className='send-status ster';
+    st.innerHTML='&#x26a0;&#xfe0f; Gönderilemedi — internetinizi kontrol edip öğretmeninize bildirin';
+  }
+}
+</script>
+</body>
+</html>

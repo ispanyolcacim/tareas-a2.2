@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2.2 · H3 – 9-10. Ders · Pluscuamperfecto Pratik</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--c1:#eaf7e6;--c2:#bfe6ac;--c3:#d3ecc9;--c4:#8fcf95;--c5:#559d6a;--dark:#20402a;--mid:#5c7d63;--white:#fff;--green:#3f8f52;--red:#d97070;--gold1:#f5dca0;--gold2:#dcac48;--blue1:#dcedf9;--blue2:#3d7ea6;--r:14px}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1,#eefaf3 60%,#f7fdf3);min-height:100vh;color:var(--dark)}
+.header{background:linear-gradient(135deg,var(--c4),var(--c5));padding:18px 20px 14px;text-align:center;box-shadow:0 4px 18px rgba(85,157,106,.35);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.1) 14px,rgba(255,255,255,.1) 15px)}
+.htag{display:inline-block;background:rgba(255,255,255,.35);border:1.5px solid rgba(255,255,255,.55);border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 14px;margin-bottom:8px;color:#fff;position:relative}
+.header h1{font-size:clamp(16px,4vw,23px);font-weight:800;color:#fff;position:relative}
+.header-sub{font-size:12px;color:rgba(255,255,255,.9);margin-top:4px;position:relative}
+.screen{display:none;animation:fi .3s ease}.screen.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.nb{max-width:440px;margin:0 auto;padding:32px 20px;text-align:center}
+.nb h2{font-size:20px;color:var(--dark);margin-bottom:5px}
+.nb p{font-size:13px;color:var(--mid);margin-bottom:20px}
+.sel{width:100%;padding:13px 16px;font-size:15px;background:#fff;border:2px solid var(--c3);border-radius:var(--r);color:var(--dark);appearance:none;cursor:pointer;margin-bottom:14px;font-family:inherit}
+.sel:focus{outline:none;border-color:var(--c4)}
+.ib{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:14px 16px;margin-bottom:18px;text-align:left;font-size:13px;line-height:1.75}
+.ibr{display:flex;align-items:flex-start;gap:9px;margin-bottom:5px}
+.ibd{width:8px;height:8px;border-radius:50%;background:var(--c4);flex-shrink:0;margin-top:5px}
+.ibh{height:1px;background:var(--c3);margin:9px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 24px;border:none;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.bm{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;box-shadow:0 4px 12px rgba(85,157,106,.35)}
+.bm:hover:not(:disabled){transform:translateY(-2px)}
+.bg{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--dark);box-shadow:0 4px 12px rgba(220,172,72,.4)}
+.bg:hover:not(:disabled){transform:translateY(-2px)}
+.bo{background:#fff;border:2px solid var(--c3);color:var(--dark)}
+.bo:hover:not(:disabled){background:var(--c3)}
+.bs{padding:9px 18px;font-size:13px}
+.bf{width:100%}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important}
+.qw{max-width:720px;margin:0 auto;padding:16px}
+.topsub{display:flex;justify-content:center;margin-bottom:14px}
+.tb{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:10px 16px;margin-bottom:12px;gap:8px;flex-wrap:wrap}
+.ts{font-size:12px;color:var(--mid);font-weight:600}
+.tsc{display:flex;gap:14px}
+.si{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:700}
+.sok{color:var(--green)}.ser{color:var(--red)}
+.pgw{margin-bottom:14px}
+.pgb{height:7px;background:var(--c3);border-radius:4px;overflow:hidden}
+.pgf{height:100%;background:linear-gradient(90deg,var(--c4),var(--c2));border-radius:4px;transition:width .4s;width:0%}
+.pgi{display:flex;justify-content:space-between;font-size:11px;color:var(--mid);margin-top:3px}
+.sb{display:inline-flex;align-items:center;background:linear-gradient(90deg,var(--c4),var(--c5));border-radius:20px;padding:6px 16px;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:10px;box-shadow:0 2px 8px rgba(85,157,106,.3)}
+.instr{background:var(--blue1);border-left:3px solid var(--blue2);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:12px;font-size:12.5px;line-height:1.75;color:#1a3a4c}
+.instrl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue2);margin-bottom:4px}
+.qc{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:12px}
+.qh{padding:16px 18px 14px;display:flex;gap:12px;align-items:flex-start}
+.qn{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;margin-top:1px}
+.qt{font-size:14px;line-height:1.65;flex:1;color:var(--dark);font-weight:500}
+.blank{color:var(--c5);font-weight:800;letter-spacing:.5px;border-bottom:2px dotted var(--c5);padding:0 2px}
+.t3text{background:var(--c1);border:1.5px solid var(--c3);border-radius:10px;padding:12px 14px;margin:14px 16px 0;font-size:12.5px;line-height:1.7;color:var(--dark)}
+.t3text b{color:var(--c5);display:block;margin-bottom:4px;font-size:11px;letter-spacing:.5px;text-transform:uppercase}
+.qo{padding:12px 16px 14px;display:grid;gap:8px}
+.ob{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:#f7fcf5;border:1.5px solid var(--c3);border-radius:10px;color:var(--dark);font-size:13.5px;line-height:1.5;cursor:pointer;text-align:left;width:100%;transition:all .18s;font-family:inherit}
+.ob:hover:not(:disabled){background:var(--c1);border-color:var(--c4);transform:translateX(4px)}
+.ob:disabled{cursor:default}
+.ol{background:var(--c3);color:var(--dark);border-radius:6px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.ob.ok{background:#eaf7ec;border-color:#8dcca0}
+.ob.ok .ol{background:var(--green);color:#fff}
+.ob.er{background:#fdf0f0;border-color:#e8a0a0}
+.ob.er .ol{background:var(--red);color:#fff}
+.ex{display:none;margin:0 16px 16px;background:var(--c1);border-left:3px solid var(--c2);border-radius:0 8px 8px 0;padding:11px 14px;font-size:12.5px;line-height:1.75;color:var(--mid)}
+.ex.show{display:block}
+.exl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#3d7a4c;margin-bottom:4px}
+.orderbox{padding:2px 16px 16px}
+.orderlist{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.orderitem{display:flex;align-items:center;gap:9px;background:#f7fcf5;border:1.5px solid var(--c3);border-radius:10px;padding:9px 11px;transition:background .15s,border-color .15s}
+.orderitem[draggable=true]{cursor:grab}
+.orderitem.correct{background:#eaf7ec;border-color:#8dcca0}
+.orderitem.wrong{background:#fdf0f0;border-color:#e8a0a0}
+.opos{background:var(--c3);color:var(--dark);border-radius:6px;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.orderitem.correct .opos{background:var(--green);color:#fff}
+.orderitem.wrong .opos{background:var(--red);color:#fff}
+.ohandle{font-size:14px;color:var(--mid);flex-shrink:0;user-select:none}
+.olet{background:var(--c5);color:#fff;border-radius:6px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0}
+.otext{flex:1;font-size:12.5px;line-height:1.5}
+.omove{display:flex;flex-direction:column;gap:2px}
+.omovebtn{width:22px;height:18px;border:1px solid var(--c3);background:#fff;border-radius:5px;cursor:pointer;font-size:9px;color:var(--dark);display:flex;align-items:center;justify-content:center;font-family:inherit}
+.omovebtn:disabled{opacity:.3;cursor:not-allowed}
+.ocheckbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.oresult{font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:20px}
+.oresult.ok{background:rgba(63,143,82,.15);color:#2c6b3a}
+.oresult.err{background:rgba(217,112,112,.15);color:#a04040}
+.tnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;margin-bottom:16px;flex-wrap:wrap}
+.tnc{font-size:13px;color:var(--mid);font-weight:700;text-align:center;flex:1}
+.cfw{max-width:420px;margin:0 auto;padding:40px 20px;text-align:center}
+.cfw h2{font-size:22px;color:var(--dark);margin-bottom:8px}
+.cfw p{font-size:14px;color:var(--mid);margin-bottom:20px;line-height:1.6}
+.ns{background:rgba(85,157,106,.1);border:2px solid var(--c4);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;font-size:14px;font-weight:700;color:var(--c5)}
+.rw{max-width:460px;margin:0 auto;padding:28px 20px;text-align:center}
+.rc{background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:28px 22px;margin-bottom:14px;box-shadow:0 6px 24px rgba(143,207,149,.2)}
+.re{font-size:50px;margin-bottom:10px}
+.rn{font-size:14px;color:var(--mid);margin-bottom:3px}
+.rt{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:16px}
+.rbig{font-size:62px;font-weight:900;line-height:1;color:var(--dark)}
+.rbig span{font-size:24px;font-weight:400;color:var(--mid)}
+.rp{font-size:13px;color:var(--mid);margin-top:4px;margin-bottom:18px}
+.rst{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.ri{background:linear-gradient(135deg,var(--c3),var(--c1));border:1px solid var(--c4);border-radius:12px;padding:11px 16px;min-width:76px;text-align:center}
+.ri .rnum{font-size:28px;font-weight:800;line-height:1}
+.ri .rl{font-size:11px;color:var(--mid);margin-top:3px}
+.rok .rnum{color:var(--green)}.rer .rnum{color:var(--red)}.rbl .rnum{color:#bbb}
+.bd{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.bdr{display:flex;justify-content:space-between;align-items:center;background:rgba(191,230,172,.2);border:1px solid var(--c3);border-radius:8px;padding:8px 14px;font-size:12.5px}
+.bdl{color:var(--mid)}.bds{font-weight:700;color:var(--dark)}
+.stb{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;font-size:13px;font-weight:700;margin-bottom:14px}
+.stok{background:rgba(63,143,82,.15);border:1.5px solid rgba(63,143,82,.4);color:#2c6b3a}
+.ster{background:rgba(217,112,112,.15);border:1.5px solid rgba(217,112,112,.4);color:#a04040}
+.stpnd{background:rgba(220,172,72,.2);border:1.5px solid rgba(220,172,72,.5);color:#8a6a1a}
+.ra{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="htag">3. Hafta Ödevi &nbsp;|&nbsp; A2.2 (9-10. Ders)</div>
+  <h1>&#x1F1EA;&#x1F1F8; A2.2 – H3 9-10. Ders</h1>
+  <div class="header-sub">Pretérito Pluscuamperfecto &nbsp;&bull;&nbsp; Práctica Avanzada &nbsp;&bull;&nbsp; 5 Parte &nbsp;&bull;&nbsp; 50 soru &nbsp;&bull;&nbsp; @ispanyolcacim &nbsp;&bull;&nbsp; Profe Hazel</div>
+</div>
+
+<div class="screen active" id="sc-name">
+  <div class="nb">
+    <h2>&#x1F4DA; Adınızı seçin</h2>
+    <p>Ödeve başlamadan önce lütfen listeden adınızı seçin.</p>
+    <select class="sel" id="name-sel"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
+      <option>Zumeyra Dogan</option></select>
+    <div class="ib">
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 1:</strong> Comprensión Lectora — 10 soru</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 2:</strong> Indefinido vs. Pluscuamperfecto — 10 soru</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 3:</strong> Traducción — 10 soru</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 4:</strong> Orden Cronológico (Sürükle-Bırak) — 10 soru</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 5:</strong> Desafío Final (4 zaman birlikte) — 10 soru</span></div>
+      <div class="ibh"></div>
+      <div class="ibr"><div class="ibd" style="background:var(--c5)"></div><span>Her Parte'nin sorularını yanıtladıktan sonra bir sonraki Parte'ye geçebilirsiniz.</span></div>
+    </div>
+    <button class="btn bm bf" onclick="startQuiz()">&#x25b6; Başla</button>
+  </div>
+</div>
+
+<div class="screen" id="sc-quiz">
+  <div class="qw">
+    <div class="topsub">
+      <button class="btn bg bs" onclick="goConfirm()">&#x2714; Ödevi Teslim Et</button>
+    </div>
+    <div class="tb">
+      <div class="ts" id="top-st">&#x2014;</div>
+      <div class="tsc">
+        <div class="si sok">&#x2713; <span id="sc-ok">0</span></div>
+        <div class="si ser">&#x2717; <span id="sc-er">0</span></div>
+      </div>
+    </div>
+    <div class="pgw">
+      <div class="pgb"><div class="pgf" id="pgf"></div></div>
+      <div class="pgi"><span id="pg-tarea">Parte 1 / 5</span><span><span id="fin-ans">0</span> / 50 yanıtlandı</span></div>
+    </div>
+    <div id="tarea-area"></div>
+    <div class="tnav">
+      <button class="btn bo bs" id="btn-prev" onclick="navP(-1)">&#x2190; Önceki Parte</button>
+      <div class="tnc" id="tnav-ctr">Parte 1 / 5</div>
+      <button class="btn bm bs" id="btn-next" onclick="navP(1)">Sonraki Parte &#x2192;</button>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="sc-confirm">
+  <div class="cfw">
+    <div style="font-size:48px;margin-bottom:12px">&#x1F4CB;</div>
+    <h2>Ödevi Teslim Et</h2>
+    <div class="ns">&#x26a0;&#xfe0f; ÖDEVİNİZ HENÜZ TESLİM EDİLMEDİ</div>
+    <p>Teslim etmeden önce listeden adınızı seçin ve onaylayın.</p>
+    <select class="sel" id="cf-sel" style="margin-bottom:16px"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
+      <option>Zumeyra Dogan</option></select>
+    <button class="btn bg bf" id="cf-btn" onclick="confirmSubmit()">&#x2714; Evet, Teslim Et</button>
+  </div>
+</div>
+
+<div class="screen" id="sc-result">
+  <div class="rw">
+    <div class="rc">
+      <div class="re">&#x1F1EA;&#x1F1F8;</div>
+      <div class="rn" id="rs-name">&#x2014;</div>
+      <div class="rt">A2.2 · H3 – 9-10. Ders · Pretérito Pluscuamperfecto</div>
+      <div class="rbig" id="rs-score">0<span>/100</span></div>
+      <div class="rp" id="rs-pct"></div>
+      <div class="bd">
+        <div class="bdr"><span class="bdl">PARTE 1 — Comprensión Lectora</span><span class="bds" id="br1">0 / 10</span></div>
+        <div class="bdr"><span class="bdl">PARTE 2 — Indefinido/Pluscuamperfecto</span><span class="bds" id="br2">0 / 10</span></div>
+        <div class="bdr"><span class="bdl">PARTE 3 — Traducción</span><span class="bds" id="br3">0 / 10</span></div>
+        <div class="bdr"><span class="bdl">PARTE 4 — Orden Cronológico</span><span class="bds" id="br4">0 / 10</span></div>
+        <div class="bdr"><span class="bdl">PARTE 5 — Desafío Final</span><span class="bds" id="br5">0 / 10</span></div>
+      </div>
+      <div class="rst">
+        <div class="ri rok"><div class="rnum" id="rs-c">0</div><div class="rl">Doğru</div></div>
+        <div class="ri rer"><div class="rnum" id="rs-w">0</div><div class="rl">Yanlış</div></div>
+        <div class="ri rbl"><div class="rnum" id="rs-b">0</div><div class="rl">Boş</div></div>
+      </div>
+      <div class="stb stpnd" id="rs-status">&#x23f3; Kaydediliyor&#x2026;</div>
+    </div>
+    <div class="ra"><button class="btn bo" onclick="goName()">&#x1F504; Yeniden Başla</button></div>
+  </div>
+</div>
+
+<script>
+const ASU='https://script.google.com/macros/s/AKfycbw-BwEhVOhO6GkkQHNWJA8LQLMkEGwNCtJ3BXSqik1RnzqZLl4a_a3HmYEoIlJAgY4Wkg/exec';
+const SID='1wziyxdRdIGL7OEq4yRib0i_CaCWJGI14fwDyMKB4abw';
+const SHN='A2.2';
+const TCL='H3 – 9-10.Ders';
+const LTR=['A','B','C','D'];
+
+const PARTES=[
+{id:1,code:'PARTE 1',title:'Comprensión Lectora',type:'text',
+ instr:'Aşağıdaki 10 metni dikkatle okuyun ve her birinin altındaki soruyu doğru seçenekle yanıtlayın. İki farklı geçmiş olay arasındaki zaman-öncelik ilişkisine dikkat edin.',
+ items:[
+{id:1,textLabel:'Texto',text:`Cuando Clara llegó a la estación de tren aquella mañana, se dio cuenta inmediatamente de que algo no iba bien. Había salido de casa con bastante tiempo porque no quería repetir lo que le había ocurrido el mes anterior, cuando había perdido un tren por llegar cinco minutos tarde. Sin embargo, al mirar la pantalla de salidas, descubrió que su tren a Valencia no aparecía. Primero pensó que había confundido la hora, pero después recordó perfectamente que había comprado el billete dos semanas antes y que incluso había comprobado el horario la noche anterior. Se acercó a la oficina de información y allí le explicaron que, debido a una avería técnica que se había producido de madrugada, varios trenes habían sido cancelados. Afortunadamente, la compañía le ofreció un asiento en otro tren que salía dos horas más tarde. Clara se sintió aliviada, aunque tuvo que llamar a su cliente para cambiar la hora de la reunión que habían acordado.`,
+ q:`¿Por qué Clara estaba especialmente preocupada por llegar a la estación con tiempo?`,
+ opts:[`Porque nunca había viajado sola a Valencia.`,`Porque su cliente le había pedido llegar dos horas antes.`,`Porque la compañía ferroviaria había anunciado retrasos la noche anterior.`,`Porque anteriormente había perdido un tren por llegar tarde.`],ans:3,
+ exp:`Metinde <strong>"no quería repetir lo que le había ocurrido el mes anterior"</strong> deniyor, ardından <strong>"había perdido un tren por llegar cinco minutos tarde"</strong> ifadesi geliyor.<br><br>Clara'nın istasyona erken gitmeye çalıştığı gün ana geçmiş zaman noktamızdır. Fakat treni kaçırma olayı bundan bir ay önce gerçekleşmiştir; bu yüzden Pluscuamperfecto (<strong>había perdido</strong>) kullanılmıştır.<br><br>1. Önce → Clara geçmişte bir treni kaçırdı.<br>2. Daha sonra → Yeni seyahat gününde erken gitmeye çalıştı.<br><br>D seçeneği bu neden-sonuç ilişkisini tam olarak verir. A tamamen uydurmadır; B'de müşterinin böyle bir isteği yoktur; C'de ise Clara arızayı önceden bilmiyordu, istasyona geldikten sonra öğreniyor.`},
+{id:2,textLabel:'Texto',text:`Durante muchos años, Andrés soñó con volver al pequeño pueblo donde había pasado todos los veranos de su infancia. Finalmente, el verano pasado decidió regresar. Cuando llegó, encontró un lugar bastante diferente del que recordaba. El antiguo cine donde había visto sus primeras películas había cerrado y en su lugar habían construido un supermercado. La plaza principal, que antes estaba llena de coches, se había convertido en una zona peatonal con cafeterías y árboles. Andrés entró también en la panadería donde su abuela solía comprar pan cada mañana. Aunque habían cambiado la decoración, el propietario todavía recordaba a su familia. Mientras hablaban, Andrés descubrió que muchos de sus antiguos amigos se habían marchado a otras ciudades para estudiar o trabajar. Al final del día, comprendió que el pueblo había cambiado mucho, pero también sintió que algunos recuerdos seguían exactamente en el mismo lugar.`,
+ q:`¿Qué descubrió Andrés al regresar al pueblo?`,
+ opts:[`Que muchos lugares y personas habían cambiado desde su infancia.`,`Que su antigua casa había sido convertida en un cine.`,`Que todos sus amigos todavía vivían allí.`,`Que el pueblo estaba exactamente igual que antes.`],ans:0,
+ exp:`Andrés köye geri dönüyor; bu bizim anlatının ana geçmiş noktasıdır (<strong>el verano pasado decidió regresar</strong> / <strong>cuando llegó…</strong>). Fakat onun gelmesinden önce köyde pek çok değişiklik zaten tamamlanmıştı: <strong>el cine había cerrado</strong>, <strong>habían construido un supermercado</strong>, <strong>la plaza se había convertido…</strong>, <strong>sus amigos se habían marchado</strong>.<br><br>Pluscuamperfecto bize şu mesajı veriyor: Andrés köye geldiğinde bu değişiklikler yeni gerçekleşmiyordu, çoktan gerçekleşmiş durumdaydı. Bu nedenle A doğru cevaptır.<br><br>D seçeneği özellikle tuzaktır çünkü metnin sonunda bazı recuerdos (anılar) aynı kaldı deniyor; fakat fiziksel olarak köyün aynı kaldığı söylenmiyor.`},
+{id:3,textLabel:'Texto',text:`El lunes por la mañana, los trabajadores de una pequeña empresa llegaron a la oficina y encontraron la puerta abierta. Al principio pensaron que el director había llegado antes que ellos, pero pronto notaron que varios cajones estaban abiertos y que faltaban dos ordenadores. Marta, la secretaria, llamó inmediatamente a la policía. Cuando los agentes llegaron, preguntaron si alguien había visto algo sospechoso durante el fin de semana. El guardia de seguridad explicó que el sábado había terminado su turno a las diez de la noche y que en ese momento todo estaba en orden. Sin embargo, uno de los vecinos dijo que había oído un ruido fuerte alrededor de las tres de la madrugada del domingo. Después de revisar las cámaras, la policía descubrió que dos personas habían entrado por una ventana que uno de los empleados había olvidado cerrar el viernes por la tarde.`,
+ q:`¿Qué facilitó probablemente la entrada de los ladrones?`,
+ opts:[`El guardia había abandonado su puesto antes de tiempo.`,`Un empleado había dejado una ventana abierta.`,`Marta había perdido las llaves de la oficina.`,`La policía había desconectado las cámaras.`],ans:1,
+ exp:`Anahtar cümle metnin sonundadır: <strong>"habían entrado por una ventana que uno de los empleados había olvidado cerrar el viernes"</strong>.<br><br>Önce çalışan cuma günü pencereyi kapatmayı unutuyor (<strong>había olvidado cerrar</strong>). Daha sonra hırsızlar içeri giriyor (<strong>habían entrado</strong>). Sonrasında ise pazartesi çalışanlar ofise geliyor.<br><br>Üç geçmiş katmanı: Cuma (pencere kapatılmadı) → Pazar gecesi (hırsızlar girdi) → Pazartesi (fark edildi). Pluscuamperfecto'nun temel mantığı: geçmişteki başka bir olaydan daha önce tamamlanan eylem.`},
+{id:4,textLabel:'Texto',text:`Cuando Lucía empezó su primer trabajo en una agencia de publicidad, estaba muy nerviosa. Había terminado la universidad apenas tres meses antes y nunca había trabajado en una empresa tan grande. Durante su primera semana, observaba atentamente cómo organizaban sus tareas los demás empleados y apuntaba todo lo que consideraba importante. El viernes, su jefe le pidió que preparara una presentación para un cliente extranjero. Lucía aceptó, aunque al principio pensó que sería demasiado difícil. Afortunadamente, durante la universidad había participado en varios proyectos similares y también había hecho un curso de diseño. Gracias a aquella experiencia, terminó la presentación a tiempo. Cuando su jefe la vio, quedó muy satisfecho y decidió que Lucía participaría directamente en la reunión con el cliente.`,
+ q:`¿Por qué pudo Lucía preparar correctamente la presentación?`,
+ opts:[`Porque otro empleado la había preparado casi completamente.`,`Porque su jefe había cancelado la reunión con el cliente.`,`Porque ya había adquirido experiencia relacionada anteriormente.`,`Porque llevaba varios años trabajando en publicidad.`],ans:2,
+ exp:`Kritik yapı: <strong>"durante la universidad había participado…"</strong> ve <strong>"también había hecho un curso…"</strong>.<br><br>Lucía'nın sunum hazırlaması ana geçmiş olaydır. Ancak onun bunu başarabilmesini sağlayan deneyimler üniversite döneminde, yani daha önce gerçekleşmiştir; bu yüzden <strong>había participado / había hecho</strong> kullanılmıştır.<br><br>C seçeneği bu iki bilgiyi kapsayan genel cevaptır. D tuzağına dikkat edin: Lucía yıllardır çalışmıyor, aksine ilk işine yeni başlamış durumda.`},
+{id:5,textLabel:'Texto',text:`El año pasado, Marcos decidió organizar una cena sorpresa para el cumpleaños de su esposa. Llevaba semanas planeándolo todo en secreto. Había reservado una mesa en el restaurante donde se habían conocido diez años antes y había invitado a varios amigos que ella no veía desde hacía mucho tiempo. El día del cumpleaños, Marcos actuó como si hubiera olvidado completamente la fecha. Su esposa estuvo un poco decepcionada durante toda la mañana. Por la noche, Marcos le dijo simplemente que tenían que salir para resolver un asunto. Cuando llegaron al restaurante, todos sus amigos los estaban esperando. Ella se quedó inmóvil durante unos segundos porque no había sospechado absolutamente nada. Después empezó a reír y a llorar al mismo tiempo. Más tarde confesó que por la mañana había pensado que Marcos realmente había olvidado su cumpleaños.`,
+ q:`¿Por qué la esposa de Marcos se sorprendió tanto al llegar al restaurante?`,
+ opts:[`Porque no conocía a ninguno de los invitados.`,`Porque había reservado otro restaurante para aquella noche.`,`Porque Marcos le había contado la sorpresa por la mañana.`,`Porque hasta ese momento no había sospechado que Marcos preparaba una celebración.`],ans:3,
+ exp:`Kilit ifade: <strong>"no había sospechado absolutamente nada"</strong>.<br><br>Kadın restorana ulaştığı anda, sürprizden daha önceki zihinsel durumu anlatılıyor: o ana kadar hiçbir şeyden şüphelenmemişti. Bu nedenle Pluscuamperfecto: <strong>no había sospechado</strong>.<br><br>D bunu tam olarak ifade eder. A yanlış çünkü gelenlerin arasında uzun zamandır görmediği arkadaşları vardır. B metinde yoktur. C ise olayın tam tersidir; Marcos sürprizi saklamıştır.`},
+{id:6,textLabel:'Texto',text:`Una tarde de invierno, Elena decidió preparar un pastel que su madre hacía cuando ella era pequeña. Encontró la receta en un viejo cuaderno familiar. Antes de empezar, comprobó que tenía casi todos los ingredientes. Sin embargo, cuando ya había mezclado los huevos con el azúcar, se dio cuenta de que no quedaba harina. Recordó entonces que había utilizado la última bolsa dos días antes para hacer pan y que había olvidado comprar otra. Como estaba nevando mucho y las tiendas estaban a punto de cerrar, llamó a su vecina para preguntarle si podía prestarle un poco. Afortunadamente, la vecina acababa de comprar harina y le dio suficiente para terminar el pastel. Cuando la familia lo probó después de cenar, todos dijeron que sabía casi igual que el que preparaba la madre de Elena.`,
+ q:`¿Por qué Elena no tenía harina cuando estaba preparando el pastel?`,
+ opts:[`Porque su vecina se había llevado la harina.`,`Porque había confundido la harina con el azúcar.`,`Porque la había utilizado anteriormente y no había comprado más.`,`Porque la receta no incluía harina.`],ans:2,
+ exp:`Elena pasta yapıyor ve un olmadığını fark ediyor. Fakat bundan önce: <strong>había utilizado la última bolsa</strong> ve ardından <strong>había olvidado comprar otra</strong>.<br><br>1. Son unu iki gün önce kullandı. 2. Yeni un almayı unuttu. 3. Pasta yaparken un olmadığını fark etti.<br><br>C şıkkı iki nedeni birden doğru şekilde veriyor.`},
+{id:7,textLabel:'Texto',text:`Cuando Pablo llegó a Lisboa para pasar unos días de vacaciones, descubrió que su maleta no había llegado en el mismo avión. Fue inmediatamente al mostrador de equipajes y explicó la situación. La empleada comprobó el sistema y descubrió que la compañía había enviado la maleta por error a Madrid. Pablo se preocupó especialmente porque había guardado allí no solo su ropa, sino también unos documentos que necesitaba para una reunión prevista para el día siguiente. Por suerte, antes de viajar había hecho fotografías digitales de los documentos y las tenía en su ordenador portátil. Esa noche tuvo que comprar algunas prendas básicas, pero pudo preparar la reunión sin problemas. A la mañana siguiente, la compañía aérea le comunicó que habían localizado la maleta y que se la entregarían en el hotel esa misma tarde.`,
+ q:`¿Qué le permitió a Pablo preparar la reunión a pesar de no tener su maleta?`,
+ opts:[`Había guardado copias digitales de los documentos.`,`La compañía había encontrado inmediatamente la maleta.`,`Un compañero le había llevado nuevos documentos desde España.`,`La reunión había sido cancelada.`],ans:0,
+ exp:`Neden: <strong>"antes de viajar había hecho fotografías digitales…"</strong>.<br><br>Pablo bavulunu kaybetmeden ve hatta Lisboa'ya gitmeden önce belgelerin dijital kopyalarını hazırlamıştı. Bu daha önce tamamlanan olay, daha sonraki problemi çözmesini sağlıyor. Özellikle <strong>antes de viajar + había hecho</strong> birlikteliğine dikkat edin.`},
+{id:8,textLabel:'Texto',text:`Cuando el profesor devolvió los exámenes, Daniel quedó sorprendido por su nota. Había obtenido uno de los mejores resultados de la clase, aunque después del examen había estado convencido de que lo había hecho bastante mal. Durante las semanas anteriores había estudiado todos los días, pero la noche antes del examen apenas había dormido porque estaba muy nervioso. Además, al empezar la prueba, había confundido dos conceptos importantes y pensó que aquel error afectaría mucho a su nota. Sin embargo, el profesor explicó que Daniel había desarrollado correctamente casi todas las respuestas y que los pequeños errores no eran tan graves como él había imaginado. Daniel salió de clase mucho más tranquilo y decidió que en el futuro intentaría confiar más en su preparación.`,
+ q:`¿Por qué Daniel pensaba que había hecho mal el examen?`,
+ opts:[`Porque no había estudiado durante las semanas anteriores.`,`Porque había cometido algunos errores y se había sentido inseguro.`,`Porque el profesor le había dicho que suspendería.`,`Porque no había respondido a ninguna pregunta.`],ans:1,
+ exp:`Cevap tek cümleden değil, birkaç bilgiden çıkarılıyor. Daniel: <strong>había confundido dos conceptos importantes</strong> ve sınavdan sonra <strong>había estado convencido de que lo había hecho bastante mal</strong>.<br><br>B seçeneğindeki <strong>había cometido algunos errores + se había sentido inseguro</strong> metnin anlamını doğru özetliyor.`},
+{id:9,textLabel:'Texto',text:`En septiembre, una familia se mudó a un apartamento antiguo en el centro de Sevilla. Durante los primeros días notaron que una de las habitaciones tenía mucha humedad. El propietario les aseguró que nunca había habido problemas graves en aquella vivienda. Sin embargo, mientras limpiaban un armario, encontraron varias fotografías que mostraban manchas oscuras en la misma pared. También hablaron con una antigua vecina, que les contó que los inquilinos anteriores se habían quejado varias veces del mismo problema y que el propietario había mandado pintar la pared sin reparar la causa de la humedad. La familia se enfadó porque comprendió que no les habían contado toda la verdad antes de firmar el contrato. Finalmente, contactaron con el propietario y le exigieron que solucionara definitivamente el problema.`,
+ q:`¿Qué descubrió la familia después de mudarse?`,
+ opts:[`Que los antiguos inquilinos habían destruido voluntariamente la pared.`,`Que la humedad había aparecido por primera vez después de su llegada.`,`Que el propietario nunca había conocido el problema.`,`Que el problema de humedad ya había existido anteriormente.`],ans:3,
+ exp:`Önemli Pluscuamperfecto: <strong>"los inquilinos anteriores se habían quejado"</strong> ve <strong>"el propietario había mandado pintar la pared"</strong>.<br><br>Demek ki yeni aile taşınmadan önce de bu problem vardı. D doğru.<br><br>B özellikle ters mantık tuzağıdır: sorunun aile taşındıktan sonra başladığı söylenmiyor; tam tersine geçmişte de bulunduğu kanıtlanıyor.`},
+{id:10,textLabel:'Texto',text:`Cuando Sonia abrió su correo electrónico el lunes, encontró un mensaje de una universidad extranjera. Al principio pensó que se trataba de publicidad, porque habían pasado casi seis meses desde que había enviado su solicitud para una beca y no había recibido ninguna respuesta. Estuvo a punto de borrar el mensaje, pero al leer el asunto vio su nombre completo. La universidad le comunicaba que había sido seleccionada para el programa y que uno de los candidatos elegidos inicialmente había renunciado a su plaza. Sonia no podía creerlo. Durante aquellos meses había empezado a buscar otras oportunidades e incluso había aceptado un trabajo temporal. Después de leer el mensaje varias veces, llamó a su hermana, que había sido la primera persona en animarla a presentar la solicitud.`,
+ q:`¿Por qué Sonia no esperaba recibir una respuesta positiva de la universidad?`,
+ opts:[`Porque habían pasado muchos meses sin recibir noticias.`,`Porque nunca había presentado oficialmente la solicitud.`,`Porque ya había rechazado anteriormente la beca.`,`Porque su hermana le había recomendado no participar.`],ans:0,
+ exp:`Kritik: <strong>"habían pasado casi seis meses…"</strong> ve <strong>"no había recibido ninguna respuesta"</strong>.<br><br>Sonia başvurusunu yapmış, sonrasında yaklaşık altı ay geçmiş ve cevap gelmemiş; bu nedenle artık olumlu bir sonuç beklemiyor. A doğru cevaptır.<br><br>Buradaki Pluscuamperfecto ayrıca anlatıcının bizi e-postayı açtığı ana getirip, o andan önce yaşanan süreci geriye dönerek anlatmasını sağlıyor.`}
+ ]},
+
+{id:2,code:'PARTE 2',title:'Pretérito Indefinido vs. Pluscuamperfecto',type:'blank',
+ instr:'Aşağıdaki cümlelerdeki boşlukları en uygun fiil çekimiyle tamamlayın. Hangi olayın diğerinden önce gerçekleştiğine göre karar verin (Estilo DELE).',
+ items:[
+{id:11,q:`Cuando llegamos al restaurante, nuestros amigos ya __________ la cena porque nosotros __________ casi una hora tarde.`,
+ opts:[`terminaron / llegábamos`,`habían terminado / llegamos`,`terminaron / habíamos llegado`,`habían terminado / habíamos llegado`],ans:1,
+ exp:`Önce arkadaşlarımız yemeği bitiriyor: <strong>habían terminado</strong>. Daha sonra biz restorana ulaşıyoruz: <strong>llegamos</strong>. "Llegamos" anlatının ana tamamlanmış olayıdır ve Indefinido kullanılır.<br><br>Doğru yapı: <strong>Cuando llegamos…, ya habían terminado…</strong><br><br>"Ya" kelimesi Pluscuamperfecto için güçlü bir ipucudur, fakat ezber yapmayın — esas mesele öncelik-sonralık ilişkisidir.`},
+{id:12,q:`Cuando Marta __________ a casa, se dio cuenta de que alguien __________ todas las ventanas.`,
+ opts:[`volvió / había abierto`,`había vuelto / abrió`,`volvía / abrió`,`volvió / abrió`],ans:0,
+ exp:`Önce biri pencereleri açmış: <strong>había abierto</strong>. Sonra Marta eve dönmüş: <strong>volvió</strong>. Marta'nın eve dönmesi ana olay olduğu için Indefinido, pencerenin daha önce açılması Pluscuamperfecto.`},
+{id:13,q:`El director no pudo presentar el informe porque uno de sus compañeros no se lo __________ antes de la reunión.`,
+ opts:[`envió`,`había enviado`,`enviaba`,`ha enviado`],ans:1,
+ exp:`Toplantı geçmişte gerçekleşen referans noktasıdır. Dosyanın gönderilmesi ise toplantıdan önce gerçekleşmesi gereken, fakat gerçekleşmeyen bir eylemdir. Bu nedenle: <strong>no se lo había enviado</strong>.<br><br>Özellikle "no se lo envió" seçeneğine gidilmesi beklenir. Gramer olarak tek başına mümkün gibi görünse de cümlede <strong>antes de la reunión</strong> bize başka bir geçmiş olaydan önceki durumu veriyor.`},
+{id:14,q:`Nunca __________ una situación semejante hasta que __________ a trabajar en aquel hospital.`,
+ opts:[`viví / había empezado`,`había vivido / había empezado`,`había vivido / empecé`,`vivía / empecé`],ans:2,
+ exp:`Çok klasik ve önemli yapı: <strong>Nunca había vivido… hasta que empecé…</strong><br><br>"Hasta que empecé" yeni bir geçmiş sınır noktası oluşturuyor. Bu noktadan önceki deneyim: <strong>había vivido</strong>. Bu nedenle C.`},
+{id:15,q:`Cuando finalmente __________ la policía, los ladrones ya __________ del edificio.`,
+ opts:[`había llegado / salieron`,`llegó / salían`,`llegó / habían salido`,`llegaba / salieron`],ans:2,
+ exp:`Polis geldi: <strong>llegó</strong>. Ama hırsızlar bundan önce çoktan çıkmıştı: <strong>ya habían salido</strong>. Burada "ya" yine bize olayın tamamlanmış biçimde daha önce gerçekleştiğini gösteriyor.`},
+{id:16,q:`Ayer encontré el libro que __________ durante semanas y que finalmente __________ por internet el mes pasado.`,
+ opts:[`busqué / había comprado`,`había buscado / compraba`,`había buscado / compré`,`buscaba / había comprado`],ans:2,
+ exp:`Haftalar boyunca kitabı arama süreci, satın alma olayından önceki süreçtir: <strong>había buscado</strong>. Sonra geçen ay kitabı satın aldım: <strong>compré</strong>. Dün ise kitabı buldum: <strong>encontré</strong>.<br><br>Üç zaman noktası: buscar → comprar → encontrar. Öğrencinin yalnızca en eski olayı değil, anlatım perspektifini de takip etmesi gerekir.`},
+{id:17,q:`En la entrevista me preguntaron si alguna vez __________ en el extranjero antes de __________ a aquella empresa.`,
+ opts:[`había trabajado / entrar`,`trabajé / había entrado`,`trabajaba / entrar`,`he trabajado / entré`],ans:0,
+ exp:`"Şirkete girmeden önce hiç yurt dışında çalışmış mıydım?" anlamındadır. <strong>antes de entrar</strong> referans noktasıdır; ondan önceki deneyim: <strong>había trabajado</strong>.<br><br>Buradaki yapı DELE sınavlarında çok sık karşımıza çıkabilecek bir dolaylı anlatım mantığıdır.`},
+{id:18,q:`No reconocí a Carlos cuando lo vi porque __________ muchísimo desde la última vez que nos __________.`,
+ opts:[`cambió / habíamos visto`,`había cambiado / vimos`,`cambiaba / vimos`,`había cambiado / habíamos visto`],ans:1,
+ exp:`Ana olay: <strong>No reconocí a Carlos cuando lo vi.</strong> Carlos'u gördüğüm anda, son görüşmemizden beri değişim tamamlanmıştı: <strong>había cambiado muchísimo</strong>.<br><br>"la última vez que nos vimos" ise belirli, tamamlanmış geçmiş olaydır: <strong>vimos</strong>. Bu nedenle B.`},
+{id:19,q:`Cuando el médico le preguntó qué había ocurrido, Ana explicó que __________ un fuerte dolor después de que __________ unas pastillas que tenía en casa.`,
+ opts:[`sintió / había tomado`,`había sentido / tomó`,`sentía / tomó`,`había sentido / había tomado`],ans:3,
+ exp:`Anlatıcı bizi doktorla konuşma anına getiriyor. Ana, doktora daha önce olan iki olayı anlatıyor: 1) İlaçları aldı. 2) Ardından ağrı hissetti. 3) Daha sonra doktora anlattı.<br><br>Ana anlatı noktamız doktorla yapılan konuşmadır. Bu nedenle önceki olayları Pluscuamperfecto ile verme seçeneği en tutarlı yapıyı oluşturur. Özellikle dolaylı anlatımda Pluscuamperfecto'nun kullanımına dikkat edin.`},
+{id:20,q:`Cuando por fin conseguimos entrar en el museo, la exposición que queríamos ver ya __________.`,
+ opts:[`había terminado`,`terminó`,`terminaba`,`ha terminado`],ans:0,
+ exp:`Biz müzeye girdik: <strong>conseguimos entrar</strong>. Fakat sergi bizim girişimizden önce bitmiş: <strong>ya había terminado</strong>.<br><br>Burada Pluscuamperfecto'nun en temel kullanımını görüyoruz: geçmişteki bir olaydan daha önce tamamlanmış başka bir olay.`}
+ ]},
+
+{id:3,code:'PARTE 3',title:'Traducción',type:'text',
+ instr:'Aşağıdaki cümlelerin (İspanyolca veya Türkçe) en doğru çevirisini seçin. Kelime kelime çeviri yerine zamanlar arasındaki mantıksal ilişkiye odaklanın (Estilo YDS).',
+ items:[
+{id:21,textLabel:'Oración',text:`Cuando llegué a la oficina, me di cuenta de que había dejado en casa los documentos que había preparado la noche anterior.`,
+ q:`¿Cuál es la traducción correcta?`,
+ opts:[`Ofise geldiğimde, önceki gece hazırladığım belgeleri evde bıraktığımı fark ettim.`,`Ofise gelmeden önce belgeleri hazırladığımı ve daha sonra eve bıraktığımı fark ettim.`,`Ofise geldiğim sırada, belgeleri hazırlamak için yeniden eve döndüm.`,`Ofise ulaştığımda belgelerin hâlâ hazırlanmakta olduğunu fark ettim.`],ans:0,
+ exp:`Burada iki Pluscuamperfecto vardır: <strong>había dejado</strong>, <strong>había preparado</strong>.<br><br>Zaman sırası: 1) Önceki gece belgeleri hazırladım. 2) Belgeleri evde bıraktım. 3) Ofise geldim. 4) Durumu fark ettim.<br><br>A seçeneği bu sırayı doğru koruyor. "había dejado" ifadesini "bırakmıştım" mantığında görmeye dikkat edin.`},
+{id:22,textLabel:'Oración turca',text:`Polis olay yerine ulaştığında şüpheli çoktan kaçmıştı, ancak kaçmadan önce telefonunu restoranda unutmuştu.`,
+ q:`¿Cuál es la traducción más adecuada?`,
+ opts:[`Cuando la policía había llegado al lugar, el sospechoso escapó, pero olvidó su teléfono.`,`Cuando llegó la policía al lugar, el sospechoso ya había escapado, pero antes de huir había dejado su teléfono en el restaurante.`,`Mientras la policía llegaba, el sospechoso estaba escapando y dejaba su teléfono.`,`Cuando la policía llegó, el sospechoso ha escapado porque olvidaba su teléfono.`],ans:1,
+ exp:`Üç basamak: 1) Telefonunu restoranda bıraktı. 2) Kaçtı. 3) Polis geldi.<br><br>En son gerçekleşen geçmiş olay: <strong>la policía llegó</strong>. Daha önceki iki olay: <strong>había dejado</strong>, <strong>había escapado</strong>. Bu nedenle B.<br><br>Bu tarz sorularda "en eski olay her zaman Pluscuamperfecto, diğerleri hep Indefinido" gibi mekanik bir kural kurmayın; referans noktasına göre karar verin.`},
+{id:23,textLabel:'Oración',text:`Hasta aquel momento nunca había pensado que una decisión tan pequeña pudiera cambiar completamente su vida.`,
+ q:`¿Cuál es la traducción correcta?`,
+ opts:[`O ana kadar, böylesine küçük bir kararın hayatını tamamen değiştirebileceğini hiç düşünmemişti.`,`O anda hayatını değiştirmek için küçük bir karar vermeyi düşündü.`,`Küçük kararlar hayatını değiştirdiği için artık düşünmüyordu.`,`O ana kadar verdiği bütün kararlar hayatını tamamen değiştirmişti.`],ans:0,
+ exp:`"Hasta aquel momento" Pluscuamperfecto için çok güçlü bir zaman sınırıdır. <strong>nunca había pensado</strong> = "o ana kadar hiç düşünmemişti."<br><br>Buradaki <strong>pudiera cambiar</strong> yapısı ana gramer hedefimiz değildir; anlamı "değiştirebileceğini" şeklinde verilir.`},
+{id:24,textLabel:'Oración turca',text:`Toplantı başladığında müdür henüz gelmemişti ve hiç kimse onun neden geciktiğini bilmiyordu.`,
+ q:`¿Cuál es la traducción más adecuada?`,
+ opts:[`Cuando había empezado la reunión, el director no llegó y nadie supo por qué.`,`Cuando empezó la reunión, el director todavía no había llegado y nadie sabía por qué se retrasaba.`,`Mientras empezaba la reunión, el director nunca había llegado y nadie conoció la razón.`,`Cuando la reunión ha empezado, el director no llegaba todavía.`],ans:1,
+ exp:`Üç zamanı birlikte görüyoruz: <strong>empezó</strong> → toplantının başlaması, tamamlanmış olay. <strong>no había llegado</strong> → toplantı başlamadan önce beklenen ama gerçekleşmemiş eylem. <strong>nadie sabía</strong> → o sırada devam eden zihinsel durum.<br><br>Dolayısıyla Indefinido + Pluscuamperfecto + Imperfecto aynı cümlede son derece doğal biçimde kullanılabilir.`},
+{id:25,textLabel:'Oración',text:`María estaba mucho más tranquila porque ya había hablado con el médico y este le había explicado que no había motivo para preocuparse.`,
+ q:`¿Cuál es la traducción correcta?`,
+ opts:[`María doktora konuşmak üzere olduğu için daha sakindi.`,`María doktorla daha önce konuşmuş ve doktor ona endişelenecek bir neden olmadığını açıklamış olduğu için çok daha sakindi.`,`María doktorla konuşurken giderek daha fazla endişeleniyordu.`,`Doktor María ile konuşmadan önce onun endişelenmemesi gerektiğini bilmiyordu.`],ans:1,
+ exp:`Ana durum: <strong>María estaba mucho más tranquila</strong>, Imperfecto ile veriliyor. Bu durumun nedeni daha önce gerçekleşen iki olay: <strong>ya había hablado</strong>, <strong>le había explicado</strong>.<br><br>Yani Pluscuamperfecto her zaman tek başına bir "önce olmuş olay" değildir; bazen geçmişteki bir durumun sebebini açıklar.`},
+{id:26,textLabel:'Oración turca',text:`Otele vardığımızda rezervasyonumuzun sistemden silindiğini öğrendik, oysa üç gün önce rezervasyonu telefonla teyit etmiştik.`,
+ q:`¿Cuál es la traducción más adecuada?`,
+ opts:[`Cuando llegamos al hotel, descubrimos que nuestra reserva había desaparecido del sistema, aunque la habíamos confirmado por teléfono tres días antes.`,`Cuando habíamos llegado al hotel, nuestra reserva desapareció porque la confirmamos tres días después.`,`Mientras llegábamos al hotel, descubríamos que la reserva desaparecía.`,`Cuando llegamos al hotel, hemos descubierto que habían confirmado nuestra reserva.`],ans:0,
+ exp:`Zaman sıralaması: 1) Üç gün önce rezervasyonu teyit ettik. 2) Rezervasyon bir şekilde sistemden silindi. 3) Otele vardık. 4) Durumu öğrendik.<br><br>A şıkkı bu geçmiş katmanlarını en doğru biçimde veriyor.`},
+{id:27,textLabel:'Oración',text:`Aunque había prometido que no volvería a cometer el mismo error, unos meses después volvió a hacerlo.`,
+ q:`¿Cuál es la traducción correcta?`,
+ opts:[`Aynı hatayı yeniden yapmayacağına söz vermesine rağmen birkaç ay sonra aynı hatayı tekrar yaptı.`,`Aynı hatayı birkaç ay boyunca yaptığı için artık söz vermedi.`,`Birkaç ay sonra yaptığı hatayı daha önce hiç fark etmemişti.`,`Aynı hatayı yapmadan önce birkaç ay bekleyeceğine söz verdi.`],ans:0,
+ exp:`<strong>había prometido</strong> → daha önce verilen söz. <strong>volvió a hacerlo</strong> → daha sonra gerçekleşen olay. Ayrıca <strong>volver a + infinitivo</strong> = yeniden yapmak.<br><br>Öğrenciler bazen "volver" görünce fiziksel olarak "geri dönmek" şeklinde çevirebiliyor; burada öyle değildir.`},
+{id:28,textLabel:'Oración turca',text:`Daha önce hiç yalnız seyahat etmemiş olmasına rağmen, seyahat sona erdiğinde bu kararından son derece memnundu.`,
+ q:`¿Cuál es la traducción más adecuada?`,
+ opts:[`Aunque nunca viajaba sola, decidió terminar el viaje.`,`Aunque nunca había viajado sola antes, cuando terminó el viaje estaba muy satisfecha con su decisión.`,`Aunque no viajó sola, al final había cambiado su decisión.`,`Como había viajado sola muchas veces, estaba satisfecha.`],ans:1,
+ exp:`"Daha önce hiç…": <strong>nunca había viajado… antes</strong>. Seyahatin bitmesi: <strong>terminó</strong>. Seyahat sonunda hissedilen durum: <strong>estaba muy satisfecha</strong>.<br><br>Burada yine üç zamanı aynı bağlamda görüyoruz.`},
+{id:29,textLabel:'Oración',text:`No pudimos entrar porque alguien había cerrado la puerta y se había llevado la única llave.`,
+ q:`¿Cuál es la traducción correcta?`,
+ opts:[`Kapıyı kapattığımız ve anahtarı yanımıza aldığımız için içeri girmek istemedik.`,`Biri kapıyı kapatıp tek anahtarı götürmüş olduğu için içeri giremedik.`,`İçeri girdikten sonra birinin kapıyı kapattığını fark ettik.`,`Anahtar kapının üzerinde olduğu hâlde kapıyı açamadık.`],ans:1,
+ exp:`Ana sonuç: <strong>No pudimos entrar.</strong> Bu sonucun iki ön nedeni: <strong>alguien había cerrado la puerta</strong>, <strong>se había llevado la única llave</strong>.<br><br>Pluscuamperfecto burada geçmişte ortaya çıkan sonucun nedenini açıklıyor.`},
+{id:30,textLabel:'Oración turca',text:`Öğretmen soruyu açıklamayı bitirdiğinde bazı öğrenciler zaten cevabı yazmıştı, çünkü aynı konuyu önceki derste çalışmışlardı.`,
+ q:`¿Cuál es la traducción más adecuada?`,
+ opts:[`Cuando el profesor terminó de explicar la pregunta, algunos alumnos ya habían escrito la respuesta porque habían estudiado el mismo tema en la clase anterior.`,`Cuando el profesor había terminado, los alumnos escribieron porque estudiaban el tema.`,`Mientras el profesor explicaba, los alumnos habían estudiado la respuesta después.`,`Cuando terminó la clase, los alumnos han escrito una pregunta.`],ans:0,
+ exp:`Kronoloji: 1) Önceki derste konuyu çalıştılar. 2) Yeni derste cevabı yazdılar. 3) Öğretmen soruyu açıklamayı bitirdi.<br><br>Referans noktamız üçüncü olaydır (<strong>terminó</strong>), ama daha önce tamamlanmış iki eylem: <strong>habían estudiado</strong>, <strong>habían escrito</strong> şeklinde gelir.`}
+ ]},
+
+{id:4,code:'PARTE 4',title:'Orden Cronológico',type:'order',
+ instr:'Her soruda 4 cümle karışık sırada verilmiştir. Cümleleri, gerçekleştikleri kronolojik sıraya göre (ilk olan en üstte) sürükleyip bırakarak veya ok butonlarıyla düzenleyin, ardından "Kontrol Et" butonuna basın.',
+ items:[
+{id:31,stmts:{A:`Cuando llegó a casa, vio que la puerta estaba abierta.`,B:`Llamó inmediatamente a la policía.`,C:`Alguien había entrado en la casa durante su ausencia.`,D:`Salió de la oficina a las seis.`},correct:['D','C','A','B'],
+ exp:`Önce kişi işten çıktı (D). O yokken biri eve girdi (C). Sonra eve gelip açık kapıyı gördü (A). En sonunda polisi aradı (B).<br><br>Pluscuamperfecto olan <strong>había entrado</strong>, "eve geldi" olayından daha önce gerçekleştiği için kullanılmıştır.`},
+{id:32,stmts:{A:`El camarero les informó de que su mesa había sido ocupada.`,B:`Habían reservado la mesa por internet una semana antes.`,C:`La pareja llegó al restaurante a las nueve.`,D:`El encargado les ofreció otra mesa.`},correct:['B','C','A','D'],
+ exp:`"Una semana antes" en eski olaydır. Rezervasyon yapılır (B) → restorana gelinir (C) → problem öğrenilir (A) → çözüm sunulur (D).`},
+{id:33,stmts:{A:`El avión despegó finalmente a las doce.`,B:`Los pasajeros habían llegado al aeropuerto muy temprano.`,C:`La compañía anunció un retraso de tres horas.`,D:`Los pasajeros esperaron en la terminal.`},correct:['B','C','D','A'],
+ exp:`Önce yolcular havaalanına gelmiştir (<strong>habían llegado</strong>, B). Daha sonra gecikme açıklanmış (C), beklemişler (D) ve uçak en sonunda kalkmıştır (A). "Finalmente" kronolojik sıralama açısından önemli ipucudur.`},
+{id:34,stmts:{A:`Descubrió que había olvidado la cartera en casa.`,B:`Había preparado cuidadosamente todos sus documentos.`,C:`Llegó al banco para firmar el contrato.`,D:`Tuvo que regresar a casa.`},correct:['B','C','A','D'],
+ exp:`Belgeleri önceden hazırlıyor (B). Bankaya geliyor (C). Orada cüzdanını evde unuttuğunu fark ediyor (A). Ardından eve geri dönmek zorunda kalıyor (D).<br><br>Özellikle <strong>había olvidado</strong> eylemi, fark etme anından önce gerçekleşmiştir.`},
+{id:35,stmts:{A:`El profesor preguntó por qué nadie tenía el ejercicio.`,B:`Los alumnos llegaron a clase.`,C:`El profesor había enviado el documento a una dirección equivocada.`,D:`Todos comprobaron sus correos electrónicos.`},correct:['C','B','A','D'],
+ exp:`Dosyanın yanlış adrese gönderilmesi dersten önce gerçekleşmiştir (C). Sonra öğrenciler gelir (B). Öğretmen sorar (A). En sonunda herkes e-postalarını kontrol eder (D).<br><br>Pluscuamperfecto'nun bulunduğu cümleyi otomatik olarak "ilk olay" kabul etmek çoğu zaman işe yarar, ama bunu kural olarak ezberlemeyin — bağlamı kontrol edin.`},
+{id:36,stmts:{A:`Se dio cuenta de que alguien había utilizado su ordenador.`,B:`Cerró el ordenador antes de salir a comer.`,C:`Regresó a su escritorio una hora después.`,D:`Preguntó a sus compañeros qué había ocurrido.`},correct:['B','C','A','D'],
+ exp:`Bilgisayarı kapattı (B). Bir saat sonra geri döndü (C). Birisinin kullandığını fark etti (A). Ardından arkadaşlarına sordu (D).<br><br>"Birisinin kullanması" B ile C arasındaki zaman diliminde gerçekleşmiş olsa da, öğrencinin elindeki görünür olay sıralamasında fark etme anından önce tamamlanmış olduğu kesindir.`},
+{id:37,stmts:{A:`Los médicos confirmaron que el paciente estaba fuera de peligro.`,B:`El paciente había sufrido un accidente por la mañana.`,C:`Una ambulancia lo llevó al hospital.`,D:`Los médicos lo operaron durante dos horas.`},correct:['B','C','D','A'],
+ exp:`Kaza (B) → ambulans (C) → ameliyat (D) → durumun iyi olduğunun açıklanması (A).<br><br>Burada Pluscuamperfecto ilk olayı geçmişteki diğer referans noktalarına göre geri plana taşımaktadır.`},
+{id:38,stmts:{A:`Cuando abrió el archivo, descubrió que estaba vacío.`,B:`Había trabajado en el informe durante toda la noche.`,C:`Encendió el ordenador por la mañana.`,D:`Recordó que no había guardado los últimos cambios.`},correct:['B','C','A','D'],
+ exp:`Gece rapor üzerinde çalıştı (B). Sabah bilgisayarı açtı (C). Dosyanın boş olduğunu gördü (A). Sonra son değişiklikleri kaydetmediğini hatırladı (D).<br><br>Buradaki <strong>no había guardado</strong> gerçek kronolojide gece gerçekleşmeyen bir eylemdir — yani "kaydetmemek" de geçmişteki bir önceki durumu ifade edebilir.`},
+{id:39,stmts:{A:`La familia llamó al hotel.`,B:`Descubrieron que habían dejado una maleta en la habitación.`,C:`Habían salido del hotel a primera hora.`,D:`El hotel confirmó que había encontrado la maleta.`},correct:['C','B','A','D'],
+ exp:`Otelden ayrıldılar (C). Daha sonra bavulu bıraktıklarını fark ettiler (B). Otele telefon ettiler (A). Otel de bavulu bulduğunu bildirdi (D).<br><br>Bu soruda iki farklı Pluscuamperfecto vardır: <strong>habían dejado</strong>, <strong>había encontrado</strong>. Ama ikisi aynı zamanda gerçekleşmez. Pluscuamperfecto tek başına bize "en eski olay" demiyor; hangi geçmiş referans noktasına göre önce olduğunu söylüyor.`},
+{id:40,stmts:{A:`La empresa le ofreció finalmente el puesto.`,B:`Había enviado su currículum dos meses antes.`,C:`Participó en dos entrevistas.`,D:`Recibió una llamada del departamento de recursos humanos.`},correct:['B','D','C','A'],
+ exp:`İki ay önce CV gönderiliyor (B). Sonra insan kaynakları arıyor (D). Ardından görüşmeler gerçekleşiyor (C). En sonunda iş teklif ediliyor (A).<br><br>"Dos meses antes" ve "finalmente" kelimeleri sıralama sorularında çok güçlü ipuçlarıdır.`}
+ ]},
+
+{id:5,code:'PARTE 5',title:'Desafío Final',type:'blank',
+ instr:'Bu son bölümde dört geçmiş zamanı (Perfecto · Indefinido · Imperfecto · Pluscuamperfecto) birlikte ayırt etmeniz istenmektedir. Boşlukları en uygun zamanla tamamlayın.',
+ items:[
+{id:41,q:`Esta mañana Marta me __________ que anoche no pudo entrar en casa porque __________ las llaves en la oficina.`,
+ opts:[`ha contado / había dejado`,`contó / dejó`,`ha contado / dejó`,`contaba / había dejado`],ans:0,
+ exp:`"Esta mañana" hâlâ bugünün içinde olduğumuz için: <strong>me ha contado</strong> çok doğal bir seçimdir (Pretérito Perfecto). Ana olay dün gece eve girememesi. Anahtarları ofiste bırakma ise bundan daha önce: <strong>había dejado</strong> (Pluscuamperfecto).<br><br>Burada Pretérito Perfecto ile Pluscuamperfecto aynı soruda karşılaştırılıyor.`},
+{id:42,q:`Cuando éramos pequeños, siempre __________ en casa de nuestros abuelos durante el verano, pero el año en que ellos se mudaron ya __________ aquella casa.`,
+ opts:[`pasamos / vendieron`,`pasábamos / habían vendido`,`habíamos pasado / vendían`,`pasábamos / vendieron`],ans:1,
+ exp:`Çocukluktaki tekrar eden alışkanlık: <strong>pasábamos</strong> → Imperfecto. Belirli geçmiş yıldaki referans noktasından önce ev satılmış: <strong>habían vendido</strong> → Pluscuamperfecto.`},
+{id:43,q:`Ayer Ana no quiso ver la película con nosotros porque ya la __________ dos veces.`,
+ opts:[`vio`,`veía`,`había visto`,`ha visto`],ans:2,
+ exp:`Ana'nın filmi izlemek istememesi dün gerçekleşiyor. Film ise dünden daha önce iki kez izlenmiş: <strong>ya la había visto dos veces</strong>.<br><br>Özellikle "ya + experiencia anterior a otro momento pasado" yapısına dikkat edin.`},
+{id:44,q:`Cuando llegué a la fiesta, todos __________ y la música ya __________.`,
+ opts:[`bailaron / empezó`,`bailaban / había empezado`,`habían bailado / empezaba`,`bailaban / empezó`],ans:1,
+ exp:`Ben partiye ulaştığım anda insanların devam eden eylemi: <strong>bailaban</strong> → Imperfecto. Müzik ise bundan önce başlamış ve artık çalıyor durumda: <strong>había empezado</strong> → Pluscuamperfecto.<br><br>Devam eden arka plan = Imperfecto; daha önce tamamlanmış olay = Pluscuamperfecto. Bu ayrım ölçülüyor.`},
+{id:45,q:`Este mes __________ tres reuniones con clientes que nunca antes __________ con nuestra empresa.`,
+ opts:[`tuvimos / trabajaron`,`hemos tenido / habían trabajado`,`teníamos / trabajaban`,`hemos tenido / trabajaron`],ans:1,
+ exp:`"Este mes" henüz bitmemiş zaman dilimi olduğu için: <strong>hemos tenido</strong> kullanıyoruz (Pretérito Perfecto). Müşterilerin daha önce şirketle hiç çalışmamış olması: <strong>nunca antes habían trabajado</strong> (Pluscuamperfecto).<br><br>Burada geçmiş deneyimin başka bir geçmiş olaya göre önceliği söz konusudur.`},
+{id:46,q:`Pedro estaba enfadado porque su hermano __________ el coche sin pedirle permiso y además no le __________ dónde lo había aparcado.`,
+ opts:[`utilizó / dijo`,`había utilizado / había dicho`,`utilizaba / decía`,`ha utilizado / ha dicho`],ans:1,
+ exp:`Pedro'nun kızgın olması bir geçmiş durumdur: <strong>estaba enfadado</strong>. Bu kızgınlığın nedenleri daha önce gerçekleşmiştir: <strong>había utilizado</strong>, <strong>no le había dicho</strong>.<br><br>Pluscuamperfecto'nun "geçmişteki bir duygunun veya durumun nedeni" kullanımına çok iyi bir örnektir.`},
+{id:47,q:`El año pasado fuimos a un restaurante que mis padres nos __________ muchas veces, pero nosotros nunca __________ allí.`,
+ opts:[`recomendaban / comíamos`,`habían recomendado / habíamos comido`,`recomendaron / comimos`,`han recomendado / hemos comido`],ans:1,
+ exp:`Restorana gitme: <strong>fuimos</strong> — ana geçmiş olay. Ondan önce aile birçok kez tavsiye etmiş: <strong>habían recomendado</strong>. Ve biz daha önce orada hiç yememişiz: <strong>nunca habíamos comido</strong>.<br><br>İki eylem de ana geçmiş olaydan önce olduğu için Pluscuamperfecto kullanılır.`},
+{id:48,q:`Cuando el jefe me pidió el documento, todavía no lo __________ porque durante toda la mañana __________ con otro problema urgente.`,
+ opts:[`terminé / trabajé`,`había terminado / había trabajado`,`había terminado / estaba trabajando`,`terminaba / había trabajado`],ans:2,
+ exp:`Patron belgeyi istediği anda belge henüz bitmemiş: <strong>todavía no lo había terminado</strong>. Aynı sabah boyunca devam eden eylem: <strong>estaba trabajando</strong>.<br><br>Burada öğrencinin "geçmişte olan her şeyi Pluscuamperfecto yapma" hatasına düşmemesi gerekiyor — devam eden arka plan eylemi olduğu için Imperfecto kullanıyoruz.`},
+{id:49,q:`Nunca entendí por qué Luis rechazó aquella oferta hasta que años después me contó todo lo que __________ antes de tomar aquella decisión.`,
+ opts:[`había ocurrido`,`ocurrió`,`ocurría`,`ha ocurrido`],ans:0,
+ exp:`Kararın alınması geçmişteki referans noktasıdır: <strong>antes de tomar aquella decisión</strong>. Bu karardan önce yaşananlar: <strong>había ocurrido</strong>.<br><br>"todo lo que había ocurrido" = "o karardan önce yaşanmış olan her şey."`},
+{id:50,q:`Cuando terminó el curso, me di cuenta de que __________ mucho más de lo que __________ al principio.`,
+ opts:[`aprendí / imaginé`,`había aprendido / había imaginado`,`aprendía / imaginaba`,`he aprendido / había imaginado`],ans:1,
+ exp:`Referans noktası: <strong>Cuando terminó el curso…</strong> Kurs bittiğinde geriye dönüp iki şeyi değerlendiriyorum: <strong>había aprendido mucho más</strong> ve <strong>había imaginado al principio</strong>.<br><br>Yani: "Kurs bittiğinde, başlangıçta hayal ettiğimden çok daha fazla şey öğrenmiş olduğumu fark ettim."<br><br>Önemli nokta: Pluscuamperfecto yalnızca "önce A oldu, sonra B oldu" şeklindeki basit olay sıralamalarında kullanılmaz. Geçmişte belirli bir noktadan geriye bakıp deneyim, beklenti, sonuç, sebep, bilgi veya tamamlanmış süreç anlatırken de son derece sık kullanılır.`}
+ ]}
+];
+
+const PARTE_TOTALS={1:10,2:10,3:10,4:10,5:10};
+let student='',answers={},orderState={},curP=0;
+
+function findItem(qid){for(const p of PARTES){for(const it of p.items){if(it.id===qid)return it;}}return null;}
+function findPartOfItem(qid){for(const p of PARTES){for(const it of p.items){if(it.id===qid)return p;}}return null;}
+
+PARTES.forEach(p=>{if(p.type==='order'){p.items.forEach(it=>{orderState[it.id]=['D','C','B','A'];});}});
+
+function getAllQuestions(){
+  let out=[];
+  PARTES.forEach(p=>{p.items.forEach(it=>{out.push({id:it.id,tarea:p.id,ans:(p.type==='order'?true:it.ans)});});});
+  return out;
+}
+
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('sc-'+id).classList.add('active');window.scrollTo(0,0);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function fmtBlank(s){return esc(s).replace(/_{3,}/g,'<span class="blank">______</span>');}
+
+function startQuiz(){
+  const s=document.getElementById('name-sel');
+  if(!s.value){alert('Lütfen adınızı seçin!');return;}
+  student=s.value;answers={};curP=0;
+  PARTES.forEach(p=>{if(p.type==='order'){p.items.forEach(it=>{orderState[it.id]=['D','C','B','A'];});}});
+  document.getElementById('top-st').textContent=student;
+  show('quiz');render();
+}
+
+function pickMC(qid,i){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=i;
+  render();
+}
+
+function renderOrderListHTML(item){
+  const locked=answers[item.id]!==undefined;
+  const order=orderState[item.id];
+  let h='<ul class="orderlist" id="ordlist-'+item.id+'">';
+  order.forEach((letter,idx)=>{
+    let cls='orderitem';
+    if(locked){cls+=(letter===item.correct[idx])?' correct':' wrong';}
+    h+='<li class="'+cls+'" data-letter="'+letter+'"'
+      +(!locked?' draggable="true" ondragstart="oDragStart(event,'+item.id+')" ondragover="oDragOver(event)" ondrop="oDrop(event,'+item.id+')"':'')
+      +'>';
+    h+='<span class="opos">'+(idx+1)+'</span>';
+    if(!locked)h+='<span class="ohandle">&#x2630;</span>';
+    h+='<span class="olet">'+letter+'</span>';
+    h+='<span class="otext">'+esc(item.stmts[letter])+'</span>';
+    if(!locked){
+      h+='<span class="omove">'
+        +'<button type="button" class="omovebtn" '+(idx===0?'disabled':'')+' onclick="oMove('+item.id+',\''+letter+'\',-1)">&#x25b2;</button>'
+        +'<button type="button" class="omovebtn" '+(idx===order.length-1?'disabled':'')+' onclick="oMove('+item.id+',\''+letter+'\',1)">&#x25bc;</button>'
+        +'</span>';
+    }
+    h+='</li>';
+  });
+  h+='</ul>';
+  return h;
+}
+
+let dragSrcId=null,dragSrcLetter=null;
+function oDragStart(e,qid){dragSrcId=qid;dragSrcLetter=e.currentTarget.dataset.letter;try{e.dataTransfer.setData('text/plain',dragSrcLetter);}catch(err){}}
+function oDragOver(e){e.preventDefault();}
+function oDrop(e,qid){
+  e.preventDefault();
+  if(dragSrcId!==qid||dragSrcLetter===null)return;
+  const targetLetter=e.currentTarget.dataset.letter;
+  if(targetLetter===dragSrcLetter)return;
+  const arr=orderState[qid];
+  const from=arr.indexOf(dragSrcLetter);
+  const to=arr.indexOf(targetLetter);
+  if(from===-1||to===-1)return;
+  arr.splice(from,1);
+  arr.splice(to,0,dragSrcLetter);
+  dragSrcId=null;dragSrcLetter=null;
+  refreshOrderList(qid);
+}
+function oMove(qid,letter,dir){
+  const arr=orderState[qid];
+  const idx=arr.indexOf(letter);
+  const ni=idx+dir;
+  if(ni<0||ni>=arr.length)return;
+  const tmp=arr[idx];arr[idx]=arr[ni];arr[ni]=tmp;
+  refreshOrderList(qid);
+}
+function refreshOrderList(qid){
+  const item=findItem(qid);
+  const wrap=document.getElementById('ordwrap-'+qid);
+  if(wrap)wrap.innerHTML=renderOrderListHTML(item);
+}
+function checkOrder(qid){
+  const item=findItem(qid);
+  const arr=orderState[qid];
+  const isCorrect=arr.every((letter,idx)=>letter===item.correct[idx]);
+  answers[qid]=isCorrect;
+  render();
+}
+
+function renderMCBlock(item,useFmtBlank){
+  const ua=answers[item.id];
+  let h='<div class="qh"><div class="qn">'+item.id+'</div><div class="qt">'+(useFmtBlank?fmtBlank(item.q):esc(item.q))+'</div></div><div class="qo">';
+  item.opts.forEach((o,i)=>{
+    let c='ob';
+    if(ua!==undefined){if(i===item.ans)c+=' ok';if(i===ua&&ua!==item.ans)c+=' er';}
+    h+='<button class="'+c+'" '+(ua!==undefined?'disabled':'')+' onclick="pickMC('+item.id+','+i+')"><span class="ol">'+LTR[i]+'</span><span>'+esc(o)+'</span></button>';
+  });
+  h+='</div><div class="ex '+(ua!==undefined?'show':'')+'"><div class="exl">&#x1F4A1; Açıklama</div>'+item.exp+'</div>';
+  return h;
+}
+
+function render(){
+  const p=PARTES[curP];
+  const all=getAllQuestions();
+  const done=all.filter(q=>answers[q.id]!==undefined).length;
+  document.getElementById('pgf').style.width=(done/all.length*100)+'%';
+  document.getElementById('pg-tarea').textContent='Parte '+(curP+1)+' / 5';
+  document.getElementById('fin-ans').textContent=done;
+  document.getElementById('tnav-ctr').textContent='Parte '+(curP+1)+' / 5 — '+p.code;
+  document.getElementById('btn-prev').disabled=(curP===0);
+  document.getElementById('btn-next').disabled=(curP===PARTES.length-1);
+
+  let h='<div class="sb">'+p.code+' — '+p.title+'</div>';
+  h+='<div class="instr"><div class="instrl">Talimat</div>'+p.instr+'</div>';
+
+  p.items.forEach(item=>{
+    if(p.type==='text'){
+      h+='<div class="qc"><div class="t3text"><b>'+item.textLabel+'</b>'+esc(item.text)+'</div>'+renderMCBlock(item,false)+'</div>';
+    }else if(p.type==='blank'){
+      h+='<div class="qc">'+renderMCBlock(item,true)+'</div>';
+    }else if(p.type==='order'){
+      const doneQ=answers[item.id]!==undefined;
+      let resultHtml;
+      if(doneQ){
+        resultHtml=answers[item.id]
+          ?'<span class="oresult ok">&#x2713; Doğru sıralama!</span>'
+          :'<span class="oresult err">&#x2717; Yanlış sıralama. Doğrusu: '+item.correct.join(' &rarr; ')+'</span>';
+      }else{
+        resultHtml='<button type="button" class="btn bm bs" onclick="checkOrder('+item.id+')">&#x2713; Kontrol Et</button>';
+      }
+      h+='<div class="qc"><div class="qh"><div class="qn">'+item.id+'</div><div class="qt">Cümleleri gerçekleşme sırasına göre düzenleyin (ilk olan en üstte).</div></div>';
+      h+='<div class="orderbox"><div id="ordwrap-'+item.id+'">'+renderOrderListHTML(item)+'</div>';
+      h+='<div class="ocheckbar">'+resultHtml+'</div>';
+      h+='<div class="ex '+(doneQ?'show':'')+'"><div class="exl">&#x1F4A1; Açıklama</div>'+item.exp+'</div></div></div>';
+    }
+  });
+
+  document.getElementById('tarea-area').innerHTML=h;
+
+  let ok=0,er=0;
+  all.forEach(q=>{const a=answers[q.id];if(a===undefined)return;if(a===q.ans)ok++;else er++;});
+  document.getElementById('sc-ok').textContent=ok;
+  document.getElementById('sc-er').textContent=er;
+}
+
+function navP(d){curP=Math.max(0,Math.min(PARTES.length-1,curP+d));render();window.scrollTo(0,0);}
+function goConfirm(){document.getElementById('cf-sel').value=student;show('confirm');}
+
+function confirmSubmit(){
+  try{
+    const s=document.getElementById('cf-sel');
+    if(!s||!s.value){alert('Lütfen adınızı seçin!');return;}
+    student=s.value;
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=true;b.textContent='⏳ Kaydediliyor…';}
+    doSubmit();
+  }catch(e){
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=false;b.textContent='✔ Evet, Teslim Et';}
+    alert('Hata: '+e.message);
+  }
+}
+
+function doSubmit(){
+  const all=getAllQuestions();
+  let ok=0,er=0,bl=0;
+  const secCounts={1:0,2:0,3:0,4:0,5:0};
+  all.forEach(q=>{
+    const a=answers[q.id];
+    if(a===undefined){bl++;return;}
+    if(a===q.ans){ok++;secCounts[q.tarea]++;}
+    else er++;
+  });
+  const score=Math.round(ok/all.length*100);
+  document.getElementById('rs-name').textContent=student;
+  document.getElementById('rs-score').innerHTML=score+'<span>/100</span>';
+  document.getElementById('rs-pct').textContent=ok+' / '+all.length+' doğru';
+  document.getElementById('rs-c').textContent=ok;
+  document.getElementById('rs-w').textContent=er;
+  document.getElementById('rs-b').textContent=bl;
+  for(let i=1;i<=5;i++){
+    document.getElementById('br'+i).textContent=secCounts[i]+' / '+PARTE_TOTALS[i];
+  }
+  show('result');
+  saveSheets(student,score,ok,er,bl);
+}
+
+async function saveSheets(nm,score,ok,er,bl){
+  const el=document.getElementById('rs-status');
+  try{
+    const n=new Date();
+    const dd=String(n.getDate()).padStart(2,'0'),mm=String(n.getMonth()+1).padStart(2,'0'),yy=n.getFullYear();
+    const hh=String(n.getHours()).padStart(2,'0'),mi=String(n.getMinutes()).padStart(2,'0'),ss2=String(n.getSeconds()).padStart(2,'0');
+    const fmt='✅ '+score+'/100\n✓'+ok+' ✗'+er+'\n'+dd+'.'+mm+'.'+yy+'\n'+hh+':'+mi+':'+ss2;
+    await fetch(ASU,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({spreadsheetId:SID,sheetName:SHN,studentName:nm,taskColumn:TCL,score,correct:ok,wrong:er,blank:bl,formatted:fmt})});
+    el.className='stb stok';el.textContent='✅ Ödev başarıyla kaydedildi!';
+  }catch(e){
+    el.className='stb ster';el.textContent='⚠️ Kaydedilemedi — Profeye bildirin';
+  }
+}
+
+function goName(){
+  answers={};curP=0;
+  PARTES.forEach(p=>{if(p.type==='order'){p.items.forEach(it=>{orderState[it.id]=['D','C','B','A'];});}});
+  document.getElementById('name-sel').value='';
+  show('name');
+}
+</script>
+</body>
+</html>

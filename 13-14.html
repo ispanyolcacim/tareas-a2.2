@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2.2 · H4 – 13-14. Ders · Voz Pasiva Pro</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--c1:#eaf7e6;--c2:#bfe6ac;--c3:#d3ecc9;--c4:#8fcf95;--c5:#559d6a;--dark:#20402a;--mid:#5c7d63;--white:#fff;--green:#3f8f52;--red:#d97070;--gold1:#f5dca0;--gold2:#dcac48;--blue1:#dcedf9;--blue2:#3d7ea6;--r:14px}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1,#eefaf3 60%,#f7fdf3);min-height:100vh;color:var(--dark)}
+.header{background:linear-gradient(135deg,var(--c4),var(--c5));padding:18px 20px 14px;text-align:center;box-shadow:0 4px 18px rgba(85,157,106,.35);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.1) 14px,rgba(255,255,255,.1) 15px)}
+.htag{display:inline-block;background:rgba(255,255,255,.35);border:1.5px solid rgba(255,255,255,.55);border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 14px;margin-bottom:8px;color:#fff;position:relative}
+.header h1{font-size:clamp(16px,4vw,23px);font-weight:800;color:#fff;position:relative}
+.header-sub{font-size:12px;color:rgba(255,255,255,.9);margin-top:4px;position:relative}
+.screen{display:none;animation:fi .3s ease}.screen.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.nb{max-width:460px;margin:0 auto;padding:32px 20px;text-align:center}
+.nb h2{font-size:20px;color:var(--dark);margin-bottom:5px}
+.nb p{font-size:13px;color:var(--mid);margin-bottom:20px}
+.sel{width:100%;padding:13px 16px;font-size:15px;background:#fff;border:2px solid var(--c3);border-radius:var(--r);color:var(--dark);appearance:none;cursor:pointer;margin-bottom:14px;font-family:inherit}
+.sel:focus{outline:none;border-color:var(--c4)}
+.ib{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:14px 16px;margin-bottom:14px;text-align:left;font-size:13px;line-height:1.75}
+.ibr{display:flex;align-items:flex-start;gap:9px;margin-bottom:5px}
+.ibd{width:8px;height:8px;border-radius:50%;background:var(--c4);flex-shrink:0;margin-top:5px}
+.ibh{height:1px;background:var(--c3);margin:9px 0}
+.remind{display:flex;align-items:flex-start;gap:10px;background:var(--blue1);border:1.5px solid var(--blue2);border-radius:var(--r);padding:12px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.65;color:#1a3a4c;text-align:left}
+.remind .ric{font-size:18px;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 24px;border:none;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.bm{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;box-shadow:0 4px 12px rgba(85,157,106,.35)}
+.bm:hover:not(:disabled){transform:translateY(-2px)}
+.bg{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--dark);box-shadow:0 4px 12px rgba(220,172,72,.4)}
+.bg:hover:not(:disabled){transform:translateY(-2px)}
+.bo{background:#fff;border:2px solid var(--c3);color:var(--dark)}
+.bo:hover:not(:disabled){background:var(--c3)}
+.bs{padding:9px 18px;font-size:13px}
+.bf{width:100%}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important}
+.qw{max-width:720px;margin:0 auto;padding:16px}
+.topsub{display:flex;justify-content:center;margin-bottom:14px}
+.tb{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:10px 16px;margin-bottom:12px;gap:8px;flex-wrap:wrap}
+.ts{font-size:12px;color:var(--mid);font-weight:600}
+.tsc{display:flex;gap:14px}
+.si{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:700}
+.sok{color:var(--green)}.ser{color:var(--red)}
+.pgw{margin-bottom:14px}
+.pgb{height:7px;background:var(--c3);border-radius:4px;overflow:hidden}
+.pgf{height:100%;background:linear-gradient(90deg,var(--c4),var(--c2));border-radius:4px;transition:width .4s;width:0%}
+.pgi{display:flex;justify-content:space-between;font-size:11px;color:var(--mid);margin-top:3px}
+.sb{display:inline-flex;align-items:center;background:linear-gradient(90deg,var(--c4),var(--c5));border-radius:20px;padding:6px 16px;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:10px;box-shadow:0 2px 8px rgba(85,157,106,.3)}
+.instr{background:var(--blue1);border-left:3px solid var(--blue2);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:12px;font-size:12.5px;line-height:1.75;color:#1a3a4c}
+.instrl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue2);margin-bottom:4px}
+.qc{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:12px}
+.qh{padding:16px 18px 14px;display:flex;gap:12px;align-items:flex-start}
+.qn{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;margin-top:1px}
+.qt{font-size:14px;line-height:1.65;flex:1;color:var(--dark);font-weight:500}
+.blank{color:var(--c5);font-weight:800;letter-spacing:.5px;border-bottom:2px dotted var(--c5);padding:0 2px}
+.t3text{background:var(--c1);border:1.5px solid var(--c3);border-radius:10px;padding:12px 14px;margin:0 0 12px;font-size:12.5px;line-height:1.7;color:var(--dark)}
+.t3text b{color:var(--c5);display:block;margin-bottom:4px;font-size:11px;letter-spacing:.5px;text-transform:uppercase}
+.qo{padding:12px 16px 14px;display:grid;gap:8px}
+.ob{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:#f7fcf5;border:1.5px solid var(--c3);border-radius:10px;color:var(--dark);font-size:13.5px;line-height:1.5;cursor:pointer;text-align:left;width:100%;transition:all .18s;font-family:inherit}
+.ob:hover:not(:disabled){background:var(--c1);border-color:var(--c4);transform:translateX(4px)}
+.ob:disabled{cursor:default}
+.ol{background:var(--c3);color:var(--dark);border-radius:6px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.ob.ok{background:#eaf7ec;border-color:#8dcca0}
+.ob.ok .ol{background:var(--green);color:#fff}
+.ob.er{background:#fdf0f0;border-color:#e8a0a0}
+.ob.er .ol{background:var(--red);color:#fff}
+.ex{display:none;margin:0 16px 16px;background:var(--c1);border-left:3px solid var(--c2);border-radius:0 8px 8px 0;padding:11px 14px;font-size:12.5px;line-height:1.75;color:var(--mid)}
+.ex.show{display:block}
+.exl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#3d7a4c;margin-bottom:4px}
+.fvhintrow{display:flex;align-items:center;gap:8px;margin:0 16px 8px;flex-wrap:wrap}
+.fvhint{background:var(--gold1);border:1px solid var(--gold2);border-radius:20px;padding:4px 12px;font-size:11.5px;font-weight:700;color:#7a5a10}
+.fvwarn{background:#fdf0f0;border:1px solid var(--red);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;color:#a04040}
+.fvrow{display:flex;gap:8px;margin:0 16px 14px;flex-wrap:wrap;align-items:center}
+.fvin{padding:8px 12px;font-size:13.5px;border:2px solid var(--c3);border-radius:10px;font-family:inherit;color:var(--dark)}
+.fvin:focus{outline:none;border-color:var(--c4)}
+.fvin.ok{border-color:var(--green);background:#eaf7ec}
+.fvin.err{border-color:var(--red);background:#fdf0f0}
+.fvin:disabled{background:#f3f3f3;color:#aaa;cursor:not-allowed}
+.fvbadge{font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:10px;white-space:nowrap}
+.fvbadge.ok{background:rgba(63,143,82,.15);color:#2c6b3a}
+.fvbadge.err{background:rgba(217,112,112,.15);color:#a04040}
+.oresult{font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:20px}
+.oresult.ok{background:rgba(63,143,82,.15);color:#2c6b3a}
+.oresult.err{background:rgba(217,112,112,.15);color:#a04040}
+.ocheckbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:0 16px 14px}
+.tfsent{margin-bottom:14px}
+.tfmeta{font-size:12px;color:var(--mid);margin-bottom:5px}
+.tfmeta strong{color:var(--c5)}
+.tfmeta em{font-style:italic}
+.tfframe{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13.5px;line-height:1.6}
+.tfwrong{font-size:11.5px;color:#a04040;margin-top:3px}
+.tnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;margin-bottom:16px;flex-wrap:wrap}
+.tnc{font-size:13px;color:var(--mid);font-weight:700;text-align:center;flex:1}
+.cfw{max-width:420px;margin:0 auto;padding:40px 20px;text-align:center}
+.cfw h2{font-size:22px;color:var(--dark);margin-bottom:8px}
+.cfw p{font-size:14px;color:var(--mid);margin-bottom:20px;line-height:1.6}
+.ns{background:rgba(85,157,106,.1);border:2px solid var(--c4);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;font-size:14px;font-weight:700;color:var(--c5)}
+.rw{max-width:460px;margin:0 auto;padding:28px 20px;text-align:center}
+.rc{background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:28px 22px;margin-bottom:14px;box-shadow:0 6px 24px rgba(143,207,149,.2)}
+.re{font-size:50px;margin-bottom:10px}
+.rn{font-size:14px;color:var(--mid);margin-bottom:3px}
+.rt{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:16px}
+.rbig{font-size:62px;font-weight:900;line-height:1;color:var(--dark)}
+.rbig span{font-size:24px;font-weight:400;color:var(--mid)}
+.rp{font-size:13px;color:var(--mid);margin-top:4px;margin-bottom:18px}
+.rst{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.ri{background:linear-gradient(135deg,var(--c3),var(--c1));border:1px solid var(--c4);border-radius:12px;padding:11px 16px;min-width:76px;text-align:center}
+.ri .rnum{font-size:28px;font-weight:800;line-height:1}
+.ri .rl{font-size:11px;color:var(--mid);margin-top:3px}
+.rok .rnum{color:var(--green)}.rer .rnum{color:var(--red)}.rbl .rnum{color:#bbb}
+.bd{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.bdr{display:flex;justify-content:space-between;align-items:center;background:rgba(191,230,172,.2);border:1px solid var(--c3);border-radius:8px;padding:8px 14px;font-size:12.5px}
+.bdl{color:var(--mid)}.bds{font-weight:700;color:var(--dark)}
+.stb{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;font-size:13px;font-weight:700;margin-bottom:14px}
+.stok{background:rgba(63,143,82,.15);border:1.5px solid rgba(63,143,82,.4);color:#2c6b3a}
+.ster{background:rgba(217,112,112,.15);border:1.5px solid rgba(217,112,112,.4);color:#a04040}
+.stpnd{background:rgba(220,172,72,.2);border:1.5px solid rgba(220,172,72,.5);color:#8a6a1a}
+.ra{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="htag">4. Hafta Ödevi &nbsp;|&nbsp; A2.2 (13-14. Ders)</div>
+  <h1>&#x1F1EA;&#x1F1F8; A2.2 – H4 13-14. Ders</h1>
+  <div class="header-sub">La Voz Pasiva &nbsp;&bull;&nbsp; Práctica Pro &nbsp;&bull;&nbsp; 4 Parte &nbsp;&bull;&nbsp; 70 soru &nbsp;&bull;&nbsp; @ispanyolcacim &nbsp;&bull;&nbsp; Profe Hazel</div>
+</div>
+<div class="screen active" id="sc-name">
+  <div class="nb">
+    <h2>&#x1F4DA; Adınızı seçin</h2>
+    <p>Ödeve başlamadan önce lütfen listeden adınızı seçin.</p>
+    <select class="sel" id="name-sel"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
+      <option>Zumeyra Dogan</option></select>
+    <div class="remind"><span class="ric">&#x270D;&#xfe0f;</span><span><strong>Unutmayın:</strong> Bu haftanın <strong>yazma ödevi</strong> bu sayfada değildir — ayrı bir <strong>bağlantı (link)</strong> olarak size iletilecektir. Lütfen onu da tamamlamayı unutmayınız.</span></div>
+    <div class="ib">
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 1 — Comprensión Lectora:</strong> İki metni okuyup 10 soruyu yanıtlayın.</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 2 — Completa la Transformación:</strong> 10 soru, her birinde 4 cümle (a-d) — toplam 40 dönüşüm.</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 3 — Puntos Críticos:</strong> Pasif yapının kritik noktalarını test eden 10 soru.</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 4 — Elige la Estructura según el Contexto:</strong> Bağlama göre doğru yapıyı seçtiğiniz 10 soru.</span></div>
+      <div class="ibh"></div>
+      <div class="ibr"><div class="ibd" style="background:var(--red)"></div><span>&#x26a0;&#xfe0f; <strong>PARTE 2'de</strong> aksanlara (á, é, í, ó, ú) dikkat edin! Ayrıca bir boşluğu doldurmadan bir sonrakine geçemezsiniz; dört cümleyi tamamladıktan sonra hepsi <strong>aynı anda</strong> kontrol edilecektir.</span></div>
+    </div>
+    <button class="btn bm bf" onclick="startQuiz()">&#x25b6; Başla</button>
+  </div>
+</div>
+<div class="screen" id="sc-quiz">
+  <div class="qw">
+    <div class="topsub">
+      <button class="btn bg bs" onclick="goConfirm()">&#x2714; Ödevi Teslim Et</button>
+    </div>
+    <div class="tb">
+      <div class="ts" id="top-st">&#x2014;</div>
+      <div class="tsc">
+        <div class="si sok">&#x2713; <span id="sc-ok">0</span></div>
+        <div class="si ser">&#x2717; <span id="sc-er">0</span></div>
+      </div>
+    </div>
+    <div class="pgw">
+      <div class="pgb"><div class="pgf" id="pgf"></div></div>
+      <div class="pgi"><span id="pg-tarea">Parte 1 / 4</span><span><span id="fin-ans">0</span> / 70 yanıtlandı</span></div>
+    </div>
+    <div id="tarea-area"></div>
+    <div class="tnav">
+      <button class="btn bo bs" id="btn-prev" onclick="navP(-1)">&#x2190; Önceki Parte</button>
+      <div class="tnc" id="tnav-ctr">Parte 1 / 4</div>
+      <button class="btn bm bs" id="btn-next" onclick="navP(1)">Sonraki Parte &#x2192;</button>
+    </div>
+  </div>
+</div>
+<div class="screen" id="sc-confirm">
+  <div class="cfw">
+    <div style="font-size:48px;margin-bottom:12px">&#x1F4CB;</div>
+    <h2>Ödevi Teslim Et</h2>
+    <div class="ns">&#x26a0;&#xfe0f; ÖDEVİNİZ HENÜZ TESLİM EDİLMEDİ</div>
+    <p>Teslim etmeden önce listeden adınızı seçin ve onaylayın.</p>
+    <select class="sel" id="cf-sel" style="margin-bottom:16px"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
+      <option>Zumeyra Dogan</option></select>
+    <button class="btn bg bf" id="cf-btn" onclick="confirmSubmit()">&#x2714; Evet, Teslim Et</button>
+  </div>
+</div>
+<div class="screen" id="sc-result">
+  <div class="rw">
+    <div class="rc">
+      <div class="re">&#x1F1EA;&#x1F1F8;</div>
+      <div class="rn" id="rs-name">&#x2014;</div>
+      <div class="rt">A2.2 · H4 – 13-14. Ders · Voz Pasiva Pro</div>
+      <div class="rbig" id="rs-score">0<span>/100</span></div>
+      <div class="rp" id="rs-pct"></div>
+      <div class="bd">
+        <div class="bdr"><span class="bdl">PARTE 1 — Comprensión Lectora</span><span class="bds" id="br1">0 / 10</span></div>
+        <div class="bdr"><span class="bdl">PARTE 2 — Completa la Transformación</span><span class="bds" id="br2">0 / 40</span></div>
+        <div class="bdr"><span class="bdl">PARTE 3 — Puntos Críticos</span><span class="bds" id="br3">0 / 10</span></div>
+        <div class="bdr"><span class="bdl">PARTE 4 — Elige la Estructura</span><span class="bds" id="br4">0 / 10</span></div>
+      </div>
+      <div class="rst">
+        <div class="ri rok"><div class="rnum" id="rs-c">0</div><div class="rl">Doğru</div></div>
+        <div class="ri rer"><div class="rnum" id="rs-w">0</div><div class="rl">Yanlış</div></div>
+        <div class="ri rbl"><div class="rnum" id="rs-b">0</div><div class="rl">Boş</div></div>
+      </div>
+      <div class="stb stpnd" id="rs-status">&#x23f3; Kaydediliyor&#x2026;</div>
+      <div class="remind" style="margin-bottom:0"><span class="ric">&#x270D;&#xfe0f;</span><span><strong>Unutmayın:</strong> Yazma ödeviniz bu testten ayrı olarak, size özel bir <strong>link</strong> ile paylaşılacaktır.</span></div>
+    </div>
+    <div class="ra"><button class="btn bo" onclick="goName()">&#x1F504; Yeniden Başla</button></div>
+  </div>
+</div>
+<script>
+const ASU='https://script.google.com/macros/s/AKfycbw-BwEhVOhO6GkkQHNWJA8LQLMkEGwNCtJ3BXSqik1RnzqZLl4a_a3HmYEoIlJAgY4Wkg/exec';
+const SID='1wziyxdRdIGL7OEq4yRib0i_CaCWJGI14fwDyMKB4abw';
+const SHN='A2.2';
+const TCL='H4 – 13-14.Ders';
+
+/* ================= PARTE 1 — COMPRENSIÓN LECTORA (reading, 10) ================= */
+const P1_ITEMS=[
+{id:1,
+ textLabel:'Texto 1 — La Reapertura del Museo',
+ textBody:`El Museo Municipal de San Lorenzo tuvo que ser cerrado hace cuatro meses después de una fuerte tormenta. Parte del tejado fue destruida por el viento y varias ventanas fueron dañadas. Como existía el riesgo de que algunas obras importantes sufrieran más daños, los cuadros y objetos más valiosos fueron trasladados temporalmente a un edificio cercano antes de que comenzaran las reparaciones.<br><br>Durante las semanas siguientes, el tejado fue reparado por una empresa especializada y todas las ventanas dañadas fueron sustituidas. La sala principal también fue restaurada completamente. Sin embargo, todavía queda trabajo por hacer. Esta semana algunas pinturas están siendo llevadas de nuevo a sus salas originales y dos salas pequeñas están siendo pintadas.<br><br>La entrada principal ya está reparada y las puertas están abiertas durante algunas horas para los trabajadores. Sin embargo, el museo todavía no recibe visitantes. Según la dirección, será abierto al público el último sábado del mes. Una exposición especial iba a ser inaugurada ese mismo día, pero finalmente se celebrará un mes después porque varias de sus obras todavía no han llegado a la ciudad.`,
+ q:'¿Qué ocurrió antes de que comenzaran las reparaciones?',
+ opts:['Los objetos más valiosos fueron trasladados a otro edificio.','La exposición especial fue inaugurada.','El museo comenzó a recibir visitantes.','Las dos salas pequeñas fueron pintadas.'],ans:0,
+ exp:`Kronolojik sıralamayı takip edin. Metinde: <strong>"los cuadros y objetos más valiosos fueron trasladados temporalmente... antes de que comenzaran las reparaciones"</strong> deniyor. Olay sırası: değerli eserler taşındı → onarım başladı. Bu nedenle <strong>A</strong> doğru.<br><br>B yanlış; özel sergi henüz açılmadı, hatta ertelendi. C yanlış; müze hâlâ ziyaretçi kabul etmiyor. D çok önemli bir tuzak: metinde iki küçük salon için <strong>están siendo pintadas</strong> deniyor — "boyandılar" değil, "boyanıyorlar" (henüz devam ediyor).`},
+{id:2,q:'¿Cuál de las siguientes afirmaciones describe mejor la situación actual?',
+ opts:['El museo ya funciona con normalidad.','Ninguna reparación ha terminado todavía.','Todos los objetos permanecen fuera del museo.','Algunas reparaciones han terminado, pero otros trabajos continúan.'],ans:3,
+ exp:`Metnin tamamını değerlendirin. Tamamlanan işler: <strong>el tejado fue reparado</strong>, <strong>las ventanas fueron sustituidas</strong>, <strong>la sala principal fue restaurada</strong>. Devam eden işler: <strong>algunas pinturas están siendo llevadas</strong>, <strong>dos salas están siendo pintadas</strong>. Yani bazı işler bitti, bazıları devam ediyor: doğru cevap <strong>D</strong>.<br><br>A fazla kesin çünkü müze henüz normal ziyaretçi kabul etmiyor. B tam tersini söylüyor. C yanlış çünkü bazı eserler yeniden müzeye taşınıyor.`},
+{id:3,q:'¿Qué significa en el texto que "la sala principal fue restaurada completamente"?',
+ opts:['La restauración está ocurriendo ahora.','El trabajo de restauración de esa sala terminó.','La sala será restaurada el próximo mes.','Nadie sabe si la sala fue reparada.'],ans:1,
+ exp:`<strong>fue restaurada</strong> yapısındaki <strong>fue</strong>, SER fiilinin pretérito indefinido biçimidir: <strong>La sala fue restaurada</strong> = Salon restore edildi (eylem tamamlanmış). Eğer <strong>está siendo restaurada</strong> olsaydı "şu anda restore ediliyor" anlamı çıkardı. Bu nedenle doğru cevap <strong>B</strong>.`},
+{id:4,q:'¿Por qué se ha retrasado la exposición especial?',
+ opts:['Porque el tejado todavía está destruido.','Porque no hay trabajadores en el museo.','Porque algunas de las obras todavía no han llegado a la ciudad.','Porque el museo será cerrado definitivamente.'],ans:2,
+ exp:`Metinde neden açıkça verilmiştir: <strong>"porque varias de sus obras todavía no han llegado a la ciudad."</strong> Doğru cevap <strong>C</strong>.<br><br>A yanlış çünkü çatı zaten <strong>fue reparado</strong>. B yanlış; çalışanların binaya girdiği belirtiliyor. D metnin tam tersidir çünkü müze yeniden açılacaktır. "Mantıklı olabilir" ile "metin bunu söylüyor" ayrımına dikkat edin.`},
+{id:5,q:'¿Qué ocurrirá según los planes de la dirección?',
+ opts:['El museo permanecerá cerrado todo el año.','Todas las obras serán vendidas.','El museo será abierto antes de que se celebre la exposición especial.','La exposición será inaugurada antes que el museo.'],ans:2,
+ exp:`Zamanları karşılaştırın: Müze — <strong>será abierto al público el último sábado del mes</strong>; Sergi — <strong>se celebrará un mes después</strong>. Önce müze açılacak, daha sonra sergi yapılacak: doğru cevap <strong>C</strong>.<br><br>Ayrıca <strong>será abierto</strong> gelecek zamanda pasif yapıdır (Aktif: La dirección abrirá el museo. Pasif: El museo será abierto por la dirección).`},
+{id:6,
+ textLabel:'Texto 2 — El Nuevo Puente de Santa Clara',
+ textBody:`El viejo puente de Santa Clara fue construido en 1968 y durante décadas fue utilizado diariamente por miles de personas. El invierno pasado, varias partes de la estructura fueron dañadas por las fuertes lluvias. Después de diferentes estudios técnicos, el ayuntamiento decidió construir un nuevo puente en el mismo lugar.<br><br>Las obras comenzaron en junio. Desde entonces, el nuevo puente está siendo construido por una empresa local. Sin embargo, durante la preparación de los cimientos fueron encontrados varios objetos antiguos. Debido a este descubrimiento, los trabajos fueron interrumpidos durante diez días para que un grupo de arqueólogos pudiera estudiar la zona.<br><br>Los objetos encontrados fueron trasladados al Museo Arqueológico. Después de recibir el permiso de los especialistas, las obras fueron reanudadas. Actualmente, la estructura central está siendo terminada y algunas partes ya están preparadas para la siguiente fase.<br><br>Según el proyecto, el puente será terminado en diciembre y la carretera será abierta nuevamente al tráfico en enero.<br><br>Al día siguiente del descubrimiento, un periódico local publicó el siguiente titular: <em>"Restos antiguos encontrados durante las obras del nuevo puente".</em>`,
+ q:'¿Por qué se interrumpieron las obras?',
+ opts:['Porque la empresa decidió abandonar el proyecto.','Porque fueron encontrados objetos antiguos.','Porque el nuevo puente fue destruido por la lluvia.','Porque la carretera ya estaba abierta.'],ans:1,
+ exp:`Neden-sonuç zincirini bulun: <strong>fueron encontrados varios objetos antiguos</strong> → <strong>los trabajos fueron interrumpidos</strong>. Eski objeler bulunduğu için çalışmalar durduruldu: doğru cevap <strong>B</strong>. Her iki yapı da tamamlanmış geçmiş pasifidir.<br><br>A'da şirketin projeyi bıraktığı söyleniyor; böyle bir bilgi yok. C eski köprüyle yeni köprüyü karıştırıyor. D olay sırasına uymuyor.`},
+{id:7,q:'¿Qué está ocurriendo actualmente con el puente?',
+ opts:['Ya está completamente terminado.','Está siendo utilizado por los conductores.','Está cerrado porque no se realizarán más obras.','Algunas partes todavía están siendo construidas o terminadas.'],ans:3,
+ exp:`Metindeki iki ifade: <strong>el nuevo puente está siendo construido</strong> ve <strong>la estructura central está siendo terminada</strong> — işlemin hâlâ devam ettiğini gösteriyor: doğru cevap <strong>D</strong>.<br><br>Formül: <strong>ESTAR + SIENDO + PARTICIPIO</strong>. "está siendo terminada" = tamamlanıyor; "está terminada" = tamamlanmış durumda. Bu fark testin tamamında çok önemlidir.`},
+{id:8,q:'¿Cuál sería la forma completa más lógica del titular "Restos antiguos encontrados durante las obras…"?',
+ opts:['Restos antiguos fueron encontrados durante las obras.','Restos antiguos están encontrando durante las obras.','Restos antiguos fueron encontrando durante las obras.','Restos antiguos son encontrar durante las obras.'],ans:0,
+ exp:`Gazete başlıklarında SER bazen düşürülebilir. Başlık tam cümle hâline getirildiğinde: <strong>Restos antiguos fueron encontrados durante las obras.</strong> olur — doğru cevap <strong>A</strong>. Ayrıca <strong>restos → encontrados</strong> eril-çoğul uyumu vardır. Dikkat: <strong>encontrado</strong> = participio, <strong>encontrando</strong> = gerundio; aynı şey değildir.`},
+{id:9,q:'Según el proyecto, ¿qué sucederá primero?',
+ opts:['El puente será terminado.','La carretera será abierta al tráfico.','Los trabajos serán interrumpidos.','Los objetos serán encontrados.'],ans:0,
+ exp:`İki gelecek zamanı karşılaştırın: diciembre → <strong>el puente será terminado</strong>; enero → <strong>la carretera será abierta</strong>. Aralık, ocaktan önce olduğu için doğru cevap <strong>A</strong>. Participio uyumuna dikkat: el puente → terminado, la carretera → abierta.`},
+{id:10,q:'¿Por qué aparece "encontrados" sin "fueron" en el titular?',
+ opts:['Porque "encontrados" funciona como gerundio.','Porque todos los titulares están en presente.','Porque en los titulares periodísticos puede omitirse SER.','Porque "fueron" solo puede utilizarse con personas.'],ans:2,
+ exp:`Gazete başlıklarında SER fiili düşürülebilir. <strong>Restos encontrados...</strong> yapısı bağlamda <strong>Restos fueron encontrados...</strong> şeklinde anlaşılabilir: doğru cevap <strong>C</strong>. A yanlış çünkü <strong>encontrados</strong> participio'dur; gerundio <strong>encontrando</strong> olurdu.`}
+];
+
+/* ================= PARTE 2 — COMPLETA LA TRANSFORMACIÓN (transform, 10 grupos x4) ================= */
+const P2_GROUPS=[
+{id:11,label:'PRESENTE',sentences:[
+  {letter:'a',active:'El chef prepara las comidas todos los días.',frame:'Las comidas ______ todos los días por el chef.',ans:'son preparadas'},
+  {letter:'b',active:'Los profesores corrigen los exámenes cada semana.',frame:'Los exámenes ______ cada semana por los profesores.',ans:'son corregidos'},
+  {letter:'c',active:'La fábrica produce estas bicicletas en Valencia.',frame:'Estas bicicletas ______ en Valencia por la fábrica.',ans:'son producidas'},
+  {letter:'d',active:'Marta organiza las reuniones del departamento.',frame:'Las reuniones del departamento ______ por Marta.',ans:'son organizadas'}],
+ exp:`Dört aktif fiil de <strong>presente</strong>: prepara / corrigen / produce / organiza. Bu nedenle pasifte <strong>es/son + participio</strong> kullanıyoruz. Dört yeni sujeto paciente de çoğul olduğu için hepsinde <strong>son</strong> kullanılır. Participio ise özneye göre değişir: comidas → preparadas, exámenes → corregidos, bicicletas → producidas, reuniones → organizadas. Pasifte participio, eski özneyle değil yeni sujeto paciente ile uyum sağlar.`},
+{id:12,label:'PRETÉRITO INDEFINIDO',sentences:[
+  {letter:'a',active:'La policía encontró las maletas ayer.',frame:'Las maletas ______ ayer por la policía.',ans:'fueron encontradas'},
+  {letter:'b',active:'El periodista escribió el artículo anoche.',frame:'El artículo ______ anoche por el periodista.',ans:'fue escrito'},
+  {letter:'c',active:'Los trabajadores construyeron las casas en 2015.',frame:'Las casas ______ en 2015 por los trabajadores.',ans:'fueron construidas'},
+  {letter:'d',active:'Ana abrió las ventanas por la mañana.',frame:'Las ventanas ______ por la mañana por Ana.',ans:'fueron abiertas'}],
+ exp:`Aktif fiiller indefinido: encontró / escribió / construyeron / abrió. Pasif: <strong>fue/fueron + participio</strong>. Özellikle iki düzensiz participio: escribir → <strong>escrito</strong>, abrir → <strong>abierto</strong>. Ama pasifte yine uyum yapıyoruz: las ventanas → abiertas (❌ fueron abierto diyemeyiz).`},
+{id:13,label:'PRETÉRITO IMPERFECTO',sentences:[
+  {letter:'a',active:'Los empleados limpiaban las oficinas cada tarde.',frame:'Las oficinas ______ cada tarde por los empleados.',ans:'eran limpiadas'},
+  {letter:'b',active:'Mi abuela preparaba la comida los domingos.',frame:'La comida ______ los domingos por mi abuela.',ans:'era preparada'},
+  {letter:'c',active:'El guía explicaba las reglas a los visitantes.',frame:'Las reglas ______ por el guía.',ans:'eran explicadas'},
+  {letter:'d',active:'Los técnicos revisaban las máquinas cada mes.',frame:'Las máquinas ______ cada mes por los técnicos.',ans:'eran revisadas'}],
+ exp:`Aktif cümlede imperfecto varsa zamanı koruyoruz: limpiaban → eran limpiadas, preparaba → era preparada. Önemli ayrım: <strong>Las oficinas eran limpiadas cada tarde</strong> (ofisler her öğleden sonra temizlenirdi — eylem) ile <strong>Las oficinas estaban limpias</strong> (ofisler temizdi — durum) farklıdır.`},
+{id:14,label:'PRETÉRITO PERFECTO',sentences:[
+  {letter:'a',active:'El director ha firmado los documentos.',frame:'Los documentos ______ por el director.',ans:'han sido firmados'},
+  {letter:'b',active:'Los médicos han examinado a la paciente.',frame:'La paciente ______ por los médicos.',ans:'ha sido examinada'},
+  {letter:'c',active:'La empresa ha cancelado las reuniones.',frame:'Las reuniones ______ por la empresa.',ans:'han sido canceladas'},
+  {letter:'d',active:'Hemos terminado el proyecto.',frame:'El proyecto ______ por nosotros.',ans:'ha sido terminado'}],
+ exp:`Pretérito perfecto pasif formülü: <strong>haber + sido + participio</strong>. Örneğin ha firmado → ha sido firmado. <strong>sido</strong>, SER'in participio'sudur; ardından ana fiilin participio'su gelir: firmado / examinada / canceladas / terminado.`},
+{id:15,label:'PLUSCUAMPERFECTO',sentences:[
+  {letter:'a',active:'La secretaria había enviado las cartas antes del mediodía.',frame:'Las cartas ______ antes del mediodía por la secretaria.',ans:'habían sido enviadas'},
+  {letter:'b',active:'Los técnicos habían reparado el ascensor antes de nuestra llegada.',frame:'El ascensor ______ antes de nuestra llegada por los técnicos.',ans:'había sido reparado'},
+  {letter:'c',active:'El juez había firmado las órdenes.',frame:'Las órdenes ______ por el juez.',ans:'habían sido firmadas'},
+  {letter:'d',active:'El museo había comprado dos esculturas nuevas.',frame:'Dos esculturas nuevas ______ por el museo.',ans:'habían sido compradas'}],
+ exp:`Pluscuamperfecto pasif: <strong>había/habían + sido + participio</strong>. "La secretaria había enviado las cartas" → "Las cartas habían sido enviadas por la secretaria". <strong>Habían</strong> kullanılır çünkü yeni özne (las cartas) çoğuldur.`},
+{id:16,label:'FUTURO SIMPLE',sentences:[
+  {letter:'a',active:'El ayuntamiento construirá dos parques.',frame:'Dos parques ______ por el ayuntamiento.',ans:'serán construidos'},
+  {letter:'b',active:'La empresa anunciará la decisión mañana.',frame:'La decisión ______ mañana por la empresa.',ans:'será anunciada'},
+  {letter:'c',active:'Los organizadores enviarán las invitaciones esta tarde.',frame:'Las invitaciones ______ esta tarde por los organizadores.',ans:'serán enviadas'},
+  {letter:'d',active:'El hospital trasladará al paciente en helicóptero.',frame:'El paciente ______ en helicóptero por el hospital.',ans:'será trasladado'}],
+ exp:`Gelecek zamanın pasifinde SER gelecek zamanda çekimlenir: <strong>será/serán + participio</strong>. anunciará → será anunciada. Participio yeni özneyle uyum sağlar: la decisión → anunciada.`},
+{id:17,label:'ACCIÓN EN PROGRESO — PRESENTE',sentences:[
+  {letter:'a',active:'Los médicos están operando al paciente.',frame:'El paciente ______ por los médicos.',ans:'está siendo operado'},
+  {letter:'b',active:'Los trabajadores están pintando las paredes.',frame:'Las paredes ______ por los trabajadores.',ans:'están siendo pintadas'},
+  {letter:'c',active:'El chef está preparando la cena.',frame:'La cena ______ por el chef.',ans:'está siendo preparada'},
+  {letter:'d',active:'Los técnicos están instalando las cámaras.',frame:'Las cámaras ______ por los técnicos.',ans:'están siendo instaladas'}],
+ exp:`Eylemler şu anda devam ediyor. Formül: <strong>ESTAR + SIENDO + PARTICIPIO</strong>. están pintando → están siendo pintadas. <strong>SIENDO</strong> değişmez; está/están özneye göre değişir; participio sujeto paciente ile uyum sağlar: operado / pintadas / preparada / instaladas.`},
+{id:18,label:'ACCIÓN EN PROGRESO — PASADO',sentences:[
+  {letter:'a',active:'Los médicos estaban examinando a los pacientes cuando llegué.',frame:'Los pacientes ______ cuando llegué.',ans:'estaban siendo examinados'},
+  {letter:'b',active:'Los obreros estaban construyendo el edificio cuando empezó a llover.',frame:'El edificio ______ cuando empezó a llover.',ans:'estaba siendo construido'},
+  {letter:'c',active:'Ana estaba escribiendo las cartas a las cinco.',frame:'Las cartas ______ a las cinco.',ans:'estaban siendo escritas'},
+  {letter:'d',active:'Los cocineros estaban preparando los postres cuando entramos.',frame:'Los postres ______ cuando entramos.',ans:'estaban siendo preparados'}],
+ exp:`Geçmişte belirli bir anda devam eden eylem: <strong>ESTABA/ESTABAN + SIENDO + PARTICIPIO</strong>. "El edificio estaba siendo construido" = Bina inşa ediliyordu. Bunu "El edificio estaba construido" (inşa edilmiş durumdaydı) ile karıştırmayın — <strong>siendo</strong> kelimesi tüm anlamı değiştirir.`},
+{id:19,label:'PARTICIPIOS IRREGULARES',sentences:[
+  {letter:'a',active:'Cervantes escribió esta obra.',frame:'Esta obra ______ por Cervantes.',ans:'fue escrita'},
+  {letter:'b',active:'El ladrón rompió las ventanas.',frame:'Las ventanas ______ por el ladrón.',ans:'fueron rotas'},
+  {letter:'c',active:'El director ha puesto los documentos sobre la mesa.',frame:'Los documentos ______ sobre la mesa por el director.',ans:'han sido puestos'},
+  {letter:'d',active:'La policía había descubierto nuevas pruebas.',frame:'Nuevas pruebas ______ por la policía.',ans:'habían sido descubiertas'}],
+ exp:`Düzensiz participio bilgisi ölçülüyor: escribir → escrito, romper → roto, poner → puesto, descubrir → descubierto. Düzensiz olması uyum yapılmayacağı anlamına gelmez: obra → escrita, ventanas → rotas, documentos → puestos, pruebas → descubiertas.`},
+{id:20,label:'REPASO MIXTO',sentences:[
+  {letter:'a',active:'La empresa publica los resultados cada viernes.',frame:'Los resultados ______ cada viernes.',ans:'son publicados'},
+  {letter:'b',active:'La policía detuvo a las sospechosas ayer.',frame:'Las sospechosas ______ ayer por la policía.',ans:'fueron detenidas'},
+  {letter:'c',active:'Los trabajadores están reparando la carretera ahora mismo.',frame:'La carretera ______ ahora mismo.',ans:'está siendo reparada'},
+  {letter:'d',active:'El comité había aprobado las propuestas antes de la reunión.',frame:'Las propuestas ______ antes de la reunión.',ans:'habían sido aprobadas'}],
+ exp:`Karma tekrar — her cümlede önce aktif fiilin zamanını belirleyin, sonra pasifi oluşturun: publica → son publicados (presente); detuvo → fueron detenidas (indefinido); están reparando → está siendo reparada (progresivo); había aprobado → habían sido aprobadas (pluscuamperfecto).`}
+];
+
+/* ================= PARTE 3 — PUNTOS CRÍTICOS (mc, 10) ================= */
+const P3_ITEMS=[
+{id:21,q:'¿Cuál es la transformación pasiva exacta? "La empresa había enviado los documentos antes de la reunión."',
+ opts:['Los documentos fueron enviados por la empresa antes de la reunión.','Los documentos habían enviado por la empresa antes de la reunión.','Los documentos había sido enviados por la empresa antes de la reunión.','Los documentos habían sido enviados por la empresa antes de la reunión.'],ans:3,
+ exp:`Aktif cümle <strong>había enviado</strong> yani pluscuamperfecto. Pasif: <strong>habían sido enviados</strong> olmalıdır — doğru cevap <strong>D</strong>. A'daki "fueron enviados" gramer olarak doğru bir pasif cümledir ama zamanı değiştiriyor, bu yüzden dönüşüm olarak yanlış. C'de "los documentos" çoğul olmasına rağmen "había" kullanılmış.`},
+{id:22,q:'¿Cuál es la transformación correcta? "El artista pintó las paredes del teatro."',
+ opts:['Las paredes del teatro fueron pintadas por el artista.','Las paredes del teatro fueron pintados por el artista.','Las paredes del teatro están pintadas por el artista.','Las paredes del teatro eran pintadas por el artista.'],ans:0,
+ exp:`Aktif <strong>pintó</strong> = pretérito indefinido. Pasif: <strong>fueron pintadas</strong> — doğru cevap <strong>A</strong>. Yeni özne "las paredes" dişil-çoğul olduğu için "pintadas" kullanıyoruz. B'de cinsiyet hatası var. C durum sonucuna kayıyor. D zamanı imperfecto'ya değiştiriyor.`},
+{id:23,q:'"La policía está interrogando al sospechoso en este momento." ¿Cuál conserva mejor el significado?',
+ opts:['El sospechoso está interrogado por la policía.','El sospechoso es interrogado por la policía en este momento.','El sospechoso está siendo interrogado por la policía en este momento.','El sospechoso fue interrogado por la policía.'],ans:2,
+ exp:`İki güçlü işaret var: <strong>está interrogando</strong> ve <strong>en este momento</strong> — eylem şu anda devam ediyor. Pasif: <strong>está siendo interrogado</strong> — doğru cevap <strong>C</strong>. A "está interrogado" daha çok sonuç/durum anlamına kayar. D geçmişte tamamlanmış eylemdir.`},
+{id:24,q:'¿Qué expresa principalmente "La puerta está cerrada"?',
+ opts:['Alguien está cerrando la puerta en este momento.','La puerta se encuentra en un estado de cierre.','La puerta será cerrada más tarde.','Sabemos necesariamente quién cerró la puerta.'],ans:1,
+ exp:`"La puerta está cerrada" = Kapı kapalı — bir durum anlatılıyor: doğru cevap <strong>B</strong>. Ama "La puerta está siendo cerrada" = Kapı kapatılıyor (işlem devam ediyor) olurdu.`},
+{id:25,q:'¿Cuál es correcta?',
+ opts:['Se vende apartamentos cerca de la estación.','Se venden apartamentos cerca de la estación.','Se son vendidos apartamentos cerca de la estación.','Se venden un apartamento cerca de la estación.'],ans:1,
+ exp:`"apartamentos" çoğul, bu nedenle: <strong>Se venden apartamentos</strong> — doğru cevap <strong>B</strong>. Tekil olsaydı "Se vende un apartamento" derdik. Dikkat: <strong>se</strong> her zaman çoğul fiil istemez; fiil sujeto paciente'nin sayısına göre değişir.`},
+{id:26,q:'Un periódico publica: "Tres personas rescatadas de un incendio". ¿Cuál es la forma completa más lógica?',
+ opts:['Tres personas están rescatando de un incendio.','Tres personas son rescatar de un incendio.','Tres personas fueron rescatando de un incendio.','Tres personas fueron rescatadas de un incendio.'],ans:3,
+ exp:`Gazete başlığında SER düşürülmüş: "Tres personas rescatadas..." → "Tres personas fueron rescatadas..." — doğru cevap <strong>D</strong>. Ayrıca personas → rescatadas dişil-çoğul uyumu var. "rescatando" gerundio'dur; gereken participio <strong>rescatadas</strong>'tır.`},
+{id:27,q:'¿Cuál es la pasiva correcta? "El ayuntamiento construirá dos parques el próximo año."',
+ opts:['Dos parques serán construidos por el ayuntamiento el próximo año.','Dos parques son construidos por el ayuntamiento el próximo año.','Dos parques estarán construyendo por el ayuntamiento el próximo año.','Dos parques serán construidas por el ayuntamiento el próximo año.'],ans:0,
+ exp:`"construirá" gelecek zaman. Pasifte: <strong>serán construidos</strong> olmalı — doğru cevap <strong>A</strong>. "dos parques" eril-çoğul olduğu için participio "construidos" olur. D'deki "construidas" yanlış uyumdur.`},
+{id:28,q:'¿En cuál de las siguientes oraciones hay un error de concordancia?',
+ opts:['El informe fue publicado ayer.','Las ventanas fueron cerradas por el guardia.','Las cartas fueron enviado esta mañana.','La noticia ha sido confirmada por la policía.'],ans:2,
+ exp:`Soru kökü "hay un error" — hatalı cümleyi arıyoruz. "las cartas" dişil-çoğul, bu nedenle ❌ "fueron enviado" değil ✅ "fueron enviadas" olmalıdır — doğru cevap <strong>C</strong>.`},
+{id:29,q:'¿Cuál es la diferencia correcta? "La cena está siendo preparada." / "La cena está preparada."',
+ opts:['No existe ninguna diferencia.','La primera está en pasado.','La primera expresa un proceso en curso; la segunda, un estado o resultado.','La segunda expresa una acción futura.'],ans:2,
+ exp:`Bu konunun ana ayrımlarından biri: "está siendo preparada" = hazırlanıyor (süreç devam ediyor); "está preparada" = hazır/hazırlanmış durumda (sonuç anlatılıyor) — doğru cevap <strong>C</strong>.`},
+{id:30,q:'Completa correctamente: "La novela fue escrita ___ una autora argentina."',
+ opts:['para','por','con','desde'],ans:1,
+ exp:`Pasif cümlede eylemi gerçekleştiren kişi (complemento agente) genellikle <strong>POR</strong> ile verilir: "La novela fue escrita por una autora argentina." (Roman Arjantinli bir kadın yazar tarafından yazıldı) — doğru cevap <strong>B</strong>.`}
+];
+
+/* ================= PARTE 4 — ELIGE LA ESTRUCTURA SEGÚN EL CONTEXTO (mc, 10) ================= */
+const P4_ITEMS=[
+{id:31,q:'Los cocineros todavía están preparando la cena. ¿Cuál expresa mejor la situación en pasiva?',
+ opts:['La cena está preparada.','La cena está siendo preparada.','La cena fue preparada.','Se preparó la cena ayer.'],ans:1,
+ exp:`Anahtar kelime: <strong>todavía</strong>; aktif yapı: <strong>están preparando</strong>. Yemek hazırlama işlemi henüz tamamlanmadı: <strong>La cena está siendo preparada</strong> — doğru cevap <strong>B</strong>. A dersek "Yemek hazır" derdik; işlemi değil sonucu anlatır.`},
+{id:32,q:'Alguien cerró la puerta hace diez minutos. Ahora nadie la está tocando y continúa así. ¿Cuál describe mejor la situación actual?',
+ opts:['La puerta está siendo cerrada.','La puerta será cerrada.','La puerta es cerrada.','La puerta está cerrada.'],ans:3,
+ exp:`Kapatma eylemi "hace diez minutos" tamamlanmış. Şimdi kapının mevcut durumu soruluyor: <strong>La puerta está cerrada</strong> — doğru cevap <strong>D</strong>. A olsaydı "kapı şu anda kapatılıyor" anlamı çıkardı; ama bağlam kimsenin artık kapıya dokunmadığını söylüyor.`},
+{id:33,q:'Una tienda quiere anunciar que tiene bicicletas usadas a la venta. ¿Cuál es la opción más adecuada?',
+ opts:['Son vendidas bicicletas usadas.','Bicicletas están siendo vendidas.','Se venden bicicletas usadas.','Las bicicletas fueron vendidas.'],ans:2,
+ exp:`İlan/duyuru bağlamında, eylemi yapan kişinin önemli olmadığı durumlarda <strong>SE + verbo</strong> çok yaygındır: <strong>Se venden bicicletas usadas</strong> — doğru cevap <strong>C</strong>. "bicicletas" çoğul olduğu için "venden" kullanılır. D "fueron vendidas" = satışın zaten tamamlandığı anlamına gelir.`},
+{id:34,q:'El comité terminó ayer la evaluación y aprobó oficialmente el informe. ¿Cuál es correcta?',
+ opts:['El informe fue aprobado por el comité ayer.','El informe está siendo aprobado por el comité ayer.','El informe está aprobado mañana.','Se aprobará el informe ayer.'],ans:0,
+ exp:`Bağlamdaki fiiller "terminó / aprobó" ve zaman ifadesi "ayer" — tamamlanmış geçmiş eylem: <strong>El informe fue aprobado...</strong> — doğru cevap <strong>A</strong>. B "está siendo aprobado" işlemin şu anda devam ettiğini söyler. D'de açık bir zaman çelişkisi var ("se aprobará" gelecek ama "ayer" dün).`},
+{id:35,q:'¿Cuál funciona correctamente como titular periodístico con SER omitido?',
+ opts:['Dos cuadros robados del museo durante la noche.','Dos cuadros están robando del museo durante la noche.','Dos cuadros robar del museo durante la noche.','Dos cuadros fueron robando del museo durante la noche.'],ans:0,
+ exp:`Gazete başlığı "Dos cuadros robados del museo..." tam hâle getirildiğinde "Dos cuadros fueron robados del museo..." olarak anlaşılabilir — doğru cevap <strong>A</strong>. "robados" participio'dur; "robando" gerundio'dur.`},
+{id:36,q:'A las diez, los médicos todavía estaban atendiendo a los pacientes. ¿Cuál es la transformación pasiva más precisa?',
+ opts:['Los pacientes estuvieron atendidos a las diez.','Los pacientes fueron atendidos a las diez.','Los pacientes estaban siendo atendidos a las diez.','Los pacientes estaban atendidos a las diez.'],ans:2,
+ exp:`İki kritik unsur: "todavía" ve "estaban atendiendo" — geçmişte saat onda işlem devam ediyordu: <strong>Los pacientes estaban siendo atendidos</strong> — doğru cevap <strong>C</strong>. B "fueron atendidos" eylemi tamamlanmış biçimde sunar; D "estaban atendidos" sonuç/duruma kayar.`},
+{id:37,q:'Cuando llegó el director, la secretaria ya había enviado todos los documentos. ¿Cuál expresa correctamente la acción anterior en pasiva?',
+ opts:['Los documentos fueron enviados cuando llegó el director.','Los documentos estaban siendo enviados cuando llegó el director.','Los documentos han sido enviados antes de que llegue el director.','Los documentos ya habían sido enviados cuando llegó el director.'],ans:3,
+ exp:`İki geçmiş olay var: belgelerin gönderilmesi ve müdürün gelişi. Belgelerin gönderilmesi müdürden önce tamamlandı. Aktif: había enviado → Pasif: <strong>habían sido enviados</strong> — doğru cevap <strong>D</strong>. B çok güçlü bir tuzak: "estaban siendo enviados" olsaydı, müdür geldiğinde gönderim hâlâ devam ediyor olurdu, ama metin işlemin bittiğini söylüyor.`},
+{id:38,q:'Completa según la pasiva con "se": "En esta biblioteca __________ muchos documentos históricos."',
+ opts:['se conserva','se conservan','son conserva','está conservando'],ans:1,
+ exp:`Sujeto paciente "muchos documentos históricos" çoğul, bu nedenle: <strong>Se conservan muchos documentos históricos</strong> — doğru cevap <strong>B</strong>. Tekil olsaydı "Se conserva un documento histórico" derdik. Fiili belirleyen "se" değil, documento/documentos'un sayısıdır.`},
+{id:39,q:'Los pintores están trabajando ahora sobre las ventanas y todavía no han terminado. ¿Cuál es correcta?',
+ opts:['Las ventanas están pintadas.','Las ventanas están siendo pintadas.','Las ventanas fueron pintadas.','Se pintaron las ventanas.'],ans:1,
+ exp:`Bağlamdaki iki ifade: "ahora" ve "todavía no han terminado" — işlem hâlâ sürüyor: <strong>Las ventanas están siendo pintadas</strong> — doğru cevap <strong>B</strong>. A en çok düşülebilecek tuzak: "están pintadas" = pencereler boyalı durumda, ama metin boyama işinin bitmediğini söylüyor.`},
+{id:40,q:'El mensajero entregará el paquete mañana. ¿Cuál conserva exactamente el tiempo y el significado en voz pasiva?',
+ opts:['El paquete será entregado mañana por el mensajero.','El paquete es entregado mañana por el mensajero.','El paquete está entregado mañana por el mensajero.','El paquete fue entregado mañana por el mensajero.'],ans:0,
+ exp:`Aktif "entregará" = futuro simple. Pasif: <strong>será entregado</strong> — doğru cevap <strong>A</strong>. Üç aşamalı kontrol: 1) Zaman aynı kaldı mı? entregará → será entregado ✅. 2) Participio uyumlu mu? el paquete → entregado ✅. 3) Anlam korundu mu? İkisinde de teslimat yarın gerçekleşecek ✅.`}
+];
+
+const PARTES=[
+{id:1,code:'PARTE 1',title:'Comprensión Lectora',type:'reading',
+ instr:'Aşağıdaki iki metni dikkatle okuyun. Bu bölümde yalnızca metinde aynı kelimeyi bulmanız değil; olay sırasını, tamamlanan ve devam eden eylemleri, sonuç durumunu, neden-sonuç ilişkilerini ve pasif yapıların anlamını kavramanız istenmektedir.',
+ items:P1_ITEMS},
+{id:2,code:'PARTE 2',title:'Completa la Transformación',type:'transform',
+ instr:'Aşağıdaki aktif cümleleri pasif yapıya dönüştürün. Her soruda (11-20) dört cümle (a, b, c, d) bulunur. Bir boşluğu doldurmadan bir sonrakine geçemezsiniz; dördünü de tamamladıktan sonra "Kontrol Et" butonuna basarak hepsini aynı anda kontrol edin. &#x26a0;&#xfe0f; Aksanlara (á, é, í, ó, ú) dikkat edin — aksansız cevaplar yanlış sayılır.',
+ groups:P2_GROUPS},
+{id:3,code:'PARTE 3',title:'Puntos Críticos',type:'mc',
+ instr:'Pasif yapı ile ilgili kritik noktaları test eden soruları yanıtlayın: zaman uyumu, participio uyumu, SER/ESTAR ayrımı ve SE + verbo yapısı.',
+ items:P3_ITEMS},
+{id:4,code:'PARTE 4',title:'Elige la Estructura según el Contexto',type:'mc',
+ instr:'Artık size hangi yapıyı kullanmanız gerektiğini söylemiyoruz. Bağlama göre şu yapılar arasında karar verin: SER + participio, ESTAR + SIENDO + participio, ESTAR + participio, SE + verbo.',
+ items:P4_ITEMS}
+];
+const PARTE_TOTALS={1:10,2:40,3:10,4:10};
+const TOTAL_Q=70;
+
+let student='',answers={},userAnswers={},curP=0;
+let transformState={},transformLocked={};
+function resetTransformState(){
+  PARTES.forEach(p=>{ if(p.type==='transform'){ p.groups.forEach(g=>{ transformState[g.id]={a:'',b:'',c:'',d:''}; transformLocked[g.id]=false; }); } });
+}
+resetTransformState();
+
+function findGroup(gid){for(const p of PARTES){if(p.type==='transform'){for(const g of p.groups){if(g.id===gid)return g;}}}return null;}
+
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('sc-'+id).classList.add('active');window.scrollTo(0,0);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function norm(s){return (s||'').toString().trim().toLowerCase().normalize('NFC').replace(/\s+/g,' ');}
+
+function startQuiz(){
+  const s=document.getElementById('name-sel');
+  if(!s.value){alert('Lütfen adınızı seçin!');return;}
+  student=s.value;answers={};userAnswers={};curP=0;
+  resetTransformState();
+  document.getElementById('top-st').textContent=student;
+  show('quiz');render();
+}
+
+function pickMC(qid,i){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=i;
+  render();
+}
+
+function renderMCBlock(item){
+  const ua=answers[item.id];
+  let h='<div class="qh"><div class="qn">'+item.id+'</div><div class="qt">'+esc(item.q)+'</div></div><div class="qo">';
+  const LTR=['A','B','C','D'];
+  item.opts.forEach((o,i)=>{
+    let c='ob';
+    if(ua!==undefined){if(i===item.ans)c+=' ok';if(i===ua&&ua!==item.ans)c+=' er';}
+    h+='<button class="'+c+'" '+(ua!==undefined?'disabled':'')+' onclick="pickMC('+item.id+','+i+')"><span class="ol">'+LTR[i]+'</span><span>'+esc(o)+'</span></button>';
+  });
+  h+='</div><div class="ex '+(ua!==undefined?'show':'')+'"><div class="exl">&#x1F4A1; Açıklama</div>'+item.exp+'</div>';
+  return h;
+}
+
+function tfOnInput(gid,letter){
+  const el=document.getElementById('tf-'+gid+'-'+letter);
+  transformState[gid][letter]=el.value;
+  const order=['a','b','c','d'];
+  const idx=order.indexOf(letter);
+  if(idx<order.length-1){
+    const nextEl=document.getElementById('tf-'+gid+'-'+order[idx+1]);
+    if(nextEl) nextEl.disabled=(el.value.trim()==='');
+  }
+  const btn=document.getElementById('tfbtn-'+gid);
+  if(btn) btn.disabled=!order.every(l=>transformState[gid][l].trim()!=='');
+}
+
+function tfCheck(gid){
+  const group=findGroup(gid);
+  transformLocked[gid]=true;
+  ['a','b','c','d'].forEach(l=>{
+    const item=group.sentences.find(s=>s.letter===l);
+    const val=transformState[gid][l];
+    userAnswers[gid+'_'+l]=val;
+    answers[gid+'_'+l]=(norm(val)===norm(item.ans));
+  });
+  render();
+}
+
+function renderTfSentence(gid,item){
+  const state=transformState[gid][item.letter];
+  const locked=transformLocked[gid];
+  const order=['a','b','c','d'];
+  const idx=order.indexOf(item.letter);
+  const prevFilled = idx===0 ? true : transformState[gid][order[idx-1]].trim()!=='';
+  const enabled = !locked && prevFilled;
+  const parts=item.frame.split('______');
+  let cls='fvin';
+  if(locked){cls+=(norm(state)===norm(item.ans))?' ok':' err';}
+  let h='<div class="tfsent">';
+  h+='<div class="tfmeta"><strong>'+item.letter+')</strong> <em>'+esc(item.active)+'</em></div>';
+  h+='<div class="tfframe">';
+  h+='<span>&rarr; '+esc(parts[0])+'</span>';
+  h+='<input type="text" id="tf-'+gid+'-'+item.letter+'" class="'+cls+'" style="min-width:170px" value="'+esc(state)+'" '+(!enabled?'disabled':'')+' placeholder="&hellip;" oninput="tfOnInput('+gid+',\''+item.letter+'\')">';
+  h+='<span>'+esc(parts[1])+'</span>';
+  h+='</div>';
+  if(locked && norm(state)!==norm(item.ans)){
+    h+='<div class="tfwrong">Doğru cevap: <strong>'+item.ans+'</strong></div>';
+  }
+  h+='</div>';
+  return h;
+}
+
+function renderTransformGroup(group){
+  const locked=transformLocked[group.id];
+  const allFilled=['a','b','c','d'].every(l=>transformState[group.id][l].trim()!=='');
+  let h='<div class="qc"><div class="qh"><div class="qn">'+group.id+'</div><div class="qt"><strong>'+group.label+'</strong> — dört cümleyi pasif yapıya dönüştürün.</div></div>';
+  h+='<div class="qo">';
+  group.sentences.forEach(s=>{h+=renderTfSentence(group.id,s);});
+  h+='</div>';
+  h+='<div class="fvhintrow"><span class="fvwarn">&#x26a0;&#xfe0f; Aksanlara dikkat! (á, é, í, ó, ú)</span></div>';
+  h+='<div class="ocheckbar">';
+  if(locked){
+    const allCorrect=['a','b','c','d'].every(l=>answers[group.id+'_'+l]===true);
+    h+= allCorrect ? '<span class="oresult ok">&#x2713; Dört cümle de doğru!</span>' : '<span class="oresult err">&#x2717; Bazı cevaplar yanlış — yukarıda kontrol edin</span>';
+  }else{
+    h+='<button type="button" class="btn bm bs" id="tfbtn-'+group.id+'" '+(allFilled?'':'disabled')+' onclick="tfCheck('+group.id+')">&#x2713; Kontrol Et (4 cümle)</button>';
+  }
+  h+='</div>';
+  h+='<div class="ex '+(locked?'show':'')+'"><div class="exl">&#x1F4A1; Açıklama</div>'+group.exp+'</div></div>';
+  return h;
+}
+
+function countProgress(){
+  let done=0,total=0;
+  PARTES.forEach(p=>{
+    if(p.type==='transform'){
+      p.groups.forEach(g=>{total+=4;if(transformLocked[g.id])done+=4;});
+    }else{
+      p.items.forEach(it=>{total++;if(answers[it.id]!==undefined)done++;});
+    }
+  });
+  return {done,total};
+}
+function countScore(){
+  let ok=0,er=0;
+  PARTES.forEach(p=>{
+    if(p.type==='transform'){
+      p.groups.forEach(g=>{['a','b','c','d'].forEach(l=>{const k=g.id+'_'+l;const a=answers[k];if(a!==undefined){if(a===true)ok++;else er++;}});});
+    }else{
+      p.items.forEach(it=>{const a=answers[it.id];if(a!==undefined){if(a===it.ans)ok++;else er++;}});
+    }
+  });
+  return {ok,er};
+}
+
+function render(){
+  const p=PARTES[curP];
+  const prog=countProgress();
+  document.getElementById('pgf').style.width=(prog.done/prog.total*100)+'%';
+  document.getElementById('pg-tarea').textContent='Parte '+(curP+1)+' / 4';
+  document.getElementById('fin-ans').textContent=prog.done;
+  document.getElementById('tnav-ctr').textContent='Parte '+(curP+1)+' / 4 — '+p.code;
+  document.getElementById('btn-prev').disabled=(curP===0);
+  document.getElementById('btn-next').disabled=(curP===PARTES.length-1);
+  let h='<div class="sb">'+p.code+' — '+p.title+'</div>';
+  h+='<div class="instr"><div class="instrl">Talimat</div>'+p.instr+'</div>';
+  if(p.type==='reading'){
+    p.items.forEach(item=>{
+      if(item.textLabel){h+='<div class="t3text"><b>'+esc(item.textLabel)+'</b>'+item.textBody+'</div>';}
+      h+='<div class="qc">'+renderMCBlock(item)+'</div>';
+    });
+  }else if(p.type==='transform'){
+    p.groups.forEach(g=>{h+=renderTransformGroup(g);});
+  }else if(p.type==='mc'){
+    p.items.forEach(item=>{h+='<div class="qc">'+renderMCBlock(item)+'</div>';});
+  }
+  document.getElementById('tarea-area').innerHTML=h;
+  const sc=countScore();
+  document.getElementById('sc-ok').textContent=sc.ok;
+  document.getElementById('sc-er').textContent=sc.er;
+}
+
+function navP(d){curP=Math.max(0,Math.min(PARTES.length-1,curP+d));render();window.scrollTo(0,0);}
+function goConfirm(){document.getElementById('cf-sel').value=student;show('confirm');}
+function confirmSubmit(){
+  try{
+    const s=document.getElementById('cf-sel');
+    if(!s||!s.value){alert('Lütfen adınızı seçin!');return;}
+    student=s.value;
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=true;b.textContent='⏳ Kaydediliyor…';}
+    doSubmit();
+  }catch(e){
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=false;b.textContent='✔ Evet, Teslim Et';}
+    alert('Hata: '+e.message);
+  }
+}
+
+function doSubmit(){
+  let ok=0,er=0,bl=0;
+  const secCounts={1:0,2:0,3:0,4:0};
+  PARTES[0].items.forEach(it=>{const a=answers[it.id];if(a===undefined)bl++;else if(a===it.ans){ok++;secCounts[1]++;}else er++;});
+  PARTES[1].groups.forEach(g=>{['a','b','c','d'].forEach(l=>{const k=g.id+'_'+l;const a=answers[k];if(a===undefined)bl++;else if(a===true){ok++;secCounts[2]++;}else er++;});});
+  PARTES[2].items.forEach(it=>{const a=answers[it.id];if(a===undefined)bl++;else if(a===it.ans){ok++;secCounts[3]++;}else er++;});
+  PARTES[3].items.forEach(it=>{const a=answers[it.id];if(a===undefined)bl++;else if(a===it.ans){ok++;secCounts[4]++;}else er++;});
+  const score=Math.round(ok/TOTAL_Q*100);
+  document.getElementById('rs-name').textContent=student;
+  document.getElementById('rs-score').innerHTML=score+'<span>/100</span>';
+  document.getElementById('rs-pct').textContent=ok+' / '+TOTAL_Q+' doğru';
+  document.getElementById('rs-c').textContent=ok;
+  document.getElementById('rs-w').textContent=er;
+  document.getElementById('rs-b').textContent=bl;
+  for(let i=1;i<=4;i++){document.getElementById('br'+i).textContent=secCounts[i]+' / '+PARTE_TOTALS[i];}
+  show('result');
+  saveSheets(student,score,ok,er,bl);
+}
+
+async function saveSheets(nm,score,ok,er,bl){
+  const el=document.getElementById('rs-status');
+  try{
+    const n=new Date();
+    const dd=String(n.getDate()).padStart(2,'0'),mm=String(n.getMonth()+1).padStart(2,'0'),yy=n.getFullYear();
+    const hh=String(n.getHours()).padStart(2,'0'),mi=String(n.getMinutes()).padStart(2,'0'),ss2=String(n.getSeconds()).padStart(2,'0');
+    const fmt='✅ '+score+'/100\n✓'+ok+' ✗'+er+'\n'+dd+'.'+mm+'.'+yy+'\n'+hh+':'+mi+':'+ss2;
+    await fetch(ASU,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({spreadsheetId:SID,sheetName:SHN,studentName:nm,taskColumn:TCL,score,correct:ok,wrong:er,blank:bl,formatted:fmt})});
+    el.className='stb stok';el.textContent='✅ Ödev başarıyla kaydedildi!';
+  }catch(e){
+    el.className='stb ster';el.textContent='⚠️ Kaydedilemedi — Profeye bildirin';
+  }
+}
+
+function goName(){
+  answers={};userAnswers={};curP=0;
+  resetTransformState();
+  document.getElementById('name-sel').value='';
+  show('name');
+}
+</script>
+</body>
+</html>

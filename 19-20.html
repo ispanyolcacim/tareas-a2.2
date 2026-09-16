@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2.2 · H5 – 19-20. Ders · Futuro Simple Pro</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--c1:#eaf7e6;--c2:#bfe6ac;--c3:#d3ecc9;--c4:#8fcf95;--c5:#559d6a;--dark:#20402a;--mid:#5c7d63;--white:#fff;--green:#3f8f52;--red:#d97070;--gold1:#f5dca0;--gold2:#dcac48;--blue1:#dcedf9;--blue2:#3d7ea6;--r:14px}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1,#eefaf3 60%,#f7fdf3);min-height:100vh;color:var(--dark)}
+.header{background:linear-gradient(135deg,var(--c4),var(--c5));padding:18px 20px 14px;text-align:center;box-shadow:0 4px 18px rgba(85,157,106,.35);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.1) 14px,rgba(255,255,255,.1) 15px)}
+.htag{display:inline-block;background:rgba(255,255,255,.35);border:1.5px solid rgba(255,255,255,.55);border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 14px;margin-bottom:8px;color:#fff;position:relative}
+.header h1{font-size:clamp(16px,4vw,23px);font-weight:800;color:#fff;position:relative}
+.header-sub{font-size:12px;color:rgba(255,255,255,.9);margin-top:4px;position:relative}
+.screen{display:none;animation:fi .3s ease}.screen.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.nb{max-width:460px;margin:0 auto;padding:32px 20px;text-align:center}
+.nb h2{font-size:20px;color:var(--dark);margin-bottom:5px}
+.nb p{font-size:13px;color:var(--mid);margin-bottom:20px}
+.sel{width:100%;padding:13px 16px;font-size:15px;background:#fff;border:2px solid var(--c3);border-radius:var(--r);color:var(--dark);appearance:none;cursor:pointer;margin-bottom:14px;font-family:inherit}
+.sel:focus{outline:none;border-color:var(--c4)}
+.ib{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:14px 16px;margin-bottom:14px;text-align:left;font-size:13px;line-height:1.75}
+.ibr{display:flex;align-items:flex-start;gap:9px;margin-bottom:5px}
+.ibd{width:8px;height:8px;border-radius:50%;background:var(--c4);flex-shrink:0;margin-top:5px}
+.ibh{height:1px;background:var(--c3);margin:9px 0}
+.remind{display:flex;align-items:flex-start;gap:10px;background:var(--blue1);border:1.5px solid var(--blue2);border-radius:var(--r);padding:12px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.65;color:#1a3a4c;text-align:left}
+.remind .ric{font-size:18px;flex-shrink:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 24px;border:none;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.bm{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;box-shadow:0 4px 12px rgba(85,157,106,.35)}
+.bm:hover:not(:disabled){transform:translateY(-2px)}
+.bg{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--dark);box-shadow:0 4px 12px rgba(220,172,72,.4)}
+.bg:hover:not(:disabled){transform:translateY(-2px)}
+.bo{background:#fff;border:2px solid var(--c3);color:var(--dark)}
+.bo:hover:not(:disabled){background:var(--c3)}
+.bs{padding:9px 18px;font-size:13px}
+.bf{width:100%}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important}
+.qw{max-width:720px;margin:0 auto;padding:16px}
+.topsub{display:flex;justify-content:center;margin-bottom:14px}
+.tb{display:flex;align-items:center;justify-content:space-between;background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:10px 16px;margin-bottom:12px;gap:8px;flex-wrap:wrap}
+.ts{font-size:12px;color:var(--mid);font-weight:600}
+.tsc{display:flex;gap:14px}
+.si{display:flex;align-items:center;gap:5px;font-size:13px;font-weight:700}
+.sok{color:var(--green)}.ser{color:var(--red)}
+.pgw{margin-bottom:14px}
+.pgb{height:7px;background:var(--c3);border-radius:4px;overflow:hidden}
+.pgf{height:100%;background:linear-gradient(90deg,var(--c4),var(--c2));border-radius:4px;transition:width .4s;width:0%}
+.pgi{display:flex;justify-content:space-between;font-size:11px;color:var(--mid);margin-top:3px}
+.sb{display:inline-flex;align-items:center;background:linear-gradient(90deg,var(--c4),var(--c5));border-radius:20px;padding:6px 16px;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:10px;box-shadow:0 2px 8px rgba(85,157,106,.3)}
+.instr{background:var(--blue1);border-left:3px solid var(--blue2);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:12px;font-size:12.5px;line-height:1.75;color:#1a3a4c}
+.instrl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue2);margin-bottom:4px}
+.qc{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:12px}
+.qh{padding:16px 18px 14px;display:flex;gap:12px;align-items:flex-start}
+.qn{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;margin-top:1px}
+.qt{font-size:14px;line-height:1.65;flex:1;color:var(--dark);font-weight:500}
+.blank{color:var(--c5);font-weight:800;letter-spacing:.5px;border-bottom:2px dotted var(--c5);padding:0 2px}
+.t3text{background:var(--c1);border:1.5px solid var(--c3);border-radius:10px;padding:12px 14px;margin:0 0 12px;font-size:12.5px;line-height:1.7;color:var(--dark)}
+.t3text b{color:var(--c5);display:block;margin-bottom:4px;font-size:11px;letter-spacing:.5px;text-transform:uppercase}
+.qo{padding:12px 16px 14px;display:grid;gap:8px}
+.ob{display:flex;align-items:flex-start;gap:10px;padding:11px 14px;background:#f7fcf5;border:1.5px solid var(--c3);border-radius:10px;color:var(--dark);font-size:13.5px;line-height:1.5;cursor:pointer;text-align:left;width:100%;transition:all .18s;font-family:inherit}
+.ob:hover:not(:disabled){background:var(--c1);border-color:var(--c4);transform:translateX(4px)}
+.ob:disabled{cursor:default}
+.ol{background:var(--c3);color:var(--dark);border-radius:6px;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+.ob.ok{background:#eaf7ec;border-color:#8dcca0}
+.ob.ok .ol{background:var(--green);color:#fff}
+.ob.er{background:#fdf0f0;border-color:#e8a0a0}
+.ob.er .ol{background:var(--red);color:#fff}
+.ex{display:none;margin:0 16px 16px;background:var(--c1);border-left:3px solid var(--c2);border-radius:0 8px 8px 0;padding:11px 14px;font-size:12.5px;line-height:1.75;color:var(--mid)}
+.ex.show{display:block}
+.exl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#3d7a4c;margin-bottom:4px}
+.fvhintrow{display:flex;align-items:center;gap:8px;margin:0 16px 8px;flex-wrap:wrap}
+.fvhint{background:var(--gold1);border:1px solid var(--gold2);border-radius:20px;padding:4px 12px;font-size:11.5px;font-weight:700;color:#7a5a10}
+.fvwarn{background:#fdf0f0;border:1px solid var(--red);border-radius:20px;padding:4px 12px;font-size:11px;font-weight:700;color:#a04040}
+.fvrow{display:flex;gap:8px;margin:0 16px 14px;flex-wrap:wrap;align-items:center}
+.fvin{padding:8px 12px;font-size:13.5px;border:2px solid var(--c3);border-radius:10px;font-family:inherit;color:var(--dark)}
+.fvin:focus{outline:none;border-color:var(--c4)}
+.fvin.ok{border-color:var(--green);background:#eaf7ec}
+.fvin.err{border-color:var(--red);background:#fdf0f0}
+.fvin:disabled{background:#f3f3f3;color:#aaa;cursor:not-allowed}
+.fvbadge{font-size:12.5px;font-weight:700;padding:9px 14px;border-radius:10px;white-space:nowrap}
+.fvbadge.ok{background:rgba(63,143,82,.15);color:#2c6b3a}
+.fvbadge.err{background:rgba(217,112,112,.15);color:#a04040}
+.oresult{font-size:12.5px;font-weight:700;padding:7px 14px;border-radius:20px}
+.oresult.ok{background:rgba(63,143,82,.15);color:#2c6b3a}
+.oresult.err{background:rgba(217,112,112,.15);color:#a04040}
+.ocheckbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:0 16px 14px}
+.tfsent{margin-bottom:14px}
+.tfmeta{font-size:12px;color:var(--mid);margin-bottom:5px}
+.tfmeta strong{color:var(--c5)}
+.tfmeta em{font-style:italic}
+.tfframe{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:13.5px;line-height:1.6}
+.tfwrong{font-size:11.5px;color:#a04040;margin-top:3px}
+.tnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:8px;margin-bottom:16px;flex-wrap:wrap}
+.tnc{font-size:13px;color:var(--mid);font-weight:700;text-align:center;flex:1}
+.cfw{max-width:420px;margin:0 auto;padding:40px 20px;text-align:center}
+.cfw h2{font-size:22px;color:var(--dark);margin-bottom:8px}
+.cfw p{font-size:14px;color:var(--mid);margin-bottom:20px;line-height:1.6}
+.ns{background:rgba(85,157,106,.1);border:2px solid var(--c4);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;font-size:14px;font-weight:700;color:var(--c5)}
+.rw{max-width:460px;margin:0 auto;padding:28px 20px;text-align:center}
+.rc{background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:28px 22px;margin-bottom:14px;box-shadow:0 6px 24px rgba(143,207,149,.2)}
+.re{font-size:50px;margin-bottom:10px}
+.rn{font-size:14px;color:var(--mid);margin-bottom:3px}
+.rt{font-size:14px;font-weight:700;color:var(--dark);margin-bottom:16px}
+.rbig{font-size:62px;font-weight:900;line-height:1;color:var(--dark)}
+.rbig span{font-size:24px;font-weight:400;color:var(--mid)}
+.rp{font-size:13px;color:var(--mid);margin-top:4px;margin-bottom:18px}
+.rst{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.ri{background:linear-gradient(135deg,var(--c3),var(--c1));border:1px solid var(--c4);border-radius:12px;padding:11px 16px;min-width:76px;text-align:center}
+.ri .rnum{font-size:28px;font-weight:800;line-height:1}
+.ri .rl{font-size:11px;color:var(--mid);margin-top:3px}
+.rok .rnum{color:var(--green)}.rer .rnum{color:var(--red)}.rbl .rnum{color:#bbb}
+.bd{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.bdr{display:flex;justify-content:space-between;align-items:center;background:rgba(191,230,172,.2);border:1px solid var(--c3);border-radius:8px;padding:8px 14px;font-size:12.5px}
+.bdl{color:var(--mid)}.bds{font-weight:700;color:var(--dark)}
+.stb{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;font-size:13px;font-weight:700;margin-bottom:14px}
+.stok{background:rgba(63,143,82,.15);border:1.5px solid rgba(63,143,82,.4);color:#2c6b3a}
+.ster{background:rgba(217,112,112,.15);border:1.5px solid rgba(217,112,112,.4);color:#a04040}
+.stpnd{background:rgba(220,172,72,.2);border:1.5px solid rgba(220,172,72,.5);color:#8a6a1a}
+.ra{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+
+.fillverb{display:inline-block;background:var(--gold1);border:1px solid var(--gold2);border-radius:20px;padding:4px 12px;font-size:11.5px;font-weight:800;color:#7a5a10;margin:0 16px 8px}
+.fillrow{display:flex;gap:8px;margin:0 16px 14px;flex-wrap:wrap;align-items:center}
+.fillinput{flex:1;min-width:180px;padding:10px 12px;font-size:14px;border:2px solid var(--c3);border-radius:10px;font-family:inherit;color:var(--dark)}
+.fillinput:focus{outline:none;border-color:var(--c4)}
+.fillinput.ok{border-color:var(--green);background:#eaf7ec}
+.fillinput.err{border-color:var(--red);background:#fdf0f0}
+.fillinput:disabled{cursor:default}
+.fillcorrect{font-size:12px;color:#a04040;font-weight:700;margin:0 16px 10px}
+.score-note{font-size:11.5px;color:var(--mid);margin-top:3px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="htag">5. Hafta Ödevi &nbsp;|&nbsp; A2.2 (19-20. Ders)</div>
+  <h1>&#x1F1EA;&#x1F1F8; A2.2 – H5 19-20. Ders</h1>
+  <div class="header-sub">Futuro Simple &nbsp;&bull;&nbsp; Práctica Pro &nbsp;&bull;&nbsp; 3 Parte &nbsp;&bull;&nbsp; 60 soru &nbsp;&bull;&nbsp; 100 Puan &nbsp;&bull;&nbsp; @ispanyolcacim &nbsp;&bull;&nbsp; Profe Hazel</div>
+</div>
+
+<div class="screen active" id="sc-name">
+  <div class="nb">
+    <h2>&#x1F4DA; Adınızı seçin</h2>
+    <p>Ödeve başlamadan önce lütfen listeden adınızı seçin.</p>
+    <select class="sel" id="name-sel"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
+      <option>Zumeyra Dogan</option></select>
+
+    <div class="remind"><span class="ric">&#x270D;&#xfe0f;</span><span><strong>NOT — Yazma ödevinizi unutmayın! 📝✨</strong><br>Bu test <strong>1. link</strong>. Size ayrıca <strong>2. link</strong> olarak yazma ödevinizi ileteceğim. Bu testi bitirdikten sonra yazma kısmını da mutlaka tamamlayın. 💛</span></div>
+
+    <div class="ib">
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 1 — Comprensión de lectura:</strong> 20 soru × 2 puan = <strong>40 puan</strong>.</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 2 — Gramática:</strong> 20 soru × 1,5 puan = <strong>30 puan</strong>.</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>PARTE 3 — Completa los espacios:</strong> 20 soru × 1,5 puan = <strong>30 puan</strong>.</span></div>
+      <div class="ibh"></div>
+      <div class="ibr"><div class="ibd" style="background:var(--red)"></div><span>&#x26a0;&#xfe0f; <strong>Boşluk doldurma bölümünde</strong> aksanlara (á, é, í, ó, ú) dikkat edin. Cevabınızı yazdıktan sonra <strong>Kontrol Et</strong> butonuna basın; açıklama hemen açılacaktır.</span></div>
+    </div>
+    <button class="btn bm bf" onclick="startQuiz()">&#x25b6; Başla</button>
+  </div>
+</div>
+
+<div class="screen" id="sc-quiz">
+  <div class="qw">
+    <div class="topsub"><button class="btn bg bs" onclick="goConfirm()">&#x2714; Ödevi Teslim Et</button></div>
+    <div class="tb">
+      <div class="ts" id="top-st">&#x2014;</div>
+      <div class="tsc">
+        <div class="si sok">&#x2713; <span id="sc-ok">0</span></div>
+        <div class="si ser">&#x2717; <span id="sc-er">0</span></div>
+      </div>
+    </div>
+    <div class="pgw">
+      <div class="pgb"><div class="pgf" id="pgf"></div></div>
+      <div class="pgi"><span id="pg-tarea">Parte 1 / 3</span><span><span id="fin-ans">0</span> / 60 yanıtlandı</span></div>
+    </div>
+    <div id="tarea-area"></div>
+    <div class="tnav">
+      <button class="btn bo bs" id="btn-prev" onclick="navP(-1)">&#x2190; Önceki Parte</button>
+      <div class="tnc" id="tnav-ctr">Parte 1 / 3</div>
+      <button class="btn bm bs" id="btn-next" onclick="navP(1)">Sonraki Parte &#x2192;</button>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="sc-confirm">
+  <div class="cfw">
+    <div style="font-size:48px;margin-bottom:12px">&#x1F4CB;</div>
+    <h2>Ödevi Teslim Et</h2>
+    <div class="ns">&#x26a0;&#xfe0f; ÖDEVİNİZ HENÜZ TESLİM EDİLMEDİ</div>
+    <p>Teslim etmeden önce listeden adınızı seçin ve onaylayın.</p>
+    <select class="sel" id="cf-sel" style="margin-bottom:16px"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
+      <option>Zumeyra Dogan</option></select>
+    <button class="btn bg bf" id="cf-btn" onclick="confirmSubmit()">&#x2714; Evet, Teslim Et</button>
+  </div>
+</div>
+
+<div class="screen" id="sc-result">
+  <div class="rw">
+    <div class="rc">
+      <div class="re">&#x1F1EA;&#x1F1F8;</div>
+      <div class="rn" id="rs-name">&#x2014;</div>
+      <div class="rt">A2.2 · H5 – 19-20. Ders · Futuro Simple Pro</div>
+      <div class="rbig" id="rs-score">0<span>/100</span></div>
+      <div class="rp" id="rs-pct"></div>
+      <div class="bd">
+        <div class="bdr"><span class="bdl">PARTE 1 — Comprensión de lectura</span><span class="bds" id="br1">0 / 40</span></div>
+        <div class="bdr"><span class="bdl">PARTE 2 — Gramática</span><span class="bds" id="br2">0 / 30</span></div>
+        <div class="bdr"><span class="bdl">PARTE 3 — Completa los espacios</span><span class="bds" id="br3">0 / 30</span></div>
+      </div>
+      <div class="rst">
+        <div class="ri rok"><div class="rnum" id="rs-c">0</div><div class="rl">Doğru</div></div>
+        <div class="ri rer"><div class="rnum" id="rs-w">0</div><div class="rl">Yanlış</div></div>
+        <div class="ri rbl"><div class="rnum" id="rs-b">0</div><div class="rl">Boş</div></div>
+      </div>
+      <div class="stb stpnd" id="rs-status">&#x23f3; Kaydediliyor&#x2026;</div>
+      <div class="remind" style="margin-bottom:0"><span class="ric">&#x270D;&#xfe0f;</span><span><strong>Yazma ödeviniz de var! 📝✨</strong><br>Bu test bitti ama ödeviniz henüz tamamen bitmedi. Size <strong>2. link</strong> olarak iletilen yazma ödevini de tamamlamayı unutmayın. 💛</span></div>
+    </div>
+    <div class="ra"><button class="btn bo" onclick="goName()">&#x1F504; Yeniden Başla</button></div>
+  </div>
+</div>
+
+<script>
+const ASU='https://script.google.com/macros/s/AKfycbw-BwEhVOhO6GkkQHNWJA8LQLMkEGwNCtJ3BXSqik1RnzqZLl4a_a3HmYEoIlJAgY4Wkg/exec';
+const SID='1wziyxdRdIGL7OEq4yRib0i_CaCWJGI14fwDyMKB4abw';
+const SHN='A2.2';
+const TCL='H5 – 19-20.Ders';
+
+const P1_ITEMS=[{"id":1,"q":"Según el texto, ¿qué ocurrirá probablemente con los coches privados en el centro?","opts":["Habrá más coches.","Habrá menos coches.","Todos serán gratuitos.","Desaparecerán completamente."],"ans":1,"exp":"Metinde açıkça <strong>“habrá menos coches privados en el centro”</strong> deniyor. Buradaki <strong>habrá</strong>, <em>haber</em> fiilinin Futuro Simple çekimidir ve düzensizdir: <strong>haber → habr- → habrá</strong>. D seçeneğine dikkat edin; metin arabaların tamamen yok olacağını söylemiyor. Sadece özel araç sayısının azalacağı yönünde bir tahmin yapılıyor.","textLabel":"Texto 1 — ¿CÓMO SERÁ NUESTRA CIUDAD EN 2040?","textBody":"En 2040, muchas ciudades serán muy diferentes. Probablemente habrá menos coches privados en el centro porque muchas personas utilizarán el transporte público. Los autobuses serán eléctricos y producirán menos contaminación. También habrá más zonas verdes y los ciudadanos podrán caminar o montar en bicicleta con más facilidad.<br><br>Las casas cambiarán también. Muchas viviendas tendrán sistemas inteligentes que controlarán la temperatura y el consumo de electricidad. Las familias gastarán menos energía y quizá pagarán menos por algunos servicios. Además, algunas personas trabajarán desde casa varios días a la semana, por eso no tendrán que desplazarse diariamente a la oficina.<br><br>Sin embargo, no todos los cambios serán positivos. Las ciudades tendrán que encontrar soluciones para problemas como el aumento de la población y el precio de la vivienda. Nadie sabe exactamente cómo será la vida en 2040, pero seguramente la tecnología tendrá un papel muy importante."},{"id":2,"q":"¿Por qué algunas personas no tendrán que ir todos los días a la oficina?","opts":["Porque perderán su trabajo.","Porque las oficinas cerrarán.","Porque trabajarán desde casa algunos días.","Porque vivirán dentro de las oficinas."],"ans":2,"exp":"Metindeki <strong>“algunas personas trabajarán desde casa varios días a la semana”</strong> ifadesi cevabı doğrudan veriyor. Ardından <strong>“por eso no tendrán que desplazarse diariamente”</strong> deniyor. Burada neden-sonuç ilişkisini de yakalamanız gerekiyor: evden çalışacaklar → her gün ofise gitmek zorunda kalmayacaklar. <strong>Tendrán</strong>, <em>tener → tendr-</em> düzensiz kökünden gelir."},{"id":3,"q":"En la frase “la tecnología tendrá un papel muy importante”, ¿qué expresa el Futuro Simple?","opts":["Una acción habitual del pasado.","Una orden.","Una predicción sobre el futuro.","Una acción terminada."],"ans":2,"exp":"Burada gelecek hakkında bir öngörü yapılıyor: “Teknoloji çok önemli bir role sahip olacak.” Dolayısıyla Futuro Simple’ın <strong>predicción sobre el futuro</strong> kullanımını görüyoruz. <em>Tener</em> fiili düzensizdir: <strong>tener → tendr- → tendrá</strong>."},{"id":4,"q":"¿Cuál de estas afirmaciones es correcta según el texto?","opts":["Las ciudades no tendrán ningún problema.","Todas las personas trabajarán desde casa.","Las viviendas podrán utilizar sistemas inteligentes.","El transporte público desaparecerá."],"ans":2,"exp":"Metinde evlerin akıllı sistemlere sahip olacağından söz ediliyor. A yanlış çünkü şehirlerin nüfus ve konut fiyatları gibi problemlerle karşılaşacağı belirtilmiş. B seçeneğinde <strong>todas las personas</strong> denerek metindeki <strong>algunas personas</strong> bilgisi genellenmiş. Okuma sorularında bu tür “bazıları → herkes” tuzaklarına özellikle dikkat edin."},{"id":5,"q":"¿Cuándo terminará Marta la universidad?","opts":["El próximo junio.","El próximo diciembre.","Dentro de dos años.","Mañana."],"ans":0,"exp":"İlk cümlede <strong>“Marta terminará la universidad el próximo junio”</strong> deniyor. Buradaki <strong>terminará</strong>, düzenli bir <strong>-AR</strong> fiilinin Futuro Simple çekimidir: <strong>terminar + á</strong>. Özne Marta olduğu için üçüncü tekil şahıs eki <strong>-á</strong> kullanılmıştır.","textLabel":"Texto 2 — EL VIAJE DE MARTA","textBody":"Marta terminará la universidad el próximo junio. Después de graduarse, viajará durante dos meses por América Latina. Primero irá a México, donde visitará Ciudad de México y algunas ciudades pequeñas. Después viajará a Colombia y finalmente pasará tres semanas en Argentina.<br><br>Marta todavía no tiene todo organizado. Dice que probablemente comprará los billetes de avión el próximo mes. Su amiga Clara vive en Buenos Aires y le ha dicho que podrá quedarse en su casa unos días. Marta está muy contenta porque cree que conocerá a mucha gente y aprenderá muchas cosas sobre diferentes culturas.<br><br>Su madre está un poco preocupada. “¿Dónde estará Marta cuando no tenga conexión a Internet?”, piensa a veces. Su padre, en cambio, dice que todo irá bien y que Marta volverá con muchísimas historias."},{"id":6,"q":"¿Qué hará Marta después de graduarse?","opts":["Buscará inmediatamente un trabajo.","Viajará por América Latina.","Vivirá definitivamente en México.","Estudiará otra carrera."],"ans":1,"exp":"<strong>Después de graduarse, viajará durante dos meses por América Latina.</strong> cümlesi cevabı veriyor. “Viajará” gelecekte gerçekleşmesi beklenen bir eylemdir. Dikkat: Metinde onun kesin olarak başka bir ülkede yaşayacağı söylenmiyor."},{"id":7,"q":"¿Qué significa “¿Dónde estará Marta...?” en el último párrafo?","opts":["Marta'nın bulunduğu yer hakkında şu ana ilişkin bir tahmin/varsayım.","Marta'ya verilen bir emir.","Geçmişte gerçekleşen bir olay.","Bir alışkanlık."],"ans":0,"exp":"Futuro Simple yalnızca “gelecek” anlamına gelmez. <strong>¿Dónde estará Marta?</strong> gibi kullanımlarda konuşan kişi bir şeyden emin değildir ve mevcut durum hakkında tahminde bulunur: “Marta acaba nerede?” / “Herhalde nerede olacak?” Buradaki işlev <strong>suposición sobre el presente</strong> yani şimdiki zamana ilişkin varsayımdır."},{"id":8,"q":"¿Quién piensa que el viaje saldrá bien?","opts":["Clara.","Marta'nın annesi.","Marta'nın babası.","Kimse."],"ans":2,"exp":"Son cümlede babası <strong>“todo irá bien”</strong> diyor. Yani seyahatin iyi geçeceğine inanıyor. Burada <em>ir</em> fiilinin Futuro Simple biçimi <strong>irá</strong> kullanılmıştır."},{"id":9,"q":"¿Por qué creen que Laura estará en la biblioteca?","opts":["Porque trabaja allí.","Porque mañana tiene un examen.","Porque quiere comprar un libro.","Porque su profesora vive allí."],"ans":1,"exp":"Pablo, Laura'nın ertesi gün önemli bir sınavı olduğunu bildiği için onun kütüphanede olduğunu tahmin ediyor. <strong>Estará todavía en la biblioteca</strong> kesin bilgi değildir. Mevcut durum üzerine yapılan bir varsayımdır.","textLabel":"Texto 3 — ¿DÓNDE ESTARÁ LAURA?","textBody":"Son las ocho de la tarde y Laura todavía no ha llegado a casa. Su hermano Pablo mira el reloj y dice:<br><br>—No te preocupes. Estará todavía en la biblioteca. Mañana tiene un examen importante.<br><br>Su madre responde:<br><br>—Puede ser. Tendrá mucho que estudiar. Pero normalmente vuelve antes de las ocho.<br><br>Pablo intenta llamar a Laura, pero su teléfono está apagado.<br><br>—No tendrá batería —dice Pablo—. O quizá estará hablando con su profesora.<br><br>A las ocho y diez, Laura abre la puerta.<br><br>—Perdón por llegar tarde. He perdido el autobús y he tenido que esperar el siguiente.<br><br>Todos sonríen. Ninguna de las suposiciones era correcta."},{"id":10,"q":"“Tendrá mucho que estudiar” significa aproximadamente:","opts":["Kesin olarak çok çalışıyor.","Herhalde çalışacak çok şeyi vardır.","Dün çok çalıştı.","Çalışmak istemiyor."],"ans":1,"exp":"Burada <strong>tendrá</strong> gelecek zamanı anlatmak için değil, “muhtemelen / herhalde” anlamı vermek için kullanılmıştır. Anne, Laura'nın çalışacak çok şeyi olduğunu bilmiyor; bunu sınav bilgisinden hareketle tahmin ediyor. Türkçeye çoğu zaman <strong>“Herhalde çok çalışması gerekiyordur.”</strong> şeklinde aktarabiliriz."},{"id":11,"q":"¿Por qué no contesta Laura al teléfono realmente?","opts":["Porque habla con su profesora.","Porque está enfadada.","El texto no explica por qué está apagado el teléfono.","Porque no tiene teléfono."],"ans":2,"exp":"Pablo <strong>“No tendrá batería”</strong> diyerek telefonun şarjının olmadığını tahmin ediyor; fakat anlatıcı bunun gerçekten doğru olduğunu söylemiyor. Metnin sonunda da varsayımların hiçbirinin doğru olmadığı belirtiliyor. Okuma sorularında <strong>tahmin edilen bilgi ile doğrulanmış bilgiyi</strong> ayırmanız çok önemli."},{"id":12,"q":"¿Por qué llegó tarde Laura?","opts":["Porque perdió el autobús.","Porque estudió hasta muy tarde.","Porque habló con su profesora.","Porque no sabía la hora."],"ans":0,"exp":"Laura kendi açıklamasında <strong>“He perdido el autobús”</strong> diyor. Dolayısıyla gerçek neden otobüsü kaçırmasıdır. Önceki cümlelerdeki “estará, tendrá” yapıları yalnızca ailenin varsayımlarıydı."},{"id":13,"q":"¿Cuánto durará el campamento?","opts":["Una semana.","Diez días.","Un mes.","Dos meses."],"ans":1,"exp":"Metinde <strong>“Durante diez días”</strong> ifadesi doğrudan süreyi verir. Burada öğrencinin sadece zaman çekimini değil, metindeki temel bilgiyi de doğru yakalaması bekleniyor.","textLabel":"Texto 4 — LAS NORMAS DEL CAMPAMENTO","textBody":"El próximo verano, un grupo de jóvenes participará en un campamento ecológico en Asturias. Durante diez días aprenderán a respetar mejor la naturaleza y realizarán diferentes actividades al aire libre.<br><br>El primer día, los monitores explicarán las normas:<br><br>“No dejaréis basura en el bosque. Utilizaréis las papeleras correspondientes. No encenderéis fuego fuera de las zonas permitidas. Respetaréis a los animales y no arrancaréis plantas. Por la noche, volveréis al campamento antes de las once.”<br><br>Los participantes también cocinarán juntos, caminarán por la montaña y ayudarán a limpiar algunas zonas naturales."},{"id":14,"q":"“No dejaréis basura en el bosque” expresa:","opts":["Una hipótesis sobre el presente.","Una experiencia pasada.","Una norma o mandato.","Una duda."],"ans":2,"exp":"Ders notunda Futuro Simple’ın <strong>emir veya kural bildirmek için</strong> de kullanılabileceği gösteriliyor. Burada <strong>“Ormana çöp bırakmayacaksınız.”</strong> ifadesi gerçek bir gelecek tahmini değil, güçlü bir kuraldır. <strong>Dejaréis</strong>, vosotros çekimidir ve Futuro Simple’da <strong>-éis</strong> eki kullanılır."},{"id":15,"q":"¿Cuál de estas acciones estará prohibida?","opts":["Caminar por la montaña.","Cocinar juntos.","Encender fuego fuera de las zonas permitidas.","Limpiar zonas naturales."],"ans":2,"exp":"<strong>“No encenderéis fuego fuera de las zonas permitidas.”</strong> açık bir yasak ifade ediyor. Burada olumsuz yapı <strong>no + Futuro Simple</strong> biçiminde kurulmuş. Diğer seçenekler ise kampta yapılacak etkinliklerdir."},{"id":16,"q":"¿Qué forma corresponde a “vosotros + volver” en Futuro Simple?","opts":["volverán","volveréis","volveremos","volvéis"],"ans":1,"exp":"Futuro Simple’da mastar korunur ve doğrudan şahıs eki eklenir: <strong>volver + éis = volveréis</strong>. D seçeneği <strong>Presente de Indicativo</strong> biçimidir. A seçeneği üçüncü çoğul, C ise nosotros çekimidir."},{"id":17,"q":"¿Por qué necesitarán un local más grande?","opts":["Porque cerrarán la empresa.","Porque ya no tienen suficiente espacio.","Porque vivirán allí.","Porque dejarán de vender comida."],"ans":1,"exp":"Cevap <strong>“ya no tienen suficiente espacio”</strong> ifadesinden çıkar. Burada <strong>necesitarán</strong> düzenli bir gelecek çekimidir: <strong>necesitar + án</strong>. Özne Carlos ve Elena olduğu için üçüncü çoğul kullanılmıştır.","textLabel":"Texto 5 — EL FUTURO DE UNA PEQUEÑA EMPRESA","textBody":"Carlos y Elena tienen una pequeña empresa de comida saludable. Actualmente trabajan solo ellos dos, pero el negocio está creciendo rápidamente.<br><br>Carlos cree que el próximo año contratarán a dos personas. Elena piensa que necesitarán un local más grande porque ya no tienen suficiente espacio. También crearán una página web nueva y ofrecerán un servicio de entrega a domicilio.<br><br>—Dentro de cinco años tendremos varias tiendas —dice Carlos.<br><br>Elena se ríe:<br><br>—¿Varias tiendas? ¡Qué optimista eres!<br><br>—Sí, y quizá venderemos nuestros productos en otros países.<br><br>Elena mira todos los pedidos que tienen sobre la mesa.<br><br>—Bueno... primero tendremos que terminar el trabajo de hoy."},{"id":18,"q":"Según Carlos, ¿qué tendrán dentro de cinco años?","opts":["Varias tiendas.","Una universidad.","Un restaurante en casa.","Ningún cliente."],"ans":0,"exp":"Carlos açıkça <strong>“Dentro de cinco años tendremos varias tiendas.”</strong> diyor. <strong>Tendremos</strong>, <em>tener</em> fiilinin düzensiz kökü <strong>tendr-</strong> ile çekimlenir: <strong>tendr + emos</strong>."},{"id":19,"q":"La palabra “quizá” en “quizá venderemos nuestros productos...” indica:","opts":["Total certeza.","Posibilidad.","Una prohibición.","Una acción pasada."],"ans":1,"exp":"<strong>Quizá</strong> “belki” anlamına gelir ve kesinlik seviyesini azaltır. Cümle gelecekte gerçekleşmesi mümkün olan bir durumdan söz ediyor. Dolayısıyla burada Futuro Simple bir <strong>olasılık/tahmin</strong> bağlamında kullanılmıştır."},{"id":20,"q":"¿Cuál es la idea principal del texto?","opts":["Carlos y Elena quieren cerrar inmediatamente su empresa.","Carlos y Elena hacen planes y predicciones sobre el crecimiento de su empresa.","Carlos y Elena no tienen trabajo.","Carlos quiere vender su casa."],"ans":1,"exp":"Metnin tamamı şirketin geleceğine ilişkin tahminler ve planlar üzerine kuruludur: çalışan almak, daha büyük bir yer bulmak, internet sitesi kurmak, teslimat yapmak ve başka ülkelerde satış yapmak. Ana fikir sorularında tek bir ayrıntıya değil, metnin tamamına bakmalısınız."}];
+const P2_ITEMS=[{"id":21,"q":"Mañana yo ______ con el director.","opts":["hablaré","hablará","hablarás","hablaremos"],"ans":0,"exp":"Özne <strong>yo</strong> olduğu için Futuro Simple eki <strong>-é</strong> olmalıdır: <strong>hablar + é = hablaré</strong>. Futuro Simple’da düzenli fiillerde -ar, -er ve -ir eklerini atmıyoruz; mastarın tamamına gelecek zaman eki ekliyoruz."},{"id":22,"q":"El próximo mes nosotros ______ a Madrid.","opts":["viajaremos","viajarán","viajáis","viajábamos"],"ans":0,"exp":"<strong>Nosotros</strong> için Futuro Simple eki <strong>-emos</strong>: <strong>viajar + emos = viajaremos</strong>. D seçeneği Imperfecto’dur. C ise Presente biçimidir."},{"id":23,"q":"Creo que Ana ______ mañana.","opts":["vendrá","veniré","venirá","viene"],"ans":0,"exp":"<em>Venir</em> Futuro Simple’da düzensizdir: <strong>venir → vendr-</strong>. Üçüncü tekil şahıs için <strong>vendrá</strong> olur. <strong>Venirá</strong> şeklinde bir çekim yapılmaz."},{"id":24,"q":"Dentro de unos años, ellos ______ comprar una casa.","opts":["podrán","poderán","pudieron","pueden"],"ans":0,"exp":"<em>Poder</em> düzensiz köke sahiptir: <strong>poder → podr-</strong>. Ellos için <strong>podrán</strong> kullanılır. Öğrencilerin sık yaptığı hata mastarı koruyup <strong>poderán</strong> demektir; fakat bu fiilde kök değişmek zorundadır."},{"id":25,"q":"No encuentro mis llaves. ¿Dónde ______?","opts":["estarán","estuvieron","estarían","están siempre"],"ans":0,"exp":"Konuşan kişi anahtarların nerede olduğunu bilmiyor ve şimdiki durum hakkında tahminde bulunuyor: <strong>“Acaba neredeler?”</strong> Bu kullanım Futuro Simple’ın <strong>presente hakkında varsayım</strong> işlevidir."},{"id":26,"q":"Marta no responde. ______ ocupada.","opts":["Estará","Estuvo","Estaría ayer","Estaba mañana"],"ans":0,"exp":"“Marta cevap vermiyor. Herhalde meşguldür.” anlamı vardır. <strong>Estará</strong> burada kronolojik gelecekten çok bir <strong>suposición</strong> ifade eder. Cümledeki bağlam “şu anda neden cevap vermiyor?” sorusuna tahmini bir açıklamadır."},{"id":27,"q":"“No robarás” es un ejemplo de:","opts":["descripción del pasado","mandato o regla","rutina","acción en progreso"],"ans":1,"exp":"<strong>No robarás = Çalmayacaksın.</strong> Buradaki gelecek zaman, gerçek bir gelecek tahmini olmaktan çok kesin bir yasak/kural oluşturur. Ders notunuzdaki Futuro Simple kullanım alanlarından biridir."},{"id":28,"q":"¿Cuál es la forma correcta de “hacer” para nosotros?","opts":["haceremos","haremos","hacremos","hacemos"],"ans":1,"exp":"<em>Hacer</em> düzensizdir: <strong>hacer → har-</strong>. Bu nedenle <strong>haremos</strong> olur. <strong>Haceremos</strong> standart Futuro Simple çekimi değildir."},{"id":29,"q":"¿Cuál es la forma correcta?","opts":["Yo sabré la respuesta mañana.","Yo saberé la respuesta mañana.","Yo sabrá la respuesta mañana.","Yo sabrí la respuesta mañana."],"ans":0,"exp":"<em>Saber</em> düzensiz köke geçer: <strong>saber → sabr-</strong>. Yo için <strong>sabré</strong> olur. Ayrıca <strong>-é</strong> vurgulu olduğu için aksan işareti unutulmamalıdır."},{"id":30,"q":"“Ellos dirán la verdad.” cümlesindeki mastar hangisidir?","opts":["dar","decir","dormir","dirigir"],"ans":1,"exp":"<strong>Dirán</strong>, <em>decir</em> fiilinden gelir. Futuro Simple düzensiz kökü <strong>dir-</strong> şeklindedir: <strong>diré, dirás, dirá, diremos, diréis, dirán</strong>."},{"id":31,"q":"¿Qué opción es correcta?","opts":["Mañana pondré la mesa.","Mañana poneré la mesa.","Mañana pondréis yo la mesa.","Mañana pongo la mesa ayer."],"ans":0,"exp":"<em>Poner</em> fiili Futuro Simple’da <strong>pondr-</strong> kökünü kullanır. Yo çekimi <strong>pondré</strong> olur. B seçeneğindeki <strong>poneré</strong> yanlıştır."},{"id":32,"q":"Vosotros ______ la respuesta después.","opts":["sabréis","sabrán","saberéis","supisteis"],"ans":0,"exp":"<em>Saber → sabr-</em> ve vosotros eki <strong>-éis</strong> olduğu için <strong>sabréis</strong> elde edilir. Aksan işaretine de dikkat edin: <strong>-éis</strong>."},{"id":33,"q":"¿Cuál contiene un Futuro Simple irregular?","opts":["Comeremos temprano.","Vivirás en Madrid.","Saldré a las ocho.","Estudiarán español."],"ans":2,"exp":"<em>Salir</em> düzensizdir ve <strong>saldr-</strong> kökünü alır: <strong>saldré</strong>. Diğer üç fiil düzenlidir ve mastarlarını korurlar: comeremos, vivirás, estudiarán."},{"id":34,"q":"En el futuro ______ más robots en las casas.","opts":["habrá","haberá","había","hubo"],"ans":0,"exp":"Var-yok anlamındaki <em>haber</em> yapısının Futuro Simple biçimi <strong>habrá</strong>dır. “Gelecekte evlerde daha fazla robot olacak.” anlamına gelir. <strong>Haberá</strong> diye bir çekim yoktur."},{"id":35,"q":"No sabemos el precio exacto, pero ______ unos cien euros.","opts":["costará","costó","cuesta ayer","costaban mañana"],"ans":0,"exp":"Burada fiyat kesin olarak bilinmiyor; konuşan kişi yaklaşık bir tahmin yapıyor. <strong>Costará unos cien euros = Herhalde yaklaşık yüz avro tutacak.</strong> Bu nedenle Futuro Simple uygundur."},{"id":36,"q":"¿Cuál es correcta para “querer – tú”?","opts":["quererás","querrás","querás","querrá"],"ans":1,"exp":"<em>Querer</em> düzensizdir: <strong>querer → querr-</strong>. Tú eki <strong>-ás</strong> olduğundan <strong>querrás</strong> elde edilir. Çift <strong>rr</strong> korunmalıdır."},{"id":37,"q":"El próximo año mis padres ______ una nueva casa.","opts":["tendrán","tenerán","tendré","tuvieron"],"ans":0,"exp":"Özne <strong>mis padres = ellos</strong> olduğu için üçüncü çoğul gerekir. <em>Tener → tendr-</em> olduğundan doğru biçim <strong>tendrán</strong>dır."},{"id":38,"q":"¿Qué oración expresa una suposición sobre el presente?","opts":["Mañana estudiaré español.","Juan estará en casa ahora.","El año pasado viajé a Sevilla.","Estudio español todos los lunes."],"ans":1,"exp":"<strong>Ahora</strong> kelimesi çok önemli bir ipucudur. Cümle “Juan şu anda herhalde evdedir.” anlamındadır. Yani biçim olarak Futuro Simple kullanılmasına rağmen zaman bakımından <strong>şimdiki durum hakkında tahmin</strong> yapılmaktadır."},{"id":39,"q":"¿Qué oración expresa una predicción?","opts":["Seguramente lloverá mañana.","Ayer llovió mucho.","Está lloviendo ahora.","Cuando era niño, llovía mucho."],"ans":0,"exp":"<strong>Seguramente + lloverá mañana</strong> geleceğe yönelik bir tahmindir. B geçmiş tamamlanmış eylem, C şimdiki devam eden eylem, D ise geçmişteki durum/alışkanlık bağlamıdır."},{"id":40,"q":"¿Cuál es incorrecta?","opts":["Tendremos más tiempo.","Vendrán mañana.","Haceré la cena.","Podremos ayudarte."],"ans":2,"exp":"<em>Hacer</em> düzensiz olduğu için <strong>haceré</strong> değil <strong>haré</strong> demeliyiz. Diğer biçimler doğrudur: <strong>tendremos, vendrán, podremos</strong>. Özellikle düzensiz gelecek köklerinin ezberlenmesi gerekiyor."}];
+const P3_ITEMS=[{"id":41,"q":"Mañana yo __________ temprano.","verb":"salir","ans":"saldré","exp":"<em>Salir</em> düzensizdir: <strong>salir → saldr-</strong>. Özne <strong>yo</strong> olduğu için <strong>-é</strong> eklenir: <strong>saldré</strong>. “Yarın erken çıkacağım.”"},{"id":42,"q":"El próximo año nosotros __________ más español.","verb":"hablar","ans":"hablaremos","exp":"<em>Hablar</em> düzenli fiildir. Mastarın tamamı korunur: <strong>hablar + emos = hablaremos</strong>. Futuro Simple’da nosotros için kullanılan ek <strong>-emos</strong>dur."},{"id":43,"q":"¿Qué __________ tú después de terminar el curso?","verb":"hacer","ans":"harás","exp":"<em>Hacer</em> düzensizdir ve kökü <strong>har-</strong> olur. Tú eki <strong>-ás</strong> eklenerek <strong>harás</strong> elde edilir. <strong>Hacerás</strong> demiyoruz."},{"id":44,"q":"Creo que María __________ mañana.","verb":"venir","ans":"vendrá","exp":"<em>Venir → vendr-</em> şeklinde değişir. María üçüncü tekil şahıs olduğu için <strong>vendrá</strong> kullanılır. “Sanırım María yarın gelecek.”"},{"id":45,"q":"En el futuro __________ más coches eléctricos.","verb":"haber","ans":"habrá","exp":"Var-yok bildiren <em>haber</em> yapısında <strong>habrá</strong> kullanılır. Burada özne arayıp <strong>habrán coches</strong> demiyoruz; standart varlık yapısı <strong>habrá + isim</strong> şeklindedir."},{"id":46,"q":"Mis amigos __________ en Madrid el próximo verano.","verb":"vivir","ans":"vivirán","exp":"<em>Vivir</em> düzenlidir. Özne <strong>mis amigos = ellos</strong> olduğu için <strong>-án</strong> eklenir: <strong>vivirán</strong>. Son hecedeki aksan önemlidir."},{"id":47,"q":"No te preocupes. Carlos __________ trabajando ahora.","verb":"estar","ans":"estará","exp":"Buradaki <strong>ahora</strong> kelimesi bize geleceği değil, mevcut durum hakkındaki tahmini gösteriyor: “Carlos herhalde şu anda çalışıyordur.” Futuro Simple’ın <strong>suposición sobre el presente</strong> kullanımına örnektir."},{"id":48,"q":"El profesor dice que mañana nos __________ los resultados.","verb":"decir","ans":"dirá","exp":"<em>Decir → dir-</em> düzensiz kökünü alır. Özne <strong>el profesor</strong> olduğu için üçüncü tekil şahıs: <strong>dirá</strong>. “Öğretmen yarın sonuçları bize söyleyecek.”"},{"id":49,"q":"Dentro de diez años vosotros __________ muchas experiencias.","verb":"tener","ans":"tendréis","exp":"<em>Tener → tendr-</em> ve vosotros eki <strong>-éis</strong>: <strong>tendréis</strong>. Hem düzensiz köke hem de <strong>é</strong> üzerindeki aksana dikkat edin."},{"id":50,"q":"Probablemente ellos no __________ venir esta noche.","verb":"poder","ans":"podrán","exp":"<em>Poder → podr-</em> olur. Ellos için <strong>podrán</strong> kullanılır. Cümledeki <strong>probablemente</strong> ifadesi bunun kesin bir bilgi değil, gelecek hakkında bir olasılık olduğunu gösteriyor."},{"id":51,"q":"Yo te __________ toda la verdad mañana.","verb":"decir","ans":"diré","exp":"<em>Decir</em> fiilinin gelecek kökü <strong>dir-</strong>dir. Yo için <strong>diré</strong> olur. <strong>Deciré</strong> yanlış bir çekimdir."},{"id":52,"q":"Mi hermana __________ su habitación después de cenar.","verb":"ordenar","ans":"ordenará","exp":"<em>Ordenar</em> düzenlidir. Üçüncü tekil için mastara <strong>-á</strong> eklenir: <strong>ordenará</strong>. Burada gerçek bir gelecekte yapılacak eylem anlatılıyor."},{"id":53,"q":"¿Cuánto __________ este ordenador?","verb":"valer","ans":"valdrá","exp":"<em>Valer</em> Futuro Simple’da düzensizdir: <strong>valer → valdr-</strong>. Üçüncü tekil şahıs biçimi <strong>valdrá</strong>dır. “Bu bilgisayar kaç para olacak / herhalde kaç para eder?” bağlama göre gelecek veya tahmin anlamı verebilir."},{"id":54,"q":"Los estudiantes no __________ el móvil durante el examen.","verb":"usar","ans":"usarán","exp":"Dilbilgisel olarak <strong>usarán</strong> düzenli çekimdir. Bağlama göre bu cümle yalnızca gelecek planı değil, bir <strong>kural</strong> olarak da okunabilir: “Öğrenciler sınav sırasında telefon kullanmayacaklar.”"},{"id":55,"q":"Cuando lleguemos al hotel, nosotros __________ las maletas aquí.","verb":"poner","ans":"pondremos","exp":"<em>Poner → pondr-</em> olur. Nosotros eki <strong>-emos</strong> eklenir: <strong>pondremos</strong>. Çok sık yapılan yanlış biçim <strong>poneremos</strong>dur."},{"id":56,"q":"Seguro que tu madre __________ dónde está el documento.","verb":"saber","ans":"sabrá","exp":"<em>Saber → sabr-</em> düzensiz kökünü kullanır. Cümlede <strong>seguro que</strong> konuşanın güçlü tahminini gösteriyor: “Annen belgenin nerede olduğunu mutlaka/herhalde biliyordur.” Burada biçim gelecek olsa da mevcut bilgi durumu hakkında çıkarım yapılabilir."},{"id":57,"q":"El tren __________ a las nueve de la mañana.","verb":"salir","ans":"saldrá","exp":"<em>Salir → saldr-</em> ve üçüncü tekil eki <strong>-á</strong> birleşir: <strong>saldrá</strong>. <strong>Salirá</strong> şeklinde bir Futuro Simple çekimi kullanılmaz."},{"id":58,"q":"Dentro de unos años tú __________ tu propio negocio.","verb":"tener","ans":"tendrás","exp":"<em>Tener → tendr-</em> ve tú eki <strong>-ás</strong>: <strong>tendrás</strong>. “Birkaç yıl içinde kendi işin olacak.” Burada geleceğe yönelik bir öngörü söz konusu."},{"id":59,"q":"Nosotros __________ todo lo posible para ayudarte.","verb":"hacer","ans":"haremos","exp":"<em>Hacer → har-</em> dönüşümü vardır. Nosotros için <strong>haremos</strong> kullanılır. Bu fiilde <strong>c</strong> tamamen düşer; <strong>haceremos</strong> değil <strong>haremos</strong> demeliyiz."},{"id":60,"q":"¿Quién __________ la respuesta correcta?","verb":"saber","ans":"sabrá","exp":"<strong>¿Quién sabrá...?</strong> yapısı bağlama göre “Doğru cevabı kim bilecek?” ya da “Acaba doğru cevabı kim biliyordur?” anlamına gelebilir. <em>Saber → sabr-</em> olduğu için doğru çekim <strong>sabrá</strong>dır. Bu son soruda hem düzensiz fiili hem de Futuro Simple’ın tahmin/varsayım değerini hatırlamanız bekleniyor."}];
+
+const PARTES=[
+  {id:1,code:'PARTE 1',title:'Comprensión de lectura',type:'mc',weight:2,maxPoints:40,
+    instr:'Aşağıdaki beş metni dikkatle okuyun ve 20 soruyu yanıtlayın. Sadece kelime eşleştirmesi yapmayın; neden-sonuç, ana fikir, ayrıntı, tahmin ve Futuro Simple’ın kullanım değerlerine dikkat edin.',items:P1_ITEMS},
+  {id:2,code:'PARTE 2',title:'Gramática',type:'mc',weight:1.5,maxPoints:30,
+    instr:'Futuro Simple çekimlerini ve kullanım alanlarını dikkatle değerlendirin. Düzenli/düzensiz kökleri, şahıs eklerini, gelecek tahminini, şimdiki zamana ilişkin varsayımı ve kural/emir kullanımını ayırt edin.',items:P2_ITEMS},
+  {id:3,code:'PARTE 3',title:'Completa los espacios',type:'fill',weight:1.5,maxPoints:30,
+    instr:'Parantez içinde verilen fiili Futuro Simple’da doğru biçimde çekerek boşluğu doldurun. Aksanlar cevabın bir parçasıdır; á, é, í, ó, ú işaretlerine dikkat edin.',items:P3_ITEMS}
+];
+const TOTAL_Q=60;
+
+let student='',answers={},fillState={},fillLocked={},curP=0;
+
+function resetFill(){
+  fillState={};fillLocked={};
+  P3_ITEMS.forEach(it=>{fillState[it.id]='';fillLocked[it.id]=false;});
+}
+resetFill();
+
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('sc-'+id).classList.add('active');window.scrollTo(0,0);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function norm(s){return (s||'').toString().trim().toLowerCase().normalize('NFC').replace(/\s+/g,' ');}
+function fmtQ(s){return esc(s).replace(/_{4,}/g,'<span class="blank">__________</span>');}
+function fmtScore(n){return Number.isInteger(n)?String(n):n.toFixed(1).replace('.',',');}
+
+function startQuiz(){
+  const s=document.getElementById('name-sel');
+  if(!s.value){alert('Lütfen adınızı seçin!');return;}
+  student=s.value;answers={};curP=0;resetFill();
+  document.getElementById('top-st').textContent=student;
+  show('quiz');render();
+}
+
+function pickMC(qid,i){
+  if(answers[qid]!==undefined)return;
+  answers[qid]=i;render();
+}
+
+function renderMCBlock(item){
+  const ua=answers[item.id];
+  let h='<div class="qh"><div class="qn">'+item.id+'</div><div class="qt">'+fmtQ(item.q)+'</div></div><div class="qo">';
+  const LTR=['A','B','C','D'];
+  item.opts.forEach((o,i)=>{
+    let c='ob';
+    if(ua!==undefined){if(i===item.ans)c+=' ok';if(i===ua&&ua!==item.ans)c+=' er';}
+    h+='<button class="'+c+'" '+(ua!==undefined?'disabled':'')+' onclick="pickMC('+item.id+','+i+')"><span class="ol">'+LTR[i]+'</span><span>'+esc(o)+'</span></button>';
+  });
+  h+='</div><div class="ex '+(ua!==undefined?'show':'')+'"><div class="exl">&#x1F4A1; Türkçe Açıklama</div>'+item.exp+'</div>';
+  return h;
+}
+
+function fillInput(id){
+  const el=document.getElementById('fill-'+id);
+  fillState[id]=el?el.value:'';
+  const b=document.getElementById('fillbtn-'+id);
+  if(b)b.disabled=fillState[id].trim()==='';
+}
+
+function checkFill(id){
+  const item=P3_ITEMS.find(x=>x.id===id);
+  if(!item || fillLocked[id])return;
+  const val=fillState[id]||'';
+  if(!val.trim()){alert('Önce cevabınızı yazın.');return;}
+  fillLocked[id]=true;
+  answers[id]=(norm(val)===norm(item.ans));
+  render();
+}
+
+function renderFillBlock(item){
+  const locked=fillLocked[item.id];
+  const state=fillState[item.id]||'';
+  const correct=answers[item.id]===true;
+  const parts=item.q.split(/_{4,}/);
+  let cls='fillinput';
+  if(locked)cls+=correct?' ok':' err';
+  let h='<div class="qh"><div class="qn">'+item.id+'</div><div class="qt">';
+  h+=esc(parts[0]||'')+'<span class="blank">__________</span>'+esc(parts.slice(1).join('__________')||'');
+  h+='</div></div>';
+  h+='<div class="fillverb">Fiil: ('+esc(item.verb)+')</div>';
+  h+='<div class="fillrow"><input id="fill-'+item.id+'" class="'+cls+'" type="text" autocomplete="off" spellcheck="false" value="'+esc(state)+'" '+(locked?'disabled':'')+' placeholder="Futuro Simple cevabınız…" oninput="fillInput('+item.id+')">';
+  if(!locked)h+='<button class="btn bm bs" id="fillbtn-'+item.id+'" '+(state.trim()?'':'disabled')+' onclick="checkFill('+item.id+')">&#x2713; Kontrol Et</button>';
+  else h+=correct?'<span class="oresult ok">&#x2713; Doğru</span>':'<span class="oresult err">&#x2717; Yanlış</span>';
+  h+='</div>';
+  if(locked && !correct)h+='<div class="fillcorrect">Doğru cevap: <strong>'+esc(item.ans)+'</strong></div>';
+  h+='<div class="ex '+(locked?'show':'')+'"><div class="exl">&#x1F4A1; Türkçe Açıklama</div>'+item.exp+'</div>';
+  return h;
+}
+
+function countProgress(){
+  let done=0;
+  PARTES.forEach(p=>p.items.forEach(it=>{if(answers[it.id]!==undefined)done++;}));
+  return done;
+}
+function countRaw(){
+  let ok=0,er=0;
+  PARTES.forEach(p=>p.items.forEach(it=>{
+    const a=answers[it.id];
+    if(a===undefined)return;
+    if(p.type==='fill'){if(a===true)ok++;else er++;}
+    else {if(a===it.ans)ok++;else er++;}
+  }));
+  return {ok,er};
+}
+
+function render(){
+  const p=PARTES[curP], done=countProgress();
+  document.getElementById('pgf').style.width=(done/TOTAL_Q*100)+'%';
+  document.getElementById('pg-tarea').textContent='Parte '+(curP+1)+' / 3';
+  document.getElementById('fin-ans').textContent=done;
+  document.getElementById('tnav-ctr').textContent='Parte '+(curP+1)+' / 3 — '+p.code;
+  document.getElementById('btn-prev').disabled=(curP===0);
+  document.getElementById('btn-next').disabled=(curP===PARTES.length-1);
+
+  let h='<div class="sb">'+p.code+' — '+p.title+'</div>';
+  h+='<div class="instr"><div class="instrl">Talimat</div>'+p.instr+'</div>';
+  p.items.forEach(item=>{
+    if(item.textLabel)h+='<div class="t3text"><b>'+esc(item.textLabel)+'</b>'+item.textBody+'</div>';
+    h+='<div class="qc">'+(p.type==='fill'?renderFillBlock(item):renderMCBlock(item))+'</div>';
+  });
+  document.getElementById('tarea-area').innerHTML=h;
+
+  const sc=countRaw();
+  document.getElementById('sc-ok').textContent=sc.ok;
+  document.getElementById('sc-er').textContent=sc.er;
+}
+
+function navP(d){curP=Math.max(0,Math.min(PARTES.length-1,curP+d));render();window.scrollTo(0,0);}
+function goConfirm(){document.getElementById('cf-sel').value=student;show('confirm');}
+
+function confirmSubmit(){
+  try{
+    const s=document.getElementById('cf-sel');
+    if(!s||!s.value){alert('Lütfen adınızı seçin!');return;}
+    student=s.value;
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=true;b.textContent='⏳ Kaydediliyor…';}
+    doSubmit();
+  }catch(e){
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=false;b.textContent='✔ Evet, Teslim Et';}
+    alert('Hata: '+e.message);
+  }
+}
+
+function doSubmit(){
+  let ok=0,er=0,bl=0,totalScore=0;
+  const secCorrect={1:0,2:0,3:0}, secScore={1:0,2:0,3:0};
+  PARTES.forEach(p=>{
+    p.items.forEach(it=>{
+      const a=answers[it.id];
+      if(a===undefined){bl++;return;}
+      const isCorrect=p.type==='fill'?(a===true):(a===it.ans);
+      if(isCorrect){ok++;secCorrect[p.id]++;secScore[p.id]+=p.weight;totalScore+=p.weight;}
+      else er++;
+    });
+  });
+  totalScore=Math.round(totalScore*10)/10;
+
+  document.getElementById('rs-name').textContent=student;
+  document.getElementById('rs-score').innerHTML=fmtScore(totalScore)+'<span>/100</span>';
+  document.getElementById('rs-pct').textContent=ok+' / '+TOTAL_Q+' doğru';
+  document.getElementById('rs-c').textContent=ok;
+  document.getElementById('rs-w').textContent=er;
+  document.getElementById('rs-b').textContent=bl;
+  document.getElementById('br1').innerHTML=secCorrect[1]+' / 20 doğru <span class="score-note">· '+fmtScore(secScore[1])+' / 40 puan</span>';
+  document.getElementById('br2').innerHTML=secCorrect[2]+' / 20 doğru <span class="score-note">· '+fmtScore(secScore[2])+' / 30 puan</span>';
+  document.getElementById('br3').innerHTML=secCorrect[3]+' / 20 doğru <span class="score-note">· '+fmtScore(secScore[3])+' / 30 puan</span>';
+  show('result');
+  saveSheets(student,totalScore,ok,er,bl);
+}
+
+async function saveSheets(nm,score,ok,er,bl){
+  const el=document.getElementById('rs-status');
+  try{
+    const n=new Date();
+    const dd=String(n.getDate()).padStart(2,'0'),mm=String(n.getMonth()+1).padStart(2,'0'),yy=n.getFullYear();
+    const hh=String(n.getHours()).padStart(2,'0'),mi=String(n.getMinutes()).padStart(2,'0'),ss2=String(n.getSeconds()).padStart(2,'0');
+    const fmt='✅ '+score+'/100\n✓'+ok+' ✗'+er+'\n'+dd+'.'+mm+'.'+yy+'\n'+hh+':'+mi+':'+ss2;
+    await fetch(ASU,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({spreadsheetId:SID,sheetName:SHN,studentName:nm,taskColumn:TCL,score,correct:ok,wrong:er,blank:bl,formatted:fmt})});
+    el.className='stb stok';el.textContent='✅ Ödev başarıyla kaydedildi!';
+  }catch(e){
+    el.className='stb ster';el.textContent='⚠️ Kaydedilemedi — Profeye bildirin';
+  }
+}
+
+function goName(){
+  answers={};curP=0;resetFill();
+  document.getElementById('name-sel').value='';
+  const b=document.getElementById('cf-btn');
+  if(b){b.disabled=false;b.textContent='✔ Evet, Teslim Et';}
+  show('name');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2.2 · H6 – 21-22. Ders · Futuro Simple Game</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c1:#eaf7e6;--c2:#bfe6ac;--c3:#d3ecc9;--c4:#8fcf95;--c5:#559d6a;
+  --dark:#20402a;--mid:#5c7d63;--white:#fff;--green:#3f8f52;--red:#d97070;
+  --gold1:#f5dca0;--gold2:#dcac48;--blue1:#dcedf9;--blue2:#3d7ea6;
+  --purple1:#eee7fb;--purple2:#8167b4;--r:14px
+}
+body{
+  font-family:'Segoe UI',Arial,sans-serif;
+  background:linear-gradient(160deg,#f5fbf1,#eefaf3 60%,#f7fdf3);
+  min-height:100vh;color:var(--dark)
+}
+button,input,select{font:inherit}
+.header{
+  background:linear-gradient(135deg,var(--c4),var(--c5));
+  padding:18px 20px 14px;text-align:center;
+  box-shadow:0 4px 18px rgba(85,157,106,.35);
+  position:relative;overflow:hidden
+}
+.header::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.1) 14px,rgba(255,255,255,.1) 15px)
+}
+.htag{
+  display:inline-block;background:rgba(255,255,255,.35);
+  border:1.5px solid rgba(255,255,255,.55);border-radius:20px;
+  font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
+  padding:3px 14px;margin-bottom:8px;color:#fff;position:relative
+}
+.header h1{font-size:clamp(17px,4vw,24px);font-weight:900;color:#fff;position:relative}
+.header-sub{font-size:12px;color:rgba(255,255,255,.92);margin-top:5px;position:relative}
+.screen{display:none;animation:fi .3s ease}
+.screen.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.wrap{max-width:760px;margin:0 auto;padding:22px 16px 36px}
+.start{max-width:520px;margin:0 auto;text-align:center}
+.start h2{font-size:21px;margin-bottom:6px}
+.start p{font-size:13px;color:var(--mid);line-height:1.7}
+.sel{
+  width:100%;padding:13px 16px;font-size:15px;background:#fff;
+  border:2px solid var(--c3);border-radius:var(--r);color:var(--dark);
+  appearance:none;cursor:pointer;margin:16px 0 12px
+}
+.sel:focus{outline:none;border-color:var(--c4)}
+.weeknote{
+  background:linear-gradient(135deg,#fff9e9,#fffdf6);
+  border:1.5px solid var(--gold2);border-radius:var(--r);
+  padding:15px 16px;margin:12px 0 14px;text-align:left;
+  font-size:13px;line-height:1.7;color:#6b5417
+}
+.weeknote strong{color:#5d4310}
+.gameinfo{
+  background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);
+  padding:15px 16px;text-align:left;font-size:13px;line-height:1.75;margin-bottom:14px
+}
+.gline{display:flex;gap:9px;align-items:flex-start;margin:5px 0}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--c4);margin-top:6px;flex:none}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:12px 22px;border:none;border-radius:var(--r);
+  font-size:14px;font-weight:800;cursor:pointer;transition:.2s
+}
+.btn:disabled{opacity:.35;cursor:not-allowed}
+.bm{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;box-shadow:0 4px 12px rgba(85,157,106,.35)}
+.bm:hover:not(:disabled){transform:translateY(-2px)}
+.bg{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--dark)}
+.bo{background:#fff;border:2px solid var(--c3);color:var(--dark)}
+.bf{width:100%}
+.bs{padding:9px 16px;font-size:12.5px}
+
+.hud{
+  display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;
+  background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);
+  padding:11px 14px;margin-bottom:12px
+}
+.student{font-size:13px;font-weight:800}
+.stats{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.chip{border-radius:20px;padding:5px 10px;font-size:11.5px;font-weight:800}
+.coin{background:#fff3cf;color:#7d5d13;border:1px solid #e8c970}
+.life{background:#fdeaea;color:#a14646;border:1px solid #eab0b0}
+.badgechip{background:var(--purple1);color:#61478f;border:1px solid #c8b9e7}
+.progress{height:8px;background:var(--c3);border-radius:6px;overflow:hidden;margin-bottom:6px}
+.progress > div{height:100%;width:0;background:linear-gradient(90deg,var(--c4),var(--c2));transition:.3s}
+.progressmeta{display:flex;justify-content:space-between;font-size:11px;color:var(--mid);margin-bottom:14px}
+
+.map{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-bottom:14px
+}
+.node{
+  background:#fff;border:1.5px solid var(--c3);border-radius:12px;
+  padding:9px 7px;text-align:center;font-size:11px;font-weight:800;color:var(--mid)
+}
+.node.active{border-color:var(--c5);background:var(--c1);color:var(--dark);box-shadow:0 2px 10px rgba(85,157,106,.15)}
+.node.done{background:#eef8ee;color:var(--green)}
+.node .ico{font-size:20px;display:block;margin-bottom:3px}
+
+.missionhead{
+  background:linear-gradient(135deg,var(--blue1),#f6fbff);
+  border:1.5px solid #a8c9dd;border-radius:var(--r);
+  padding:14px 16px;margin-bottom:12px
+}
+.missiontag{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;font-weight:900;color:var(--blue2);margin-bottom:3px}
+.missionhead h3{font-size:18px;margin-bottom:5px}
+.missionhead p{font-size:12.5px;line-height:1.65;color:#365667}
+
+.card{
+  background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);
+  overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:12px
+}
+.qh{padding:16px 17px 13px;display:flex;gap:11px;align-items:flex-start}
+.qn{
+  background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;
+  min-width:31px;height:31px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:12px;font-weight:900
+}
+.qt{font-size:14px;line-height:1.65;font-weight:600;flex:1}
+.context{
+  margin:0 16px 10px;background:#f8fcf6;border:1px dashed var(--c4);
+  border-radius:10px;padding:10px 12px;font-size:12.5px;line-height:1.65;color:#425d47
+}
+.opts{padding:0 16px 14px;display:grid;gap:8px}
+.opt{
+  display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;
+  padding:11px 13px;border:1.5px solid var(--c3);border-radius:10px;
+  background:#f8fcf6;color:var(--dark);cursor:pointer;transition:.18s
+}
+.opt:hover:not(:disabled){transform:translateX(3px);background:var(--c1)}
+.opt:disabled{cursor:default}
+.ol{
+  width:24px;height:24px;border-radius:6px;background:var(--c3);
+  display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex:none
+}
+.opt.ok{background:#eaf7ec;border-color:#8dcca0}
+.opt.ok .ol{background:var(--green);color:#fff}
+.opt.er{background:#fdf0f0;border-color:#e8a0a0}
+.opt.er .ol{background:var(--red);color:#fff}
+
+.fillrow{display:flex;gap:8px;padding:0 16px 14px;flex-wrap:wrap}
+.fill{
+  flex:1;min-width:210px;padding:11px 12px;border:2px solid var(--c3);
+  border-radius:10px;color:var(--dark)
+}
+.fill:focus{outline:none;border-color:var(--c4)}
+.fill.ok{background:#eaf7ec;border-color:var(--green)}
+.fill.er{background:#fdf0f0;border-color:var(--red)}
+.verb{
+  margin:0 16px 8px;display:inline-block;background:var(--gold1);
+  border:1px solid var(--gold2);border-radius:20px;padding:4px 11px;
+  font-size:11.5px;font-weight:800;color:#7a5a10
+}
+.feedback{
+  display:none;margin:0 16px 15px;border-left:3px solid var(--c2);
+  background:var(--c1);border-radius:0 8px 8px 0;padding:11px 13px;
+  font-size:12.5px;line-height:1.75;color:var(--mid)
+}
+.feedback.show{display:block}
+.flabel{font-size:10px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:#3d7a4c;margin-bottom:4px}
+.correctline{font-weight:800;color:#a04040;margin-top:5px}
+
+.nav{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap}
+.navcenter{font-size:12.5px;color:var(--mid);font-weight:800}
+
+.confirm,.result{max-width:480px;margin:0 auto;text-align:center}
+.bigico{font-size:54px;margin-bottom:8px}
+.panel{
+  background:#fff;border:1.5px solid var(--c3);border-radius:20px;
+  padding:26px 20px;box-shadow:0 6px 24px rgba(143,207,149,.18)
+}
+.warn{
+  background:rgba(220,172,72,.16);border:1.5px solid rgba(220,172,72,.55);
+  border-radius:12px;padding:12px 14px;margin:14px 0;font-size:13px;font-weight:800;color:#7b611e
+}
+.score{font-size:60px;font-weight:900;line-height:1;margin:10px 0 5px}
+.score small{font-size:22px;color:var(--mid);font-weight:500}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}
+.resultbox{border:1px solid var(--c3);background:var(--c1);border-radius:10px;padding:10px}
+.resultbox b{font-size:22px;display:block}
+.resultbox span{font-size:11px;color:var(--mid)}
+.badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0}
+.badge{
+  background:var(--purple1);border:1px solid #c8b9e7;color:#61478f;
+  border-radius:30px;padding:7px 12px;font-size:11.5px;font-weight:800
+}
+.status{display:inline-block;margin-top:8px;padding:8px 16px;border-radius:30px;font-size:12.5px;font-weight:800}
+.pending{background:#fff3cf;color:#7d5d13}.saved{background:#e8f7eb;color:#2d6c3b}.failed{background:#fbe8e8;color:#9b4444}
+.smallnote{margin-top:12px;font-size:12px;color:var(--mid);line-height:1.6}
+
+@media(max-width:600px){
+  .map{grid-template-columns:1fr 1fr}
+  .hud{grid-template-columns:1fr}
+  .stats{justify-content:flex-start}
+  .nav .btn{flex:1}
+}
+
+.soundbox{
+  background:linear-gradient(135deg,#f7fbf4,#eef8eb);
+  border:1.5px solid var(--c3);border-radius:var(--r);
+  padding:14px;margin-bottom:12px
+}
+.soundtitle{font-size:13px;font-weight:900;margin-bottom:8px}
+.soundbox iframe{width:100%;height:122px;border:0;border-radius:10px;background:#fff}
+.soundfallback{
+  display:inline-flex;margin-top:9px;text-decoration:none;
+  color:var(--c5);font-size:12px;font-weight:800
+}
+.dict-instr{
+  background:#fff9e9;border:1.5px solid var(--gold2);
+  border-radius:var(--r);padding:13px 15px;margin-bottom:12px;
+  font-size:12.5px;line-height:1.7;color:#6b5417
+}
+.accentbar{
+  display:flex;align-items:center;gap:7px;flex-wrap:wrap;
+  background:#fff;border:1.5px solid var(--c3);border-radius:12px;
+  padding:10px 12px;margin-bottom:12px;font-size:12px
+}
+.accentbtn{
+  border:1.5px solid var(--c4);background:var(--c1);color:var(--dark);
+  min-width:34px;height:32px;border-radius:8px;font-weight:900;
+  cursor:pointer;font-size:16px
+}
+.accentbtn:hover{background:var(--c3)}
+.dict-card{
+  background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);
+  padding:18px 17px;margin-bottom:12px;
+  box-shadow:0 3px 14px rgba(143,207,149,.12)
+}
+.dict-title{font-size:15px;font-weight:900;margin-bottom:12px}
+.dict-text{
+  font-size:15.5px;line-height:2.35;color:var(--dark);
+  letter-spacing:.05px
+}
+.dict-p{margin-bottom:16px}
+.dict-p:last-child{margin-bottom:0}
+.dict-input{
+  display:inline-block;width:112px;max-width:31vw;
+  padding:6px 8px;margin:0 3px;
+  border:1.7px solid #aeb9ad;border-radius:7px;
+  background:#fff;color:var(--dark);text-align:center;
+  font-size:14px;font-weight:700;vertical-align:middle
+}
+.dict-input:focus{outline:none;border-color:var(--c5);box-shadow:0 0 0 2px rgba(85,157,106,.12)}
+.dict-input.ok{background:#eaf7ec;border-color:var(--green)}
+.dict-input.er{background:#fdf0f0;border-color:var(--red)}
+.dict-correct{
+  display:inline-block;margin-left:2px;margin-right:3px;
+  color:#a04040;font-size:11px;font-weight:900;vertical-align:middle
+}
+.dict-actions{display:flex;gap:9px;flex-wrap:wrap;margin:12px 0}
+.dict-summary{
+  background:var(--blue1);border-left:3px solid var(--blue2);
+  border-radius:0 9px 9px 0;padding:12px 14px;
+  font-size:12.5px;line-height:1.75;color:#315267;margin-top:12px
+}
+.dict-summary strong{color:#24475d}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="htag">6. Hafta Ödevi &nbsp;|&nbsp; A2.2 (21-22. Ders)</div>
+  <h1>🚀 A2.2 – H6 21-22. Ders</h1>
+  <div class="header-sub">Futuro Simple · MISIÓN 2040 · Oyun Modu · 5 Bölüm · 40 görev + 25 dikte boşluğu · 100 Puan · @ispanyolcacim · Profe Hazel</div>
+</div>
+
+<section class="screen active" id="sc-start">
+  <div class="wrap start">
+    <h2>🛸 MISIÓN 2040'a hoş geldiniz!</h2>
+    <p>Bu kez klasik test yok. Geleceğe gidiyor, görevleri tamamlıyor ve Futuro Simple enerjisini topluyorsunuz.</p>
+
+    <select class="sel" id="studentSel">
+      <option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option>
+      <option>Sevde Ozdemir</option><option>Zumeyra Dogan</option>
+    </select>
+
+    <div class="weeknote">
+      <strong>🌿 6. HAFTAYA GEÇTİK — KÜÇÜK AMA ÖNEMLİ BİR NOT</strong><br>
+      Arkadaşlar, artık programın <strong>6. haftasındayız</strong>. Eğer önceki haftalardan eksik ödeviniz varsa lütfen bu hafta içinde tamamlayın. Çünkü konularımız birbirinin üzerine kuruluyor; eksik kalan bir çalışma özellikle zamanlar arasında seçim yaparken ve cümle kurarken sonraki dersleri gereksiz yere zorlaştırıyor. <strong>Ödevleri yalnızca puan için değil, konuyu gerçekten kalıcı hâle getirmek için yapıyoruz.</strong> 💛
+    </div>
+
+    <div class="gameinfo">
+      <div class="gline"><span class="dot"></span><span><strong>5 görev bölgesi</strong> var. İlk 4 bölüm 10’ar sorudan, 5. bölüm ise <strong>25 dinleme-dikte boşluğundan</strong> oluşuyor.</span></div>
+      <div class="gline"><span class="dot"></span><span>İlk 4 bölüm toplam <strong>80 puan</strong>, Dinleme & Dikte bölümü <strong>20 puan</strong>. Toplam 1000 enerji = 100 puan.</span></div>
+      <div class="gline"><span class="dot"></span><span>Yanlış yaptığınız anda <strong>Türkçe öğretmen açıklaması</strong> açılır; doğru cevabı görüp devam edersiniz.</span></div>
+      <div class="gline"><span class="dot"></span><span>Boşluk doldurmalarda aksanlara dikkat: <strong>é, ás, á, emos, éis, án</strong>.</span></div>
+    </div>
+
+    <button class="btn bm bf" onclick="startGame()">🚀 Göreve Başla</button>
+  </div>
+</section>
+
+<section class="screen" id="sc-game">
+  <div class="wrap">
+    <div class="hud">
+      <div class="student" id="hudStudent">—</div>
+      <div class="stats">
+        <span class="chip coin">⚡ <span id="energy">0</span> enerji</span>
+        <span class="chip life">❤️ <span id="lives">5</span> can</span>
+        <span class="chip badgechip">🏅 <span id="badgeCount">0</span>/5 rozet</span>
+      </div>
+    </div>
+
+    <div class="progress"><div id="bar"></div></div>
+    <div class="progressmeta"><span id="progressText">0 / 65 tamamlandı</span><span id="scoreText">0 / 100 puan</span></div>
+
+    <div class="map" id="missionMap"></div>
+    <div id="missionArea"></div>
+
+    <div class="nav">
+      <button class="btn bo bs" id="prevBtn" onclick="moveMission(-1)">← Önceki Görev</button>
+      <div class="navcenter" id="missionCounter">Görev 1 / 5</div>
+      <button class="btn bm bs" id="nextBtn" onclick="moveMission(1)">Sonraki Görev →</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="sc-confirm">
+  <div class="wrap confirm">
+    <div class="panel">
+      <div class="bigico">📡</div>
+      <h2>Görevi Teslim Et</h2>
+      <div class="warn" id="unfinishedWarn">Ödeviniz henüz teslim edilmedi.</div>
+      <p style="font-size:13px;color:var(--mid);line-height:1.65">Teslim etmeden önce adınızı yeniden seçin. Boş bıraktığınız görevler varsa puana dahil edilmeyecektir.</p>
+      <select class="sel" id="confirmSel">
+        <option value="">-- Adınızı Seçin --</option>
+        <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+        <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+        <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option>
+        <option>Sevde Ozdemir</option><option>Zumeyra Dogan</option>
+      </select>
+      <button class="btn bg bf" onclick="submitGame()">✔ Evet, Görevi Teslim Et</button>
+      <button class="btn bo bf" style="margin-top:8px" onclick="show('game')">← Göreve Dön</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="sc-result">
+  <div class="wrap result">
+    <div class="panel">
+      <div class="bigico">🏆</div>
+      <div id="resultName" style="font-weight:800">—</div>
+      <div style="font-size:12px;color:var(--mid);margin-top:3px">A2.2 · H6 · 21-22. Ders · Futuro Simple</div>
+      <div class="score" id="resultScore">0<small>/100</small></div>
+      <div id="resultMessage" style="font-size:13px;color:var(--mid)"></div>
+
+      <div class="grid2">
+        <div class="resultbox"><b id="resCorrect">0</b><span>Doğru</span></div>
+        <div class="resultbox"><b id="resWrong">0</b><span>Yanlış</span></div>
+        <div class="resultbox"><b id="resBlank">0</b><span>Boş</span></div>
+        <div class="resultbox"><b id="resEnergy">0</b><span>Enerji</span></div>
+      </div>
+
+      <div class="badges" id="resultBadges"></div>
+      <div class="status pending" id="saveStatus">⏳ Kaydediliyor…</div>
+      <div class="smallnote">Futuro Simple’ı <strong>çekim, tahmin, varsayım ve kural</strong> işlevleriyle ayırt etmenin yanında, son bölümde <strong>dinleyerek doğru fiil biçimini ve aksanı yazabilmeniz</strong> de hedefleniyor.</div>
+    </div>
+  </div>
+</section>
+
+<script>
+const ASU='https://script.google.com/macros/s/AKfycbw-BwEhVOhO6GkkQHNWJA8LQLMkEGwNCtJ3BXSqik1RnzqZLl4a_a3HmYEoIlJAgY4Wkg/exec';
+const SID='1wziyxdRdIGL7OEq4yRib0i_CaCWJGI14fwDyMKB4abw';
+const SHN='A2.2';
+const TCL='H6 – 21-22.Ders';
+
+const missions=[
+{
+  name:'ZAMAN MAKİNESİ',
+  icon:'⏳',
+  subtitle:'Düzenli ve düzensiz Futuro Simple çekimlerini hızlıca tanı.',
+  type:'mc',
+  pointsPerItem:2,
+  items:[
+    {id:1,q:'Mañana yo ______ con mi profesora.',o:['hablaré','hablará','hablarás','hablé'],a:0,e:'Özne <strong>yo</strong> olduğu için Futuro Simple eki <strong>-é</strong> olmalıdır. <em>Hablar</em> düzenli bir fiildir; bu zamanda <strong>-ar</strong> eki atılmaz, mastarın tamamı korunur: <strong>hablar + é = hablaré</strong>. Bu yüzden doğru cümle <strong>“Mañana yo hablaré con mi profesora.”</strong> olur. <strong>Hablará</strong> üçüncü tekil şahıs, <strong>hablarás</strong> ise <em>tú</em> içindir. <strong>Hablé</strong> Futuro Simple değil, Pretérito Indefinido’dur. Özellikle şunu hatırlayın: düzenli gelecek zamanda mastar + <strong>é, ás, á, emos, éis, án</strong> eklerini kullanıyoruz.'},
+    {id:2,q:'El próximo año nosotros ______ más tiempo libre.',o:['tendremos','teneremos','tuvimos','tenemos'],a:0,e:'<em>Tener</em> Futuro Simple’da düzensizdir ve mastar doğrudan korunmaz. Fiilin gelecek zaman kökü <strong>tendr-</strong> olur. Özne <strong>nosotros</strong> olduğu için bu köke <strong>-emos</strong> ekleriz: <strong>tendr + emos = tendremos</strong>. Dolayısıyla cümle <strong>“El próximo año nosotros tendremos más tiempo libre.”</strong> şeklindedir. <strong>Teneremos</strong> sık yapılan bir hatadır; çünkü öğrenciler düzenli fiil kuralını düzensiz bir fiile uygular. <strong>Tuvimos</strong> geçmiş zamandır, <strong>tenemos</strong> ise şimdiki zamandır.'},
+    {id:3,q:'¿Qué ______ tú este fin de semana?',o:['harás','hacerás','hiciste','haces ayer'],a:0,e:'Burada sorunun öznesi <strong>tú</strong> ve fiil <em>hacer</em>. <em>Hacer</em> Futuro Simple’da düzensizdir: <strong>hacer → har-</strong>. Tú için gelecek zaman eki <strong>-ás</strong> olduğundan <strong>har + ás = harás</strong> elde ederiz. Doğru soru <strong>“¿Qué harás tú este fin de semana?”</strong> yani “Bu hafta sonu ne yapacaksın?” olur. <strong>Hacerás</strong> yanlış çünkü bu fiilde normal mastar kullanılmaz. <strong>Hiciste</strong> geçmiş zamandır; <strong>haces ayer</strong> ise hem zaman hem yapı bakımından uyumsuzdur.'},
+    {id:4,q:'Mis amigos ______ a Antalya en julio.',o:['vendrán','venirán','vinieron mañana','vienen ayer'],a:0,e:'Fiilimiz <em>venir</em> ve özne <strong>mis amigos = ellos</strong>. <em>Venir</em> düzensiz gelecek kökü kullanır: <strong>venir → vendr-</strong>. Ellos için ek <strong>-án</strong> olduğundan <strong>vendrán</strong> olur. Doğru cümle: <strong>“Mis amigos vendrán a Antalya en julio.”</strong> <strong>Venirán</strong> biçimi yanlıştır; çünkü fiilin düzensiz kökü göz ardı edilmiştir. Ayrıca <strong>vinieron</strong> Pretérito Indefinido’dur ve “en julio” burada gelecek bağlamında kullanıldığı için uygun değildir.'},
+    {id:5,q:'Vosotros ______ la verdad más tarde.',o:['sabréis','saberéis','sabrán','supisteis'],a:0,e:'<em>Saber</em> Futuro Simple’da düzensizdir ve kökü <strong>sabr-</strong> olur. Özne <strong>vosotros</strong> olduğundan gelecek zaman eki <strong>-éis</strong> gelir: <strong>sabr + éis = sabréis</strong>. Buradaki <strong>é</strong> üzerindeki aksan önemlidir; aksanı unutmak yazım hatasıdır. <strong>Saberéis</strong> yanlış çünkü <em>saber</em> düzenli çekilmez. <strong>Sabrán</strong> ellos/ustedes içindir; <strong>supisteis</strong> ise geçmiş zamandır. Kısaca: <strong>saber → sabr- → sabréis</strong>.'},
+    {id:6,q:'Esta noche yo ______ la mesa.',o:['pondré','poneré','puse mañana','pondrás'],a:0,e:'Fiil <em>poner</em>, özne ise <strong>yo</strong>. Futuro Simple’da <em>poner</em> düzensiz kök alır: <strong>poner → pondr-</strong>. Yo için <strong>-é</strong> eklenir ve <strong>pondré</strong> olur. Cümlenin anlamı “Bu akşam masayı kuracağım.”dır. <strong>Poneré</strong> yanlış bir gelecek biçimidir; <strong>puse</strong> geçmiş zamandır; <strong>pondrás</strong> ise <em>tú</em> çekimidir. Bu tip sorularda önce özneyi, sonra düzensiz kökü, en son şahıs ekini kontrol edin.'},
+    {id:7,q:'El director ______ los resultados mañana.',o:['dirá','decirá','dijo mañana','diré'],a:0,e:'<em>Decir</em> Futuro Simple’ın önemli düzensiz fiillerinden biridir: <strong>decir → dir-</strong>. Özne <strong>el director = él</strong> olduğundan üçüncü tekil şahıs eki <strong>-á</strong> gelir: <strong>dirá</strong>. Doğru cümle <strong>“El director dirá los resultados mañana.”</strong> olur. <strong>Decirá</strong> diye bir standart Futuro Simple çekimi yoktur. <strong>Dijo</strong> geçmiş zamandır; <strong>diré</strong> ise yo çekimidir. Düzensiz kökü ezberlemek burada belirleyicidir.'},
+    {id:8,q:'Dentro de dos años ellas ______ viajar solas.',o:['podrán','poderán','pudieron','pueden ayer'],a:0,e:'Fiil <em>poder</em>, özne <strong>ellas</strong>. Futuro Simple’da <em>poder</em> kök değiştirir: <strong>poder → podr-</strong>. Ellas için <strong>-án</strong> eklenir: <strong>podrán</strong>. Cümle “İki yıl içinde tek başlarına seyahat edebilecekler.” anlamına gelir. <strong>Poderán</strong> yanlış çünkü düzensiz kök kullanılmamıştır. <strong>Pudieron</strong> geçmiş zamandır; <strong>pueden</strong> ise Presente’dir. Zaman ifadesi <strong>dentro de dos años</strong> da geleceği açıkça işaret ediyor.'},
+    {id:9,q:'Mañana nosotros ______ temprano de casa.',o:['saldremos','saliremos','salimos ayer','saldrán'],a:0,e:'<em>Salir</em> Futuro Simple’da <strong>saldr-</strong> kökünü kullanır. Özne <strong>nosotros</strong> olduğu için ekimiz <strong>-emos</strong>: <strong>saldr + emos = saldremos</strong>. Doğru cümle “Yarın evden erken çıkacağız.”dır. <strong>Saliremos</strong> yanlış, çünkü fiil düzenli çekilmiş gibi davranılmıştır. <strong>Salimos ayer</strong> geçmiş bağlamı verir; <strong>saldrán</strong> ise ellos/ustedes içindir. Düzensiz kök + doğru kişi eki birlikte kontrol edilmelidir.'},
+    {id:10,q:'Creo que Ana ______ una respuesta pronto.',o:['querrá','quererá','quiso mañana','querrás'],a:0,e:'<em>Querer</em> Futuro Simple’da düzensizdir: <strong>querer → querr-</strong>. Özne <strong>Ana = ella</strong> olduğundan üçüncü tekil şahıs eki <strong>-á</strong> gelir: <strong>querrá</strong>. Burada iki tane <strong>r</strong> bulunduğuna dikkat edin: <strong>querrá</strong>. <strong>Quererá</strong> yanlış bir biçimdir; <strong>quiso</strong> geçmiş zamandır; <strong>querrás</strong> ise tú çekimidir. Cümledeki <strong>creo que</strong> ifadesi geleceğe yönelik bir tahmin/beklenti de oluşturuyor.'}
+  ]
+},
+{
+  name:'LABORATUVARIO DE PREDICCIONES',
+  icon:'🔮',
+  subtitle:'Bu cümle gerçek gelecek mi, şimdiki zamana dair varsayım mı, yoksa kural mı?',
+  type:'mc',
+  pointsPerItem:2,
+  items:[
+    {id:11,q:'No encuentro a Laura. Estará en la biblioteca.',c:'¿Qué expresa “estará”?',o:['Şimdiki durum hakkında varsayım','Geçmiş alışkanlık','Kesin emir','Bitmiş geçmiş'],a:0,e:'Buradaki <strong>estará</strong> gerçek bir gelecek olayını anlatmıyor. Konuşan kişi Laura’nın şu anda nerede olduğunu bilmiyor ve mevcut durum hakkında bir tahminde bulunuyor: <strong>“Estará en la biblioteca.” = “Herhalde kütüphanededir.”</strong> Buna <strong>suposición sobre el presente</strong> diyoruz. Futuro Simple’ın çok önemli ikinci kullanımı budur. Eğer cümle “Mañana estará en la biblioteca” olsaydı gerçek gelecek anlamı daha belirgin olurdu. Bu nedenle yalnızca fiilin biçimine bakmayın; bağlamın hangi zamanı anlattığını da mutlaka kontrol edin.'},
+    {id:12,q:'Seguramente mañana lloverá.',c:'¿Qué expresa “lloverá”?',o:['Geleceğe yönelik tahmin','Şimdiki alışkanlık','Geçmiş betimleme','Emir'],a:0,e:'<strong>Seguramente</strong> “büyük ihtimalle / muhtemelen” anlamı verir ve <strong>mañana</strong> gelecekteki zamanı açıkça gösterir. Bu nedenle <strong>lloverá</strong> burada geleceğe yönelik bir <strong>predicción</strong>, yani tahmindir. Cümlenin Türkçesi “Büyük ihtimalle yarın yağmur yağacak.” olabilir. Bu kullanım şimdiki zamana dair varsayımla karıştırılmamalıdır. Şimdiki varsayımda genellikle “ahora, no sé dónde está, no contesta” gibi mevcut duruma ait ipuçları bulunur. Burada ise doğrudan gelecekteki hava durumu hakkında tahmin yapılıyor.'},
+    {id:13,q:'No usaréis el móvil durante el examen.',c:'Bu cümlede Futuro Simple’ın işlevi nedir?',o:['Kural / yasak','Tahmin','Geçmiş anlatı','Rica'],a:0,e:'Cümle bir sınav kuralı bildiriyor: <strong>“No usaréis el móvil durante el examen.” = “Sınav sırasında telefon kullanmayacaksınız.”</strong> Futuro Simple bazı bağlamlarda yalnızca geleceği değil, <strong>regla / mandato / prohibición</strong> yani kural, emir veya yasak anlamını da taşıyabilir. Buradaki konuşan kişi geleceği tahmin etmiyor; uyulması gereken bir davranış kuralı koyuyor. Özellikle resmî talimatlarda, kurallarda veya güçlü uyarılarda bu kullanımı görebilirsiniz. Bu nedenle doğru seçenek <strong>kural / yasak</strong>tır.'},
+    {id:14,q:'Son las diez y Pablo no contesta. Tendrá sueño.',c:'“Tendrá” burada ne anlatıyor?',o:['Şimdiki duruma ilişkin çıkarım','Kesin gelecek planı','Geçmiş sonuç','Alışkanlık'],a:0,e:'Saat on ve Pablo cevap vermiyor. Konuşan kişi Pablo’nun gerçekten uykulu olduğunu bilmiyor; mevcut belirtilerden hareketle tahmin ediyor. <strong>“Tendrá sueño.”</strong> burada “Herhalde uykusu vardır.” anlamındadır. Bu, Futuro Simple’ın <strong>şimdiki zamana ilişkin varsayım</strong> kullanımına örnektir. Eğer cümle “Mañana tendrá sueño” şeklinde olsaydı gelecekteki bir durumdan söz edebilirdik. Bağlamdaki <strong>son las diez / no contesta</strong> ifadeleri bize olayın şu anla ilgili olduğunu gösteriyor.'},
+    {id:15,q:'En 2050 habrá más coches eléctricos.',c:'Bu kullanımın en uygun açıklaması hangisi?',o:['Geleceğe ilişkin öngörü','Şimdiki emir','Geçmiş varsayım','Rutin'],a:0,e:'<strong>En 2050</strong> açık bir gelecek zaman ifadesidir. <strong>Habrá</strong>, <em>haber</em> fiilinin Futuro Simple biçimidir ve “olacak / bulunacak” anlamında kullanılır. Cümle gelecekte elektrikli araçların daha fazla olacağına dair bir <strong>öngörü</strong> yapıyor. Burada emir, geçmiş anlatı veya mevcut durum hakkında varsayım yoktur. Ayrıca var-yok bildiren bu yapıda standart kullanım <strong>habrá + isim</strong> şeklindedir: <strong>habrá más coches eléctricos</strong>.'},
+    {id:16,q:'¿Dónde estarán mis gafas?',c:'Konuşan kişi ne yapıyor?',o:['Şu anki yerleri hakkında tahminde bulunuyor','Yarınki planı soruyor','Geçmişi anlatıyor','Emir veriyor'],a:0,e:'<strong>“¿Dónde estarán mis gafas?”</strong> biçim olarak Futuro Simple’dır; ancak anlamı “Gözlüklerim gelecekte nerede olacak?” değildir. Konuşan kişi gözlüğünün şu anda nerede olduğunu bilmiyor ve <strong>“Acaba nerededir?”</strong> anlamında tahmin yürütüyor. Bu yüzden yine <strong>suposición sobre el presente</strong> kullanımındayız. İspanyolcada özellikle <strong>¿Dónde estará...?, ¿Qué hora será?, ¿Quién será?</strong> gibi sorular bu “acaba/herhalde” değerini sıkça taşır.'},
+    {id:17,q:'Harás la tarea antes de salir.',c:'Bağlam bir ebeveynin kesin talimatıysa işlev nedir?',o:['Emir / zorunluluk','Olasılık','Geçmiş tamamlanmış eylem','Şimdiki eylem'],a:0,e:'Burada bağlam çok önemli. Bir ebeveyn çocuğuna <strong>“Harás la tarea antes de salir.”</strong> diyorsa bu cümle yalnızca geleceği haber vermiyor; güçlü bir talimat veriyor: “Dışarı çıkmadan önce ödevini yapacaksın.” Bu nedenle işlev <strong>emir / zorunluluk</strong>tur. Futuro Simple’ın bu kullanımı özellikle kesin talimatlarda ve kurallarda görülür. Aynı cümle farklı bir bağlamda yalnızca gelecek planı gibi de anlaşılabilir; bu yüzden soruda verilen bağlam belirleyicidir.'},
+    {id:18,q:'Quizá viajaremos a Perú el próximo verano.',c:'“Quizá” neyi değiştiriyor?',o:['Kesinliği azaltıp olasılık katıyor','Cümleyi geçmiş yapıyor','Emir yapıyor','Fiili düzensiz yapıyor'],a:0,e:'<strong>Quizá</strong> “belki” demektir ve cümledeki kesinlik derecesini azaltır. <strong>“Quizá viajaremos a Perú...”</strong> ifadesi gelecekteki seyahatin kesin olmadığını, yalnızca mümkün olduğunu anlatır. Futuro Simple burada geleceğe yönelik bir <strong>posibilidad / predicción</strong> bağlamındadır. <strong>Quizá</strong> fiili geçmiş zamana dönüştürmez, emir anlamı vermez ve fiilin çekimini düzensiz hâle getirmez. Görevi, konuşanın bilgiye ne kadar kesin baktığını göstermektir.'},
+    {id:19,q:'Marta no ha venido todavía. Estará enferma.',c:'En uygun Türkçe anlam hangisi?',o:['Marta herhalde hastadır.','Marta dün hastaydı.','Marta kesin yarın hastalanacak.','Marta hastalanıyordu.'],a:0,e:'Marta henüz gelmemiş ve konuşan kişi sebebi bilmiyor. <strong>“Estará enferma.”</strong> bu nedenle “Marta herhalde hastadır.” anlamına gelir. Yani <strong>estará</strong> biçimsel olarak Futuro Simple olsa da anlamsal olarak mevcut durum hakkında <strong>olasılık / varsayım</strong> bildirir. “Kesin yarın hastalanacak” anlamı yoktur. Futuro Simple’ı doğru yorumlamak için cümlenin zaman zarflarını ve konuşanın neyi bilip bilmediğini mutlaka inceleyin.'},
+    {id:20,q:'Dentro de diez años trabajaremos menos horas.',c:'Burada Futuro Simple ne ifade ediyor?',o:['Geleceğe yönelik beklenti / öngörü','Şimdiki varsayım','Geçmiş rutin','Yasak'],a:0,e:'<strong>Dentro de diez años</strong> ifadesi “on yıl içinde / on yıl sonra” anlamına gelir ve bizi doğrudan geleceğe götürür. <strong>Trabajaremos</strong> düzenli <em>trabajar</em> fiilinin nosotros Futuro Simple çekimidir. Cümle gelecekte çalışma saatlerinin azalacağına dair bir <strong>beklenti veya öngörü</strong> sunuyor. Burada mevcut durum hakkında “herhalde” anlamı yoktur, bir yasak da değildir. Zaman ifadesi size doğru kullanım değerini bulmada güçlü bir ipucu verir.'}
+  ]
+},
+{
+  name:'KOD KIRICI',
+  icon:'🧩',
+  subtitle:'Fiili doğru kökle çek, aksanı unutma. Her doğru cevap geleceğin kapısını açacak.',
+  type:'fill',
+  pointsPerItem:2,
+  items:[
+    {id:21,q:'Mañana yo __________ temprano.',v:'salir',a:'saldré',e:'Fiil <em>salir</em> Futuro Simple’da düzensizdir. Önce düzensiz kökü buluyoruz: <strong>salir → saldr-</strong>. Sonra özne <strong>yo</strong> olduğu için <strong>-é</strong> ekliyoruz: <strong>saldr + é = saldré</strong>. Doğru cümle <strong>“Mañana yo saldré temprano.”</strong> olur. <strong>Saliré</strong> yazmak yanlıştır; çünkü bu fiil gelecek zamanda düzenli çekilmez. Ayrıca <strong>-é</strong> üzerindeki aksanı unutmayın; doğru yazımın bir parçasıdır.'},
+    {id:22,q:'Nosotros __________ la cena juntos.',v:'hacer',a:'haremos',e:'<em>Hacer</em> Futuro Simple’da en sık karıştırılan düzensiz fiillerden biridir. Gelecek zaman kökü <strong>har-</strong> olur; yani <strong>hacer</strong> içindeki <strong>ce</strong> kısmı korunmaz. Özne <strong>nosotros</strong> olduğundan <strong>-emos</strong> eklenir: <strong>har + emos = haremos</strong>. Doğru cümle <strong>“Nosotros haremos la cena juntos.”</strong> şeklindedir. <strong>Haceremos</strong> standart Futuro Simple çekimi değildir.'},
+    {id:23,q:'¿Qué __________ tú mañana?',v:'decir',a:'dirás',e:'Fiil <em>decir</em>, özne <strong>tú</strong>. Düzensiz gelecek kökü <strong>dir-</strong> şeklindedir: <strong>decir → dir-</strong>. Tú için Futuro Simple eki <strong>-ás</strong> olduğundan <strong>dirás</strong> elde ederiz. Soru <strong>“¿Qué dirás tú mañana?”</strong> yani “Yarın ne söyleyeceksin?” anlamına gelir. <strong>Decirás</strong> yanlış olur. Düzensiz fiillerde önce kökü, sonra kişi ekini kurun.'},
+    {id:24,q:'El año que viene Marta __________ en Madrid.',v:'vivir',a:'vivirá',e:'<em>Vivir</em> düzenli bir <strong>-ir</strong> fiilidir. Futuro Simple’da düzenli fiillerde mastarın sonundaki <strong>-ir</strong> atılmaz; bütün mastar korunur. Özne Marta = <strong>ella</strong>, dolayısıyla üçüncü tekil şahıs eki <strong>-á</strong> gelir: <strong>vivir + á = vivirá</strong>. Cümlenin doğru hâli <strong>“El año que viene Marta vivirá en Madrid.”</strong> olur. Son hecedeki aksan zorunludur.'},
+    {id:25,q:'En el futuro __________ más zonas verdes.',v:'haber',a:'habrá',e:'Burada fiil <em>haber</em> ve cümle “gelecekte daha fazla yeşil alan olacak” anlamında varlık bildiriyor. Bu yapının Futuro Simple biçimi <strong>habrá</strong>dır. <strong>En el futuro habrá más zonas verdes.</strong> Cümledeki isim çoğul olsa bile standart var-yok yapısında <strong>habrá</strong> tekil biçimde kullanılır. <strong>Habrán más zonas verdes</strong> bu temel kullanımda tercih edilen standart biçim değildir. Ayrıca <strong>habrá</strong> kelimesindeki aksana dikkat edin.'},
+    {id:26,q:'Mis padres __________ una casa más pequeña.',v:'querer',a:'querrán',e:'<em>Querer</em> düzensiz gelecek kökü kullanır: <strong>querer → querr-</strong>. Özne <strong>mis padres = ellos</strong> olduğu için <strong>-án</strong> eklenir: <strong>querr + án = querrán</strong>. Burada iki <strong>r</strong> harfi korunur ve son <strong>a</strong> üzerinde aksan vardır. Doğru cümle: <strong>“Mis padres querrán una casa más pequeña.”</strong> <strong>Quererán</strong> yazmak bu düzensizliği gözden kaçırmak olur.'},
+    {id:27,q:'Vosotros __________ ayudarme mañana.',v:'poder',a:'podréis',e:'<em>Poder</em> Futuro Simple’da <strong>podr-</strong> köküne dönüşür. Özne <strong>vosotros</strong> olduğu için ek <strong>-éis</strong>tir: <strong>podr + éis = podréis</strong>. Böylece cümle “Yarın bana yardım edebileceksiniz.” anlamına gelir. <strong>Poderéis</strong> yanlış çünkü fiil düzenli değildir. Ayrıca vosotros Futuro Simple ekindeki <strong>é</strong> aksanını unutmayın.'},
+    {id:28,q:'Yo __________ la respuesta después.',v:'saber',a:'sabré',e:'<em>Saber</em> Futuro Simple’da <strong>sabr-</strong> kökünü alır. Özne <strong>yo</strong> olduğundan <strong>-é</strong> eklenir: <strong>sabré</strong>. Doğru cümle <strong>“Yo sabré la respuesta después.”</strong> olur. Burada hem düzensiz kökü hem de aksanı doğru yazmanız gerekir. <strong>Saberé</strong> yanlış bir çekimdir; fiilin <strong>e</strong> harfi düşerek <strong>sabr-</strong> kökü oluşur.'},
+    {id:29,q:'Ellos __________ los documentos aquí.',v:'poner',a:'pondrán',e:'<em>Poner</em> fiili gelecek zamanda <strong>pondr-</strong> kökünü kullanır. Özne <strong>ellos</strong> olduğu için <strong>-án</strong> gelir: <strong>pondr + án = pondrán</strong>. Doğru cümle <strong>“Ellos pondrán los documentos aquí.”</strong> olur. <strong>Ponerán</strong> demek yanlış olur; çünkü bu fiil düzenli değildir. Özellikle <em>tener, venir, poner, salir</em> fiillerinde gördüğünüz <strong>-dr-</strong> yapısına dikkat edin.'},
+    {id:30,q:'El profesor __________ a las nueve.',v:'venir',a:'vendrá',e:'<em>Venir</em> Futuro Simple’da <strong>vendr-</strong> kökünü alır. Özne <strong>el profesor = él</strong> olduğu için üçüncü tekil şahıs eki <strong>-á</strong> gelir: <strong>vendrá</strong>. Doğru cümle <strong>“El profesor vendrá a las nueve.”</strong> yani “Öğretmen saat dokuzda gelecek.” şeklindedir. <strong>Venirá</strong> yanlış bir biçimdir. Son hecedeki aksanı da mutlaka yazmalısınız.'}
+  ]
+},
+{
+  name:'FINAL BOSS — EL ORÁCULO',
+  icon:'🐉',
+  subtitle:'Son görev: bağlamı oku, tuzağı bul ve en doğru Futuro Simple seçeneğini seç.',
+  type:'mc',
+  pointsPerItem:2,
+  items:[
+    {id:31,q:'Ana: “No sé dónde está David.” Luis: “_____ en casa; hoy estaba cansado.”',o:['Estará','Estuvo mañana','Estaría ayer','Está siempre'],a:0,e:'Ana, David’in nerede olduğunu bilmiyor; Luis de kesin bilgi vermiyor, yalnızca David’in o gün yorgun olduğunu bildiği için bir çıkarım yapıyor. Bu nedenle <strong>“Estará en casa.”</strong> = “Herhalde evdedir.” anlamına gelir. Buradaki Futuro Simple gerçek gelecek zamanı değil, <strong>şimdiki zamana ilişkin varsayımı</strong> gösterir. <strong>Estuvo</strong> geçmiş zamandır; <strong>estaría</strong> Condicional’dır. Sorunun kilidi, “No sé dónde está David” ifadesidir.'},
+    {id:32,q:'Cuando terminemos el curso, nosotros _____ una pequeña celebración.',o:['haremos','haceremos','hicimos mañana','hacíamos mañana'],a:0,e:'Yan cümlede <strong>“Cuando terminemos el curso”</strong> deniyor; kurs tamamlandıktan sonra gerçekleşecek ana eylem Futuro Simple ile anlatılır. Fiil <em>hacer</em> düzensizdir: <strong>hacer → har-</strong>. Nosotros eki <strong>-emos</strong> olduğundan doğru biçim <strong>haremos</strong> olur. Tam cümle: <strong>“Cuando terminemos el curso, nosotros haremos una pequeña celebración.”</strong> Burada <strong>haceremos</strong> yanlış; <em>hicimos</em> geçmiş, <em>hacíamos</em> ise Imperfecto’dur.'},
+    {id:33,q:'No sé el precio exacto, pero el billete _____ unos cincuenta euros.',o:['costará','costó mañana','cuesta ayer','costaría anoche'],a:0,e:'Konuşan kişi biletin kesin fiyatını bilmiyor; bunu cümledeki <strong>“No sé el precio exacto”</strong> ifadesinden anlıyoruz. Ardından <strong>costará</strong> kullanılarak yaklaşık bir tahmin yapılıyor: “Bilet herhalde yaklaşık elli avro tutacak.” Bu nedenle Futuro Simple burada hem gelecek hem de tahmin değeri taşır. <strong>Costó</strong> geçmiş zamandır; diğer seçeneklerdeki “ayer/anoche” gibi zaman ifadeleri de bağlamla uyuşmaz.'},
+    {id:34,q:'En esta sala no _____ comida.',o:['comeréis','comisteis mañana','comíais mañana','habéis comido mañana'],a:0,e:'Bu cümle bir mekân kuralı olarak verilmiştir: <strong>“En esta sala no comeréis comida.”</strong> Burada Futuro Simple’ın <strong>mandato / norma</strong> yani emir-kural işlevi kullanılıyor. Konuşan kişi gelecekte ne olacağını tahmin etmiyor; ne yapılmaması gerektiğini bildiriyor. <strong>Comisteis</strong> Pretérito Indefinido, <strong>comíais</strong> Imperfecto, <strong>habéis comido</strong> ise Pretérito Perfecto’dur. Bu nedenle bağlamı karşılayan tek yapı Futuro Simple’dır.'},
+    {id:35,q:'Dentro de veinte años muchas personas _____ desde casa.',o:['trabajarán','trabajaron','trabajan ayer','trabajarían anoche'],a:0,e:'<strong>Dentro de veinte años</strong> ifadesi gelecekte belirli bir zaman noktasını gösterir. Fiil <em>trabajar</em> düzenlidir ve ellos/ellas için <strong>-án</strong> alır: <strong>trabajarán</strong>. Doğru anlam “Yirmi yıl içinde birçok insan evden çalışacak.”tır. <strong>Trabajaron</strong> geçmiş zaman, <strong>trabajan ayer</strong> zaman uyumsuzluğu içerir, <strong>trabajarían</strong> ise Condicional’dır. Zaman zarfı doğru zamanı bulmanız için en güçlü ipucudur.'},
+    {id:36,q:'¿Qué opción es completamente correcta?',o:['Yo tendré más tiempo.','Yo teneré más tiempo.','Yo tendrá más tiempo.','Yo tuve más tiempo mañana.'],a:0,e:'<em>Tener</em> Futuro Simple’da düzensiz kök kullanır: <strong>tener → tendr-</strong>. Özne <strong>yo</strong> olduğunda <strong>-é</strong> eklenir ve <strong>tendré</strong> elde edilir. Bu nedenle yalnızca <strong>“Yo tendré más tiempo.”</strong> bütünüyle doğrudur. <strong>Teneré</strong> düzensizliği yok sayar; <strong>tendrá</strong> üçüncü tekil şahıstır; <strong>tuve</strong> ise Pretérito Indefinido’dur. Hem kök hem kişi eki aynı anda doğru olmalıdır.'},
+    {id:37,q:'Marta no responde al teléfono. _____ ocupada.',o:['Estará','Fue mañana','Estuvo ahora','Estará ayer'],a:0,e:'Marta’nın telefona neden cevap vermediği bilinmiyor. Konuşan kişi mevcut durumu açıklamak için bir tahmin üretiyor: <strong>“Estará ocupada.” = “Herhalde meşguldür.”</strong> Bu, Futuro Simple’ın <strong>suposición sobre el presente</strong> kullanımının klasik örneklerinden biridir. <strong>Fue</strong> ve <strong>estuvo</strong> geçmiş zamandır; ayrıca <strong>ayer</strong> ile Futuro Simple’ı bu şekilde birleştirmek bağlamı bozar. “No responde” bize olayın şu anda yaşandığını gösteriyor.'},
+    {id:38,q:'Elige la forma correcta de “valer – él/ella”.',o:['valdrá','valerá','valdráremos','valdréis'],a:0,e:'<em>Valer</em> Futuro Simple’da düzenli çekilmez; kök <strong>valdr-</strong> olur. Él/ella/usted için gelecek zaman eki <strong>-á</strong>dır: <strong>valdr + á = valdrá</strong>. Bu nedenle doğru cevap <strong>valdrá</strong>. <strong>Valerá</strong> yanlış çünkü düzensiz kök kullanılmamış. <strong>Valdremos</strong> nosotros, <strong>valdréis</strong> ise vosotros için olurdu. Bu fiili <em>salir → saldr-, poner → pondr-</em> ailesiyle birlikte hatırlayabilirsiniz.'},
+    {id:39,q:'“No matarás” gibi bir cümlede Futuro Simple hangi işlevde kullanılır?',o:['Emir / ahlaki kural','Geçmiş betimleme','Şimdiki süreç','Gelecekte gerçekleşeceği kesin olay'],a:0,e:'<strong>“No matarás”</strong> biçim olarak Futuro Simple’dır; fakat burada geleceğe dair sıradan bir olay anlatılmaz. Cümle güçlü bir <strong>ahlaki kural / emir / yasak</strong> bildirir. Bu yüzden işlevi <strong>mandato o norma</strong> olarak değerlendirilir. Futuro Simple’ın bu kullanımını özellikle emirlerin daha kesin, resmî veya değişmez bir kural gibi sunulduğu örneklerde görebilirsiniz. Dolayısıyla “gelecekte kesin olacak olay” seçeneği anlamı doğru açıklamaz.'},
+    {id:40,q:'Final soru: ¿Qué frase expresa una suposición sobre el presente?',o:['Juan tendrá unos treinta años.','Mañana cumpliré treinta años.','Ayer cumplí treinta años.','Cuando era niño tenía diez años.'],a:0,e:'<strong>“Juan tendrá unos treinta años.”</strong> cümlesinde konuşan kişi Juan’ın yaşını kesin olarak bilmiyor; yaklaşık bir tahmin yapıyor. Türkçeye “Juan herhalde otuz yaşlarındadır.” şeklinde çevrilebilir. Yani Futuro Simple burada <strong>şimdiki zamana ilişkin varsayım</strong> bildiriyor. <strong>Mañana cumpliré...</strong> gerçek gelecek, <strong>ayer cumplí...</strong> tamamlanmış geçmiş, <strong>cuando era niño tenía...</strong> ise geçmiş betimleme/Imperfecto bağlamıdır. Final sorusunda sizden biçimi değil, Futuro Simple’ın kullanım değerini ayırt etmeniz bekleniyor.'}
+  ]
+},
+{
+  name:'DİNLEME İSTASYONU',
+  icon:'🎧',
+  subtitle:'Escucha y escribe: dinlediğin metindeki Futuro Simple fiillerini doğru biçimde ve doğru aksanlarla yaz.',
+  type:'dictation',
+  pointsPerItem:0.8,
+  items:[
+    {id:41,a:'será'},{id:42,a:'empezaré'},{id:43,a:'durará'},{id:44,a:'haré'},{id:45,a:'saldré'},
+    {id:46,a:'ayudará'},{id:47,a:'tendré'},{id:48,a:'llamaré'},{id:49,a:'podrá'},{id:50,a:'iré'},
+    {id:51,a:'visitaré'},{id:52,a:'dirán'},{id:53,a:'volveré'},{id:54,a:'trabajaré'},{id:55,a:'pondré'},
+    {id:56,a:'limpiaré'},{id:57,a:'vendrán'},{id:58,a:'saldré'},{id:59,a:'volveré'},{id:60,a:'dormiré'},
+    {id:61,a:'descansaré'},{id:62,a:'leeré'},{id:63,a:'veré'},{id:64,a:'prepararé'},{id:65,a:'harás'}
+  ]
+}
+
+];
+
+
+const TOTAL_ITEMS=65;
+const DICTATION_URL='https://soundcloud.com/profe-hazel/dictado-futuro-en-espan-ol';
+const DICTATION_PARAGRAPHS=[
+  'La semana que viene [[41]] muy ocupada para mí, pero también muy interesante. [[42]] el lunes con una reunión importante en el trabajo. No sé cuánto [[43]], pero [[44]] todo lo posible para terminar pronto. Después de la reunión, [[45]] a caminar por el paseo marítimo, porque creo que el aire fresco me [[46]] a relajarme.',
+  'El martes [[47]] que organizar mi escritorio, porque está lleno de papeles y libros. También [[48]] a mi amiga Tania; hace mucho que no hablamos y me ha dicho que esta semana [[49]] contarme una buena noticia. El miércoles [[50]] al gimnasio por la mañana y por la tarde [[51]] a mis padres, que me [[52]] qué planes tienen para las próximas vacaciones.',
+  'El jueves [[53]] a mi rutina habitual y [[54]] durante una hora. Después [[55]] la lavadora y [[56]] un poco la casa, porque el sábado [[57]] mis amigos a casa. El viernes por la noche [[58]] a cenar con mis compañeros y seguramente [[59]] un poquito tarde a casa. ¡El sábado [[60]] hasta tarde!',
+  'El domingo [[61]], [[62]] un libro nuevo y [[63]] mi serie favorita o un documental. Más tarde, [[64]] la semana siguiente.',
+  '¿Y tú qué [[65]] la próxima semana?'
+];
+let lastDictId=null;
+
+let student='', missionIndex=0, answers={}, fillTexts={}, locked={}, lives=5;
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+  document.getElementById('sc-'+id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function norm(s){return (s||'').trim().toLowerCase().normalize('NFC').replace(/\s+/g,' ')}
+function allItems(){return missions.flatMap(m=>m.items)}
+function startGame(){
+  const s=document.getElementById('studentSel').value;
+  if(!s){alert('Lütfen adınızı seçin.');return}
+  student=s; missionIndex=0; answers={};fillTexts={};locked={};lives=5;
+  document.getElementById('hudStudent').textContent='🧑‍🚀 '+student;
+  show('game'); render();
+}
+function answerMC(id,idx){
+  if(answers[id]!==undefined)return;
+  const item=allItems().find(x=>x.id===id);
+  item._picked=idx;
+  answers[id]=idx===item.a;
+  locked[id]=true;
+  if(!answers[id])lives=Math.max(0,lives-1);
+  render();
+}
+function typeFill(id){
+  const el=document.getElementById('fill-'+id);
+  fillTexts[id]=el?el.value:'';
+  const b=document.getElementById('check-'+id);
+  if(b)b.disabled=!fillTexts[id].trim();
+}
+function checkFill(id){
+  if(locked[id])return;
+  const item=allItems().find(x=>x.id===id);
+  if(!fillTexts[id] || !fillTexts[id].trim()){alert('Önce cevabınızı yazın.');return}
+  answers[id]=norm(fillTexts[id])===norm(item.a);
+  locked[id]=true;
+  if(!answers[id])lives=Math.max(0,lives-1);
+  render();
+}
+function missionStats(mi){
+  const items=missions[mi].items;
+  const done=items.filter(x=>answers[x.id]!==undefined).length;
+  const ok=items.filter(x=>answers[x.id]===true).length;
+  return {done,ok};
+}
+function totals(){
+  const items=allItems(), done=items.filter(x=>answers[x.id]!==undefined).length;
+  const ok=items.filter(x=>answers[x.id]===true).length;
+  const wrong=items.filter(x=>answers[x.id]===false).length;
+  let score=0;
+  missions.forEach(m=>m.items.forEach(it=>{if(answers[it.id]===true)score+=m.pointsPerItem||0;}));
+  score=Math.round(score*10)/10;
+  return {done,ok,wrong,blank:TOTAL_ITEMS-done,energy:Math.round(score*10),score}
+}
+function renderMap(){
+  const h=missions.map((m,i)=>{
+    const st=missionStats(i), cls=i===missionIndex?'active':(st.done===m.items.length?'done':'');
+    return `<div class="node ${cls}"><span class="ico">${m.icon}</span>${i+1}. ${m.name}<br><span>${st.done}/${m.items.length}</span></div>`;
+  }).join('');
+  document.getElementById('missionMap').innerHTML=h;
+}
+
+function setDictText(id){
+  const el=document.getElementById('dict-'+id);
+  fillTexts[id]=el?el.value:'';
+}
+function insertAccent(ch){
+  if(!lastDictId)return;
+  const el=document.getElementById('dict-'+lastDictId);
+  if(!el || el.disabled)return;
+  const start=el.selectionStart??el.value.length, end=el.selectionEnd??el.value.length;
+  el.value=el.value.slice(0,start)+ch+el.value.slice(end);
+  el.focus();
+  el.selectionStart=el.selectionEnd=start+ch.length;
+  fillTexts[lastDictId]=el.value;
+}
+function dictBlank(id){
+  const item=allItems().find(x=>x.id===id);
+  const val=fillTexts[id]||'', l=locked[id], ok=answers[id]===true;
+  let out=`<input id="dict-${id}" class="dict-input ${l?(ok?'ok':'er'):''}" value="${esc(val)}" ${l?'disabled':''}
+    autocomplete="off" spellcheck="false" aria-label="Dikte boşluğu ${id-40}"
+    onfocus="lastDictId=${id}" oninput="setDictText(${id})">`;
+  if(l && !ok) out+=`<span class="dict-correct">→ ${esc(item.a)}</span>`;
+  return out;
+}
+function renderDictation(m){
+  let h=`<div class="missionhead"><div class="missiontag">GÖREV 5 · ESCUCHA Y ESCRIBE</div><h3>${m.icon} ${m.name}</h3><p>${m.subtitle}</p></div>`;
+  h+=`<div class="soundbox">
+    <div class="soundtitle">🎙️ Dictado · Futuro en español</div>
+    <iframe scrolling="no" frameborder="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/profe-hazel/dictado-futuro-en-espan-ol&color=%23559d6a&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false"></iframe>
+    <a class="soundfallback" href="${DICTATION_URL}" target="_blank" rel="noopener">↗ Ses açılmazsa SoundCloud'da dinle</a>
+  </div>`;
+  h+=`<div class="dict-instr"><strong>🎧 Nasıl yapacaksınız?</strong><br>
+    1. İlk dinlemede metni sadece takip edin; hemen yazmaya çalışmayın.<br>
+    2. İkinci dinlemede boşluklara duyduğunuz <strong>Futuro Simple fiillerini</strong> yazın.<br>
+    3. Üçüncü dinlemede kişi eklerini ve özellikle <strong>tilde/aksanları</strong> kontrol edin.<br>
+    4. Dikte bölümünde doğru fiil kadar doğru yazım da önemlidir: <strong>é, á, éis, án</strong> gibi aksanlar cevabın parçasıdır.</div>`;
+  h+=`<div class="accentbar"><strong>Tildes:</strong><span>Bir kutuya tıklayın, sonra gerektiğinde buradan ekleyin →</span>
+    ${['á','é','í','ó','ú'].map(x=>`<button type="button" class="accentbtn" onclick="insertAccent('${x}')">${x}</button>`).join('')}
+  </div>`;
+  h+=`<div class="dict-card"><div class="dict-title">📝 Verbos en futuro: regulares e irregulares</div><div class="dict-text">`;
+  DICTATION_PARAGRAPHS.forEach(p=>{
+    let ph=p.replace(/\[\[(\d+)\]\]/g,(_,id)=>dictBlank(Number(id)));
+    h+=`<div class="dict-p">${ph}</div>`;
+  });
+  h+=`</div></div>`;
+  const st=missionStats(4);
+  h+=`<div class="dict-actions">
+    <button class="btn bm" onclick="checkDictation()">✓ Dikteyi Kontrol Et</button>
+    <span class="chip coin">🎧 ${st.done}/25 kontrol edildi</span>
+  </div>`;
+  if(st.done>0){
+    h+=`<div class="dict-summary"><strong>💡 Profe Hazel — Dikte kontrol notu</strong><br>
+      Bu bölümde <strong>duyduğunuz fiili tanımak + doğru Futuro Simple kökünü kurmak + doğru şahıs ekini yazmak + aksanı korumak</strong> birlikte ölçülüyor.
+      Özellikle <strong>haré, saldré, tendré, dirán, pondré, vendrán, harás</strong> gibi düzensiz biçimlere dikkat edin.
+      Düzenli fiillerde ise mastarı koruyoruz: <strong>empezaré, durará, ayudará, llamaré, visitaré, trabajaré, limpiaré, descansaré, prepararé</strong>.
+      Yanlış cevap verdiğiniz kutunun yanında doğru biçimi kırmızı olarak görebilirsiniz. Dinlemeyi yeniden açıp kelimenin sesini doğru biçimle eşleştirin.</div>`;
+  }
+  return h;
+}
+function checkDictation(){
+  const m=missions[4];
+  let checked=0;
+  m.items.forEach(it=>{
+    if(locked[it.id])return;
+    const val=(fillTexts[it.id]||'').trim();
+    if(!val)return;
+    answers[it.id]=norm(val)===norm(it.a);
+    locked[it.id]=true;
+    checked++;
+  });
+  if(!checked){alert('Önce en az bir boşluğu doldurun.');return}
+  render();
+}
+
+function render(){
+  const m=missions[missionIndex], t=totals();
+  document.getElementById('energy').textContent=t.energy;
+  document.getElementById('lives').textContent=lives;
+  document.getElementById('badgeCount').textContent=missions.filter((x,i)=>missionStats(i).done===x.items.length).length;
+  document.getElementById('bar').style.width=(t.done/TOTAL_ITEMS*100)+'%';
+  document.getElementById('progressText').textContent=t.done+' / '+TOTAL_ITEMS+' tamamlandı';
+  document.getElementById('scoreText').textContent=t.score.toFixed(1).replace('.0','')+' / 100 puan';
+  document.getElementById('missionCounter').textContent='Görev '+(missionIndex+1)+' / 5';
+  document.getElementById('prevBtn').disabled=missionIndex===0;
+  const next=document.getElementById('nextBtn');
+  if(missionIndex===4){next.textContent='📡 Teslim Et';next.disabled=false}
+  else{next.textContent='Sonraki Görev →';next.disabled=false}
+  renderMap();
+
+  if(m.type==='dictation'){
+    document.getElementById('missionArea').innerHTML=renderDictation(m);
+    return;
+  }
+
+  let h=`<div class="missionhead"><div class="missiontag">GÖREV ${missionIndex+1}</div><h3>${m.icon} ${m.name}</h3><p>${m.subtitle}</p></div>`;
+  m.items.forEach(it=>{
+    h+=`<div class="card"><div class="qh"><div class="qn">${it.id}</div><div class="qt">${esc(it.q)}</div></div>`;
+    if(it.c)h+=`<div class="context"><strong>Mini görev:</strong> ${esc(it.c)}</div>`;
+    if(m.type==='mc'){
+      h+='<div class="opts">';
+      it.o.forEach((o,i)=>{
+        let cls='opt';
+        if(locked[it.id]){
+          if(i===it.a)cls+=' ok';
+          if(!answers[it.id] && i!==it.a && i===it._picked)cls+=' er';
+        }
+        h+=`<button class="${cls}" ${locked[it.id]?'disabled':''} onclick="answerMC(${it.id},${i})"><span class="ol">${['A','B','C','D'][i]}</span><span>${esc(o)}</span></button>`;
+      });
+      h+='</div>';
+    }else{
+      const txt=fillTexts[it.id]||'', l=locked[it.id], ok=answers[it.id]===true;
+      h+=`<div class="verb">Fiil: (${esc(it.v)})</div><div class="fillrow"><input id="fill-${it.id}" class="fill ${l?(ok?'ok':'er'):''}" value="${esc(txt)}" ${l?'disabled':''} placeholder="Futuro Simple..." oninput="typeFill(${it.id})">`;
+      if(!l)h+=`<button class="btn bm bs" id="check-${it.id}" ${txt.trim()?'':'disabled'} onclick="checkFill(${it.id})">✓ Kontrol Et</button>`;
+      else h+=`<span class="chip ${ok?'coin':'life'}">${ok?'✓ Doğru':'✗ Yanlış'}</span>`;
+      h+='</div>';
+    }
+    if(locked[it.id]){
+      h+=`<div class="feedback show"><div class="flabel">💡 Profe Hazel açıklıyor</div>${it.e}`;
+      if(m.type==='fill' && !answers[it.id])h+=`<div class="correctline">Doğru cevap: ${esc(it.a)}</div>`;
+      h+='</div>';
+    }
+    h+='</div>';
+  });
+  document.getElementById('missionArea').innerHTML=h;
+}
+function markPick(id,idx){
+  const item=allItems().find(x=>x.id===id);
+  item._picked=idx;
+}
+function moveMission(d){
+  if(missionIndex===4 && d===1){
+    const t=totals();
+    document.getElementById('unfinishedWarn').textContent=t.done<TOTAL_ITEMS
+      ? `⚠️ ${TOTAL_ITEMS-t.done} soru/boşluk henüz tamamlanmadı. İstersen geri dönüp tamamlayabilirsin.`
+      : '✅ Tüm görevler ve 25 dikte boşluğu tamamlandı. Teslime hazırsın!';
+    document.getElementById('confirmSel').value=student;
+    show('confirm');return;
+  }
+  missionIndex=Math.max(0,Math.min(4,missionIndex+d));
+  render();window.scrollTo(0,0);
+}
+function submitGame(){
+  const s=document.getElementById('confirmSel').value;
+  if(!s){alert('Lütfen adınızı seçin.');return}
+  if(s!==student){
+    if(!confirm('Başlangıçta seçtiğiniz ad ile teslim ekranındaki ad farklı. Bu adla devam etmek istiyor musunuz?'))return;
+    student=s;
+  }
+  const t=totals();
+  document.getElementById('resultName').textContent=student;
+  document.getElementById('resultScore').innerHTML=t.score.toFixed(1).replace('.0','')+'<small>/100</small>';
+  document.getElementById('resCorrect').textContent=t.ok;
+  document.getElementById('resWrong').textContent=t.wrong;
+  document.getElementById('resBlank').textContent=t.blank;
+  document.getElementById('resEnergy').textContent=t.energy;
+  document.getElementById('resultMessage').textContent =
+    t.score>=90?'Futuro Simple ajanı seviyesi: USTA 🚀':
+    t.score>=75?'Görev başarıyla tamamlandı. Birkaç tuzağı tekrar etmen yeterli. 🌟':
+    t.score>=60?'Temel iyi; özellikle düzensiz kökleri ve varsayım kullanımını tekrar et. 🧩':
+    'Bu görev sana hangi noktaları tekrar etmen gerektiğini gösterdi. Açıklamaları yeniden incele. 🌱';
+
+  const badges=[];
+  missions.forEach((m,i)=>{
+    const st=missionStats(i);
+    if(st.done===m.items.length) badges.push(`<span class="badge">${m.icon} ${m.name}</span>`);
+  });
+  document.getElementById('resultBadges').innerHTML=badges.length?badges.join(''):'<span class="badge">🎯 İlk görev tamamlandı</span>';
+  show('result');
+  saveSheets(t);
+}
+async function saveSheets(t){
+  const el=document.getElementById('saveStatus');
+  el.className='status pending';el.textContent='⏳ Kaydediliyor…';
+  try{
+    const n=new Date();
+    const dd=String(n.getDate()).padStart(2,'0'),mm=String(n.getMonth()+1).padStart(2,'0'),yy=n.getFullYear();
+    const hh=String(n.getHours()).padStart(2,'0'),mi=String(n.getMinutes()).padStart(2,'0'),ss=String(n.getSeconds()).padStart(2,'0');
+    const fmt=`✅ ${t.score}/100\n✓${t.ok} ✗${t.wrong} □${t.blank}\n${dd}.${mm}.${yy}\n${hh}:${mi}:${ss}`;
+    await fetch(ASU,{
+      method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        spreadsheetId:SID,sheetName:SHN,studentName:student,taskColumn:TCL,
+        score:t.score,correct:t.ok,wrong:t.wrong,blank:t.blank,formatted:fmt
+      })
+    });
+    el.className='status saved';el.textContent='✅ Ödev başarıyla kaydedildi!';
+  }catch(e){
+    el.className='status failed';el.textContent='⚠️ Kaydedilemedi — Profeye bildirin';
+  }
+}
+</script>
+</body>
+</html>

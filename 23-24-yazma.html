@@ -525,34 +525,22 @@ function confirmSubmit(){
 async function doSubmit(){
   const text=document.getElementById('wtext').value.trim();
   const title=document.getElementById('ta-title').value.trim();
+  const option=document.getElementById('ta-option').value.trim();
   const wc=countWords(text), pc=countParas(text);
 
   const now=new Date();
   const tarih=now.toLocaleDateString('tr-TR')+' '+now.toLocaleTimeString('tr-TR');
 
-  const option=document.getElementById('ta-option').value.trim();
-
   const fullText=
-    'ÖĞRENCİ: '+student+'
-'+
-    'BAŞLIK: '+title+'
-'+
-    'NÚMERO DE TAREA: A2.2 (23+24)
-'+
-    'TEMA: Ensayo de opinión
-'+
-    'SEÇİLEN KONU: '+option+'
-'+
-    'KELİME SAYISI: '+wc+'
-'+
-    'PARAGRAF SAYISI: '+pc+'
-'+
-    'TESLİM TARİHİ: '+tarih+'
-
-'+
-    '--- YAZI ---
-
-'+text;
+    'ÖĞRENCİ: '+student+'\n'+
+    'BAŞLIK: '+title+'\n'+
+    'NÚMERO DE TAREA: A2.2 (23+24)\n'+
+    'TEMA: Ensayo de opinión\n'+
+    'SEÇİLEN KONU: '+option+'\n'+
+    'KELİME SAYISI: '+wc+'\n'+
+    'PARAGRAF SAYISI: '+pc+'\n'+
+    'TESLİM TARİHİ: '+tarih+'\n\n'+
+    '--- YAZI ---\n\n'+text;
 
   document.getElementById('rs-name').textContent=student;
   show('result');

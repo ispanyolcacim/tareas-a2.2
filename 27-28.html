@@ -378,7 +378,14 @@ async function submitGame(){
   document.getElementById('resultMessage').textContent=t.score>=85?'Condicional Simple kullanım alanlarını çok iyi ayırt ediyorsunuz. 🌟':t.score>=70?'Temel mantık oturmuş. Yanlış yaptığınız açıklamaları tekrar okuyun. 💛':'Özellikle kullanım alanları ve düzensiz kökleri açıklamalardan tekrar edin. 🌿';
   show('result');
   const el=document.getElementById('saveStatus');el.className='status pending';el.textContent='⏳ Kaydediliyor…';
-  const fmt=`${t.score}/100 | D:${t.correct} Y:${t.wrong} B:${t.blank}`;
+  const now=new Date();
+  const dd=String(now.getDate()).padStart(2,'0');
+  const mm=String(now.getMonth()+1).padStart(2,'0');
+  const yy=now.getFullYear();
+  const hh=String(now.getHours()).padStart(2,'0');
+  const mi=String(now.getMinutes()).padStart(2,'0');
+  const ss=String(now.getSeconds()).padStart(2,'0');
+  const fmt=`✅ ${t.score}/100\n✓${t.correct} ✗${t.wrong}\n${dd}.${mm}.${yy}\n${hh}:${mi}:${ss}`;
   try{
     await fetch(ASU,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({spreadsheetId:SID,sheetName:SHN,studentName:student,taskColumn:TCL,score:t.score,correct:t.correct,wrong:t.wrong,blank:t.blank,formatted:fmt})});
     el.className='status saved';el.textContent='✅ Ödev gönderildi!';

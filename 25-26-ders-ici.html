@@ -6,228 +6,44 @@
 <title>Condicional Simple — Sınıf İçi Etkinlik</title>
 <style>
   :root{
-    --bg:#f6f4ff;
-    --card:#ffffff;
-    --text:#24223a;
-    --muted:#6c6880;
-    --accent:#6d5dfc;
-    --accent2:#8a7cff;
-    --ok:#1f9d65;
-    --bad:#d64545;
-    --border:#e7e3fb;
-    --shadow:0 14px 35px rgba(77,64,160,.14);
+    --bg:#f6f4ff; --card:#ffffff; --text:#24223a; --muted:#6c6880;
+    --accent:#6d5dfc; --accent2:#8a7cff; --ok:#1f9d65; --bad:#d64545;
+    --border:#e7e3fb; --shadow:0 14px 35px rgba(77,64,160,.14);
   }
   *{box-sizing:border-box}
-  body{
-    margin:0;
-    min-height:100vh;
-    font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    background:linear-gradient(135deg,#f7f4ff 0%,#eef5ff 100%);
-    color:var(--text);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:24px;
-  }
-  .app{
-    width:min(980px,100%);
-  }
-  .topbar{
-    display:flex;
-    justify-content:space-between;
-    gap:16px;
-    align-items:center;
-    margin-bottom:16px;
-  }
-  .brand{
-    font-weight:800;
-    font-size:clamp(18px,2.4vw,28px);
-  }
-  .mini{
-    color:var(--muted);
-    font-weight:700;
-    font-size:14px;
-  }
-  .card{
-    background:var(--card);
-    border:1px solid var(--border);
-    box-shadow:var(--shadow);
-    border-radius:28px;
-    padding:clamp(22px,4vw,42px);
-  }
-  .progress-wrap{
-    margin-bottom:28px;
-  }
-  .progress-info{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:16px;
-    margin-bottom:10px;
-    font-weight:800;
-  }
-  .progress{
-    width:100%;
-    height:12px;
-    background:#ece9fb;
-    border-radius:999px;
-    overflow:hidden;
-  }
-  .progress > div{
-    height:100%;
-    width:0;
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
-    transition:width .3s ease;
-  }
-  .label{
-    display:inline-block;
-    background:#f0edff;
-    color:#5748d7;
-    padding:7px 12px;
-    border-radius:999px;
-    font-size:13px;
-    font-weight:800;
-    margin-bottom:18px;
-  }
-  .sentence{
-    font-size:clamp(26px,4.4vw,44px);
-    line-height:1.25;
-    font-weight:850;
-    text-align:center;
-    margin:6px 0 28px;
-  }
-  .instruction{
-    text-align:center;
-    color:var(--muted);
-    font-size:16px;
-    margin-bottom:22px;
-    font-weight:700;
-  }
-  .choices{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:12px;
-  }
-  button.choice{
-    border:2px solid var(--border);
-    background:#fff;
-    color:var(--text);
-    border-radius:18px;
-    padding:16px 14px;
-    font-size:16px;
-    font-weight:800;
-    cursor:pointer;
-    transition:.18s ease;
-    min-height:62px;
-  }
-  button.choice:hover:not(:disabled){
-    transform:translateY(-2px);
-    border-color:#b9b0ff;
-    background:#faf9ff;
-  }
-  button.choice:disabled{
-    cursor:default;
-    opacity:.78;
-  }
-  button.choice.correct{
-    border-color:var(--ok);
-    background:#eaf8f1;
-    color:#176b49;
-    opacity:1;
-  }
-  button.choice.wrong{
-    border-color:var(--bad);
-    background:#fff0f0;
-    color:#9d2f2f;
-    opacity:1;
-  }
-  .feedback{
-    display:none;
-    margin-top:26px;
-    border-radius:20px;
-    padding:20px;
-    border:1px solid var(--border);
-    background:#fafaff;
-  }
-  .feedback.show{display:block}
-  .feedback h3{
-    margin:0 0 10px;
-    font-size:22px;
-  }
-  .feedback .translation{
-    font-size:17px;
-    font-weight:750;
-    margin:10px 0;
-  }
-  .feedback p{
-    margin:8px 0;
-    line-height:1.65;
-    color:#47435d;
-  }
-  .feedback .rule{
-    background:#fff;
-    border:1px dashed #cfc8ff;
-    border-radius:14px;
-    padding:12px 14px;
-    font-weight:750;
-    margin-top:12px;
-  }
-  .nav{
-    display:flex;
-    justify-content:flex-end;
-    margin-top:22px;
-  }
-  .next{
-    display:none;
-    border:none;
-    border-radius:16px;
-    background:linear-gradient(90deg,var(--accent),var(--accent2));
-    color:white;
-    font-size:16px;
-    font-weight:900;
-    padding:14px 20px;
-    cursor:pointer;
-  }
+  body{margin:0;min-height:100vh;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#f7f4ff 0%,#eef5ff 100%);color:var(--text);
+    display:flex;align-items:center;justify-content:center;padding:24px}
+  .app{width:min(980px,100%)}
+  .topbar{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:16px}
+  .brand{font-weight:800;font-size:clamp(18px,2.4vw,28px)} .mini{color:var(--muted);font-weight:700;font-size:14px}
+  .card{background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:28px;padding:clamp(22px,4vw,42px)}
+  .progress-wrap{margin-bottom:28px} .progress-info{display:flex;justify-content:space-between;gap:16px;margin-bottom:10px;font-weight:800}
+  .progress{width:100%;height:12px;background:#ece9fb;border-radius:999px;overflow:hidden}
+  .progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .3s ease}
+  .label{display:inline-block;background:#f0edff;color:#5748d7;padding:7px 12px;border-radius:999px;font-size:13px;font-weight:800;margin-bottom:18px}
+  .sentence{font-size:clamp(26px,4.4vw,44px);line-height:1.25;font-weight:850;text-align:center;margin:6px 0 28px}
+  .instruction{text-align:center;color:var(--muted);font-size:16px;margin-bottom:22px;font-weight:700}
+  .choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  button.choice{border:2px solid var(--border);background:#fff;color:var(--text);border-radius:18px;padding:16px 14px;font-size:16px;font-weight:800;cursor:pointer;transition:.18s ease;min-height:62px}
+  button.choice:hover:not(:disabled){transform:translateY(-2px);border-color:#b9b0ff;background:#faf9ff}
+  button.choice:disabled{cursor:default;opacity:.78}
+  button.choice.correct{border-color:var(--ok);background:#eaf8f1;color:#176b49;opacity:1}
+  button.choice.wrong{border-color:var(--bad);background:#fff0f0;color:#9d2f2f;opacity:1}
+  .feedback{display:none;margin-top:26px;border-radius:20px;padding:20px;border:1px solid var(--border);background:#fafaff}
+  .feedback.show{display:block} .feedback h3{margin:0 0 10px;font-size:22px}
+  .feedback .translation{font-size:17px;font-weight:750;margin:10px 0}
+  .feedback p{margin:8px 0;line-height:1.65;color:#47435d}
+  .feedback .rule{background:#fff;border:1px dashed #cfc8ff;border-radius:14px;padding:12px 14px;font-weight:750;margin-top:12px}
+  .nav{display:flex;justify-content:flex-end;margin-top:22px}
+  .next{display:none;border:none;border-radius:16px;background:linear-gradient(90deg,var(--accent),var(--accent2));color:white;font-size:16px;font-weight:900;padding:14px 20px;cursor:pointer}
   .next.show{display:inline-block}
-  .result{
-    display:none;
-    text-align:center;
-  }
-  .result.show{display:block}
-  .score{
-    font-size:clamp(44px,7vw,74px);
-    font-weight:950;
-    margin:8px 0;
-    color:#5f50e7;
-  }
-  .summary{
-    margin:24px auto 0;
-    text-align:left;
-    max-width:720px;
-  }
-  .summary-row{
-    display:flex;
-    justify-content:space-between;
-    gap:18px;
-    padding:11px 0;
-    border-bottom:1px solid #eeeaf8;
-    font-weight:750;
-  }
-  .restart{
-    margin-top:26px;
-    border:none;
-    border-radius:16px;
-    background:#25223a;
-    color:white;
-    padding:14px 22px;
-    font-size:16px;
-    font-weight:900;
-    cursor:pointer;
-  }
-  @media(max-width:700px){
-    .choices{grid-template-columns:1fr}
-    .topbar{align-items:flex-start;flex-direction:column}
-  }
+  .result{display:none;text-align:center} .result.show{display:block}
+  .score{font-size:clamp(44px,7vw,74px);font-weight:950;margin:8px 0;color:#5f50e7}
+  .summary{margin:24px auto 0;text-align:left;max-width:720px}
+  .summary-row{display:flex;justify-content:space-between;gap:18px;padding:11px 0;border-bottom:1px solid #eeeaf8;font-weight:750}
+  .restart{margin-top:26px;border:none;border-radius:16px;background:#25223a;color:white;padding:14px 22px;font-size:16px;font-weight:900;cursor:pointer}
+  @media(max-width:700px){.choices{grid-template-columns:1fr}.topbar{align-items:flex-start;flex-direction:column}}
 </style>
 </head>
 <body>
@@ -236,27 +52,17 @@
     <div class="brand">🇪🇸 CONDICIONAL SIMPLE — SINIF İÇİ ETKİNLİK</div>
     <div class="mini">🧠 HTİNÖ + GT</div>
   </div>
-
   <div class="card" id="quizCard">
     <div class="progress-wrap">
-      <div class="progress-info">
-        <span id="questionCounter">Soru 1 / 30</span>
-        <span id="scoreCounter">Doğru: 0</span>
-      </div>
+      <div class="progress-info"><span id="questionCounter">Soru 1 / 30</span><span id="scoreCounter">Doğru: 0</span></div>
       <div class="progress"><div id="progressBar"></div></div>
     </div>
-
     <div class="label">Condicional Simple hangi amaçla kullanılmıştır?</div>
     <div class="sentence" id="sentence"></div>
     <div class="instruction">Aşağıdaki seçeneklerden birini seçin 👇</div>
-
     <div class="choices" id="choices"></div>
-
     <div class="feedback" id="feedback"></div>
-
-    <div class="nav">
-      <button class="next" id="nextBtn">Sonraki Soru →</button>
-    </div>
+    <div class="nav"><button class="next" id="nextBtn">Sonraki Soru →</button></div>
   </div>
 
   <div class="card result" id="resultCard">
@@ -281,335 +87,307 @@ const categories = [
 ];
 
 const questions = [
-{
- s:"Si tuviera más tiempo, aprendería otro idioma.",
- a:"H",
- tr:"Daha fazla vaktim olsa başka bir dil öğrenirdim.",
- exp:"Şu anda kişinin yeterince zamanı olmadığını anlıyoruz. Gerçek olmayan / hayali bir mevcut durum kuruluyor.",
- rule:"Si tuviera... → aprendería..."
-},
-{
- s:"Yo en tu lugar hablaría con el profesor.",
- a:"T",
- tr:"Senin yerinde olsam öğretmenle konuşurdum.",
- exp:"“Yo en tu lugar...” tavsiye vermenin en tipik yollarından biridir. Kişi karşıdaki kişiye ne yapmasının iyi olacağını söylüyor.",
- rule:"Yo en tu lugar + Condicional → tavsiye"
-},
-{
- s:"Me gustaría vivir cerca del mar.",
- a:"İ",
- tr:"Denize yakın yaşamak isterim / isterdim.",
- exp:"“Me gustaría + infinitivo” kişinin bir isteğini veya arzusunu daha yumuşak biçimde ifade eder. Buradaki gustaría geçmiş zaman değildir.",
- rule:"Me gustaría + infinitivo → istek / arzu"
-},
-{
- s:"¿Podrías abrir la ventana, por favor?",
- a:"N",
- tr:"Pencereyi açabilir misin lütfen?",
- exp:"Konuşan kişi karşıdaki kişiden bir şey yapmasını istiyor. “¿Podrías...?” doğrudan emir vermek yerine isteği nazikleştirir.",
- rule:"¿Podrías + infinitivo...? → nazik rica"
-},
-{
- s:"Podríamos cenar juntos esta noche.",
- a:"Ö",
- tr:"Bu akşam birlikte yemek yiyebiliriz / birlikte yesek olur.",
- exp:"Burada ortak bir aktivite öneriliyor. “Sen şunu yap.” değil, “Biz şunu yapabiliriz.” anlamı vardır.",
- rule:"Podríamos + infinitivo → ortak öneri"
-},
-{
- s:"María dijo que llegaría a las ocho.",
- a:"G",
- tr:"María saat sekizde geleceğini söyledi.",
- exp:"Önce “María dijo...” gerçekleşti. O konuşma anında gelme eylemi henüz gelecekteydi.",
- rule:"dijo → llegaría = geçmişteki bir ana göre gelecek"
-},
-{
- s:"Serían las once cuando terminó la fiesta.",
- a:"GT",
- tr:"Parti bittiğinde saat herhalde on bir civarıydı.",
- exp:"Saat kesin olarak bilinmiyor. “Serían” burada “olurlardı” değil, “herhalde / yaklaşık” anlamı verir.",
- rule:"Condicional → geçmiş hakkında olasılık / tahmin"
-},
-{
- s:"Si pudiera elegir cualquier país, viviría en Italia.",
- a:"H",
- tr:"İstediğim herhangi bir ülkeyi seçebilsem İtalya'da yaşardım.",
- exp:"Gerçek bir plan değil. Hayali bir durum kuruluyor.",
- rule:"Si pudiera... → viviría..."
-},
-{
- s:"Deberías descansar un poco más.",
- a:"T",
- tr:"Biraz daha dinlensen iyi olur / biraz daha dinlenmelisin.",
- exp:"“Deberías” Condicional ile tavsiyeyi daha yumuşak hale getirir.",
- rule:"Deberías + infinitivo → tavsiye"
-},
-{
- s:"Me gustaría probar la comida mexicana.",
- a:"İ",
- tr:"Meksika yemeklerini denemek isterim.",
- exp:"Kişi kendi isteğini anlatıyor.",
- rule:"Me gustaría + infinitivo"
-},
-{
- s:"¿Me prestarías tu bolígrafo un momento?",
- a:"N",
- tr:"Kalemini bir anlığına bana verir misin?",
- exp:"Konuşan kişi karşıdaki kişiden bir şey istiyor. Bu nedenle cümle nazik ricadır.",
- rule:"¿Me prestarías...? → nazik rica"
-},
-{
- s:"Podríamos ir a la playa este fin de semana.",
- a:"Ö",
- tr:"Bu hafta sonu plaja gidebiliriz / gitsek olur.",
- exp:"Konuşan kişi ortak bir plan öneriyor.",
- rule:"Podríamos + infinitivo → öneri"
-},
-{
- s:"Pensé que el examen sería más difícil.",
- a:"G",
- tr:"Sınavın daha zor olacağını düşündüm.",
- exp:"“Pensé” geçmişte gerçekleşti. O anda sınav henüz daha sonra gerçekleşecekti.",
- rule:"Pensé que... sería... → geçmişin geleceği"
-},
-{
- s:"Tendría unos treinta años cuando lo conocí.",
- a:"GT",
- tr:"Onu tanıdığımda herhalde otuz yaşlarındaydı.",
- exp:"Yaş kesin olarak bilinmiyor. “Tendría” burada “sahip olurdu” değil, “herhalde ... yaşındaydı” anlamındadır.",
- rule:"Tendría unos... → geçmişe ilişkin yaklaşık tahmin"
-},
-{
- s:"Si fuera millonario, no trabajaría todos los días.",
- a:"H",
- tr:"Milyoner olsam her gün çalışmazdım.",
- exp:"Şu anda kişi milyoner değil. Hayali mevcut durum kuruluyor.",
- rule:"Si fuera... → no trabajaría..."
-},
-{
- s:"Yo no compraría ese coche en tu lugar.",
- a:"T",
- tr:"Senin yerinde olsam o arabayı almazdım.",
- exp:"“En tu lugar” bunun tavsiye olduğunu açıkça gösteriyor.",
- rule:"En tu lugar + Condicional → tavsiye"
-},
-{
- s:"Querría reservar una mesa para cuatro personas.",
- a:"İ",
- tr:"Dört kişilik bir masa ayırtmak isterim.",
- exp:"“Querría...” restoran, otel vb. durumlarda kişinin kendi isteğini daha yumuşak ve nazik biçimde ifade edebilir.",
- rule:"Querría + infinitivo → kibar istek / arzu"
-},
-{
- s:"¿Podrías repetir la última frase?",
- a:"N",
- tr:"Son cümleyi tekrar edebilir misin?",
- exp:"Karşıdaki kişiden bir eylem yapması isteniyor. Bu nedenle nazik ricadır.",
- rule:"¿Podrías + infinitivo...? → nazik rica"
-},
-{
- s:"Podríamos preparar una cena en casa en vez de salir.",
- a:"Ö",
- tr:"Dışarı çıkmak yerine evde yemek hazırlayabiliriz.",
- exp:"Konuşan kişi iki kişinin veya grubun birlikte yapabileceği bir şey öneriyor.",
- rule:"Podríamos... → ortak öneri"
-},
-{
- s:"Carlos prometió que me ayudaría con el proyecto.",
- a:"G",
- tr:"Carlos projede bana yardım edeceğine söz verdi.",
- exp:"Önce “prometió” gerçekleşti. Yardım etme eylemi o anda henüz gelecekteydi.",
- rule:"prometió → ayudaría = geçmişin geleceği"
-},
-{
- s:"¿Dónde estaba Marta? Estaría en casa.",
- a:"GT",
- tr:"Marta neredeydi? Herhalde evdeydi.",
- exp:"Marta'nın nerede olduğunu kesin olarak bilmiyoruz. “Estaría...” = “Herhalde ... idi.”",
- rule:"Estaría... → geçmiş hakkında tahmin"
-},
-{
- s:"Si tuviera una casa grande, tendría muchos perros.",
- a:"H",
- tr:"Büyük bir evim olsa birçok köpeğim olurdu.",
- exp:"Hayali bir durum kuruluyor.",
- rule:"Si tuviera... → tendría..."
-},
-{
- s:"Deberías hablar más despacio cuando practicas español.",
- a:"T",
- tr:"İspanyolca pratik yaparken daha yavaş konuşsan iyi olur.",
- exp:"“Deberías...” bir tavsiye bildiriyor.",
- rule:"Deberías... → tavsiye"
-},
-{
- s:"Me gustaría viajar por América Latina algún día.",
- a:"İ",
- tr:"Bir gün Latin Amerika'yı gezmek isterim.",
- exp:"Kişisel bir arzu ifade ediliyor.",
- rule:"Me gustaría... → istek / arzu"
-},
-{
- s:"¿Cerrarías la puerta, por favor?",
- a:"N",
- tr:"Kapıyı kapatır mısın lütfen?",
- exp:"Condicional burada bir kişiden bir şey istemeyi daha nazik hale getiriyor.",
- rule:"¿Cerrarías...? → nazik rica"
-},
-{
- s:"Podríamos estudiar juntos después de clase.",
- a:"Ö",
- tr:"Dersten sonra birlikte çalışabiliriz / çalışsak olur.",
- exp:"Ortak bir eylem öneriliyor.",
- rule:"Podríamos... → öneri"
-},
-{
- s:"Me dijeron que el tren llegaría con retraso.",
- a:"G",
- tr:"Bana trenin gecikmeli geleceğini söylediler.",
- exp:"“Me dijeron” geçmişte söylendi. Trenin gelmesi o konuşma anından daha sonra gerçekleşecekti.",
- rule:"Me dijeron → llegaría = geçmişin geleceği"
-},
-{
- s:"Habría unas cien personas en el concierto.",
- a:"GT",
- tr:"Konserde herhalde yaklaşık yüz kişi vardı.",
- exp:"Tam sayı bilinmiyor. “Habría” burada “herhalde vardı / yaklaşık vardı” anlamındadır.",
- rule:"Habría unas... → geçmişe ilişkin yaklaşık tahmin"
-},
-{
- s:"Si no tuviera que trabajar mañana, saldría esta noche.",
- a:"H",
- tr:"Yarın çalışmak zorunda olmasam bu akşam dışarı çıkardım.",
- exp:"Cümleden kişinin yarın çalışmak zorunda olduğunu anlıyoruz. Şu anki şartlara ters bir hayal kuruluyor.",
- rule:"Si no tuviera... → saldría..."
-},
-{
- s:"Creíamos que Ana vendría con nosotros.",
- a:"G",
- tr:"Ana'nın bizimle geleceğini düşünüyorduk.",
- exp:"“Creíamos” geçmişteki düşünceyi anlatır. O geçmiş anda Ana'nın gelmesi hâlâ gelecekteydi.",
- rule:"Creíamos → vendría = geçmişin geleceği"
-}
+  {
+    "s": "Tendría unos treinta años cuando lo conocí.",
+    "a": "GT",
+    "tr": "Onu tanıdığımda herhalde otuz yaşlarındaydı.",
+    "exp": "Yaş kesin olarak bilinmiyor. “Tendría” burada “sahip olurdu” değil, “herhalde ... yaşındaydı” anlamındadır.",
+    "rule": "Tendría unos... → geçmişe ilişkin yaklaşık tahmin"
+  },
+  {
+    "s": "¿Podrías abrir la ventana, por favor?",
+    "a": "N",
+    "tr": "Pencereyi açabilir misin lütfen?",
+    "exp": "Konuşan kişi karşıdaki kişiden bir şey yapmasını istiyor. “¿Podrías...?” doğrudan emir vermek yerine isteği nazikleştirir.",
+    "rule": "¿Podrías + infinitivo...? → nazik rica"
+  },
+  {
+    "s": "Deberías hablar más despacio cuando practicas español.",
+    "a": "T",
+    "tr": "İspanyolca pratik yaparken daha yavaş konuşsan iyi olur.",
+    "exp": "“Deberías...” bir tavsiye bildiriyor.",
+    "rule": "Deberías... → tavsiye"
+  },
+  {
+    "s": "Me gustaría probar la comida mexicana.",
+    "a": "İ",
+    "tr": "Meksika yemeklerini denemek isterim.",
+    "exp": "Kişi kendi isteğini anlatıyor.",
+    "rule": "Me gustaría + infinitivo"
+  },
+  {
+    "s": "Podríamos preparar una cena en casa en vez de salir.",
+    "a": "Ö",
+    "tr": "Dışarı çıkmak yerine evde yemek hazırlayabiliriz.",
+    "exp": "Konuşan kişi iki kişinin veya grubun birlikte yapabileceği bir şey öneriyor.",
+    "rule": "Podríamos... → ortak öneri"
+  },
+  {
+    "s": "Habría unas cien personas en el concierto.",
+    "a": "GT",
+    "tr": "Konserde herhalde yaklaşık yüz kişi vardı.",
+    "exp": "Tam sayı bilinmiyor. “Habría” burada “herhalde vardı / yaklaşık vardı” anlamındadır.",
+    "rule": "Habría unas... → geçmişe ilişkin yaklaşık tahmin"
+  },
+  {
+    "s": "Yo en tu lugar hablaría con el profesor.",
+    "a": "T",
+    "tr": "Senin yerinde olsam öğretmenle konuşurdum.",
+    "exp": "“Yo en tu lugar...” tavsiye vermenin en tipik yollarından biridir. Kişi karşıdaki kişiye ne yapmasının iyi olacağını söylüyor.",
+    "rule": "Yo en tu lugar + Condicional → tavsiye"
+  },
+  {
+    "s": "¿Cerrarías la puerta, por favor?",
+    "a": "N",
+    "tr": "Kapıyı kapatır mısın lütfen?",
+    "exp": "Condicional burada bir kişiden bir şey istemeyi daha nazik hale getiriyor.",
+    "rule": "¿Cerrarías...? → nazik rica"
+  },
+  {
+    "s": "Pensé que el examen sería más difícil.",
+    "a": "G",
+    "tr": "Sınavın daha zor olacağını düşündüm.",
+    "exp": "“Pensé” geçmişte gerçekleşti. O anda sınav henüz daha sonra gerçekleşecekti.",
+    "rule": "Pensé que... sería... → geçmişin geleceği"
+  },
+  {
+    "s": "María dijo que llegaría a las ocho.",
+    "a": "G",
+    "tr": "María saat sekizde geleceğini söyledi.",
+    "exp": "Önce “María dijo...” gerçekleşti. O konuşma anında gelme eylemi henüz gelecekteydi.",
+    "rule": "dijo → llegaría = geçmişteki bir ana göre gelecek"
+  },
+  {
+    "s": "¿Dónde estaba Marta? Estaría en casa.",
+    "a": "GT",
+    "tr": "Marta neredeydi? Herhalde evdeydi.",
+    "exp": "Marta'nın nerede olduğunu kesin olarak bilmiyoruz. “Estaría...” = “Herhalde ... idi.”",
+    "rule": "Estaría... → geçmiş hakkında tahmin"
+  },
+  {
+    "s": "Yo no compraría ese coche en tu lugar.",
+    "a": "T",
+    "tr": "Senin yerinde olsam o arabayı almazdım.",
+    "exp": "“En tu lugar” bunun tavsiye olduğunu açıkça gösteriyor.",
+    "rule": "En tu lugar + Condicional → tavsiye"
+  },
+  {
+    "s": "¿Me prestarías tu bolígrafo un momento?",
+    "a": "N",
+    "tr": "Kalemini bir anlığına bana verir misin?",
+    "exp": "Konuşan kişi karşıdaki kişiden bir şey istiyor. Bu nedenle cümle nazik ricadır.",
+    "rule": "¿Me prestarías...? → nazik rica"
+  },
+  {
+    "s": "Si no tuviera que trabajar mañana, saldría esta noche.",
+    "a": "H",
+    "tr": "Yarın çalışmak zorunda olmasam bu akşam dışarı çıkardım.",
+    "exp": "Cümleden kişinin yarın çalışmak zorunda olduğunu anlıyoruz. Şu anki şartlara ters bir hayal kuruluyor.",
+    "rule": "Si no tuviera... → saldría..."
+  },
+  {
+    "s": "Querría reservar una mesa para cuatro personas.",
+    "a": "İ",
+    "tr": "Dört kişilik bir masa ayırtmak isterim.",
+    "exp": "“Querría...” restoran, otel vb. durumlarda kişinin kendi isteğini daha yumuşak ve nazik biçimde ifade edebilir.",
+    "rule": "Querría + infinitivo → kibar istek / arzu"
+  },
+  {
+    "s": "Si pudiera elegir cualquier país, viviría en Italia.",
+    "a": "H",
+    "tr": "İstediğim herhangi bir ülkeyi seçebilsem İtalya'da yaşardım.",
+    "exp": "Gerçek bir plan değil. Hayali bir durum kuruluyor.",
+    "rule": "Si pudiera... → viviría..."
+  },
+  {
+    "s": "Podríamos estudiar juntos después de clase.",
+    "a": "Ö",
+    "tr": "Dersten sonra birlikte çalışabiliriz / çalışsak olur.",
+    "exp": "Ortak bir eylem öneriliyor.",
+    "rule": "Podríamos... → öneri"
+  },
+  {
+    "s": "Me gustaría vivir cerca del mar.",
+    "a": "İ",
+    "tr": "Denize yakın yaşamak isterim / isterdim.",
+    "exp": "“Me gustaría + infinitivo” kişinin bir isteğini veya arzusunu daha yumuşak biçimde ifade eder. Buradaki gustaría geçmiş zaman değildir.",
+    "rule": "Me gustaría + infinitivo → istek / arzu"
+  },
+  {
+    "s": "Carlos prometió que me ayudaría con el proyecto.",
+    "a": "G",
+    "tr": "Carlos projede bana yardım edeceğine söz verdi.",
+    "exp": "Önce “prometió” gerçekleşti. Yardım etme eylemi o anda henüz gelecekteydi.",
+    "rule": "prometió → ayudaría = geçmişin geleceği"
+  },
+  {
+    "s": "Deberías descansar un poco más.",
+    "a": "T",
+    "tr": "Biraz daha dinlensen iyi olur / biraz daha dinlenmelisin.",
+    "exp": "“Deberías” Condicional ile tavsiyeyi daha yumuşak hale getirir.",
+    "rule": "Deberías + infinitivo → tavsiye"
+  },
+  {
+    "s": "Creíamos que Ana vendría con nosotros.",
+    "a": "G",
+    "tr": "Ana'nın bizimle geleceğini düşünüyorduk.",
+    "exp": "“Creíamos” geçmişteki düşünceyi anlatır. O geçmiş anda Ana'nın gelmesi hâlâ gelecekteydi.",
+    "rule": "Creíamos → vendría = geçmişin geleceği"
+  },
+  {
+    "s": "Podríamos ir a la playa este fin de semana.",
+    "a": "Ö",
+    "tr": "Bu hafta sonu plaja gidebiliriz / gitsek olur.",
+    "exp": "Konuşan kişi ortak bir plan öneriyor.",
+    "rule": "Podríamos + infinitivo → öneri"
+  },
+  {
+    "s": "Si fuera millonario, no trabajaría todos los días.",
+    "a": "H",
+    "tr": "Milyoner olsam her gün çalışmazdım.",
+    "exp": "Şu anda kişi milyoner değil. Hayali mevcut durum kuruluyor.",
+    "rule": "Si fuera... → no trabajaría..."
+  },
+  {
+    "s": "Si tuviera una casa grande, tendría muchos perros.",
+    "a": "H",
+    "tr": "Büyük bir evim olsa birçok köpeğim olurdu.",
+    "exp": "Hayali bir durum kuruluyor.",
+    "rule": "Si tuviera... → tendría..."
+  },
+  {
+    "s": "Podríamos cenar juntos esta noche.",
+    "a": "Ö",
+    "tr": "Bu akşam birlikte yemek yiyebiliriz / birlikte yesek olur.",
+    "exp": "Burada ortak bir aktivite öneriliyor. “Sen şunu yap.” değil, “Biz şunu yapabiliriz.” anlamı vardır.",
+    "rule": "Podríamos + infinitivo → ortak öneri"
+  },
+  {
+    "s": "Me dijeron que el tren llegaría con retraso.",
+    "a": "G",
+    "tr": "Bana trenin gecikmeli geleceğini söylediler.",
+    "exp": "“Me dijeron” geçmişte söylendi. Trenin gelmesi o konuşma anından daha sonra gerçekleşecekti.",
+    "rule": "Me dijeron → llegaría = geçmişin geleceği"
+  },
+  {
+    "s": "¿Podrías repetir la última frase?",
+    "a": "N",
+    "tr": "Son cümleyi tekrar edebilir misin?",
+    "exp": "Karşıdaki kişiden bir eylem yapması isteniyor. Bu nedenle nazik ricadır.",
+    "rule": "¿Podrías + infinitivo...? → nazik rica"
+  },
+  {
+    "s": "Serían las once cuando terminó la fiesta.",
+    "a": "GT",
+    "tr": "Parti bittiğinde saat herhalde on bir civarıydı.",
+    "exp": "Saat kesin olarak bilinmiyor. “Serían” burada “olurlardı” değil, “herhalde / yaklaşık” anlamı verir.",
+    "rule": "Condicional → geçmiş hakkında olasılık / tahmin"
+  },
+  {
+    "s": "Me gustaría viajar por América Latina algún día.",
+    "a": "İ",
+    "tr": "Bir gün Latin Amerika'yı gezmek isterim.",
+    "exp": "Kişisel bir arzu ifade ediliyor.",
+    "rule": "Me gustaría... → istek / arzu"
+  },
+  {
+    "s": "Si tuviera más tiempo, aprendería otro idioma.",
+    "a": "H",
+    "tr": "Daha fazla vaktim olsa başka bir dil öğrenirdim.",
+    "exp": "Şu anda kişinin yeterince zamanı olmadığını anlıyoruz. Gerçek olmayan / hayali bir mevcut durum kuruluyor.",
+    "rule": "Si tuviera... → aprendería..."
+  }
 ];
 
-let current = 0;
-let score = 0;
-let answered = false;
-const stats = {};
-categories.forEach(c => stats[c.key] = {correct:0,total:0});
+let current=0, score=0, answered=false;
+const stats={};
+categories.forEach(c=>stats[c.key]={correct:0,total:0});
 
-const sentenceEl = document.getElementById("sentence");
-const choicesEl = document.getElementById("choices");
-const feedbackEl = document.getElementById("feedback");
-const nextBtn = document.getElementById("nextBtn");
-const questionCounter = document.getElementById("questionCounter");
-const scoreCounter = document.getElementById("scoreCounter");
-const progressBar = document.getElementById("progressBar");
+const sentenceEl=document.getElementById("sentence");
+const choicesEl=document.getElementById("choices");
+const feedbackEl=document.getElementById("feedback");
+const nextBtn=document.getElementById("nextBtn");
+const questionCounter=document.getElementById("questionCounter");
+const scoreCounter=document.getElementById("scoreCounter");
+const progressBar=document.getElementById("progressBar");
 
 function renderQuestion(){
-  answered = false;
-  const q = questions[current];
-  sentenceEl.textContent = q.s;
-  questionCounter.textContent = `Soru ${current + 1} / ${questions.length}`;
-  scoreCounter.textContent = `Doğru: ${score}`;
-  progressBar.style.width = `${(current / questions.length) * 100}%`;
-  feedbackEl.className = "feedback";
-  feedbackEl.innerHTML = "";
-  nextBtn.className = "next";
-  nextBtn.textContent = current === questions.length - 1 ? "Sonucu Gör →" : "Sonraki Soru →";
-  choicesEl.innerHTML = "";
-
+  answered=false;
+  const q=questions[current];
+  sentenceEl.textContent=q.s;
+  questionCounter.textContent=`Soru ${current+1} / ${questions.length}`;
+  scoreCounter.textContent=`Doğru: ${score}`;
+  progressBar.style.width=`${(current/questions.length)*100}%`;
+  feedbackEl.className="feedback";
+  feedbackEl.innerHTML="";
+  nextBtn.className="next";
+  nextBtn.textContent=current===questions.length-1?"Sonucu Gör →":"Sonraki Soru →";
+  choicesEl.innerHTML="";
   categories.forEach(cat=>{
-    const btn = document.createElement("button");
-    btn.className = "choice";
-    btn.dataset.key = cat.key;
-    btn.innerHTML = `${cat.label} ${cat.emoji}`;
-    btn.addEventListener("click",()=>selectAnswer(cat.key, btn));
+    const btn=document.createElement("button");
+    btn.className="choice";
+    btn.dataset.key=cat.key;
+    btn.innerHTML=`${cat.label} ${cat.emoji}`;
+    btn.addEventListener("click",()=>selectAnswer(cat.key,btn));
     choicesEl.appendChild(btn);
   });
 }
 
-function selectAnswer(selected, clickedBtn){
-  if(answered) return;
-  answered = true;
-
-  const q = questions[current];
+function selectAnswer(selected,clickedBtn){
+  if(answered)return;
+  answered=true;
+  const q=questions[current];
   stats[q.a].total++;
-
-  const allBtns = [...document.querySelectorAll(".choice")];
+  const allBtns=[...document.querySelectorAll(".choice")];
   allBtns.forEach(b=>{
-    b.disabled = true;
-    if(b.dataset.key === q.a) b.classList.add("correct");
+    b.disabled=true;
+    if(b.dataset.key===q.a)b.classList.add("correct");
   });
-
-  const correct = selected === q.a;
-  if(correct){
-    score++;
-    stats[q.a].correct++;
-  } else {
-    clickedBtn.classList.add("wrong");
-  }
-
-  const cat = categories.find(c=>c.key===q.a);
-  feedbackEl.innerHTML = `
-    <h3>${correct ? "✅ Doğru!" : "❌ Bu kez değil."}</h3>
+  const correct=selected===q.a;
+  if(correct){score++;stats[q.a].correct++;}else clickedBtn.classList.add("wrong");
+  const cat=categories.find(c=>c.key===q.a);
+  feedbackEl.innerHTML=`
+    <h3>${correct?"✅ Doğru!":"❌ Bu kez değil."}</h3>
     <p><strong>Doğru cevap:</strong> ${cat.key} — ${cat.label} ${cat.emoji}</p>
     <div class="translation">🇹🇷 ${q.tr}</div>
     <p>${q.exp}</p>
-    <div class="rule">📌 ${q.rule}</div>
-  `;
+    <div class="rule">📌 ${q.rule}</div>`;
   feedbackEl.classList.add("show");
-  scoreCounter.textContent = `Doğru: ${score}`;
+  scoreCounter.textContent=`Doğru: ${score}`;
   nextBtn.classList.add("show");
 }
 
-nextBtn.addEventListener("click", ()=>{
-  if(current < questions.length - 1){
-    current++;
-    renderQuestion();
-    window.scrollTo({top:0,behavior:"smooth"});
-  } else {
-    showResult();
-  }
+nextBtn.addEventListener("click",()=>{
+  if(current<questions.length-1){current++;renderQuestion();window.scrollTo({top:0,behavior:"smooth"});}
+  else showResult();
 });
 
 function showResult(){
-  document.getElementById("quizCard").style.display = "none";
-  const resultCard = document.getElementById("resultCard");
+  document.getElementById("quizCard").style.display="none";
+  const resultCard=document.getElementById("resultCard");
   resultCard.classList.add("show");
-  document.getElementById("finalScore").textContent = `${score} / ${questions.length}`;
-
-  let msg = "";
-  const ratio = score / questions.length;
-  if(ratio === 1) msg = "Mükemmel! Tüm kullanımları ayırt ettiniz. 🌟";
-  else if(ratio >= .8) msg = "Çok iyi! Condicional Simple kullanımları oldukça net. 👏";
-  else if(ratio >= .6) msg = "İyi gidiyor! Birkaç kullanım türünü tekrar etmek faydalı olur. 💪";
-  else msg = "Kullanımları tekrar edip etkinliği bir kez daha çözebilirsiniz. 📚";
-  document.getElementById("finalMessage").textContent = msg;
-
-  let html = "";
-  categories.forEach(cat=>{
-    const st = stats[cat.key];
-    html += `
-      <div class="summary-row">
-        <span>${cat.emoji} ${cat.label}</span>
-        <span>${st.correct} / ${st.total}</span>
-      </div>`;
+  document.getElementById("finalScore").textContent=`${score} / ${questions.length}`;
+  const ratio=score/questions.length;
+  let msg=ratio===1?"Mükemmel! Tüm kullanımları ayırt ettiniz. 🌟":
+          ratio>=.8?"Çok iyi! Condicional Simple kullanımları oldukça net. 👏":
+          ratio>=.6?"İyi gidiyor! Birkaç kullanım türünü tekrar etmek faydalı olur. 💪":
+          "Kullanımları tekrar edip etkinliği bir kez daha çözebilirsiniz. 📚";
+  document.getElementById("finalMessage").textContent=msg;
+  let html="";
+  categories.forEach(cat=>{const st=stats[cat.key];
+    html+=`<div class="summary-row"><span>${cat.emoji} ${cat.label}</span><span>${st.correct} / ${st.total}</span></div>`;
   });
-  document.getElementById("summary").innerHTML = html;
+  document.getElementById("summary").innerHTML=html;
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
 function restartQuiz(){
-  current = 0;
-  score = 0;
-  categories.forEach(c => stats[c.key] = {correct:0,total:0});
-  document.getElementById("quizCard").style.display = "block";
+  current=0;score=0;
+  categories.forEach(c=>stats[c.key]={correct:0,total:0});
+  document.getElementById("quizCard").style.display="block";
   document.getElementById("resultCard").classList.remove("show");
   renderQuestion();
 }
-
 renderQuestion();
 </script>
 </body>

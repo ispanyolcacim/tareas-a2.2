@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>A2.2 Condicional Simple — Ders İçi Etkinlik</title>
+<style>
+*{box-sizing:border-box}
+:root{
+--bg:#f7f4ff;--card:#fff;--text:#27233e;--muted:#746f8a;
+--accent:#6d5dfc;--accent2:#927fff;--border:#e5e0fb;
+--green:#1f9d65;--red:#d54d4d;--gold:#f0b84b;
+}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#f7f4ff,#eef5ff);color:var(--text);min-height:100vh}
+.header{padding:18px 20px;text-align:center;background:linear-gradient(135deg,#6858ef,#8d7cff);color:#fff;box-shadow:0 5px 20px rgba(77,64,160,.2)}
+.header h1{margin:0;font-size:clamp(20px,4vw,30px)} .header p{margin:6px 0 0;font-size:13px;opacity:.92}
+.wrap{width:min(920px,100%);margin:0 auto;padding:24px 16px 40px}
+.screen{display:none} .screen.active{display:block}
+.card{background:var(--card);border:1px solid var(--border);border-radius:26px;padding:clamp(20px,4vw,38px);box-shadow:0 16px 38px rgba(77,64,160,.13)}
+.center{text-align:center}
+.start h2{font-size:28px;margin:4px 0 10px} .start p{line-height:1.7;color:var(--muted)}
+.sections{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0}
+.sectionbox{border:2px solid var(--border);border-radius:18px;padding:18px;text-align:left;background:#faf9ff}
+.sectionbox h3{margin:0 0 8px} .sectionbox p{font-size:13px;line-height:1.6;color:var(--muted);margin:0}
+.btn{border:none;border-radius:15px;padding:13px 20px;font-weight:900;cursor:pointer;font-size:15px}
+.primary{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff}
+.secondary{background:#fff;border:2px solid var(--border);color:var(--text)}
+.gold{background:#fff4d8;border:2px solid #efd38f;color:#725315}
+.progressinfo{display:flex;justify-content:space-between;gap:12px;font-size:13px;font-weight:900;margin-bottom:8px}
+.progress{height:11px;background:#e9e5fb;border-radius:999px;overflow:hidden;margin-bottom:22px}
+.progress>div{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:.25s}
+.tag{display:inline-block;background:#efecff;color:#5546d1;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:900;margin-bottom:16px}
+.question{font-size:clamp(24px,4vw,39px);font-weight:900;line-height:1.3;text-align:center;margin:6px 0 14px}
+.translation{text-align:center;color:var(--muted);font-size:16px;font-weight:750;margin-bottom:22px;line-height:1.6}
+.instruction{background:#fff9e9;border:1.5px solid #e8c56d;border-radius:14px;padding:13px 15px;margin:14px 0 18px;font-size:13px;line-height:1.7;color:#684f17}
+.answers{display:none;margin-top:18px} .answers.show{display:block}
+.answer{border:1.5px solid var(--border);background:#faf9ff;border-radius:15px;padding:14px 16px;margin:9px 0}
+.answer .es{font-weight:900;font-size:16px;line-height:1.45} .answer .tr{color:var(--muted);font-size:13.5px;line-height:1.5;margin-top:5px}
+.nav{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-top:20px}
+.navright{display:flex;gap:10px;flex-wrap:wrap}
+.transition{text-align:center;padding:15px} .transition .big{font-size:64px} .transition h2{font-size:30px;margin:10px 0}
+.rule{background:#f3f0ff;border:2px dashed #aa9fff;border-radius:18px;padding:18px;margin:22px 0;font-size:17px;font-weight:900;line-height:1.7}
+.rule span{display:block;color:#604fda;font-size:22px;margin-top:8px}
+.counterbadge{background:#2b2740;color:#fff;border-radius:999px;padding:6px 10px;font-size:12px;font-weight:900}
+.done{font-size:70px} .summary{font-size:18px;color:var(--muted);line-height:1.7}
+@media(max-width:650px){.sections{grid-template-columns:1fr}.nav{align-items:stretch}.navright{width:100%}.navright .btn,.nav>.btn{flex:1}}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>🇪🇸 A2.2 — CONDICIONAL SIMPLE</h1>
+<p>Ders İçi Etkinlik · 2 Bölüm · 20 Kart · @ispanyolcacim · Profe Hazel</p>
+</div>
+
+<div class="wrap">
+
+<section class="screen active" id="start">
+<div class="card start center">
+<div style="font-size:58px">🎯</div>
+<h2>Condicional Challenge</h2>
+<p>Önce günlük durumlara uygun cevaplar üreteceğiz. Sonra hayal dünyasına geçip <strong>Si + imperfecto de subjuntivo + condicional simple</strong> yapısını kullanacağız.</p>
+
+<div class="sections">
+<div class="sectionbox">
+<h3>🗣️ 1. Bölüm — ¿Qué dirías?</h3>
+<p>10 farklı durum. Önce siz cevap üretin; sonra muhtemel cevapları açıp karşılaştırın.</p>
+</div>
+<div class="sectionbox">
+<h3>💭 2. Bölüm — Subasta de sueños</h3>
+<p>10 hayal kartı. Her cevapta mümkün olduğunca <strong>Si + imperfecto de subjuntivo + condicional</strong> yapısını kurun.</p>
+</div>
+</div>
+
+<button class="btn primary" onclick="startSection1()">🚀 Etkinliğe Başla</button>
+</div>
+</section>
+
+<section class="screen" id="activity">
+<div class="card">
+<div class="progressinfo">
+<span id="sectionTitle"></span>
+<span class="counterbadge" id="counter"></span>
+</div>
+<div class="progress"><div id="bar"></div></div>
+
+<div class="tag" id="tag"></div>
+<div class="question" id="question"></div>
+<div class="translation" id="translation"></div>
+<div class="instruction" id="instruction"></div>
+
+<div class="center">
+<button class="btn gold" id="showBtn" onclick="toggleAnswers()">💡 Muhtemel Cevapları Göster</button>
+</div>
+
+<div class="answers" id="answers"></div>
+
+<div class="nav">
+<button class="btn secondary" id="prevBtn" onclick="prevCard()">← Önceki</button>
+<div class="navright">
+<button class="btn primary" id="nextBtn" onclick="nextCard()">Sonraki →</button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="screen" id="transition">
+<div class="card transition">
+<div class="big">🔥</div>
+<h2>1. Bölüm Tamamlandı!</h2>
+<p>Şimdi serbest Condicional kullanımından çıkıyoruz. İkinci bölümde her cevapta hayali bir şart + hayali sonuç kurmaya çalışıyoruz.</p>
+
+<div class="rule">
+⚠️ ALTIN KURAL
+<span>SI + IMPERFECTO DE SUBJUNTIVO + CONDICIONAL SIMPLE</span>
+Si tuviera… → haría…<br>
+Si pudiera… → viviría…<br>
+Si fuera… → elegiría…
+</div>
+
+<button class="btn primary" onclick="startSection2()">💭 Hayal Müzayedesine Başla</button>
+</div>
+</section>
+
+<section class="screen" id="finish">
+<div class="card center">
+<div class="done">🏆</div>
+<h2>Etkinlik Tamamlandı!</h2>
+<p class="summary">20 kartın tamamını bitirdiniz.<br><strong>Condicional Simple</strong> artık yalnızca bir çekim değil; hangi bağlamda hangi anlamı verdiğini de düşünün.</p>
+<button class="btn primary" onclick="restart()">🔄 Baştan Başla</button>
+</div>
+</section>
+
+</div>
+
+<script>
+const s1=[{"q": "Tu amigo duerme solo cuatro horas cada noche.", "tr": "Arkadaşın her gece sadece dört saat uyuyor.", "answers": [["Deberías dormir más.", "Daha fazla uyumalısın / daha fazla uyusan iyi olur."], ["Yo en tu lugar me acostaría más temprano.", "Senin yerinde olsam daha erken yatardım."], ["No trabajaría hasta tan tarde todos los días.", "Her gün bu kadar geç saate kadar çalışmazdım."]]}, {"q": "Tu amiga quiere aprender español, pero tiene miedo de hablar.", "tr": "Arkadaşın İspanyolca öğrenmek istiyor ama konuşmaya korkuyor.", "answers": [["Deberías practicar un poco cada día.", "Her gün biraz pratik yapmalısın."], ["Yo en tu lugar hablaría aunque cometiera errores.", "Senin yerinde olsam hata yapsam bile konuşurdum."], ["Podrías practicar con un compañero.", "Bir arkadaşla pratik yapabilirsin."]]}, {"q": "Hace mucho calor y tus amigos no saben qué hacer esta tarde.", "tr": "Hava çok sıcak ve arkadaşların bu öğleden sonra ne yapacaklarını bilmiyor.", "answers": [["Podríamos ir a la playa.", "Plaja gidebiliriz."], ["Podríamos tomar algo frío en una cafetería.", "Bir kafede soğuk bir şeyler içebiliriz."], ["Yo iría a un lugar con aire acondicionado.", "Ben klimalı bir yere giderdim."]]}, {"q": "Estás en una cafetería y quieres una mesa cerca de la ventana.", "tr": "Bir kafedesin ve pencereye yakın bir masa istiyorsun.", "answers": [["Querría una mesa cerca de la ventana, por favor.", "Pencereye yakın bir masa isterdim / rica ederim."], ["¿Podría sentarme cerca de la ventana?", "Pencereye yakın oturabilir miyim?"], ["Me gustaría sentarme junto a la ventana.", "Pencerenin yanında oturmak isterdim."]]}, {"q": "Tu compañero habla muy rápido y no entiendes bien.", "tr": "Sınıf arkadaşın çok hızlı konuşuyor ve iyi anlamıyorsun.", "answers": [["¿Podrías hablar más despacio, por favor?", "Biraz daha yavaş konuşabilir misin lütfen?"], ["¿Repetirías la última frase?", "Son cümleyi tekrar eder misin?"], ["Me gustaría que hablaras un poco más despacio.", "Biraz daha yavaş konuşmanı isterdim."]]}, {"q": "Tienes mucho trabajo y no sabes cómo organizarte.", "tr": "Çok işin var ve nasıl organize olacağını bilmiyorsun.", "answers": [["Yo en tu lugar haría una lista.", "Senin yerinde olsam bir liste yapardım."], ["Deberías empezar por lo más importante.", "En önemli olandan başlamalısın."], ["Podrías dividir el trabajo en partes pequeñas.", "İşi küçük parçalara bölebilirsin."]]}, {"q": "Puedes vivir durante un año en cualquier país del mundo.", "tr": "Dünyadaki herhangi bir ülkede bir yıl yaşayabilirsin.", "answers": [["Viviría en España.", "İspanya'da yaşardım."], ["Me gustaría vivir en Argentina.", "Arjantin'de yaşamak isterdim."], ["Si pudiera elegir, viviría en Japón.", "Seçebilsem Japonya'da yaşardım."]]}, {"q": "Tu amigo quiere comprar un coche muy caro, pero no tiene mucho dinero.", "tr": "Arkadaşın çok pahalı bir araba almak istiyor ama çok parası yok.", "answers": [["Yo en tu lugar no compraría ese coche.", "Senin yerinde olsam o arabayı almazdım."], ["Deberías buscar un coche más barato.", "Daha ucuz bir araba aramalısın."], ["Esperaría unos meses antes de comprarlo.", "Almadan önce birkaç ay beklerdim."]]}, {"q": "Tú y tus amigos no sabéis dónde cenar esta noche.", "tr": "Sen ve arkadaşların bu akşam nerede yemek yiyeceğinizi bilmiyorsunuz.", "answers": [["Podríamos probar el nuevo restaurante italiano.", "Yeni İtalyan restoranını deneyebiliriz."], ["Podríamos cenar en casa y cocinar juntos.", "Evde yemek yiyip birlikte yemek yapabiliriz."], ["Yo elegiría un lugar tranquilo.", "Ben sakin bir yer seçerdim."]]}, {"q": "Si tuvieras un mes completamente libre y suficiente dinero, ¿qué harías?", "tr": "Tamamen boş bir ayın ve yeterince paran olsaydı ne yapardın?", "answers": [["Viajaría por América Latina.", "Latin Amerika'yı gezerdim."], ["Me quedaría cerca del mar y descansaría.", "Deniz kenarında kalır ve dinlenirdim."], ["Aprendería algo nuevo, como fotografía o cocina.", "Fotoğrafçılık veya yemek yapma gibi yeni bir şey öğrenirdim."], ["Si tuviera suficiente dinero, viajaría a varios países.", "Yeterince param olsa birkaç ülkeye seyahat ederdim."]]}];
+const s2=[{"q": "Si tuvieras un millón de euros, ¿qué harías?", "tr": "Bir milyon euron olsaydı ne yapardın?", "answers": [["Si tuviera un millón de euros, compraría una casa cerca del mar.", "Bir milyon eurom olsa denize yakın bir ev alırdım."], ["Si tuviera un millón de euros, viajaría por todo el mundo.", "Bir milyon eurom olsa bütün dünyayı gezerdim."], ["Si tuviera un millón de euros, ayudaría a mi familia.", "Bir milyon eurom olsa aileme yardım ederdim."]]}, {"q": "Si no tuvieras que trabajar durante un año, ¿qué harías?", "tr": "Bir yıl boyunca çalışmak zorunda olmasaydın ne yapardın?", "answers": [["Si no tuviera que trabajar durante un año, viajaría mucho.", "Bir yıl çalışmak zorunda olmasam çok seyahat ederdim."], ["Si no tuviera que trabajar, aprendería otro idioma.", "Çalışmak zorunda olmasam başka bir dil öğrenirdim."], ["Si tuviera un año libre, descansaría y pasaría más tiempo con mi familia.", "Bir yıl boş vaktim olsa dinlenir ve ailemle daha fazla zaman geçirirdim."]]}, {"q": "Si pudieras vivir en cualquier país, ¿dónde vivirías?", "tr": "İstediğin herhangi bir ülkede yaşayabilseydin nerede yaşardın?", "answers": [["Si pudiera vivir en cualquier país, viviría en España.", "İstediğim ülkede yaşayabilsem İspanya'da yaşardım."], ["Si pudiera elegir, viviría en Italia.", "Seçebilsem İtalya'da yaşardım."], ["Si pudiera mudarme a cualquier lugar, viviría cerca del océano.", "İstediğim yere taşınabilsem okyanusa yakın yaşardım."]]}, {"q": "Si pudieras cambiar una cosa de tu vida, ¿qué cambiarías?", "tr": "Hayatında bir şeyi değiştirebilseydin neyi değiştirirdin?", "answers": [["Si pudiera cambiar una cosa de mi vida, trabajaría menos.", "Hayatımda bir şeyi değiştirebilsem daha az çalışırdım."], ["Si pudiera cambiar algo, viviría más cerca de mi familia.", "Bir şeyi değiştirebilsem aileme daha yakın yaşardım."], ["Si pudiera cambiar mi rutina, haría más deporte.", "Rutinimi değiştirebilsem daha fazla spor yapardım."]]}, {"q": "Si pudieras hablar perfectamente cinco idiomas, ¿cuáles elegirías?", "tr": "Beş dili mükemmel konuşabilseydin hangilerini seçerdin?", "answers": [["Si pudiera hablar cinco idiomas perfectamente, elegiría español, inglés, italiano, francés y japonés.", "Beş dili mükemmel konuşabilsem İspanyolca, İngilizce, İtalyanca, Fransızca ve Japonca seçerdim."], ["Si pudiera aprender cinco idiomas, elegiría los más útiles para viajar.", "Beş dil öğrenebilsem seyahat için en faydalı olanları seçerdim."]]}, {"q": "Si fueras famoso/a por un día, ¿qué harías?", "tr": "Bir günlüğüne ünlü olsaydın ne yapardın?", "answers": [["Si fuera famoso por un día, daría una entrevista divertida.", "Bir günlüğüne ünlü olsam eğlenceli bir röportaj verirdim."], ["Si fuera famosa, ayudaría a una organización benéfica.", "Ünlü olsam bir yardım kuruluşuna destek olurdum."], ["Si fuera famoso, intentaría conocer a mis artistas favoritos.", "Ünlü olsam en sevdiğim sanatçılarla tanışmaya çalışırdım."]]}, {"q": "Si pudieras cenar con cualquier persona del mundo, ¿con quién cenarías?", "tr": "Dünyadaki herhangi biriyle akşam yemeği yiyebilseydin kiminle yerdin?", "answers": [["Si pudiera cenar con cualquier persona, cenaría con mi actor favorito.", "İstediğim biriyle yemek yiyebilsem en sevdiğim oyuncuyla yerdim."], ["Si pudiera elegir, cenaría con una persona histórica.", "Seçebilsem tarihi bir kişiyle yemek yerdim."], ["Si pudiera cenar con alguien famoso, le haría muchas preguntas.", "Ünlü biriyle yemek yiyebilsem ona birçok soru sorardım."]]}, {"q": "Si tuvieras una casa enorme, ¿qué habría dentro?", "tr": "Kocaman bir evin olsaydı içinde neler olurdu?", "answers": [["Si tuviera una casa enorme, tendría una biblioteca muy grande.", "Kocaman bir evim olsa çok büyük bir kütüphanem olurdu."], ["Si tuviera una casa grande, habría una piscina en el jardín.", "Büyük bir evim olsa bahçede bir havuz olurdu."], ["Si tuviera mucho espacio, tendría una habitación solo para mis hobbies.", "Çok alanım olsa sadece hobilerim için bir odam olurdu."]]}, {"q": "Si pudieras volver al pasado, ¿a qué edad volverías?", "tr": "Geçmişe dönebilseydin hangi yaşına dönerdin?", "answers": [["Si pudiera volver al pasado, volvería a mis veinte años.", "Geçmişe dönebilsem yirmili yaşlarıma dönerdim."], ["Si pudiera regresar a mi infancia, pasaría más tiempo con mi familia.", "Çocukluğuma dönebilsem ailemle daha fazla vakit geçirirdim."], ["Si pudiera volver atrás, tomaría algunas decisiones de manera diferente.", "Geçmişe dönebilsem bazı kararları farklı şekilde verirdim."]]}, {"q": "Si pudieras tener cualquier talento, ¿qué talento elegirías?", "tr": "İstediğin herhangi bir yeteneğe sahip olabilseydin hangisini seçerdin?", "answers": [["Si pudiera tener cualquier talento, tocaría el piano perfectamente.", "İstediğim yeteneğe sahip olabilsem piyanoyu mükemmel çalardım."], ["Si pudiera elegir un talento, cantaría muy bien.", "Bir yetenek seçebilsem çok iyi şarkı söylerdim."], ["Si tuviera un talento especial, me gustaría pintar como un artista profesional.", "Özel bir yeteneğim olsa profesyonel bir sanatçı gibi resim yapmak isterdim."]]}];
+let section=1;
+let index=0;
+let opened=false;
+
+function show(id){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+window.scrollTo(0,0);
+}
+
+function startSection1(){
+section=1; index=0; opened=false; show('activity'); render();
+}
+function startSection2(){
+section=2; index=0; opened=false; show('activity'); render();
+}
+
+function currentData(){return section===1?s1:s2}
+
+function render(){
+const data=currentData();
+const item=data[index];
+document.getElementById('sectionTitle').textContent=section===1?'🗣️ 1. BÖLÜM — ¿QUÉ DIRÍAS?':'💭 2. BÖLÜM — SUBASTA DE SUEÑOS';
+document.getElementById('counter').textContent=`${index+1} / ${data.length}`;
+document.getElementById('bar').style.width=`${((index+1)/data.length)*100}%`;
+document.getElementById('tag').textContent=section===1?'Duruma uygun Condicional cevabı üret':'Si + imperfecto de subjuntivo + condicional';
+document.getElementById('question').textContent=item.q;
+document.getElementById('translation').textContent='🇹🇷 '+item.tr;
+document.getElementById('instruction').innerHTML=section===1
+?'<strong>🎤 Önce siz cevap verin.</strong><br>Tavsiye, öneri, rica, istek veya hayal bağlama göre değişebilir. Cevabı hemen açmayın.'
+:'<strong>🎤 Tam cümle kurun.</strong><br>Mümkün olduğunca <strong>Si + imperfecto de subjuntivo + condicional simple</strong> yapısını birlikte kullanın.';
+const a=document.getElementById('answers');
+a.innerHTML=item.answers.map((x,i)=>`<div class="answer"><div class="es">${i+1}. ${x[0]}</div><div class="tr">→ ${x[1]}</div></div>`).join('');
+a.className='answers'+(opened?' show':'');
+document.getElementById('showBtn').textContent=opened?'🙈 Cevapları Gizle':'💡 Muhtemel Cevapları Göster';
+document.getElementById('prevBtn').disabled=index===0;
+document.getElementById('nextBtn').textContent=index===data.length-1
+?(section===1?'🔥 2. Bölüme Geç':'🏆 Bitir')
+:'Sonraki →';
+}
+
+function toggleAnswers(){
+opened=!opened;
+render();
+}
+
+function nextCard(){
+const data=currentData();
+if(index<data.length-1){
+index++;opened=false;render();window.scrollTo(0,0);
+}else{
+if(section===1)show('transition');
+else show('finish');
+}
+}
+
+function prevCard(){
+if(index>0){index--;opened=false;render();window.scrollTo(0,0)}
+}
+
+function restart(){
+section=1;index=0;opened=false;show('start');
+}
+</script>
+</body>
+</html>

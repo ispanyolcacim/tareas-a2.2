@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A2.2 · H7 – 27-28. Ders · 2. Kısım · Condicional Simple · Yazma Ödevi</title>
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--c1:#eaf7e6;--c2:#bfe6ac;--c3:#d3ecc9;--c4:#8fcf95;--c5:#559d6a;--dark:#20402a;--mid:#5c7d63;--white:#fff;--green:#3f8f52;--red:#d97070;--gold1:#f5dca0;--gold2:#dcac48;--blue1:#dcedf9;--blue2:#3d7ea6;--r:14px}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1,#eefaf3 60%,#f7fdf3);min-height:100vh;color:var(--dark)}
+.header{background:linear-gradient(135deg,var(--c4),var(--c5));padding:18px 20px 14px;text-align:center;box-shadow:0 4px 18px rgba(85,157,106,.35);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.1) 14px,rgba(255,255,255,.1) 15px)}
+.htag{display:inline-block;background:rgba(255,255,255,.35);border:1.5px solid rgba(255,255,255,.55);border-radius:20px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 14px;margin-bottom:8px;color:#fff;position:relative}
+.header h1{font-size:clamp(16px,4vw,23px);font-weight:800;color:#fff;position:relative}
+.header-sub{font-size:12px;color:rgba(255,255,255,.9);margin-top:4px;position:relative}
+.screen{display:none;animation:fi .3s ease}.screen.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.nb{max-width:440px;margin:0 auto;padding:32px 20px;text-align:center}
+.nb h2{font-size:20px;color:var(--dark);margin-bottom:5px}
+.nb p{font-size:13px;color:var(--mid);margin-bottom:20px}
+.sel,.tin{width:100%;padding:13px 16px;font-size:15px;background:#fff;border:2px solid var(--c3);border-radius:var(--r);color:var(--dark);appearance:none;cursor:pointer;margin-bottom:14px;font-family:inherit}
+.tin{cursor:text}
+.sel:focus,.tin:focus{outline:none;border-color:var(--c4)}
+.ib{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:14px 16px;margin-bottom:18px;text-align:left;font-size:13px;line-height:1.75}
+.ibr{display:flex;align-items:flex-start;gap:9px;margin-bottom:5px}
+.ibd{width:8px;height:8px;border-radius:50%;background:var(--c4);flex-shrink:0;margin-top:5px}
+.ibh{height:1px;background:var(--c3);margin:9px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 24px;border:none;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
+.bm{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;box-shadow:0 4px 12px rgba(85,157,106,.35)}
+.bm:hover:not(:disabled){transform:translateY(-2px)}
+.bg{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--dark);box-shadow:0 4px 12px rgba(220,172,72,.4)}
+.bg:hover:not(:disabled){transform:translateY(-2px)}
+.bo{background:#fff;border:2px solid var(--c3);color:var(--dark)}
+.bo:hover:not(:disabled){background:var(--c3)}
+.bs{padding:9px 18px;font-size:13px}
+.bf{width:100%}
+.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important}
+.qw{max-width:720px;margin:0 auto;padding:16px}
+.sb{display:inline-flex;align-items:center;background:linear-gradient(90deg,var(--c4),var(--c5));border-radius:20px;padding:6px 16px;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:10px;box-shadow:0 2px 8px rgba(85,157,106,.3)}
+.konu{background:linear-gradient(135deg,rgba(143,207,149,.18),rgba(85,157,106,.12));border:1.5px solid var(--c4);border-radius:var(--r);padding:14px 18px;margin-bottom:14px}
+.konu h2{font-size:16px;color:var(--dark);margin-bottom:6px}
+.konu p{font-size:13px;color:var(--mid);line-height:1.7}
+.card{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:14px}
+.cardpad{padding:16px 18px}
+.instr{background:var(--blue1);border-left:3px solid var(--blue2);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:14px;font-size:12.5px;line-height:1.85;color:#1a3a4c}
+.instrl{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--blue2);margin-bottom:6px}
+.instr ul{margin-left:18px}
+.instr li{margin-bottom:4px}
+.taform{display:grid;gap:10px;margin-bottom:14px}
+.tarow{display:grid;grid-template-columns:150px 1fr;align-items:center;gap:10px;font-size:12.5px}
+.tarow label{font-weight:700;color:var(--c5)}
+.tarow .staticv{background:var(--c1);border:1.5px solid var(--c3);border-radius:8px;padding:9px 12px;font-size:13px;color:var(--dark)}
+.tarow input{padding:9px 12px;font-size:13px;border:1.5px solid var(--c3);border-radius:8px;font-family:inherit;color:var(--dark)}
+.tarow input:focus{outline:none;border-color:var(--c4)}
+.resw{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:14px}
+.resh{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:var(--c1);cursor:pointer}
+.resh h3{font-size:13px;font-weight:800;color:var(--dark)}
+.rest{font-size:11px;font-weight:700;color:var(--c5);background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:4px 12px;white-space:nowrap}
+.resb{padding:14px 18px;font-size:13px;line-height:1.85;color:var(--dark)}
+.resb.collapsed{display:none}
+.zamangrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:14px 16px}
+@media(max-width:520px){.zamangrid{grid-template-columns:repeat(2,1fr)}}
+.zamanitem{background:linear-gradient(135deg,var(--c3),var(--c1));border:1px solid var(--c4);border-radius:12px;padding:12px 8px;text-align:center}
+.zamanitem .zn{font-size:24px;font-weight:900;color:var(--c5);line-height:1}
+.zamanitem .zl{font-size:10.5px;color:var(--mid);margin-top:4px;line-height:1.35}
+.kural{background:var(--c1);border:1.5px dashed var(--gold2);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.kurall{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#8a6a1a;margin-bottom:8px}
+.kural .q{font-size:14px;font-weight:700;color:var(--dark);text-align:center;margin:10px 0;padding:10px;background:#fff;border-radius:10px;border:1px solid var(--gold1)}
+.kural .ex{font-size:13px;font-style:italic;color:var(--c5);background:#fff;border-radius:8px;padding:10px 12px;margin-top:8px}
+.promptgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:14px 16px}
+@media(max-width:560px){.promptgrid{grid-template-columns:1fr}}
+.promptitem{background:#f7fcf5;border:1.5px solid var(--c3);border-radius:10px;padding:9px 12px;font-size:12.5px;line-height:1.55}
+.exmpl{background:var(--c1);border:1.5px dashed var(--c4);border-radius:12px;padding:12px 16px;margin-bottom:14px;font-size:13px;line-height:1.95}
+.exmpll{font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--c5);margin-bottom:6px}
+.exmpl code{background:#fff;border:1px solid var(--c3);border-radius:6px;padding:2px 7px;font-style:italic;color:var(--dark);display:inline-block;margin:2px 0}
+table.rubric{width:100%;border-collapse:collapse;font-size:12.5px}
+.rubric th{background:linear-gradient(90deg,var(--c4),var(--c5));padding:10px 14px;text-align:left;font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:#fff}
+.rubric td{padding:9px 14px;border-bottom:1px solid var(--c3);vertical-align:top;line-height:1.5}
+.rubric tr:last-child td{border-bottom:none;font-weight:800;background:rgba(220,172,72,.12)}
+.rubric tr:nth-child(even) td{background:rgba(191,230,172,.15)}
+.rubric .pts{text-align:right;color:#8a6a1a;font-weight:800;white-space:nowrap}
+.wtitle{padding:16px 18px 4px;font-size:13px;font-weight:800;color:var(--dark)}
+textarea.wta{width:100%;min-height:340px;padding:14px 16px;font-size:14px;line-height:1.85;font-family:inherit;color:var(--dark);background:var(--c1);border:2px solid var(--c3);border-radius:10px;resize:vertical;margin:10px 18px 0;width:calc(100% - 36px);transition:border-color .2s}
+textarea.wta:focus{outline:none;border-color:var(--c4)}
+.wcbar{display:flex;justify-content:space-between;align-items:center;padding:8px 18px 16px;font-size:12px;color:var(--mid);flex-wrap:wrap;gap:6px}
+.wcnum{font-weight:800;font-size:13px}
+.wcnum.low{color:var(--red)}
+.wcnum.ok{color:var(--green)}
+.gatebox{display:flex;align-items:flex-start;gap:10px;background:#fdf7e8;border:1.5px solid var(--gold2);border-radius:10px;padding:12px 16px;margin:0 18px 16px}
+.gatebox input[type=checkbox]{width:19px;height:19px;margin-top:1px;accent-color:var(--c5);cursor:pointer;flex-shrink:0}
+.gatebox label{font-size:12.5px;line-height:1.6;color:var(--dark);cursor:pointer}
+.gatebox .warn{font-size:11px;color:#a04040;margin-top:4px;font-weight:700}
+.wnav{display:flex;justify-content:center;padding:0 18px 18px}
+.cfw{max-width:420px;margin:0 auto;padding:40px 20px;text-align:center}
+.cfw h2{font-size:22px;color:var(--dark);margin-bottom:8px}
+.cfw p{font-size:14px;color:var(--mid);margin-bottom:20px;line-height:1.6}
+.ns{background:rgba(85,157,106,.1);border:2px solid var(--c4);border-radius:var(--r);padding:14px 18px;margin-bottom:20px;font-size:14px;font-weight:700;color:var(--c5)}
+.rw{max-width:460px;margin:0 auto;padding:28px 20px;text-align:center}
+.rc{background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:28px 22px;margin-bottom:14px;box-shadow:0 6px 24px rgba(143,207,149,.2)}
+.re{font-size:50px;margin-bottom:10px}
+.rn{font-size:14px;color:var(--mid);margin-bottom:3px}
+.rt{font-size:15px;font-weight:700;color:var(--dark);margin-bottom:16px}
+.stb{display:inline-flex;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;font-size:13px;font-weight:700;margin-bottom:14px}
+.stok{background:rgba(63,143,82,.15);border:1.5px solid rgba(63,143,82,.4);color:#2c6b3a}
+.ster{background:rgba(217,112,112,.15);border:1.5px solid rgba(217,112,112,.4);color:#a04040}
+.stpnd{background:rgba(220,172,72,.2);border:1.5px solid rgba(220,172,72,.5);color:#8a6a1a}
+.rp{font-size:13px;color:var(--mid);line-height:1.7;margin-top:6px}
+.ra{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+
+.remind{display:flex;align-items:flex-start;gap:10px;background:var(--blue1);border:1.5px solid var(--blue2);border-radius:var(--r);padding:12px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.65;color:#1a3a4c;text-align:left}
+.remind .ric{font-size:18px;flex-shrink:0}
+.minihead{font-size:12px;font-weight:800;color:var(--c5);margin:10px 0 5px}
+.irreggrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+@media(max-width:520px){.irreggrid{grid-template-columns:1fr}}
+.irregitem{background:#f7fcf5;border:1.5px solid var(--c3);border-radius:10px;padding:8px 11px;font-size:12.5px;line-height:1.5}
+.badexample{background:#fdf0f0;border:1.5px solid #e8a0a0;border-radius:10px;padding:10px 12px;margin:8px 0;color:#8a3535}
+.goodexample{background:#eaf7ec;border:1.5px solid #8dcca0;border-radius:10px;padding:10px 12px;margin:8px 0;color:#2c6b3a}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="htag">7. Hafta Ödevi &nbsp;|&nbsp; A2.2 (27-28. Ders) &nbsp;|&nbsp; 2. Kısım</div>
+  <h1>&#x1F1EA;&#x1F1F8; A2.2 – 27-28. Ders – Yazma Ödevi</h1>
+  <div class="header-sub">Condicional Simple &nbsp;&bull;&nbsp; Si pudiera vivir en cualquier país… &nbsp;&bull;&nbsp; 100 puan &nbsp;&bull;&nbsp; @ispanyolcacim &nbsp;&bull;&nbsp; Profe Hazel</div>
+</div>
+
+<div class="screen active" id="sc-name">
+  <div class="nb">
+    <h2>🌍 Adınızı seçin</h2>
+    <p>Yazma ödevine başlamadan önce lütfen listeden adınızı seçin.</p>
+
+    <select class="sel" id="name-sel"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
+      <option>Zumeyra Dogan</option>
+    </select>
+
+    <div class="remind">
+      <span class="ric">📚</span>
+      <span><strong>7. hafta hatırlatması:</strong> Bu bağlantı <strong>27-28. ders 2. kısım yazma ödevinizdir.</strong> Bu çalışmada Condicional Simple’i yalnızca çekim olarak değil, gerçek bir <strong>hayal / varsayım / hipotetik hayat</strong> anlatmak için kullanacağız. Önceki ödevlerinizde eksik varsa onları da tamamlamayı unutmayın. ✨</span>
+    </div>
+
+    <div class="ib">
+      <div class="ibr"><div class="ibd"></div><span><strong>Konu:</strong> <em>Si pudiera vivir en cualquier país…</em></span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>Minimum:</strong> 450 kelime &amp; 6 paragraf.</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>Gramer:</strong> En az <strong>15 farklı Condicional Simple fiili</strong>.</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>Beklenti:</strong> Seçtiğiniz ülkedeki hayalî hayatınızı; şehir, ev, iş, rutin, sosyal yaşam, avantajlar ve zorluklarla birlikte geliştirin.</span></div>
+      <div class="ibh"></div>
+      <div class="ibr"><div class="ibd" style="background:var(--c5)"></div><span>Yazınız bu sayfadan doğrudan <strong>Profe Hazel'e e-posta ile</strong> iletilecektir.</span></div>
+    </div>
+
+    <button class="btn bm bf" onclick="startWriting()">&#x25b6; Başla</button>
+  </div>
+</div>
+
+<div class="screen" id="sc-writing">
+  <div class="qw">
+
+    <div class="sb">✍️ Yazma Ödevi &middot; 100 puan</div>
+
+    <div class="konu">
+      <h2>Konu: Si pudiera vivir en cualquier país…</h2>
+      <p><strong>Dünyanın herhangi bir ülkesinde yaşayabilseydiniz hangi ülkeyi seçerdiniz?</strong><br>
+      Bu ödevde yalnızca seçtiğiniz ülkeyi tanıtmayacaksınız. O ülkede yaşadığınızı <strong>hayal edecek</strong>, neden o ülkeyi seçtiğinizi açıklayacak ve hayatınızın nasıl değişeceğini ayrıntılı şekilde anlatacaksınız. Yazınızın temel gramer yapısı <strong>Condicional Simple</strong> olacaktır.</p>
+    </div>
+
+    <div class="card">
+      <div class="cardpad">
+
+        <div class="wtitle" style="padding:0 0 8px">📋 Yazınızın Başına Ekleyin</div>
+
+        <div class="taform">
+          <div class="tarow"><label>Nombre y Apellido</label><div class="staticv" id="ta-name">—</div></div>
+          <div class="tarow"><label>Número de tarea</label><div class="staticv">A2.2 (27+28) — 2. Kısım</div></div>
+          <div class="tarow"><label>Tema de la tarea</label><div class="staticv">Condicional Simple</div></div>
+          <div class="tarow"><label>País elegido</label><input class="tin" id="ta-country" placeholder="Örn. España, Italia, Japón…" style="margin-bottom:0" oninput="updateGate()"></div>
+          <div class="tarow"><label>Título de tu texto</label><input class="tin" id="ta-title" placeholder="Yazınızın başlığını yazın…" style="margin-bottom:0" oninput="updateGate()"></div>
+        </div>
+
+        <div class="instr">
+          <div class="instrl">Yönerge</div>
+          Yazınız:
+          <ul>
+            <li>En az <strong>450 kelime</strong> olmalıdır.</li>
+            <li>En az <strong>6 paragraftan</strong> oluşmalıdır.</li>
+            <li><strong>Giriş – gelişme – sonuç</strong> düzeni bulunmalıdır.</li>
+            <li>Bir ülke seçmeli ve <strong>neden o ülkede yaşamak istediğinizi açıkça açıklamalısınız.</strong></li>
+            <li>Yazınızın temel zamanı <strong>Condicional Simple</strong> olmalıdır.</li>
+            <li>En az <strong>15 farklı Condicional Simple fiili</strong> kullanınız.</li>
+            <li>Aynı fiilleri sürekli tekrar etmek yerine farklı fiiller kullanmaya çalışınız.</li>
+            <li>Nerede yaşayacağınızı, nasıl bir evde yaşayacağınızı, ne iş yapacağınızı, günlük hayatınızı, boş zamanlarınızı, kimlerle yaşayacağınızı, kullanacağınız dili/dilleri ve sosyal hayatınızı anlatınız.</li>
+            <li>Hayatınızın <strong>şimdiki hâli ile hayal ettiğiniz hayatı karşılaştırınız.</strong></li>
+            <li>Yalnızca olumlu yönlerden değil, <strong>zor olabilecek taraflardan da</strong> bahsediniz.</li>
+            <li>Görüşlerinizi <strong>nedenlerle ve örneklerle</strong> destekleyiniz.</li>
+            <li>Bağlaçlar ve geçiş ifadeleri kullanınız.</li>
+            <li>Yazım, noktalama, <strong>tilde</strong>, artikel ve fiil çekimlerine dikkat ediniz.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="resw" style="border:none;border-radius:0;box-shadow:none;border-top:1.5px solid var(--c3);margin-bottom:0">
+        <div class="resh" onclick="toggleBox('topicbox')"><h3>🌍 Konu ve Düşünebileceğiniz Sorular</h3><span class="rest" id="topicbox-tog">Gizle</span></div>
+        <div class="resb" id="topicbox">
+          <div class="kural" style="margin:0 0 12px">
+            <div class="kurall">HAYAL EDİN</div>
+            <p>Dünyanın herhangi bir ülkesinde yaşama imkânınız var. <strong>Para, iş veya vize problemi yok.</strong> İstediğiniz ülkeyi seçebilirsiniz.</p>
+            <div class="q">Si pudiera vivir en cualquier país del mundo, ¿dónde viviría y cómo sería mi vida?</div>
+          </div>
+
+          <p style="margin-bottom:10px"><strong>Bu soruların tamamını cevaplamak zorunda değilsiniz.</strong> Bunlar yalnızca yazınızı geliştirmenize yardımcı olmak içindir.</p>
+          <div class="promptgrid" style="padding:0">
+            <div class="promptitem"><strong>¿Qué país elegirías?</strong><br>Hangi ülkeyi seçerdin?</div>
+            <div class="promptitem"><strong>¿Por qué elegirías ese país?</strong><br>Neden o ülkeyi seçerdin?</div>
+            <div class="promptitem"><strong>¿En qué ciudad vivirías?</strong><br>Hangi şehirde yaşardın?</div>
+            <div class="promptitem"><strong>¿Vivirías en una ciudad grande, en un pueblo o cerca del mar?</strong><br>Büyük şehirde mi, küçük bir yerde mi, deniz kenarında mı yaşardın?</div>
+            <div class="promptitem"><strong>¿Cómo sería tu casa?</strong><br>Evin nasıl olurdu?</div>
+            <div class="promptitem"><strong>¿Vivirías solo/a o con alguien?</strong><br>Yalnız mı yoksa biriyle mi yaşardın?</div>
+            <div class="promptitem"><strong>¿Qué trabajo harías?</strong><br>Ne iş yapardın?</div>
+            <div class="promptitem"><strong>¿Trabajarías mucho o intentarías tener más tiempo libre?</strong><br>Çok mu çalışırdın, daha fazla boş zaman mı isterdin?</div>
+            <div class="promptitem"><strong>¿Cómo sería un día normal en tu vida?</strong><br>Normal bir günün nasıl geçerdi?</div>
+            <div class="promptitem"><strong>¿Qué harías por las mañanas?</strong><br>Sabahları ne yapardın?</div>
+            <div class="promptitem"><strong>¿Qué harías los fines de semana?</strong><br>Hafta sonları ne yapardın?</div>
+            <div class="promptitem"><strong>¿Qué lugares visitarías?</strong><br>Hangi yerleri ziyaret ederdin?</div>
+            <div class="promptitem"><strong>¿Qué comida probarías?</strong><br>Hangi yemekleri denerdin?</div>
+            <div class="promptitem"><strong>¿Aprenderías otro idioma?</strong><br>Başka bir dil öğrenir miydin?</div>
+            <div class="promptitem"><strong>¿Cómo conocerías gente nueva?</strong><br>Yeni insanlarla nasıl tanışırdın?</div>
+            <div class="promptitem"><strong>¿Qué cosas de tu vida actual cambiarían?</strong><br>Şu anki hayatında neler değişirdi?</div>
+            <div class="promptitem"><strong>¿Qué echarías de menos de Turquía?</strong><br>Türkiye'den neleri özlerdin?</div>
+            <div class="promptitem"><strong>¿Qué sería difícil para ti?</strong><br>Senin için neler zor olurdu?</div>
+            <div class="promptitem"><strong>¿Serías más feliz allí? ¿Por qué?</strong><br>Orada daha mutlu olur muydun? Neden?</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resw" style="margin:14px 18px 0;box-shadow:none">
+        <div class="resh" onclick="toggleBox('parbox')"><h3>🧩 Yapı — Minimum 6 Paragraf</h3><span class="rest" id="parbox-tog">Gizle</span></div>
+        <div class="resb" id="parbox">
+          <p><strong>1. Paragraf – Introducción</strong><br>Hayal ettiğiniz durumu ve seçtiğiniz ülkeyi tanıtın.<br><em>Si pudiera vivir en cualquier país del mundo, elegiría…</em></p><br>
+          <p><strong>2. Paragraf – El país y la ciudad</strong><br>Neden bu ülkeyi seçtiğinizi, hangi şehir/bölgede ve nasıl bir evde yaşayacağınızı anlatın.<br><em>Viviría en una ciudad pequeña cerca del mar porque me gustaría tener una vida más tranquila.</em></p><br>
+          <p><strong>3. Paragraf – Trabajo y vida cotidiana</strong><br>Mesleğiniz, çalışma saatleriniz, günlük rutininiz, ulaşımınız, insanlar ve hobilerinizden bahsedin.<br><em>Trabajaría desde casa y terminaría de trabajar bastante temprano. Después saldría a caminar…</em></p><br>
+          <p><strong>4. Paragraf – Tiempo libre y experiencias</strong><br>Boş zamanlarınızı, ziyaret edeceğiniz yerleri, öğreneceklerinizi ve kimlerle vakit geçireceğinizi anlatın.<br><em>Los fines de semana viajaría a otras ciudades, probaría platos diferentes y conocería gente nueva.</em></p><br>
+          <p><strong>5. Paragraf – Ventajas y dificultades</strong><br>Yalnızca ideal hayatı değil, zor olabilecek tarafları da anlatın.<br><em>Aunque me encantaría vivir allí, al principio tendría algunas dificultades. Echaría de menos a mi familia…</em></p><br>
+          <p><strong>6. Paragraf – Conclusión</strong><br>Ana düşüncenizi toparlayın ve neden bu hayatı seçeceğinizi farklı ifadelerle yeniden açıklayın.<br><em>En conclusión, si tuviera la oportunidad de empezar una nueva vida en otro país, elegiría… porque…</em></p>
+        </div>
+      </div>
+
+      <div class="resw" style="margin:14px 18px 0;box-shadow:none">
+        <div class="resh" onclick="toggleBox('gbox')"><h3>🧠 Ana Gramer — Condicional Simple</h3><span class="rest" id="gbox-tog">Gizle</span></div>
+        <div class="resb" id="gbox">
+          <div class="kural" style="margin:0 0 12px">
+            <div class="kurall">Infinitivo + terminaciones</div>
+            <div class="q">-ía &nbsp; · &nbsp; -ías &nbsp; · &nbsp; -ía &nbsp; · &nbsp; -íamos &nbsp; · &nbsp; -íais &nbsp; · &nbsp; -ían</div>
+          </div>
+
+          <div class="promptgrid" style="padding:0 0 12px">
+            <div class="promptitem"><strong>vivir → viviría</strong><br>Yaşardım.</div>
+            <div class="promptitem"><strong>trabajar → trabajaría</strong><br>Çalışırdım.</div>
+            <div class="promptitem"><strong>viajar → viajaría</strong><br>Seyahat ederdim.</div>
+            <div class="promptitem"><strong>aprender → aprendería</strong><br>Öğrenirdim.</div>
+            <div class="promptitem"><strong>conocer → conocería</strong><br>Tanışırdım / tanırdım.</div>
+            <div class="promptitem"><strong>comprar → compraría</strong><br>Satın alırdım.</div>
+            <div class="promptitem"><strong>visitar → visitaría</strong><br>Ziyaret ederdim.</div>
+          </div>
+
+          <div class="minihead">⚠️ Düzensiz fiilleri unutmayın</div>
+          <div class="irreggrid">
+            <div class="irregitem"><strong>tener → tendría</strong><br>sahip olurdum</div>
+            <div class="irregitem"><strong>hacer → haría</strong><br>yapardım</div>
+            <div class="irregitem"><strong>poder → podría</strong><br>yapabilirdim</div>
+            <div class="irregitem"><strong>poner → pondría</strong><br>koyardım</div>
+            <div class="irregitem"><strong>salir → saldría</strong><br>çıkardım</div>
+            <div class="irregitem"><strong>venir → vendría</strong><br>gelirdim</div>
+            <div class="irregitem"><strong>decir → diría</strong><br>söylerdim</div>
+            <div class="irregitem"><strong>querer → querría</strong><br>isterdim</div>
+            <div class="irregitem"><strong>saber → sabría</strong><br>bilirdim</div>
+            <div class="irregitem"><strong>haber → habría</strong><br>olurdu / bulunurdu</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="resw" style="margin:14px 18px 0;box-shadow:none">
+        <div class="resh" onclick="toggleBox('diffbox')"><h3>⭐ Önemli Ayrım</h3><span class="rest" id="diffbox-tog">Gizle</span></div>
+        <div class="resb" id="diffbox">
+          <p>Bu ödevde gelecek hakkında kesin bir tahminde bulunmuyorsunuz. Bir <strong>hayal / varsayım / hipotetik durum</strong> anlatıyorsunuz.</p>
+          <div class="badexample">❌ <strong>Viviré en Italia.</strong><br>İtalya'da yaşayacağım. → Gelecek planı veya tahmini gibi anlaşılır.</div>
+          <div class="goodexample">✅ <strong>Viviría en Italia.</strong><br>İtalya'da yaşardım. → Hayal edilen / varsayımsal bir durumu ifade eder.</div>
+        </div>
+      </div>
+
+      <div class="resw" style="margin:14px 18px 0;box-shadow:none">
+        <div class="resh" onclick="toggleBox('sibox')"><h3>⭐ Kullanmanızı İstediğim Yapı</h3><span class="rest" id="sibox-tog">Gizle</span></div>
+        <div class="resb" id="sibox">
+          <div class="kural" style="margin:0 0 12px">
+            <div class="kurall">MODEL</div>
+            <div class="q">Si + Imperfecto de Subjuntivo + Condicional Simple</div>
+          </div>
+          <div class="exmpl">
+            <div class="exmpll">Örnekler</div>
+            <code>Si pudiera vivir en cualquier país, elegiría España.</code><br>
+            Dünyanın herhangi bir ülkesinde yaşayabilseydim İspanya'yı seçerdim.<br><br>
+            <code>Si tuviera más tiempo libre, viajaría mucho.</code><br>
+            Daha fazla boş zamanım olsaydı çok seyahat ederdim.<br><br>
+            <code>Si viviera cerca del mar, saldría a caminar todas las tardes.</code><br>
+            Deniz kenarında yaşasaydım her akşam yürüyüşe çıkardım.<br><br>
+            <code>Si conociera a gente nueva, intentaría practicar el idioma todos los días.</code><br>
+            Yeni insanlarla tanışsaydım dili her gün pratik etmeye çalışırdım.
+          </div>
+          <p>⚠️ Ancak bütün yazınızı <strong>Si… Si… Si…</strong> şeklinde yazmayınız. Condicional Simple’i bağımsız cümlelerde de kullanınız.</p>
+          <div class="goodexample">
+            ✅ Viviría cerca del mar.<br>
+            ✅ Trabajaría menos horas.<br>
+            ✅ Tendría una casa pequeña.<br>
+            ✅ Aprendería otro idioma.<br>
+            ✅ Los fines de semana viajaría.
+          </div>
+        </div>
+      </div>
+
+      <div class="resw" style="margin:14px 18px 0;box-shadow:none">
+        <div class="resh" onclick="toggleBox('cbox')"><h3>🔗 Bağlaç ve Geçiş İfadeleri</h3><span class="rest" id="cbox-tog">Gizle</span></div>
+        <div class="resb" id="cbox">
+          <div class="promptgrid" style="padding:0">
+            <div class="promptitem"><strong>primero</strong><br>öncelikle</div>
+            <div class="promptitem"><strong>además</strong><br>ayrıca</div>
+            <div class="promptitem"><strong>también</strong><br>aynı zamanda</div>
+            <div class="promptitem"><strong>por ejemplo</strong><br>örneğin</div>
+            <div class="promptitem"><strong>por eso</strong><br>bu nedenle</div>
+            <div class="promptitem"><strong>porque</strong><br>çünkü</div>
+            <div class="promptitem"><strong>aunque</strong><br>her ne kadar / rağmen</div>
+            <div class="promptitem"><strong>sin embargo</strong><br>ancak / bununla birlikte</div>
+            <div class="promptitem"><strong>por una parte / por otra parte</strong><br>bir yandan / diğer yandan</div>
+            <div class="promptitem"><strong>en cambio</strong><br>buna karşılık</div>
+            <div class="promptitem"><strong>por esta razón</strong><br>bu nedenle</div>
+            <div class="promptitem"><strong>por supuesto</strong><br>elbette</div>
+            <div class="promptitem"><strong>probablemente</strong><br>muhtemelen</div>
+            <div class="promptitem"><strong>en mi opinión</strong><br>bana göre</div>
+            <div class="promptitem"><strong>finalmente</strong><br>son olarak</div>
+            <div class="promptitem"><strong>en conclusión</strong><br>sonuç olarak</div>
+          </div>
+          <p style="margin-top:10px">⚠️ Aynı bağlacı sürekli tekrar etmeyiniz.</p>
+        </div>
+      </div>
+
+      <div class="kural" style="margin:14px 18px 0">
+        <div class="kurall">🚨 En Önemli Kural</div>
+        Bu bir <strong>soru-cevap ödevi değildir.</strong> Yukarıdaki sorular yalnızca size fikir vermek içindir. Soruları sırayla cevaplayarak kısa yanıtlar vermeyin; birbirine bağlı, doğal ve bütünlüklü paragraflar oluşturun.
+        <div class="badexample">❌ ¿Dónde viviría? Viviría en España.<br>¿Qué trabajo haría? Sería profesora.<br>¿Qué haría los fines de semana? Viajaría.</div>
+        <div class="goodexample">✅ Si pudiera elegir cualquier país del mundo, probablemente viviría en España. Elegiría una ciudad cerca del mar porque siempre me ha gustado llevar una vida tranquila. Trabajaría como profesora, pero intentaría organizar mis horarios de una manera diferente. Así tendría más tiempo para viajar, conocer nuevos lugares y disfrutar de la ciudad…</div>
+      </div>
+
+      <div class="resw" style="margin:14px 18px 0;box-shadow:none">
+        <div class="resh" onclick="toggleBox('rbox')"><h3>📊 Puanlama Cetveli</h3><span class="rest" id="rbox-tog">Gizle</span></div>
+        <div class="resb" id="rbox" style="padding:0;overflow-x:auto">
+          <table class="rubric">
+            <thead><tr><th>Kriter</th><th class="pts">Puan</th></tr></thead>
+            <tbody>
+              <tr><td>İçerik ve konuyu geliştirme</td><td class="pts">20</td></tr>
+              <tr><td>Condicional Simple kullanımı</td><td class="pts">25</td></tr>
+              <tr><td>Organizasyon ve paragraf yapısı</td><td class="pts">15</td></tr>
+              <tr><td>Diğer gramer yapılarının doğruluğu</td><td class="pts">10</td></tr>
+              <tr><td>Kelime bilgisi</td><td class="pts">10</td></tr>
+              <tr><td>Bağlaçlar ve akıcılık</td><td class="pts">10</td></tr>
+              <tr><td>Gerekçelendirme ve kişisel detaylar</td><td class="pts">5</td></tr>
+              <tr><td>Yazım / vurgu / noktalama</td><td class="pts">5</td></tr>
+              <tr><td>TOPLAM</td><td class="pts">100</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="wtitle">✏️ Yazınızı Aşağıya Yazın</div>
+      <textarea class="wta" id="wtext" placeholder="Yazınızı buraya yazınız… (En az 450 kelime, en az 6 paragraf, en az 15 farklı Condicional Simple fiili)" oninput="updateGate()"></textarea>
+
+      <div class="wcbar">
+        <span>Kelime sayısı: <span class="wcnum low" id="wc-num">0</span> / Minimum 450 kelime</span>
+        <span>Paragraf sayısı: <span class="wcnum low" id="pc-num">0</span> / Minimum 6</span>
+        <span>Condicional Simple fiili: <span class="wcnum low" id="cc-num">0</span> / Minimum 15 farklı fiil</span>
+      </div>
+
+      <div class="remind" style="margin:0 18px 16px">
+        <span class="ric">💡</span>
+        <span><strong>Otomatik sayaç notu:</strong> Sistem Condicional Simple biçimlerini yazım üzerinden yaklaşık olarak algılar. Sayaç size yardımcı olmak içindir; fiillerinizi yine de kendiniz kontrol edin. Aynı fiilin tekrarları tek fiil olarak değerlendirilmeye çalışılır.</span>
+      </div>
+
+      <div class="gatebox">
+        <input type="checkbox" id="chk-photo" onchange="updateGate()">
+        <label for="chk-photo">
+          <strong>Ödevimin fotoğrafını çektim / yazımın bir kopyasını aldım.</strong>
+          <div class="warn">⚠️ Bu kutucuğu işaretlemeden teslim butonu aktif olmayacaktır.</div>
+        </label>
+      </div>
+
+      <div class="wnav">
+        <button class="btn bg bf" id="btn-goconfirm" onclick="goToConfirm()" disabled>✔ Yazıyı Tamamladım, Teslim Et</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="screen" id="sc-confirm">
+  <div class="cfw">
+    <div style="font-size:48px;margin-bottom:12px">📋</div>
+    <h2>Ödevi Teslim Et</h2>
+    <div class="ns">⚠️ ÖDEVİNİZ HENÜZ TESLİM EDİLMEDİ</div>
+    <p>Teslim etmeden önce listeden adınızı seçin ve onaylayın.</p>
+
+    <select class="sel" id="cf-sel" style="margin-bottom:16px"><option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Ceren Beker</option>
+      <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
+      <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
+      <option>Zumeyra Dogan</option>
+    </select>
+
+    <button class="btn bg bf" id="cf-btn" onclick="confirmSubmit()">✔ Evet, Teslim Et</button>
+    <div style="margin-top:14px"><button class="btn bo bs" onclick="backToWriting()">← Yazıma Geri Dön</button></div>
+  </div>
+</div>
+
+<div class="screen" id="sc-result">
+  <div class="rw">
+    <div class="rc">
+      <div class="re">🇪🇸</div>
+      <div class="rn" id="rs-name">—</div>
+      <div class="rt">A2.2 · H7 – 27-28. Ders · 2. Kısım · Condicional Simple · Yazma</div>
+      <div class="stb stpnd" id="rs-status">⏳ Gönderiliyor…</div>
+      <div class="rp">Yazınız Profe Hazel'e e-posta ile iletildi. Puanınız değerlendirme sonrasında bildirilecektir.</div>
+
+      <div class="remind" style="margin-top:16px;margin-bottom:0">
+        <span class="ric">📚</span>
+        <span><strong>7. hafta:</strong> 27-28. ders 2. kısım yazma ödevinizi tamamladınız. Condicional Simple’i yalnızca çekim olarak değil, bir düşünceyi ve hayalî durumu geliştirmek için kullanabilmek bu çalışmanın asıl hedefidir. ✅✨</span>
+      </div>
+    </div>
+    <div class="ra"><button class="btn bo" onclick="goName()">🔄 Yeniden Başla</button></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+emailjs.init('xNYEbUQNiWJPvbyoJ');
+const EMAILJS_SERVICE='service_4ee1wh7';
+const EMAILJS_TEMPLATE='template_xjyyxhf';
+const LESSON_NAME='A2.2 – 7. Hafta 27-28. Ders 2. Kısım (Condicional Simple – Yazma Ödevi)';
+
+let student='';
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('sc-'+id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function startWriting(){
+  const s=document.getElementById('name-sel');
+  if(!s.value){alert('Lütfen adınızı seçin!');return;}
+  student=s.value;
+  document.getElementById('ta-name').textContent=student;
+  show('writing');
+  updateGate();
+}
+
+function toggleBox(id){
+  const el=document.getElementById(id);
+  const btn=document.getElementById(id+'-tog');
+  el.classList.toggle('collapsed');
+  btn.textContent=el.classList.contains('collapsed')?'Göster':'Gizle';
+}
+
+function countWords(t){
+  t=t.trim();
+  return t===''?0:t.split(/\s+/).length;
+}
+
+function countParas(t){
+  if(!t.trim()) return 0;
+  return t.split(/\n\s*\n|\n/).map(l=>l.trim()).filter(l=>l.length>0).length;
+}
+
+function stripAccents(s){
+  return s.normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+}
+
+function countConditionalVerbs(text){
+  const cleaned=text.toLowerCase().replace(/[¿?¡!.,;:()"“”'’\[\]{}]/g,' ');
+  const words=cleaned.split(/\s+/).filter(Boolean);
+  const found=new Set();
+
+  const regular=/^[a-záéíóúñü]+(?:aría|arías|aríamos|aríais|arían|ería|erías|eríamos|eríais|erían|iría|irías|iríamos|iríais|irían)$/i;
+
+  const irregularMap={
+    'tendría':'tener','tendrías':'tener','tendríamos':'tener','tendríais':'tener','tendrían':'tener',
+    'haría':'hacer','harías':'hacer','haríamos':'hacer','haríais':'hacer','harían':'hacer',
+    'podría':'poder','podrías':'poder','podríamos':'poder','podríais':'poder','podrían':'poder',
+    'pondría':'poner','pondrías':'poner','pondríamos':'poner','pondríais':'poner','pondrían':'poner',
+    'saldría':'salir','saldrías':'salir','saldríamos':'salir','saldríais':'salir','saldrían':'salir',
+    'vendría':'venir','vendrías':'venir','vendríamos':'venir','vendríais':'venir','vendrían':'venir',
+    'diría':'decir','dirías':'decir','diríamos':'decir','diríais':'decir','dirían':'decir',
+    'querría':'querer','querrías':'querer','querríamos':'querer','querríais':'querer','querrían':'querer',
+    'sabría':'saber','sabrías':'saber','sabríamos':'saber','sabríais':'saber','sabrían':'saber',
+    'habría':'haber','habrías':'haber','habríamos':'haber','habríais':'haber','habrían':'haber',
+    'cabría':'caber','cabrías':'caber','cabríamos':'caber','cabríais':'caber','cabrían':'caber',
+    'valdría':'valer','valdrías':'valer','valdríamos':'valer','valdríais':'valer','valdrían':'valer'
+  };
+
+  words.forEach(w=>{
+    if(irregularMap[w]){
+      found.add(irregularMap[w]);
+      return;
+    }
+    if(regular.test(w)){
+      let base=w;
+      const endings=[
+        ['aríamos','ar'],['aríais','ar'],['arías','ar'],['arían','ar'],['aría','ar'],
+        ['eríamos','er'],['eríais','er'],['erías','er'],['erían','er'],['ería','er'],
+        ['iríamos','ir'],['iríais','ir'],['irías','ir'],['irían','ir'],['iría','ir']
+      ];
+      for(const [end,inf] of endings){
+        if(w.endsWith(end)){
+          base=w.slice(0,-end.length)+inf;
+          break;
+        }
+      }
+      found.add(stripAccents(base));
+    }
+  });
+  return found.size;
+}
+
+function updateGate(){
+  const text=document.getElementById('wtext').value;
+  const wc=countWords(text), pc=countParas(text), cc=countConditionalVerbs(text);
+  const wcEl=document.getElementById('wc-num'), pcEl=document.getElementById('pc-num'), ccEl=document.getElementById('cc-num');
+
+  wcEl.textContent=wc;
+  pcEl.textContent=pc;
+  ccEl.textContent=cc;
+  wcEl.className='wcnum '+(wc>=450?'ok':'low');
+  pcEl.className='wcnum '+(pc>=6?'ok':'low');
+  ccEl.className='wcnum '+(cc>=15?'ok':'low');
+
+  const title=document.getElementById('ta-title').value.trim();
+  const country=document.getElementById('ta-country').value.trim();
+  const checked=document.getElementById('chk-photo').checked;
+  const ready=checked && title.length>0 && country.length>0 && wc>=450 && pc>=6 && cc>=15;
+  document.getElementById('btn-goconfirm').disabled=!ready;
+}
+
+function goToConfirm(){
+  const text=document.getElementById('wtext').value.trim();
+  const title=document.getElementById('ta-title').value.trim();
+  const country=document.getElementById('ta-country').value.trim();
+  const checked=document.getElementById('chk-photo').checked;
+
+  if(!checked){
+    alert('Lütfen önce "Ödevimin fotoğrafını çektim / yazımın bir kopyasını aldım" kutucuğunu işaretleyin.');
+    return;
+  }
+  if(!country){
+    alert('Lütfen seçtiğiniz ülkeyi yazın.');
+    return;
+  }
+  if(!title){
+    alert('Lütfen yazınızın başlığını girin.');
+    return;
+  }
+  if(!text){
+    alert('Lütfen yazınızı tamamlayın.');
+    return;
+  }
+
+  const wc=countWords(text), pc=countParas(text), cc=countConditionalVerbs(text);
+  if(wc<450 || pc<6 || cc<15){
+    alert('Teslim için minimum 450 kelime, minimum 6 paragraf ve minimum 15 farklı Condicional Simple fiili gereklidir. Şu an: '+wc+' kelime, '+pc+' paragraf, '+cc+' farklı Condicional Simple fiili.');
+    return;
+  }
+
+  document.getElementById('cf-sel').value=student;
+  show('confirm');
+}
+
+function backToWriting(){
+  show('writing');
+}
+
+function confirmSubmit(){
+  try{
+    const s=document.getElementById('cf-sel');
+    if(!s||!s.value){alert('Lütfen adınızı seçin!');return;}
+    student=s.value;
+
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=true;b.textContent='⏳ Gönderiliyor…';}
+
+    doSubmit();
+  }catch(e){
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=false;b.textContent='✔ Evet, Teslim Et';}
+    alert('Hata: '+e.message);
+  }
+}
+
+async function doSubmit(){
+  const text=document.getElementById('wtext').value.trim();
+  const title=document.getElementById('ta-title').value.trim();
+  const country=document.getElementById('ta-country').value.trim();
+  const wc=countWords(text), pc=countParas(text), cc=countConditionalVerbs(text);
+
+  const now=new Date();
+  const tarih=now.toLocaleDateString('tr-TR')+' '+now.toLocaleTimeString('tr-TR');
+
+  const fullText=
+    'ÖĞRENCİ: '+student+'\n'+
+    'BAŞLIK: '+title+'\n'+
+    'NÚMERO DE TAREA: A2.2 (27+28) — 2. Kısım\n'+
+    'TEMA: Condicional Simple\n'+
+    'PAÍS ELEGIDO: '+country+'\n'+
+    'KELİME SAYISI: '+wc+'\n'+
+    'PARAGRAF SAYISI: '+pc+'\n'+
+    'FARKLI CONDICIONAL SIMPLE FİİLİ: '+cc+'\n'+
+    'TESLİM TARİHİ: '+tarih+'\n\n'+
+    '--- YAZI ---\n\n'+text;
+
+  document.getElementById('rs-name').textContent=student;
+  show('result');
+
+  const st=document.getElementById('rs-status');
+  st.className='stb stpnd';
+  st.textContent='⏳ Gönderiliyor…';
+
+  try{
+    await emailjs.send(EMAILJS_SERVICE,EMAILJS_TEMPLATE,{
+      student_name:student,
+      lesson:LESSON_NAME,
+      submit_date:tarih,
+      writing_text:fullText,
+      title:title,
+      word_count:wc
+    });
+
+    st.className='stb stok';
+    st.textContent='✅ Yazınız başarıyla gönderildi!';
+  }catch(e){
+    st.className='stb ster';
+    st.textContent='⚠️ Gönderilemedi — internet bağlantınızı kontrol edip tekrar deneyin';
+
+    const b=document.getElementById('cf-btn');
+    if(b){b.disabled=false;b.textContent='✔ Evet, Teslim Et';}
+  }
+}
+
+function goName(){
+  student='';
+  document.getElementById('name-sel').value='';
+  document.getElementById('cf-sel').value='';
+  document.getElementById('ta-title').value='';
+  document.getElementById('ta-country').value='';
+  document.getElementById('wtext').value='';
+  document.getElementById('chk-photo').checked=false;
+  document.getElementById('ta-name').textContent='—';
+
+  const b=document.getElementById('cf-btn');
+  if(b){b.disabled=false;b.textContent='✔ Evet, Teslim Et';}
+
+  updateGate();
+  show('name');
+}
+</script>
+</body>
+</html>

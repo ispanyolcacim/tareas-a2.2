@@ -179,6 +179,10 @@ button.choice:disabled{cursor:default;opacity:.8}
 <body>
 <div class="app">
 
+  <div style="display:flex;justify-content:flex-end;margin-bottom:12px">
+    <button class="navbtn finish" id="topFinishBtn" onclick="showResult()">✔ Etkinliği Bitir</button>
+  </div>
+
   <section class="hero">
     <div class="kicker">A2.2 · 8. Hafta · 31–32. Ders</div>
     <h1>🏁 Gran Final · A1.1 → A2.2</h1>
@@ -219,7 +223,6 @@ button.choice:disabled{cursor:default;opacity:.8}
 
     <div class="nav">
       <button class="navbtn prev" id="prevBtn">← Önceki</button>
-      <button class="navbtn finish" id="finishBtn">✔ Etkinliği Bitir</button>
       <button class="navbtn next" id="nextBtn">Sonraki →</button>
     </div>
   </section>
@@ -256,7 +259,6 @@ const choicesEl=document.getElementById("choices");
 const feedbackEl=document.getElementById("feedback");
 const nextBtn=document.getElementById("nextBtn");
 const prevBtn=document.getElementById("prevBtn");
-const finishBtn=document.getElementById("finishBtn");
 const questionCounter=document.getElementById("questionCounter");
 const scoreCounter=document.getElementById("scoreCounter");
 const progressBar=document.getElementById("progressBar");
@@ -350,7 +352,6 @@ nextBtn.addEventListener("click",()=>{
   }else showResult();
 });
 
-finishBtn.addEventListener("click",showResult);
 
 function showResult(){
   document.getElementById("quizCard").style.display="none";

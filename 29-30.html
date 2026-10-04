@@ -3,191 +3,303 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A2.2 · H8 – 29-30. Ders Ödevi</title>
+<title>A2.2 · H8 – 29-30. Ders</title>
 <style>
-*{box-sizing:border-box}
-:root{--bg:#f5f1ff;--card:#fff;--txt:#29243a;--muted:#746e84;--a:#6a57df;--a2:#9d85ff;--ok:#238a5a;--bad:#d45353;--b:#e8e0ff;--gold:#d0a04c}
-body{margin:0;font-family:Segoe UI,Arial,sans-serif;background:linear-gradient(145deg,#f7f4ff,#fff9ef);color:var(--txt)}
-.header{background:linear-gradient(135deg,#3d306f,#6954c8 58%,#8a72e8);color:white;text-align:center;padding:22px 16px;box-shadow:0 6px 24px rgba(60,45,120,.25)}
-.header .tag{font-size:11px;letter-spacing:1.8px;font-weight:900;text-transform:uppercase;opacity:.9}
-.header h1{margin:7px 0 5px;font-size:clamp(20px,4vw,30px)} .header p{margin:0;font-size:13px;opacity:.92}
-.wrap{max-width:860px;margin:auto;padding:22px 15px 40px}
-.screen{display:none} .screen.active{display:block}
-.panel,.card{background:var(--card);border:1.5px solid var(--b);border-radius:18px;box-shadow:0 5px 18px rgba(85,68,160,.10)}
-.panel{padding:24px} .start{max-width:620px;margin:auto;text-align:center}
-.sel{width:100%;padding:13px 14px;border:2px solid var(--b);border-radius:12px;background:white;margin:15px 0;font-size:15px}
-.info{text-align:left;background:#fbf9ff;border:1px solid var(--b);border-radius:14px;padding:15px;line-height:1.7;font-size:13px}
-.btn{border:0;border-radius:12px;padding:12px 18px;font-weight:900;cursor:pointer}
-.primary{background:linear-gradient(135deg,var(--a),var(--a2));color:white} .outline{background:white;border:2px solid var(--b);color:var(--txt)}
-.full{width:100%}
-.hud{position:sticky;top:0;z-index:5;background:white;border:1.5px solid var(--b);border-radius:15px;padding:11px 13px;display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
-.hud b{font-size:13px} .chips{display:flex;gap:7px;flex-wrap:wrap} .chip{background:#f0ecff;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:850}
-.progress{height:9px;background:#ebe6fa;border-radius:999px;overflow:hidden;margin-bottom:13px} .progress div{height:100%;background:linear-gradient(90deg,var(--a),var(--a2),#d6b166);width:0}
-.section{background:linear-gradient(135deg,#f0ecff,#fff);border:1px solid var(--b);padding:13px 15px;border-radius:14px;margin-bottom:11px}
-.section b{display:block;color:#5844c2;margin-bottom:3px} .section span{font-size:12.5px;color:var(--muted)}
-.card{overflow:hidden} .qhead{padding:17px 17px 12px;display:flex;gap:10px} .num{min-width:34px;height:34px;border-radius:50%;background:var(--a);color:white;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900}
-.qtext{font-size:15px;line-height:1.65;font-weight:750} .opts{display:grid;gap:8px;padding:0 16px 16px}
-.opt{text-align:left;border:1.5px solid var(--b);background:#fbfaff;border-radius:11px;padding:11px 12px;cursor:pointer;font-size:13px;line-height:1.5}
-.opt:hover:not(:disabled){transform:translateX(2px);background:#f3efff} .opt:disabled{cursor:default}
-.opt.ok{background:#eaf7ef;border-color:#86c59f} .opt.er{background:#fff0f0;border-color:#e5a1a1}
-.feedback{display:none;margin:0 16px 16px;background:#f3efff;border-left:4px solid var(--a);padding:12px 13px;border-radius:0 10px 10px 0;font-size:12.5px;line-height:1.7} .feedback.show{display:block}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:13px} .nav span{font-size:12px;color:var(--muted);font-weight:800}
-.confirm,.result{max-width:540px;margin:auto;text-align:center} .score{font-size:64px;font-weight:950;color:var(--a);line-height:1;margin:12px 0}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:16px 0} .box{background:#f5f2ff;border:1px solid var(--b);border-radius:12px;padding:11px} .box b{display:block;font-size:22px} .box span{font-size:11px;color:var(--muted)}
-.status{display:inline-block;padding:8px 14px;border-radius:999px;font-size:12px;font-weight:900} .pending{background:#fff2c9;color:#765817} .saved{background:#e9f7ed;color:#246c40} .failed{background:#fdeaea;color:#994242}
-.warn{background:#fff7e4;border:1px solid #e3c47d;border-radius:12px;padding:12px;margin:13px 0;font-size:13px;color:#715719;font-weight:800}
-@media(max-width:650px){.nav .btn{flex:1}}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c1:#eaf7e6;--c2:#bfe6ac;--c3:#d3ecc9;--c4:#8fcf95;--c5:#559d6a;
+  --dark:#20402a;--mid:#5c7d63;--white:#fff;--green:#3f8f52;--red:#d97070;
+  --gold1:#f5dca0;--gold2:#dcac48;--blue1:#dcedf9;--blue2:#3d7ea6;
+  --purple1:#eee7fb;--purple2:#8167b4;--r:14px
+}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(160deg,#f5fbf1,#eefaf3 60%,#f7fdf3);min-height:100vh;color:var(--dark)}
+button,input,select{font:inherit}
+.header{background:linear-gradient(135deg,var(--c4),var(--c5));padding:18px 20px 14px;text-align:center;box-shadow:0 4px 18px rgba(85,157,106,.35);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 14px,rgba(255,255,255,.1) 14px,rgba(255,255,255,.1) 15px)}
+.htag{display:inline-block;background:rgba(255,255,255,.35);border:1.5px solid rgba(255,255,255,.55);border-radius:20px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:3px 14px;margin-bottom:8px;color:#fff;position:relative}
+.header h1{font-size:clamp(17px,4vw,24px);font-weight:900;color:#fff;position:relative}
+.header-sub{font-size:12px;color:rgba(255,255,255,.92);margin-top:5px;position:relative}
+.screen{display:none;animation:fi .3s ease} .screen.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.wrap{max-width:820px;margin:0 auto;padding:22px 16px 38px}
+.start{max-width:580px;margin:0 auto;text-align:center} .start h2{font-size:22px;margin-bottom:7px}
+.sel{width:100%;padding:13px 16px;font-size:15px;background:#fff;border:2px solid var(--c3);border-radius:var(--r);color:var(--dark);appearance:none;cursor:pointer;margin:16px 0 12px}
+.sel:focus{outline:none;border-color:var(--c4)}
+.weeknote{background:linear-gradient(135deg,#fff9e9,#fffdf6);border:1.5px solid var(--gold2);border-radius:var(--r);padding:15px 16px;margin:12px 0 14px;text-align:left;font-size:13px;line-height:1.7;color:#6b5417}
+.weeknote strong{color:#5d4310}
+.gameinfo{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:15px 16px;text-align:left;font-size:13px;line-height:1.75;margin-bottom:14px}
+.gline{display:flex;gap:9px;align-items:flex-start;margin:5px 0} .dot{width:9px;height:9px;border-radius:50%;background:var(--c4);margin-top:6px;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 22px;border:none;border-radius:var(--r);font-size:14px;font-weight:800;cursor:pointer;transition:.2s}
+.btn:disabled{opacity:.35;cursor:not-allowed} .bm{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;box-shadow:0 4px 12px rgba(85,157,106,.35)} .bm:hover:not(:disabled){transform:translateY(-2px)}
+.bg{background:linear-gradient(135deg,var(--gold1),var(--gold2));color:var(--dark)} .bo{background:#fff;border:2px solid var(--c3);color:var(--dark)} .bf{width:100%} .bs{padding:9px 16px;font-size:12.5px}
+.hud{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);padding:11px 14px;margin-bottom:12px;position:sticky;top:0;z-index:10}
+.student{font-size:13px;font-weight:800} .stats{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.chip{border-radius:20px;padding:5px 10px;font-size:11.5px;font-weight:800} .coin{background:#fff3cf;color:#7d5d13;border:1px solid #e8c970} .badgechip{background:var(--purple1);color:#61478f;border:1px solid #c8b9e7}
+.progress{height:8px;background:var(--c3);border-radius:6px;overflow:hidden;margin-bottom:6px} .progress>div{height:100%;width:0;background:linear-gradient(90deg,var(--c4),var(--c2));transition:.3s}
+.progressmeta{display:flex;justify-content:space-between;font-size:11px;color:var(--mid);margin-bottom:14px}
+.map{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.node{background:#fff;border:1.5px solid var(--c3);border-radius:12px;padding:9px 7px;text-align:center;font-size:10.5px;font-weight:800;color:var(--mid);cursor:pointer}
+.node.active{border-color:var(--c5);background:var(--c1);color:var(--dark);box-shadow:0 2px 10px rgba(85,157,106,.15)} .node.done{background:#eef8ee;color:var(--green)} .node .ico{font-size:19px;display:block;margin-bottom:3px}
+.sectionhead{background:linear-gradient(135deg,var(--blue1),#f6fbff);border:1.5px solid #a8c9dd;border-radius:var(--r);padding:14px 16px;margin-bottom:12px}
+.sectiontag{font-size:10px;letter-spacing:1.4px;text-transform:uppercase;font-weight:900;color:var(--blue2);margin-bottom:3px} .sectionhead h3{font-size:18px;margin-bottom:5px} .sectionhead p{font-size:12.5px;line-height:1.65;color:#365667}
+.card{background:#fff;border:1.5px solid var(--c3);border-radius:var(--r);overflow:hidden;box-shadow:0 3px 14px rgba(143,207,149,.15);margin-bottom:12px}
+.qh{padding:16px 17px 13px;display:flex;gap:11px;align-items:flex-start} .qn{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;min-width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:900} .qt{font-size:14.5px;line-height:1.65;font-weight:700;flex:1}
+.opts{padding:0 16px 14px;display:grid;gap:8px} .opt{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;padding:11px 13px;border:1.5px solid var(--c3);border-radius:10px;background:#f8fcf6;color:var(--dark);cursor:pointer;transition:.18s}
+.opt:hover:not(:disabled){transform:translateX(3px);background:var(--c1)} .opt:disabled{cursor:default} .ol{width:25px;height:25px;border-radius:6px;background:var(--c3);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:900;flex:none}
+.opt.ok{background:#eaf7ec;border-color:#8dcca0} .opt.ok .ol{background:var(--green);color:#fff} .opt.er{background:#fdf0f0;border-color:#e8a0a0} .opt.er .ol{background:var(--red);color:#fff}
+.feedback{display:none;margin:0 16px 15px;border-left:3px solid var(--c2);background:var(--c1);border-radius:0 8px 8px 0;padding:12px 14px;font-size:12.5px;line-height:1.75;color:var(--mid)} .feedback.show{display:block} .feedback p{margin:6px 0} .feedback strong{color:#2f5d38} .flabel{font-size:10px;font-weight:900;letter-spacing:1.2px;text-transform:uppercase;color:#3d7a4c;margin-bottom:4px}
+.nav{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap} .navcenter{font-size:12.5px;color:var(--mid);font-weight:800}
+.confirm,.result{max-width:500px;margin:0 auto;text-align:center} .bigico{font-size:54px;margin-bottom:8px} .panel{background:#fff;border:1.5px solid var(--c3);border-radius:20px;padding:26px 20px;box-shadow:0 6px 24px rgba(143,207,149,.18)} .warn{background:rgba(220,172,72,.16);border:1.5px solid rgba(220,172,72,.55);border-radius:12px;padding:12px 14px;margin:14px 0;font-size:13px;font-weight:800;color:#7b611e}
+.score{font-size:60px;font-weight:900;line-height:1;margin:10px 0 5px} .score small{font-size:22px;color:var(--mid);font-weight:500} .grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0} .resultbox{border:1px solid var(--c3);background:var(--c1);border-radius:10px;padding:10px} .resultbox b{font-size:22px;display:block} .resultbox span{font-size:11px;color:var(--mid)} .status{display:inline-block;margin-top:8px;padding:8px 16px;border-radius:30px;font-size:12.5px;font-weight:800} .pending{background:#fff3cf;color:#7d5d13} .saved{background:#e8f7eb;color:#2d6c3b} .failed{background:#fbe8e8;color:#9b4444}
+@media(max-width:700px){.map{grid-template-columns:1fr 1fr}.hud{grid-template-columns:1fr}.stats{justify-content:flex-start}.nav .btn{flex:1}}
 </style>
 </head>
 <body>
+
 <div class="header">
-  <div class="tag">8. Hafta Ödevi · A2.2 · 29-30. Ders</div>
-  <h1>🇪🇸 A2.2 – Büyük Gramer Analizi</h1>
-  <p>Pluscuamperfecto · Voz Pasiva · Pasiva con SE · Futuro · Condicional · 50 Soru · 100 Puan</p>
+  <div class="htag">8. Hafta Ödevi &nbsp;|&nbsp; A2.2 (29-30. Ders)</div>
+  <h1>🇪🇸 A2.2 – H8 29-30. Ders</h1>
+  <div class="header-sub">Pluscuamperfecto · Voz Pasiva · Pasiva con SE · Futuro Simple · Condicional Simple · 50 Soru · 100 Puan · @ispanyolcacim · Profe Hazel</div>
 </div>
 
-<section class="screen active" id="sc-start"><div class="wrap start"><div class="panel">
-<h2>✨ 8. Hafta · 29–30. Ders Ödevi</h2>
-<p style="color:var(--muted);line-height:1.7">Bu ödevde serbest yazma yoktur. Hedef, A2.2 yapılarının <strong>bağlam içindeki gerçek işlevini</strong> ayırt etmektir.</p>
-<select class="sel" id="studentSel"><option value="">-- Adınızı Seçin --</option><option>Aysen Gurkan</option><option>Begum Senturk</option><option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option><option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Sevde Ozdemir</option><option>Kardelen Kuscu</option><option>Zumeyra Dogan</option></select>
-<div class="info">
-<strong>4 bölüm · 50 soru · 100 puan</strong><br><br>
-① Okuma ve yapı analizi · 15 soru<br>
-② Yapıyı tanı · 10 soru<br>
-③ Neden bu yapı? · 15 soru<br>
-④ Dönüşüm ve hata avı · 10 soru<br><br>
-Her soruya tıkladığınız anda cevap işaretlenir ve açıklama açılır.
-</div>
-<button class="btn primary full" style="margin-top:14px" onclick="startGame()">Başla →</button>
-</div></div></section>
+<section class="screen active" id="sc-start">
+  <div class="wrap start">
+    <h2>🌿 8. Hafta · A2.2 Genel Tekrar</h2>
 
-<section class="screen" id="sc-game"><div class="wrap">
-<div class="hud"><b id="hudStudent">—</b><div class="chips"><span class="chip">⭐ <span id="scoreTop">0</span>/100</span><span class="chip">✅ <span id="answeredTop">0</span>/50</span><button class="btn primary" onclick="openConfirm()">✔ Testi Bitir</button></div></div>
-<div class="progress"><div id="bar"></div></div>
-<div class="section" id="sectionBox"></div>
-<div class="card">
-  <div class="qhead"><div class="num" id="qnum">1</div><div class="qtext" id="qtext"></div></div>
-  <div class="opts" id="opts"></div>
-  <div class="feedback" id="feedback"></div>
-</div>
-<div class="nav">
-<button class="btn outline" onclick="move(-1)">← Önceki</button>
-<span id="navText">Soru 1 / 50</span>
-<button class="btn primary" onclick="move(1)">Sonraki →</button>
-</div>
-</div></section>
+    <select class="sel" id="studentSel">
+      <option value="">-- Adınızı Seçin --</option>
+      <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option><option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Sevde Ozdemir</option><option>Kardelen Kuscu</option><option>Zumeyra Dogan</option>
+    </select>
 
-<section class="screen" id="sc-confirm"><div class="wrap confirm"><div class="panel">
-<div style="font-size:50px">📨</div><h2>Ödevi Teslim Et</h2>
-<div class="warn" id="unfinishedWarn">Cevaplanmayan sorular 0 puan olarak değerlendirilir.</div>
-<select class="sel" id="confirmSel"><option value="">-- Adınızı Yeniden Seçin --</option><option>Aysen Gurkan</option><option>Begum Senturk</option><option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option><option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Sevde Ozdemir</option><option>Kardelen Kuscu</option><option>Zumeyra Dogan</option></select>
-<button class="btn primary full" onclick="submitGame()">✔ Evet, Ödevi Teslim Et</button>
-<button class="btn outline full" style="margin-top:8px" onclick="show('game')">← Ödeve Dön</button>
-</div></div></section>
+    <div class="weeknote">
+      <strong>📢 8. HAFTA — SON HAFTA</strong><br>
+      Bu ödevde A2.2 boyunca öğrendiğimiz konuları birlikte tekrar ediyoruz. Her bölüm farklı bir beceriyi ölçüyor; soruları dikkatle okuyun ve özellikle birbirine benzeyen yapılarda bağlama dikkat edin. 💛
+    </div>
 
-<section class="screen" id="sc-result"><div class="wrap result"><div class="panel">
-<div style="font-size:54px">🏆</div>
-<div id="resultName" style="font-weight:900"></div>
-<div style="font-size:12px;color:var(--muted);margin-top:4px">A2.2 · H8 · 29-30. Ders</div>
-<div class="score" id="resultScore">0/100</div>
-<div class="grid">
-<div class="box"><b id="resCorrect">0</b><span>Doğru</span></div>
-<div class="box"><b id="resWrong">0</b><span>Yanlış</span></div>
-<div class="box"><b id="resBlank">0</b><span>Boş</span></div>
-<div class="box"><b id="resAnswered">0</b><span>Cevaplanan</span></div>
-</div>
-<div class="status pending" id="saveStatus">⏳ Kaydediliyor…</div>
-</div></div></section>
+    <div class="gameinfo">
+      <div class="gline"><span class="dot"></span><span><strong>1. Bölüm:</strong> Karma A2.2 Analizi — 15 soru / 30 puan</span></div>
+      <div class="gline"><span class="dot"></span><span><strong>2. Bölüm:</strong> Yapıyı Tanı — 10 soru / 20 puan</span></div>
+      <div class="gline"><span class="dot"></span><span><strong>3. Bölüm:</strong> Kullanım Mantığı — 15 soru / 30 puan</span></div>
+      <div class="gline"><span class="dot"></span><span><strong>4. Bölüm:</strong> Dönüşüm & Hata Avı — 10 soru / 20 puan</span></div>
+    </div>
+
+    <button class="btn bm bf" onclick="startGame()">Başla →</button>
+  </div>
+</section>
+
+<section class="screen" id="sc-game">
+  <div class="wrap">
+    <div class="hud">
+      <div class="student" id="hudStudent">—</div>
+      <div class="stats">
+        <span class="chip coin">⭐ <span id="scoreTextTop">0</span> / 100 puan</span>
+        <span class="chip badgechip">✅ <span id="answeredText">0</span> / 50 tamamlandı</span>
+        <button class="btn bg bs" type="button" onclick="openConfirm()">✔ Testi Bitir</button>
+      </div>
+    </div>
+
+    <div class="progress"><div id="bar"></div></div>
+    <div class="progressmeta"><span id="progressText">0 / 50 tamamlandı</span><span id="questionText">Soru 1 / 50</span></div>
+    <div class="map" id="sectionMap"></div>
+    <div id="sectionHead"></div>
+    <div id="questionArea"></div>
+
+    <div class="nav">
+      <button class="btn bo bs" id="prevBtn" onclick="move(-1)">← Önceki</button>
+      <div class="navcenter" id="navCenter">Soru 1 / 50</div>
+      <button class="btn bm bs" id="nextBtn" onclick="move(1)">Sonraki →</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="sc-confirm">
+  <div class="wrap confirm">
+    <div class="panel">
+      <div class="bigico">📨</div>
+      <h2>Ödevi Teslim Et</h2>
+      <div class="warn" id="unfinishedWarn">Ödeviniz henüz teslim edilmedi.</div>
+      <p style="font-size:13px;color:var(--mid);line-height:1.65">Teslim etmeden önce adınızı yeniden seçin. Cevaplanmayan sorular <strong>0 puan</strong> olarak değerlendirilecektir.</p>
+      <select class="sel" id="confirmSel">
+        <option value="">-- Adınızı Seçin --</option>
+        <option>Aysen Gurkan</option><option>Begum Senturk</option><option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option><option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Sevde Ozdemir</option><option>Kardelen Kuscu</option><option>Zumeyra Dogan</option>
+      </select>
+      <button class="btn bg bf" onclick="submitGame()">✔ Evet, Ödevi Teslim Et</button>
+      <button class="btn bo bf" style="margin-top:8px" onclick="show('game')">← Ödeve Dön</button>
+    </div>
+  </div>
+</section>
+
+<section class="screen" id="sc-result">
+  <div class="wrap result">
+    <div class="panel">
+      <div class="bigico">🏆</div>
+      <div id="resultName" style="font-weight:800">—</div>
+      <div style="font-size:12px;color:var(--mid);margin-top:3px">A2.2 · H8 · 29-30. Ders</div>
+      <div class="score" id="resultScore">0<small>/100</small></div>
+      <div id="resultMessage" style="font-size:13px;color:var(--mid)"></div>
+      <div class="grid2">
+        <div class="resultbox"><b id="resCorrect">0</b><span>Doğru</span></div>
+        <div class="resultbox"><b id="resWrong">0</b><span>Yanlış</span></div>
+        <div class="resultbox"><b id="resBlank">0</b><span>Boş</span></div>
+        <div class="resultbox"><b id="resAnswered">0</b><span>Cevaplanan</span></div>
+      </div>
+      <div class="status pending" id="saveStatus">⏳ Kaydediliyor…</div>
+    </div>
+  </div>
+</section>
 
 <script>
-const ASU="https://script.google.com/macros/s/AKfycbw-BwEhVOhO6GkkQHNWJA8LQLMkEGwNCtJ3BXSqik1RnzqZLl4a_a3HmYEoIlJAgY4Wkg/exec";
-const SID="1wziyxdRdIGL7OEq4yRib0i_CaCWJGI14fwDyMKB4abw";
-const SHN="A2.2";
-const TCL="H8 \u2013 29-30.Ders";
-const QUESTIONS=[{"q": "Cuando Elena llegó al museo, los técnicos ya ______ las cámaras de seguridad.", "o": ["habían instalado", "instalaron", "instalaban", "instalarán"], "a": 0, "e": "İki geçmiş olay var. Kameraların kurulması, Elena'nın gelişinden daha önce tamamlandığı için Pluscuamperfecto gerekir: habían instalado."}, {"q": "“El edificio fue restaurado en 2019.” cümlesi hangi yapıdır?", "o": ["Pasiva con SE", "SER + participio", "Pluscuamperfecto", "Condicional"], "a": 1, "e": "Fue = SER fiilinin Indefinido çekimi; restaurado = participio. Bu klasik edilgen yapıdır."}, {"q": "“Se venden entradas en la recepción.” cümlesinde neden venden çoğuldur?", "o": ["Çünkü se çoğuldur.", "Çünkü entradas çoğuldur.", "Çünkü recepción çoğuldur.", "Çünkü gelecek zaman kullanılmıştır."], "a": 1, "e": "Pasiva con SE'de fiil pasif özneyle uyum gösterir. Entradas çoğul olduğu için se venden olur."}, {"q": "“Mañana habrá una reunión importante.” cümlesinde habrá hangi zamandır?", "o": ["Pretérito Perfecto", "Futuro Simple", "Condicional Simple", "Pluscuamperfecto"], "a": 1, "e": "Haber fiilinin Futuro Simple biçimi habrá'dır."}, {"q": "“Estará en casa ahora.” burada Futuro Simple hangi işlevdedir?", "o": ["Gelecek plan", "Şimdiki zaman hakkında varsayım", "Geçmiş alışkanlık", "Nazik rica"], "a": 1, "e": "Futuro Simple şimdiki an hakkında tahmin/varsayım için kullanılabilir: Herhalde şu anda evdedir."}, {"q": "“Serían las nueve cuando salió.” cümlesindeki serían ne anlatır?", "o": ["Gelecek", "Geçmiş hakkında yaklaşık tahmin", "Tavsiye", "Hayal"], "a": 1, "e": "Condicional burada geçmişteki saat hakkında belirsizlik/tahmin verir: Herhalde saat dokuz civarıydı."}, {"q": "“Habían sido cerradas las puertas antes de la tormenta.” hangi yapıdır?", "o": ["Pluscuamperfecto pasif", "Futuro pasif", "Pasiva con SE", "Condicional pasif"], "a": 0, "e": "habían sido + participio, Pluscuamperfecto'nun pasif biçimidir."}, {"q": "“La carta será enviada mañana.” cümlesinde zamanı hangi öğe taşır?", "o": ["carta", "será", "enviada", "mañana"], "a": 1, "e": "Pasif yapılarda zaman SER fiilinde görünür. Burada será Futuro Simple'dır."}, {"q": "“Se busca camarero.” doğal Türkçesi hangisidir?", "o": ["Garson kendini arıyor.", "Garson aranıyor.", "Garson arayacak.", "Garson aranmıştı."], "a": 1, "e": "Pasiva con SE ilan dilinde çok yaygındır: Garson aranıyor."}, {"q": "“La directora dijo que abrirían el hotel en junio.” abrirían hangi kullanımdadır?", "o": ["Geçmişin geleceği", "Nazik rica", "Hayal", "Geçmiş tahmini"], "a": 0, "e": "dijo geçmişteki referans noktası; açılma o ana göre gelecekte. Condicional = futuro del pasado."}, {"q": "“Deberías descansar más.” hangi işlevdedir?", "o": ["Tavsiye", "Gelecek", "Geçmiş tahmini", "Pasif"], "a": 0, "e": "Deberías + infinitivo tavsiye vermenin tipik yollarındandır."}, {"q": "“¿Podrías cerrar la ventana?” hangi işlevdedir?", "o": ["Nazik rica", "Hayal", "Geçmişin geleceği", "Tahmin"], "a": 0, "e": "¿Podrías + infinitivo...? yapısı nazik rica oluşturur."}, {"q": "“Me gustaría vivir cerca del mar.” hangi işlevdedir?", "o": ["Arzu/istek", "Kural", "Geçmiş tahmini", "Pasif"], "a": 0, "e": "Me gustaría + infinitivo kişisel istek/arzu ifade eder."}, {"q": "“Podríamos ir en tren.” hangi işlevdedir?", "o": ["Ortak öneri", "Emir", "Geçmiş tahmini", "Pasif"], "a": 0, "e": "Podríamos... ortak öneri verir: Trenle gidebiliriz / gitsek olur."}, {"q": "“Si tuviera más tiempo, viajaría más.” hangi yapı vardır?", "o": ["Gerçek plan", "Varsayımsal durum", "Pasif", "Şimdiki tahmin"], "a": 1, "e": "Si + imperfecto de subjuntivo + condicional, gerçek olmayan/varsayımsal bir durumu anlatır."}, {"q": "“Cuando llegamos, Ana ya había preparado la cena.” ana hedef yapı hangisidir?", "o": ["Pluscuamperfecto", "Pasiva con SE", "Futuro", "Condicional"], "a": 0, "e": "había preparado, başka bir geçmiş eylemden daha önce tamamlanan olayı gösterir."}, {"q": "“Los documentos fueron firmados por el director.” hangi yapı?", "o": ["SER + participio", "Pasiva con SE", "Futuro", "Reflexivo"], "a": 0, "e": "fueron firmados = SER + participio. por el director = agente."}, {"q": "“Se alquilan bicicletas.” hangi yapı?", "o": ["Pasiva con SE", "Pluscuamperfecto", "Condicional", "Activa"], "a": 0, "e": "se + 3. şahıs fiil ve pasif özne: se alquilan bicicletas."}, {"q": "“Mañana tendremos más información.” hangi yapı?", "o": ["Futuro Simple", "Condicional", "Perfecto", "Pasiva"], "a": 0, "e": "tener → tendr- + emos = tendremos."}, {"q": "“Yo no compraría ese coche.” hangi yapı?", "o": ["Condicional Simple", "Futuro Simple", "Pluscuamperfecto", "Pasiva"], "a": 0, "e": "compraría Condicional Simple'dır."}, {"q": "“La sala está siendo renovada.” hangi anlamı verir?", "o": ["Şu anda devam eden pasif süreç", "Geçmişin geçmişi", "Gelecek plan", "Nazik rica"], "a": 0, "e": "estar siendo + participio devam eden pasif eylemi anlatır."}, {"q": "“Se hablan tres idiomas.” neden hablan kullanılır?", "o": ["idiomas çoğul olduğu için", "se çoğul olduğu için", "hablar düzensiz olduğu için", "gelecek olduğu için"], "a": 0, "e": "Pasiva con SE'de fiil pasif özneyle uyum gösterir: tres idiomas → hablan."}, {"q": "“Habrá unas veinte personas.” burada Futuro hangi anlamı verebilir?", "o": ["Şu an/gelecek hakkında tahmin", "Geçmiş alışkanlık", "Nazik rica", "Pasif"], "a": 0, "e": "Futuro Simple tahmin/olasılık da ifade edebilir."}, {"q": "“Tendría unos treinta años.” hangi işlev?", "o": ["Geçmiş hakkında yaklaşık tahmin", "Gelecek", "Emir", "Pasif"], "a": 0, "e": "Condicional geçmişe ilişkin yaklaşık tahmin için kullanılabilir."}, {"q": "“Pensé que sería fácil.” sería neden Condicional?", "o": ["Geçmişteki bir düşünceye göre gelecekteki durum", "Nazik rica", "Hayal", "Pasif"], "a": 0, "e": "Pensé geçmişte; kolay olma değerlendirmesi o ana göre ileride."}, {"q": "“El tren llegará a las ocho.” en uygun açıklama hangisi?", "o": ["Gelecekte gerçekleşmesi beklenen olay", "Geçmiş tahmini", "Nazik rica", "Hayal"], "a": 0, "e": "Futuro Simple burada doğrudan gelecek olayı anlatır."}, {"q": "“¿Dónde está Luis? Estará trabajando.” hangi mantık?", "o": ["Şimdi hakkında varsayım", "Kesin gelecek planı", "Geçmiş tahmini", "Pasif"], "a": 0, "e": "Şimdiki anda Luis'in ne yaptığı bilinmiyor; futuro ile tahmin ediliyor."}, {"q": "“Todos los visitantes deberán mostrar su identificación.” hangi kullanım?", "o": ["Kural/zorunluluk", "Geçmişin geleceği", "Arzu", "Pasif"], "a": 0, "e": "Futuro Simple resmî kural veya talimat tonu verebilir."}, {"q": "“Querría reservar una mesa.” hangi kullanım?", "o": ["Nazik istek", "Geçmiş tahmini", "Gelecek planı", "Pasif"], "a": 0, "e": "Querría daha kibar ve yumuşak bir istek ifade eder."}, {"q": "“Yo en tu lugar hablaría con ella.” hangi kullanım?", "o": ["Tavsiye", "Tahmin", "Rica", "Gelecek"], "a": 0, "e": "Yo en tu lugar... tavsiyenin güçlü göstergesidir."}, {"q": "“Si pudiera elegir, viviría en Sevilla.” hangi kullanım?", "o": ["Hayal/varsayım", "Geçmiş tahmini", "Pasif", "Kural"], "a": 0, "e": "Gerçek olmayan bir seçenek/hayal ifade edilir."}, {"q": "“Habría unas cien personas.” hangi kullanım?", "o": ["Geçmiş hakkında yaklaşık tahmin", "Gelecek planı", "Nazik rica", "Pasif"], "a": 0, "e": "Yaklaşık sayı ve Condicional birlikte geçmiş hakkında tahmin verir."}, {"q": "“Carlos prometió que llamaría.” hangi kullanım?", "o": ["Geçmişin geleceği", "Tavsiye", "Hayal", "Pasiva con SE"], "a": 0, "e": "prometió geçmişte, llamar o ana göre gelecekte."}, {"q": "“La carretera fue cerrada por la policía.” por la policía neyi gösterir?", "o": ["Agente", "Sujeto paciente", "Objeto indirecto", "Zaman"], "a": 0, "e": "Pasif cümlede eylemi yapan por + agente ile gösterilir."}, {"q": "“Se venden pisos.” cümlesinde faili neden görmeyiz?", "o": ["Yapan kişi bilinmiyor/önemsiz", "Fiil geçmiş olduğu için", "Özne olmadığı için", "Cümle yanlış olduğu için"], "a": 0, "e": "Pasiva con SE fail bilgisini geri plana iter."}, {"q": "“La puerta había sido abierta antes.” neden Pluscuamperfecto pasif?", "o": ["Başka bir geçmiş olaydan önce tamamlanmış pasif eylem", "Gelecek tahmini", "Nazik rica", "Hayal"], "a": 0, "e": "había sido abierta: önce tamamlanmış edilgen eylem."}, {"q": "“Será construido el próximo año.” neden futuro pasif?", "o": ["SER futuro + participio", "SE + verbo", "haber + participio", "condicional + infinitivo"], "a": 0, "e": "será SER'in Futuro Simple çekimi, construido participio'dur."}, {"q": "“Se sirven desayunos.” hangisi doğrudur?", "o": ["desayunos çoğul olduğu için sirven", "se çoğul olduğu için sirven", "servir sadece çoğul olur", "gelecek olduğu için"], "a": 0, "e": "Pasiva con SE'de fiil pasif öznenin sayısına uyar."}, {"q": "“Mañana podré ayudarte.” poder fiilinin futuro kökü hangisidir?", "o": ["podr-", "poder-", "puedr-", "pudr-"], "a": 0, "e": "poder → podr-."}, {"q": "“Diría la verdad.” decir fiilinin condicional kökü hangisidir?", "o": ["dir-", "decir-", "dij-", "dic-"], "a": 0, "e": "decir → dir-."}, {"q": "Aktif: “El chef preparó la cena.” Doğru pasif hangisi?", "o": ["La cena fue preparada por el chef.", "La cena se preparó por el chef.", "La cena había preparar.", "La cena será preparó."], "a": 0, "e": "Objeto directo olan la cena pasif özne olur; fue preparada + por el chef."}, {"q": "Tekil → çoğul dönüşüm: “Se vende una casa.”", "o": ["Se venden unas casas.", "Se vende unas casas.", "Se vendes unas casas.", "Se fueron vendidas casas."], "a": 0, "e": "casas çoğul olduğundan fiil de venden olur."}, {"q": "“Cuando llegué, Marta ___.” Önce tamamlanmış eylem için doğru seçenek?", "o": ["ya había salido", "salió mañana", "saldría ahora", "se vende"], "a": 0, "e": "Llegué referans geçmiş noktası; çıkma daha önce tamamlandı: había salido."}, {"q": "Hata hangisinde?", "o": ["Las cartas fueron enviadas.", "La carta fue enviada.", "Las cartas fue enviadas.", "Las puertas serán abiertas."], "a": 2, "e": "Las cartas çoğul olduğu için fueron gerekir, fue değil."}, {"q": "Hata hangisinde?", "o": ["Se vende pan.", "Se venden libros.", "Se alquila apartamentos.", "Se busca personal."], "a": 2, "e": "apartamentos çoğul; doğru biçim se alquilan apartamentos."}, {"q": "“Ahora no contesta. ___ ocupado.” en uygun seçenek?", "o": ["Estará", "Estaría ayer", "Había estado mañana", "Fue estando"], "a": 0, "e": "Şu an hakkında varsayım: Estará ocupado = Herhalde meşguldür."}, {"q": "“Ayer no vino. ___ enfermo.” geçmişe ilişkin tahmin için?", "o": ["Estaría", "Estará mañana", "Fue siendo", "Se estará"], "a": 0, "e": "Condicional geçmiş hakkında tahmin verebilir: Herhalde hastaydı."}, {"q": "“El profesor dijo que el examen ___ difícil.”", "o": ["sería", "será ayer", "había sido mañana", "se sería"], "a": 0, "e": "Geçmişte söylenen, o ana göre gelecekteki durum: sería."}, {"q": "“Si tuviera más dinero, ___ más.”", "o": ["viajaría", "viajaré", "había viajado", "fui viajado"], "a": 0, "e": "Si + imperfecto de subjuntivo → condicional: viajaría."}, {"q": "Hangisi tüm A2.2 mantığını en doğru özetler?", "o": ["Zamanı ve yapıyı bağlam belirler; sadece eki tanımak yetmez.", "Her futuro cümlesi gerçek gelecektir.", "Her condicional cümlesi hayaldir.", "Her se cümlesi reflexivo'dur."], "a": 0, "e": "A2.2'nin ana hedefi biçimi değil, bağlamdaki işlevi ayırt etmektir."}];
+const ASU='https://script.google.com/macros/s/AKfycbw-BwEhVOhO6GkkQHNWJA8LQLMkEGwNCtJ3BXSqik1RnzqZLl4a_a3HmYEoIlJAgY4Wkg/exec';
+const SID='1wziyxdRdIGL7OEq4yRib0i_CaCWJGI14fwDyMKB4abw';
+const SHN='A2.2';
+const TCL='H8 – 29-30.Ders';
 
-let student='', current=0;
-const answers=Array(QUESTIONS.length).fill(null);
+const QUESTIONS=[{"id":1,"section":1,"q":"Cuando Elena llegó al museo, los técnicos ya ______ las cámaras de seguridad.","options":["instalaron","habían instalado","instalaban","instalarán"],"answer":"B","explanation":"<p>İki geçmiş olay var. Kameraların kurulması, Elena'nın gelişinden daha önce tamamlandığı için <strong>Pluscuamperfecto</strong> gerekir.</p><p><strong>habían instalado</strong> = kurmuşlardı.</p>"},{"id":2,"section":1,"q":"“El edificio fue restaurado en 2019.” cümlesi hangi yapıdır?","options":["SER + participio","Condicional","Pluscuamperfecto","Pasiva con SE"],"answer":"A","explanation":"<p><strong>fue</strong> = SER fiilinin Indefinido çekimi, <strong>restaurado</strong> = participio.</p><p>Bu klasik edilgen yapıdır.</p>"},{"id":3,"section":1,"q":"“Se venden entradas en la recepción.” cümlesinde neden <strong>venden</strong> çoğuldur?","options":["Çünkü recepción çoğuldur.","Çünkü entradas çoğuldur.","Çünkü se çoğuldur.","Çünkü gelecek zaman kullanılmıştır."],"answer":"B","explanation":"<p>Pasiva con SE'de fiil pasif özneyle uyum gösterir.</p><p><strong>entradas</strong> çoğul olduğu için <strong>se venden</strong> olur.</p>"},{"id":4,"section":1,"q":"“Mañana habrá una reunión importante.” cümlesinde <strong>habrá</strong> hangi zamandır?","options":["Condicional Simple","Futuro Simple","Pluscuamperfecto","Pretérito Perfecto"],"answer":"B","explanation":"<p><strong>haber → habrá</strong></p><p>Bu Futuro Simple'dır.</p>"},{"id":5,"section":1,"q":"“Estará en casa ahora.” burada Futuro Simple hangi işlevdedir?","options":["Şimdiki zaman hakkında varsayım","Nazik rica","Geçmiş alışkanlık","Gelecek plan"],"answer":"A","explanation":"<p>Futuro Simple yalnızca gelecek anlatmaz.</p><p><strong>Estará en casa ahora.</strong> → Herhalde şu anda evdedir.</p>"},{"id":6,"section":1,"q":"“Serían las nueve cuando salió.” cümlesindeki <strong>serían</strong> ne anlatır?","options":["Tavsiye","Gelecek","Geçmiş hakkında yaklaşık tahmin","Hayal"],"answer":"C","explanation":"<p>Burada Condicional geçmişteki saat hakkında belirsizlik/tahmin verir.</p><p>→ Herhalde saat dokuz civarıydı.</p>"},{"id":7,"section":1,"q":"“Habían sido cerradas las puertas antes de la tormenta.” hangi yapıdır?","options":["Condicional pasif","Pasiva con SE","Pluscuamperfecto pasif","Futuro pasif"],"answer":"C","explanation":"<p><strong>habían sido + participio</strong>, Pluscuamperfecto'nun pasif biçimidir.</p>"},{"id":8,"section":1,"q":"“La carta será enviada mañana.” cümlesinde zamanı hangi öğe taşır?","options":["carta","enviada","mañana","será"],"answer":"D","explanation":"<p>Pasif yapılarda zamanı <strong>SER</strong> taşır.</p><p>Burada <strong>será</strong> Futuro Simple'dır.</p>"},{"id":9,"section":1,"q":"“Se busca camarero.” doğal Türkçesi hangisidir?","options":["Garson arayacak.","Garson aranmıştı.","Garson aranıyor.","Garson kendini arıyor."],"answer":"C","explanation":"<p>Pasiva con SE ilan dilinde çok yaygındır.</p><p><strong>Se busca camarero.</strong> → Garson aranıyor.</p>"},{"id":10,"section":1,"q":"“La directora dijo que abrirían el hotel en junio.” <strong>abrirían</strong> hangi kullanımdadır?","options":["Geçmiş tahmini","Hayal","Geçmişin geleceği","Nazik rica"],"answer":"C","explanation":"<p><strong>dijo</strong> geçmişteki referans noktasıdır; açılma o ana göre gelecektedir.</p><p>Bu yüzden Condicional = <strong>futuro del pasado</strong>.</p>"},{"id":11,"section":1,"q":"“Deberías descansar más.” hangi işlevdedir?","options":["Gelecek","Tavsiye","Geçmiş tahmini","Pasif"],"answer":"B","explanation":"<p><strong>Deberías + infinitivo</strong> tavsiye vermenin tipik yollarındandır.</p>"},{"id":12,"section":1,"q":"“¿Podrías cerrar la ventana?” hangi işlevdedir?","options":["Tahmin","Geçmişin geleceği","Hayal","Nazik rica"],"answer":"D","explanation":"<p><strong>¿Podrías + infinitivo...?</strong> yapısı nazik rica oluşturur.</p>"},{"id":13,"section":1,"q":"“Me gustaría vivir cerca del mar.” hangi işlevdedir?","options":["Pasif","Kural","Geçmiş tahmini","Arzu / istek"],"answer":"D","explanation":"<p><strong>Me gustaría + infinitivo</strong> kişisel istek veya arzu ifade eder.</p>"},{"id":14,"section":1,"q":"“Podríamos ir en tren.” hangi işlevdedir?","options":["Emir","Geçmiş tahmini","Ortak öneri","Pasif"],"answer":"C","explanation":"<p><strong>Podríamos...</strong> ortak öneri verir.</p><p>→ Trenle gidebiliriz / gitsek olur.</p>"},{"id":15,"section":1,"q":"“Si tuviera más tiempo, viajaría más.” hangi yapı vardır?","options":["Şimdiki tahmin","Varsayımsal durum","Pasif","Gerçek plan"],"answer":"B","explanation":"<p><strong>Si + imperfecto de subjuntivo + condicional</strong>, gerçek olmayan / varsayımsal bir durumu anlatır.</p>"},{"id":16,"section":2,"q":"“Cuando llegamos, Ana ya había preparado la cena.” ana hedef yapı hangisidir?","options":["Condicional","Futuro","Pluscuamperfecto","Pasiva con SE"],"answer":"C","explanation":"<p><strong>había preparado</strong>, başka bir geçmiş eylemden daha önce tamamlanan olayı gösterir.</p>"},{"id":17,"section":2,"q":"“Los documentos fueron firmados por el director.” hangi yapı?","options":["SER + participio","Pasiva con SE","Futuro","Reflexivo"],"answer":"A","explanation":"<p><strong>fueron firmados</strong> = SER + participio.</p><p><strong>por el director</strong> = agente.</p>"},{"id":18,"section":2,"q":"“Se alquilan bicicletas.” hangi yapı?","options":["Activa","Pasiva con SE","Pluscuamperfecto","Condicional"],"answer":"B","explanation":"<p><strong>se + 3. şahıs fiil + pasif özne</strong> → Pasiva con SE.</p>"},{"id":19,"section":2,"q":"“Mañana tendremos más información.” hangi yapı?","options":["Pasiva","Perfecto","Condicional","Futuro Simple"],"answer":"D","explanation":"<p><strong>tener → tendr- + emos = tendremos</strong></p>"},{"id":20,"section":2,"q":"“Yo no compraría ese coche.” hangi yapı?","options":["Futuro Simple","Pluscuamperfecto","Pasiva","Condicional Simple"],"answer":"D","explanation":"<p><strong>compraría</strong> Condicional Simple'dır.</p>"},{"id":21,"section":2,"q":"“La sala está siendo renovada.” hangi anlamı verir?","options":["Şu anda devam eden pasif süreç","Nazik rica","Gelecek plan","Geçmişin geçmişi"],"answer":"A","explanation":"<p><strong>estar siendo + participio</strong> devam eden pasif eylemi anlatır.</p>"},{"id":22,"section":2,"q":"“Se hablan tres idiomas.” neden <strong>hablan</strong> kullanılır?","options":["gelecek olduğu için","se çoğul olduğu için","hablar düzensiz olduğu için","idiomas çoğul olduğu için"],"answer":"D","explanation":"<p>Pasiva con SE'de fiil pasif özneyle uyum gösterir.</p><p><strong>tres idiomas → hablan</strong></p>"},{"id":23,"section":2,"q":"“Habrá unas veinte personas.” burada Futuro hangi anlamı verebilir?","options":["Nazik rica","Şu an / gelecek hakkında tahmin","Pasif","Geçmiş alışkanlık"],"answer":"B","explanation":"<p>Futuro Simple tahmin ve olasılık da ifade edebilir.</p>"},{"id":24,"section":2,"q":"“Tendría unos treinta años.” hangi işlev?","options":["Geçmiş hakkında yaklaşık tahmin","Gelecek","Pasif","Emir"],"answer":"A","explanation":"<p>Condicional geçmişe ilişkin yaklaşık tahmin için kullanılabilir.</p>"},{"id":25,"section":2,"q":"“Pensé que sería fácil.” <strong>sería</strong> neden Condicional?","options":["Nazik rica","Pasif","Geçmişteki bir düşünceye göre gelecekteki durum","Hayal"],"answer":"C","explanation":"<p><strong>Pensé</strong> geçmişte; kolay olma değerlendirmesi o ana göre ileridedir.</p>"},{"id":26,"section":3,"q":"“El tren llegará a las ocho.” en uygun açıklama hangisi?","options":["Nazik rica","Gelecekte gerçekleşmesi beklenen olay","Geçmiş tahmini","Hayal"],"answer":"B","explanation":"<p>Futuro Simple burada doğrudan gelecek olayı anlatır.</p>"},{"id":27,"section":3,"q":"“¿Dónde está Luis? Estará trabajando.” hangi mantık?","options":["Şimdi hakkında varsayım","Geçmiş tahmini","Pasif","Kesin gelecek planı"],"answer":"A","explanation":"<p>Şimdiki anda Luis'in ne yaptığı bilinmiyor; Futuro ile tahmin ediliyor.</p>"},{"id":28,"section":3,"q":"“Todos los visitantes deberán mostrar su identificación.” hangi kullanım?","options":["Arzu","Pasif","Kural / zorunluluk","Geçmişin geleceği"],"answer":"C","explanation":"<p>Futuro Simple resmî kural veya talimat tonu verebilir.</p>"},{"id":29,"section":3,"q":"“Querría reservar una mesa.” hangi kullanım?","options":["Geçmiş tahmini","Gelecek planı","Nazik istek","Pasif"],"answer":"C","explanation":"<p><strong>Querría</strong> daha kibar ve yumuşak bir istek ifade eder.</p>"},{"id":30,"section":3,"q":"“Yo en tu lugar hablaría con ella.” hangi kullanım?","options":["Tahmin","Tavsiye","Gelecek","Rica"],"answer":"B","explanation":"<p><strong>Yo en tu lugar...</strong> tavsiyenin güçlü göstergesidir.</p>"},{"id":31,"section":3,"q":"“Si pudiera elegir, viviría en Sevilla.” hangi kullanım?","options":["Geçmiş tahmini","Kural","Pasif","Hayal / varsayım"],"answer":"D","explanation":"<p>Gerçek olmayan bir seçenek / hayal ifade edilir.</p>"},{"id":32,"section":3,"q":"“Habría unas cien personas.” hangi kullanım?","options":["Pasif","Gelecek planı","Geçmiş hakkında yaklaşık tahmin","Nazik rica"],"answer":"C","explanation":"<p>Yaklaşık sayı ve Condicional birlikte geçmiş hakkında tahmin verir.</p>"},{"id":33,"section":3,"q":"“Carlos prometió que llamaría.” hangi kullanım?","options":["Geçmişin geleceği","Hayal","Tavsiye","Pasiva con SE"],"answer":"A","explanation":"<p><strong>prometió</strong> geçmişte, <strong>llamar</strong> o ana göre gelecekte.</p>"},{"id":34,"section":3,"q":"“La carretera fue cerrada por la policía.” <strong>por la policía</strong> neyi gösterir?","options":["Agente","Objeto indirecto","Zaman","Sujeto paciente"],"answer":"A","explanation":"<p>Pasif cümlede eylemi yapan <strong>por + agente</strong> ile gösterilir.</p>"},{"id":35,"section":3,"q":"“Se venden pisos.” cümlesinde faili neden görmeyiz?","options":["Cümle yanlış olduğu için","Fiil geçmiş olduğu için","Özne olmadığı için","Yapan kişi bilinmiyor / önemsiz"],"answer":"D","explanation":"<p>Pasiva con SE fail bilgisini geri plana iter.</p>"},{"id":36,"section":3,"q":"“La puerta había sido abierta antes.” neden Pluscuamperfecto pasif?","options":["Gelecek tahmini","Başka bir geçmiş olaydan önce tamamlanmış pasif eylem","Nazik rica","Hayal"],"answer":"B","explanation":"<p><strong>había sido abierta</strong> önce tamamlanmış edilgen eylemdir.</p>"},{"id":37,"section":3,"q":"“Será construido el próximo año.” neden Futuro pasif?","options":["SER futuro + participio","SE + verbo","condicional + infinitivo","haber + participio"],"answer":"A","explanation":"<p><strong>será</strong> SER'in Futuro Simple çekimi, <strong>construido</strong> participio'dur.</p>"},{"id":38,"section":3,"q":"“Se sirven desayunos.” hangisi doğrudur?","options":["gelecek olduğu için","se çoğul olduğu için sirven","desayunos çoğul olduğu için sirven","servir sadece çoğul olur"],"answer":"C","explanation":"<p>Pasiva con SE'de fiil pasif öznenin sayısına uyar.</p>"},{"id":39,"section":3,"q":"“Mañana podré ayudarte.” <strong>poder</strong> fiilinin Futuro kökü hangisidir?","options":["pudr-","podr-","poder-","puedr-"],"answer":"B","explanation":"<p><strong>poder → podr-</strong></p>"},{"id":40,"section":3,"q":"“Diría la verdad.” <strong>decir</strong> fiilinin Condicional kökü hangisidir?","options":["dir-","dic-","decir-","dij-"],"answer":"A","explanation":"<p><strong>decir → dir-</strong></p>"},{"id":41,"section":4,"q":"Aktif: “El chef preparó la cena.” Doğru pasif hangisi?","options":["La cena había preparar.","La cena se preparó por el chef.","La cena fue preparada por el chef.","La cena será preparó."],"answer":"C","explanation":"<p>Objeto directo olan <strong>la cena</strong> pasif özne olur.</p><p><strong>fue preparada + por el chef</strong></p>"},{"id":42,"section":4,"q":"Tekil → çoğul dönüşüm: “Se vende una casa.”","options":["Se venden unas casas.","Se fueron vendidas casas.","Se vende unas casas.","Se vendes unas casas."],"answer":"A","explanation":"<p><strong>casas</strong> çoğul olduğundan fiil de <strong>venden</strong> olur.</p>"},{"id":43,"section":4,"q":"“Cuando llegué, Marta ___.” Önce tamamlanmış eylem için doğru seçenek?","options":["salió mañana","se vende","saldría ahora","ya había salido"],"answer":"D","explanation":"<p><strong>Llegué</strong> referans geçmiş noktasıdır; çıkma daha önce tamamlanmıştır.</p><p>→ <strong>había salido</strong></p>"},{"id":44,"section":4,"q":"Hata hangisinde?","options":["La carta fue enviada.","Las cartas fue enviadas.","Las cartas fueron enviadas.","Las puertas serán abiertas."],"answer":"B","explanation":"<p><strong>Las cartas</strong> çoğul olduğu için <strong>fueron</strong> gerekir.</p>"},{"id":45,"section":4,"q":"Hata hangisinde?","options":["Se alquila apartamentos.","Se vende pan.","Se venden libros.","Se busca personal."],"answer":"A","explanation":"<p><strong>apartamentos</strong> çoğul; doğru biçim <strong>se alquilan apartamentos</strong>.</p>"},{"id":46,"section":4,"q":"“Ahora no contesta. ___ ocupado.” en uygun seçenek?","options":["Estaría ayer","Fue estando","Había estado mañana","Estará"],"answer":"D","explanation":"<p>Şu an hakkında varsayım:</p><p><strong>Estará ocupado.</strong> → Herhalde meşguldür.</p>"},{"id":47,"section":4,"q":"“Ayer no vino. ___ enfermo.” geçmişe ilişkin tahmin için?","options":["Fue siendo","Estaría","Se estará","Estará mañana"],"answer":"B","explanation":"<p>Condicional geçmiş hakkında tahmin verebilir.</p><p><strong>Estaría enfermo.</strong> → Herhalde hastaydı.</p>"},{"id":48,"section":4,"q":"“El profesor dijo que el examen ___ difícil.”","options":["sería","había sido mañana","será ayer","se sería"],"answer":"A","explanation":"<p>Geçmişte söylenen, o ana göre gelecekteki durum: <strong>sería</strong>.</p>"},{"id":49,"section":4,"q":"“Si tuviera más dinero, ___ más.”","options":["fui viajado","viajaré","había viajado","viajaría"],"answer":"D","explanation":"<p><strong>Si + imperfecto de subjuntivo → condicional</strong></p><p>→ <strong>viajaría</strong></p>"},{"id":50,"section":4,"q":"Hangisi A2.2 yapıları için en doğru yaklaşımdır?","options":["Her Condicional cümlesi hayaldir.","Her se cümlesi reflexivo'dur.","Her Futuro cümlesi gerçek gelecektir.","Zamanı ve yapıyı bağlam belirler; sadece eki tanımak yetmez."],"answer":"D","explanation":"<p>A2.2'de aynı biçim farklı bağlamlarda farklı işlevler taşıyabilir.</p><p>Bu nedenle kullanım amacı her zaman cümlenin bağlamıyla birlikte değerlendirilmelidir.</p>"}];
 
-const sections=[
-  [1,15,"1 · Lectura + análisis","Bağlamı okuyun; hangi yapının neden kullanıldığını ayırt edin."],
-  [16,25,"2 · Detecta la estructura","Cümledeki temel A2.2 yapısını tanıyın."],
-  [26,40,"3 · ¿Por qué se usa?","Aynı çekimin farklı işlevlerini bağlama göre ayırt edin."],
-  [41,50,"4 · Transformación y corrección","Pasif, SE, zaman sıralaması ve Futuro–Condicional ayrımında hata avı."]
-];
+const SECTION_INFO={
+  1:{icon:'📚',name:'KARMA A2.2 ANALİZİ',sub:'Pluscuamperfecto, pasif yapılar, Futuro ve Condicional aynı bölümde birlikte.'},
+  2:{icon:'🔎',name:'YAPIYI TANI',sub:'Cümlede kullanılan temel A2.2 yapısını doğru belirleyin.'},
+  3:{icon:'🧠',name:'KULLANIM MANTIĞI',sub:'Aynı zamanların farklı kullanım alanlarını bağlama göre ayırt edin.'},
+  4:{icon:'🛠️',name:'DÖNÜŞÜM & HATA AVI',sub:'Doğru yapıyı seçin; uyum ve zaman hatalarını yakalayın.'}
+};
 
-function show(x){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById('sc-'+x).classList.add('active');
+let student='',current=0;
+let state={};
+
+function show(name){
+  document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'));
+  document.getElementById('sc-'+name).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
 }
+
 function startGame(){
   student=document.getElementById('studentSel').value;
   if(!student){alert('Lütfen adınızı seçin.');return}
-  document.getElementById('hudStudent').textContent=student;
-  current=0; show('game'); render();
+  document.getElementById('hudStudent').textContent='👤 '+student;
+  document.getElementById('confirmSel').value=student;
+  show('game'); render();
 }
-function secInfo(n){
-  return sections.find(s=>n>=s[0]&&n<=s[1]);
-}
-function stats(){
-  let correct=0, answered=0;
-  answers.forEach((x,i)=>{if(x!==null){answered++; if(x===QUESTIONS[i].a)correct++;}});
-  return {correct,answered,wrong:answered-correct,blank:QUESTIONS.length-answered,score:correct*2};
-}
-function render(){
-  const q=QUESTIONS[current], no=current+1, s=secInfo(no), st=stats();
-  document.getElementById('qnum').textContent=no;
-  document.getElementById('qtext').textContent=q.q;
-  document.getElementById('navText').textContent=`Soru ${no} / ${QUESTIONS.length}`;
-  document.getElementById('sectionBox').innerHTML=`<b>${s[2]}</b><span>${s[3]}</span>`;
-  document.getElementById('scoreTop').textContent=st.score;
-  document.getElementById('answeredTop').textContent=st.answered;
-  document.getElementById('bar').style.width=`${st.answered/QUESTIONS.length*100}%`;
 
-  const box=document.getElementById('opts'); box.innerHTML='';
-  q.o.forEach((opt,i)=>{
-    const b=document.createElement('button'); b.className='opt'; b.textContent=String.fromCharCode(65+i)+') '+opt;
-    if(answers[current]!==null){
-      b.disabled=true;
-      if(i===q.a)b.classList.add('ok');
-      if(i===answers[current] && i!==q.a)b.classList.add('er');
-    }
-    b.onclick=()=>answer(i); box.appendChild(b);
+function isAnswered(id){return !!state[id]?.answered}
+
+function getStats(){
+  let answered=0,correct=0,wrong=0;
+  QUESTIONS.forEach(q=>{
+    const s=state[q.id];
+    if(s?.answered){answered++; if(s.correct)correct++; else wrong++;}
   });
-  const fb=document.getElementById('feedback');
-  if(answers[current]!==null){
-    const ok=answers[current]===q.a;
-    fb.innerHTML=`<strong>${ok?'✅ Doğru!':'❌ Bu kez değil.'}</strong><br>${q.e}`;
-    fb.classList.add('show');
-  } else {fb.classList.remove('show');fb.innerHTML='';}
+  return {answered,correct,wrong,blank:50-answered,score:correct*2};
 }
-function answer(i){
-  if(answers[current]!==null)return;
-  answers[current]=i; render();
+
+function updateHud(){
+  const t=getStats();
+  document.getElementById('scoreTextTop').textContent=t.score;
+  document.getElementById('answeredText').textContent=t.answered;
+  document.getElementById('progressText').textContent=t.answered+' / 50 tamamlandı';
+  document.getElementById('bar').style.width=(t.answered/50*100)+'%';
 }
+
+function renderMap(){
+  const sec=QUESTIONS[current].section;
+  let h='';
+  for(let s=1;s<=4;s++){
+    const qs=QUESTIONS.filter(q=>q.section===s);
+    const done=qs.every(q=>isAnswered(q.id));
+    h+=`<div class="node ${s===sec?'active':''} ${done?'done':''}" onclick="jumpSection(${s})"><span class="ico">${SECTION_INFO[s].icon}</span>${s}. Bölüm</div>`;
+  }
+  document.getElementById('sectionMap').innerHTML=h;
+}
+
+function jumpSection(sec){
+  const idx=QUESTIONS.findIndex(q=>q.section===sec);
+  if(idx>=0){current=idx;render();}
+}
+
+function renderHead(sec){
+  const i=SECTION_INFO[sec];
+  document.getElementById('sectionHead').innerHTML=`<div class="sectionhead"><div class="sectiontag">BÖLÜM ${sec} / 4</div><h3>${i.icon} ${i.name}</h3><p>${i.sub}</p></div>`;
+}
+
+function render(){
+  updateHud(); renderMap();
+  const q=QUESTIONS[current];
+  renderHead(q.section);
+  document.getElementById('questionText').textContent='Soru '+q.id+' / 50';
+  document.getElementById('navCenter').textContent='Soru '+q.id+' / 50';
+  document.getElementById('prevBtn').disabled=current===0;
+  document.getElementById('nextBtn').textContent=current===49?'Teslime Geç →':'Sonraki →';
+
+  let h=`<div class="card"><div class="qh"><div class="qn">${q.id}</div><div class="qt">${q.q}</div></div><div class="opts">`;
+  const letters=['A','B','C','D'];
+  q.options.forEach((o,i)=>{
+    h+=`<button class="opt" data-i="${i}" onclick="answerMC(${q.id},${i})"><span class="ol">${letters[i]}</span><span>${o}</span></button>`;
+  });
+  h+=`</div><div class="feedback" id="fb"><div class="flabel">💡 PROFE HAZEL AÇIKLIYOR</div>${q.explanation}</div></div>`;
+  document.getElementById('questionArea').innerHTML=h;
+
+  const s=state[q.id];
+  if(s?.answered){
+    document.querySelectorAll('.opt').forEach((b,i)=>{
+      b.disabled=true;
+      if(letters[i]===q.answer)b.classList.add('ok');
+      else if(i===s.choice)b.classList.add('er');
+    });
+    document.getElementById('fb').classList.add('show');
+  }
+}
+
+function answerMC(id,i){
+  const q=QUESTIONS.find(x=>x.id===id);
+  if(state[id]?.answered)return;
+  const letters=['A','B','C','D'];
+  const correct=letters[i]===q.answer;
+  state[id]={answered:true,correct,choice:i};
+  document.querySelectorAll('.opt').forEach((b,idx)=>{
+    b.disabled=true;
+    if(letters[idx]===q.answer)b.classList.add('ok');
+    else if(idx===i)b.classList.add('er');
+  });
+  document.getElementById('fb').classList.add('show');
+  updateHud(); renderMap();
+}
+
 function move(d){
-  current=Math.max(0,Math.min(QUESTIONS.length-1,current+d)); render(); window.scrollTo({top:0,behavior:'smooth'});
+  if(d>0 && current===49){openConfirm();return}
+  const ni=current+d;
+  if(ni<0||ni>=50)return;
+  current=ni;render();window.scrollTo({top:0,behavior:'smooth'});
 }
+
 function openConfirm(){
-  const st=stats();
-  document.getElementById('unfinishedWarn').textContent=st.blank?`${st.blank} soru boş. Boş sorular 0 puan sayılır.`:'Tüm sorular cevaplandı. Teslime hazırsınız.';
+  const t=getStats();
+  document.getElementById('unfinishedWarn').textContent=t.blank?`${t.blank} soru boş. Boş sorular 0 puan sayılır.`:'Tüm sorular cevaplandı. Teslime hazırsınız.';
   show('confirm');
 }
+
 async function submitGame(){
   const s2=document.getElementById('confirmSel').value;
   if(!s2){alert('Lütfen adınızı seçin.');return}
   if(s2!==student){alert('Başlangıçta seçtiğiniz ad ile teslim ekranındaki ad aynı olmalıdır.');return}
-  const t=stats();
+
+  const t=getStats();
   document.getElementById('resultName').textContent=student;
-  document.getElementById('resultScore').textContent=t.score+'/100';
+  document.getElementById('resultScore').innerHTML=t.score+'<small>/100</small>';
   document.getElementById('resCorrect').textContent=t.correct;
   document.getElementById('resWrong').textContent=t.wrong;
   document.getElementById('resBlank').textContent=t.blank;
   document.getElementById('resAnswered').textContent=t.answered;
+
+  document.getElementById('resultMessage').textContent=
+    t.score>=90?'A2.2 konularını çok güçlü biçimde tamamladınız. 🌟':
+    t.score>=75?'Çok iyi! Yanlış yaptığınız soruların açıklamalarını yeniden okuyun. 💛':
+    t.score>=60?'Temel yapıların çoğu oturmuş. Karıştırdığınız bölümleri tekrar edin. 🌿':
+    'A2.2 özetini yeniden gözden geçirip açıklamaları dikkatle tekrar edin. 📚';
+
   show('result');
+
   const el=document.getElementById('saveStatus');
-  el.className='status pending';el.textContent='⏳ Kaydediliyor…';
+  el.className='status pending';
+  el.textContent='⏳ Kaydediliyor…';
 
   const now=new Date();
   const dd=String(now.getDate()).padStart(2,'0');
@@ -200,7 +312,8 @@ async function submitGame(){
 
   try{
     await fetch(ASU,{
-      method:'POST',mode:'no-cors',
+      method:'POST',
+      mode:'no-cors',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
         spreadsheetId:SID,
@@ -215,7 +328,7 @@ async function submitGame(){
       })
     });
     el.className='status saved';
-    el.textContent='✅ Ödev gönderildi ve H8 – 29-30.Ders sütununa kaydedildi!';
+    el.textContent='✅ Ödev gönderildi!';
   }catch(e){
     el.className='status failed';
     el.textContent='⚠️ Kaydedilemedi — Profeye bildirin';

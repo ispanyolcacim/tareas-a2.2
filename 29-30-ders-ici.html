@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A2.2 — El expediente secreto | 29-30. Ders</title>
+<style>
+:root{
+  --bg:#f4f0ff;
+  --card:#ffffff;
+  --text:#252238;
+  --muted:#6d687f;
+  --accent:#6f5ae8;
+  --accent2:#9a82ff;
+  --gold:#c8993b;
+  --ok:#1f9d65;
+  --bad:#d64545;
+  --border:#e8e1ff;
+  --shadow:0 18px 45px rgba(79,58,155,.14);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top left,#ece5ff 0,transparent 32%),
+    radial-gradient(circle at bottom right,#fff0dc 0,transparent 28%),
+    linear-gradient(135deg,#f7f4ff,#f6f1ff 45%,#fffaf1);
+  padding:24px;
+}
+.app{width:min(1040px,100%);margin:0 auto}
+.hero{
+  background:linear-gradient(135deg,#332866,#5b47b7 52%,#7c65df);
+  color:#fff;
+  border-radius:30px;
+  padding:28px 30px;
+  box-shadow:var(--shadow);
+  margin-bottom:18px;
+  position:relative;
+  overflow:hidden;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;
+  right:-70px;top:-80px;
+}
+.kicker{font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;opacity:.88}
+.hero h1{margin:8px 0 8px;font-size:clamp(28px,5vw,48px);line-height:1}
+.hero p{margin:0;max-width:760px;line-height:1.65;color:#ece7ff;font-weight:650}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.meta span{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  padding:7px 11px;border-radius:999px;
+  font-size:13px;font-weight:800
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  border-radius:28px;
+  padding:clamp(20px,4vw,38px);
+}
+.progress-wrap{margin-bottom:22px}
+.progress-info{
+  display:flex;justify-content:space-between;gap:16px;
+  margin-bottom:9px;font-weight:900;font-size:14px
+}
+.progress{height:12px;background:#eee9ff;border-radius:999px;overflow:hidden}
+.progress>div{
+  height:100%;width:0;
+  background:linear-gradient(90deg,var(--accent),var(--accent2),#d7b66f);
+  transition:width .25s ease
+}
+.case-head{
+  display:flex;justify-content:space-between;gap:12px;align-items:center;
+  flex-wrap:wrap;margin-bottom:18px
+}
+.section-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#f0ecff;color:#5847c8;
+  padding:8px 12px;border-radius:999px;
+  font-size:13px;font-weight:900
+}
+.case-no{font-size:13px;color:var(--muted);font-weight:850}
+.story{
+  background:linear-gradient(180deg,#fffdfa,#fff);
+  border:1px solid #efe7d5;
+  border-left:5px solid var(--gold);
+  border-radius:18px;
+  padding:18px 20px;
+  margin-bottom:22px;
+  line-height:1.7;
+  color:#4c465a;
+  font-weight:650
+}
+.question{
+  font-size:clamp(22px,3.5vw,34px);
+  line-height:1.35;
+  font-weight:950;
+  margin:8px 0 10px;
+}
+.instruction{color:var(--muted);font-weight:750;margin-bottom:18px}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+button.choice{
+  border:2px solid var(--border);
+  background:#fff;color:var(--text);
+  border-radius:18px;padding:15px 14px;
+  min-height:64px;
+  font-size:15px;font-weight:850;
+  cursor:pointer;transition:.16s ease;
+  text-align:left
+}
+button.choice:hover:not(:disabled){
+  transform:translateY(-2px);
+  border-color:#b8adff;
+  background:#fbfaff
+}
+button.choice.correct{border-color:var(--ok);background:#eaf8f1;color:#176b49}
+button.choice.wrong{border-color:var(--bad);background:#fff0f0;color:#9d2f2f}
+button.choice:disabled{cursor:default;opacity:.8}
+.feedback{
+  display:none;
+  margin-top:22px;
+  border-radius:20px;
+  padding:20px;
+  border:1px solid var(--border);
+  background:#faf9ff
+}
+.feedback.show{display:block}
+.feedback h3{margin:0 0 10px;font-size:22px}
+.feedback p{margin:8px 0;line-height:1.65;color:#49435b}
+.translation{
+  background:#fff;
+  border:1px dashed #d8d0ff;
+  border-radius:14px;
+  padding:12px 14px;
+  margin:12px 0;
+  font-weight:800
+}
+.rule{
+  background:#f2efff;
+  border-radius:14px;
+  padding:12px 14px;
+  font-weight:850;
+  margin-top:12px
+}
+.clue{
+  margin-top:10px;
+  color:#7a5c22;
+  background:#fff8e8;
+  border:1px solid #f1dfb4;
+  padding:11px 13px;
+  border-radius:14px;
+  font-weight:800
+}
+.nav{display:flex;justify-content:flex-end;margin-top:20px}
+.next{
+  display:none;border:none;border-radius:16px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:#fff;padding:14px 20px;
+  font-size:16px;font-weight:950;cursor:pointer
+}
+.next.show{display:inline-block}
+.result{display:none;text-align:center}
+.result.show{display:block}
+.score{font-size:clamp(48px,8vw,82px);font-weight:1000;color:#604ddc;margin:6px 0}
+.final-code{
+  margin:22px auto 8px;
+  max-width:620px;
+  background:#2e2851;
+  color:#fff;
+  border-radius:22px;
+  padding:20px
+}
+.final-code .lock{font-size:32px}
+.final-code strong{font-size:22px}
+.summary{margin:24px auto 0;text-align:left;max-width:760px}
+.summary-row{
+  display:flex;justify-content:space-between;gap:18px;
+  padding:12px 0;border-bottom:1px solid #eeeaf8;
+  font-weight:800
+}
+.restart{
+  margin-top:26px;border:none;border-radius:16px;
+  background:#25223a;color:#fff;
+  padding:14px 22px;font-size:16px;font-weight:900;cursor:pointer
+}
+.footer{
+  text-align:center;color:#726d80;font-weight:700;font-size:13px;
+  margin:16px 0 4px
+}
+@media(max-width:720px){
+  body{padding:14px}
+  .choices{grid-template-columns:1fr}
+  .hero{padding:24px 22px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <section class="hero">
+    <div class="kicker">A2.2 · 8. Hafta · 29–30. Ders</div>
+    <h1>🕵️ El expediente secreto</h1>
+    <p>
+      Eski bir otel yeniden açılmak üzere. Fakat arşivden çıkan belgeler, eski haberler,
+      kayıp eşyalar ve kasaba halkının ifadeleri geçmişte ne olduğunu anlamayı zorlaştırıyor.
+      Dosyayı çözmek için A2.2 konularının hepsini kullanmalısınız.
+    </p>
+    <div class="meta">
+      <span>⏮️ Pluscuamperfecto</span>
+      <span>📰 Voz Pasiva</span>
+      <span>🧾 Pasiva con SE</span>
+      <span>🔮 Futuro Simple</span>
+      <span>💭 Condicional Simple</span>
+      <span>30 görev</span>
+    </div>
+  </section>
+
+  <section class="card" id="quizCard">
+    <div class="progress-wrap">
+      <div class="progress-info">
+        <span id="questionCounter">Görev 1 / 30</span>
+        <span id="scoreCounter">Doğru: 0</span>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+    </div>
+
+    <div class="case-head">
+      <div class="section-badge" id="sectionBadge"></div>
+      <div class="case-no" id="caseNo"></div>
+    </div>
+
+    <div class="story" id="story"></div>
+
+    <div class="question" id="question"></div>
+    <div class="instruction">Doğru seçeneği işaretleyin. Cevabınızdan sonra ayrıntılı açıklama açılır.</div>
+
+    <div class="choices" id="choices"></div>
+
+    <div class="feedback" id="feedback"></div>
+
+    <div class="nav">
+      <button class="next" id="nextBtn">Sonraki Görev →</button>
+    </div>
+  </section>
+
+  <section class="card result" id="resultCard">
+    <div class="section-badge">DOSYA KAPANDI 🎉</div>
+    <h2>A2.2 Dil Dedektifliği Sonucu</h2>
+    <div class="score" id="finalScore"></div>
+    <p id="finalMessage" style="font-size:18px;color:#5f5b73;font-weight:750"></p>
+
+    <div class="final-code">
+      <div class="lock">🔐</div>
+      <div style="margin:8px 0">EL CÓDIGO FINAL</div>
+      <strong id="finalCodeText">A2.2 RESUELTO</strong>
+    </div>
+
+    <div class="summary" id="summary"></div>
+    <button class="restart" onclick="restartQuiz()">🔄 Dosyayı Baştan Aç</button>
+  </section>
+
+  <div class="footer">@ispanyolcacim · Profe Hazel</div>
+</div>
+
+<script>
+const sections = {
+  P: {label:"1 · ¿Qué había pasado antes?", icon:"⏮️", topic:"Pluscuamperfecto"},
+  V: {label:"2 · La noticia", icon:"📰", topic:"Voz Pasiva"},
+  S: {label:"3 · Los anuncios del pueblo", icon:"🧾", topic:"Pasiva con SE"},
+  F: {label:"4 · ¿Qué pasará ahora?", icon:"🔮", topic:"Futuro Simple"},
+  C: {label:"5 · ¿Qué harías tú?", icon:"💭", topic:"Condicional Simple"}
+};
+
+const questions = [
+{
+ sec:"P",
+ story:"El Hotel Mirador llevaba cerrado desde 2012. Cuando la nueva directora entró al despacho principal, encontró una taza de café seca, una ventana abierta y varios documentos en el suelo.",
+ q:"Cuando la directora llegó, alguien ya ________ los documentos del archivo.",
+ opts:["había sacado","sacó","sacaba","sacará"],
+ a:0,
+ tr:"Müdür geldiğinde birisi arşivdeki belgeleri çoktan çıkarmıştı.",
+ exp:"İki geçmiş eylem var. Belgelerin çıkarılması, müdürün gelmesinden DAHA ÖNCE gerçekleşiyor. Bu yüzden geçmişin geçmişi olan Pluscuamperfecto gerekir.",
+ rule:"había + participio → había sacado",
+ clue:"İpucu: Önce belgeler çıkarıldı, sonra müdür geldi."
+},
+{
+ sec:"P",
+ story:"El guardia recordó que la noche anterior había oído un ruido en el segundo piso, aunque el hotel estaba oficialmente vacío.",
+ q:"¿Qué acción ocurrió primero?",
+ opts:["El guardia recordó el hecho.","El guardia oyó un ruido.","El hotel abrió de nuevo.","La directora encontró los documentos."],
+ a:1,
+ tr:"Bekçi olayı hatırlamadan önce sesi duymuştu.",
+ exp:"“Había oído” daha önce gerçekleşen eylemi, “recordó” ise daha sonraki geçmiş eylemi gösterir.",
+ rule:"Pluscuamperfecto = geçmişte başka bir geçmiş eylemden daha önce olan olay",
+ clue:"İpucu: había oído → daha eski geçmiş."
+},
+{
+ sec:"P",
+ story:"En el sótano apareció una caja con fotografías. Nadie sabía cómo había llegado allí.",
+ q:"La frase “había llegado” expresa…",
+ opts:["un plan futuro","una acción anterior a otro momento pasado","una rutina del pasado","una petición cortés"],
+ a:1,
+ tr:"“Había llegado” geçmişteki başka bir ana göre daha önce gerçekleşmiş bir eylemi anlatır.",
+ exp:"Kutu bulunduğunda oraya gelme eylemi zaten tamamlanmıştı.",
+ rule:"había llegado = geçmişin geçmişi",
+ clue:"İpucu: Önce kutu oraya geldi, sonra bulundu."
+},
+{
+ sec:"P",
+ story:"La antigua recepcionista declaró: «Cuando cerramos el hotel, el dueño ya ________ todas las llaves maestras».",
+ q:"Doğru seçenek hangisidir?",
+ opts:["guardaba","había guardado","guardará","guardaría"],
+ a:1,
+ tr:"Oteli kapattığımızda sahibi bütün ana anahtarları çoktan saklamıştı.",
+ exp:"“Cerramos” geçmişte bir referans noktasıdır. Anahtarları saklama bu noktadan daha önce olduğu için Pluscuamperfecto kullanılır.",
+ rule:"ya + había + participio",
+ clue:"İpucu: “ya” burada önce tamamlanmışlığı güçlendiriyor."
+},
+{
+ sec:"P",
+ story:"Un huésped afirmó que no reconocía el cuadro del vestíbulo porque lo habían cambiado años antes.",
+ q:"“Lo habían cambiado” cümlesinde özne neden açık değildir?",
+ opts:["Çünkü gelecek zaman kullanılmıştır.","Çünkü eylemi kimin yaptığı önemli değildir.","Çünkü cümle emir kipindedir.","Çünkü fiil reflexivo’dur."],
+ a:1,
+ tr:"Tabloyu kimin değiştirdiği belirtilmiyor; önemli olan tablonun daha önce değiştirilmiş olmasıdır.",
+ exp:"Burada Pluscuamperfecto aktif bir yapıdadır ama özne bağlamda belirsizdir. Vurgu daha önce tamamlanan eylemdedir.",
+ rule:"habían cambiado = onlar değiştirmişti / değiştirilmişti bağlamı",
+ clue:"İpucu: Gramer aktif olabilir; bağlamda fail yine belirtilmeyebilir."
+},
+{
+ sec:"P",
+ story:"La policía descubrió que el sistema de cámaras no funcionaba porque alguien había cortado la electricidad antes.",
+ q:"Doğru zaman sıralaması hangisidir?",
+ opts:[
+ "Polis keşfetti → elektrik kesildi → kameralar çalışmadı",
+ "Elektrik kesildi → kameralar çalışmadı → polis keşfetti",
+ "Kameralar çalışmadı → polis keşfetti → elektrik kesildi",
+ "Hepsi aynı anda oldu"
+ ],
+ a:1,
+ tr:"Önce elektrik kesildi, bunun sonucunda kameralar çalışmadı ve daha sonra polis durumu keşfetti.",
+ exp:"“Había cortado” en eski olayı işaret eder.",
+ rule:"Pluscuamperfecto zaman çizgisinde daha gerideki olayı gösterir.",
+ clue:"İpucu: había cortado = en eski olay."
+},
+
+{
+ sec:"V",
+ story:"A la mañana siguiente apareció una noticia en el periódico local sobre la reapertura del hotel.",
+ q:"“El hotel fue construido en 1928.” cümlesinin yapısı hangisidir?",
+ opts:["Pasiva con SE","SER + participio","Pluscuamperfecto","Condicional"],
+ a:1,
+ tr:"Otel 1928 yılında inşa edildi.",
+ exp:"“Fue” = SER fiilinin Indefinido çekimi, “construido” = participio. Özne eylemi yapmıyor; eyleme maruz kalıyor.",
+ rule:"sujeto paciente + SER + participio",
+ clue:"İpucu: fue construido."
+},
+{
+ sec:"V",
+ story:"El periodista escribió: «Las habitaciones serán renovadas durante el invierno».",
+ q:"Pasif cümlede gelecek zamanı hangi öğe taşır?",
+ opts:["habitaciones","renovadas","serán","durante"],
+ a:2,
+ tr:"Odalar kış boyunca yenilenecek.",
+ exp:"Pasif yapılarda zaman SER fiili üzerinde görünür. Participio ise özneyle cinsiyet ve sayı açısından uyum sağlar.",
+ rule:"serán renovadas → zaman = serán",
+ clue:"İpucu: Pasif yapıda zamanı SER taşır."
+},
+{
+ sec:"V",
+ story:"El comedor principal está casi listo. Los techos ________ por especialistas el mes pasado.",
+ q:"Doğru pasif yapı hangisidir?",
+ opts:["fueron restaurados","han restaurar","se restauró","habían restaurando"],
+ a:0,
+ tr:"Tavanlar geçen ay uzmanlar tarafından restore edildi.",
+ exp:"“El mes pasado” tamamlanmış geçmişi gösterir. Çoğul “techos” için “fueron restaurados” gerekir.",
+ rule:"fueron + restaurados",
+ clue:"İpucu: masculino plural → restaurados."
+},
+{
+ sec:"V",
+ story:"En una foto antigua se lee: «La primera fiesta del hotel fue organizada por una familia de Madrid».",
+ q:"“por una familia de Madrid” neyi gösterir?",
+ opts:["sujeto paciente","agente","objeto indirecto","zaman zarfı"],
+ a:1,
+ tr:"Madridli bir aile tarafından.",
+ exp:"Pasif cümlede eylemi gerçekleştiren kişi veya grup “por + agente” ile verilebilir.",
+ rule:"por + agente",
+ clue:"İpucu: Eylemi yapanı gösterir."
+},
+{
+ sec:"V",
+ story:"La directora quiere explicar el progreso actual: «La entrada principal ________ esta semana».",
+ q:"Şu an devam eden bir süreç için en uygun seçenek hangisidir?",
+ opts:["es renovada","está siendo renovada","había renovado","sería renovando"],
+ a:1,
+ tr:"Ana giriş bu hafta yenileniyor.",
+ exp:"Devam eden pasif eylem için “estar siendo + participio” kullanımı mümkündür. Bu, aktifteki “están renovando” anlamına yakındır.",
+ rule:"estar + siendo + participio",
+ clue:"İpucu: Süreç şu anda devam ediyor."
+},
+{
+ sec:"V",
+ story:"El archivo histórico contiene esta frase: «Las ventanas habían sido cerradas antes de la tormenta».",
+ q:"Bu yapı hangi zamanı pasif hale getirir?",
+ opts:["Pretérito Perfecto","Pluscuamperfecto","Futuro Simple","Presente"],
+ a:1,
+ tr:"Pencereler fırtınadan önce kapatılmıştı.",
+ exp:"“habían sido + participio” Pluscuamperfecto’nun pasif biçimidir.",
+ rule:"había/habían sido + participio",
+ clue:"İpucu: habían sido cerradas."
+},
+
+{
+ sec:"S",
+ story:"El ayuntamiento publicó nuevos anuncios alrededor de la plaza para atraer visitantes.",
+ q:"“Se alquilan habitaciones con vistas al lago.” cümlesinde neden “alquilan” çoğuldur?",
+ opts:[
+ "Çünkü se her zaman çoğul ister.",
+ "Çünkü habitaciones çoğuldur.",
+ "Çünkü lago çoğuldur.",
+ "Çünkü gelecek zaman kullanılmıştır."
+ ],
+ a:1,
+ tr:"Göl manzaralı odalar kiralanır / kiralık odalar vardır.",
+ exp:"Pasiva con SE yapısında fiil, pasif özneyle uyum gösterir. “habitaciones” çoğul olduğu için “se alquilan” olur.",
+ rule:"se + verbo en 3ª persona + sujeto paciente",
+ clue:"İpucu: habitación → se alquila / habitaciones → se alquilan."
+},
+{
+ sec:"S",
+ story:"Un cartel junto al hotel dice: «Se busca recepcionista con experiencia».",
+ q:"Bu cümlenin doğal Türkçe karşılığı hangisidir?",
+ opts:["Resepsiyonist kendini arıyor.","Deneyimli resepsiyonist aranıyor.","Resepsiyonist birini arayacak.","Resepsiyonist bulunmuştu."],
+ a:1,
+ tr:"Deneyimli resepsiyonist aranıyor.",
+ exp:"“Se busca” yapan kişiyi söylemeden genel ilan oluşturur.",
+ rule:"Pasiva con SE → fail bilinmiyor veya önemsiz",
+ clue:"İpucu: İlan dili."
+},
+{
+ sec:"S",
+ story:"El restaurante del hotel ya tiene nuevos carteles.",
+ q:"Hangisi doğrudur?",
+ opts:["Se sirve desayunos.","Se sirven desayunos.","Se sirvió desayunar.","Se sirven desayuno."],
+ a:1,
+ tr:"Kahvaltılar servis edilir.",
+ exp:"“desayunos” çoğul olduğu için fiil de çoğul olur: se sirven.",
+ rule:"desayunos → se sirven",
+ clue:"İpucu: sayı uyumu."
+},
+{
+ sec:"S",
+ story:"En la puerta de una tienda cercana aparece: «Se venden recuerdos del antiguo hotel».",
+ q:"Bu cümlede eylemi kimin yaptığı neden belirtilmemiştir?",
+ opts:[
+ "Çünkü yapan kişi bilinmiyor ya da önemli değil.",
+ "Çünkü geçmiş zaman yasaktır.",
+ "Çünkü recuerdos cansızdır.",
+ "Çünkü se sadece reflexivo’dur."
+ ],
+ a:0,
+ tr:"Eski otelin hediyelik eşyaları satılıyor.",
+ exp:"Pasiva con SE, yapan kişiyi geri plana atar. Önemli olan ürünlerin satılıyor olmasıdır.",
+ rule:"se venden + objeto/sujeto paciente plural",
+ clue:"İpucu: Odak eylem ve nesnededir."
+},
+{
+ sec:"S",
+ story:"Una guía turística prepara un folleto.",
+ q:"“En este hotel se hablan tres idiomas.” cümlesinde doğru açıklama hangisidir?",
+ opts:[
+ "Üç dil konuşuluyor; hablan çoğul çünkü tres idiomas çoğul.",
+ "Üç kişi konuşuyor; se kişi zamiridir.",
+ "Gelecekte üç dil konuşulacak.",
+ "Üç dil konuşulmuştu."
+ ],
+ a:0,
+ tr:"Bu otelde üç dil konuşulur.",
+ exp:"“tres idiomas” çoğul olduğundan fiil “hablan” olur.",
+ rule:"se hablan tres idiomas",
+ clue:"İpucu: se habla español / se hablan tres idiomas."
+},
+{
+ sec:"S",
+ story:"La directora compara dos anuncios.",
+ q:"Hangisi Pasiva con SE değildir?",
+ opts:["Se venden entradas.","Se buscan camareros.","La puerta fue cerrada por el guardia.","Se alquilan bicicletas."],
+ a:2,
+ tr:"Kapı bekçi tarafından kapatıldı.",
+ exp:"“fue cerrada por...” SER + participio yapısıdır. Diğerleri Pasiva con SE örnekleridir.",
+ rule:"SER + participio ≠ Pasiva con SE",
+ clue:"İpucu: por + agente görünüyorsa klasik pasif olabilir."
+},
+
+{
+ sec:"F",
+ story:"La reapertura está prevista para diciembre. La directora presenta sus previsiones.",
+ q:"«El próximo mes ________ más turistas al pueblo.»",
+ opts:["llegarán","llegarían","habían llegado","llegaban"],
+ a:0,
+ tr:"Gelecek ay kasabaya daha fazla turist gelecek.",
+ exp:"Belirli bir gelecek zaman ifadesi var: “el próximo mes”. Bu nedenle Futuro Simple uygundur.",
+ rule:"llegar + án → llegarán",
+ clue:"İpucu: Gelecekteki olay."
+},
+{
+ sec:"F",
+ story:"La directora mira el cielo oscuro desde la ventana.",
+ q:"«Está muy oscuro. ________ esta noche.»",
+ opts:["Lloverá","Llovería","Había llovido","Fue llovido"],
+ a:0,
+ tr:"Hava çok karanlık. Bu gece yağmur yağacak / herhalde yağacak.",
+ exp:"Futuro Simple, geleceğe yönelik tahmin için kullanılabilir.",
+ rule:"Futuro Simple → predicción",
+ clue:"İpucu: Görülen işaretten tahmin."
+},
+{
+ sec:"F",
+ story:"Son las diez y el técnico todavía no ha llegado.",
+ q:"«¿Dónde está? ________ en el tráfico.»",
+ opts:["Estará","Estaría","Había estado","Fue"],
+ a:0,
+ tr:"Nerede? Herhalde trafiktedir.",
+ exp:"Futuro Simple sadece gelecek için değil, ŞİMDİ hakkında varsayım için de kullanılabilir.",
+ rule:"estará = herhalde şu anda ...dır",
+ clue:"İpucu: Şu an hakkında tahmin."
+},
+{
+ sec:"F",
+ story:"El plan de reapertura incluye una nueva cafetería y una pequeña biblioteca.",
+ q:"«También ________ una sala de lectura.»",
+ opts:["habrá","habría","había habido","fue"],
+ a:0,
+ tr:"Ayrıca bir okuma salonu olacak.",
+ exp:"“haber” fiilinin Futuro Simple biçimi “habrá”dır.",
+ rule:"haber → habrá",
+ clue:"İpucu: düzensiz kök."
+},
+{
+ sec:"F",
+ story:"Los empleados preguntan por las normas de seguridad.",
+ q:"«Todos los visitantes ________ mostrar su identificación al entrar.»",
+ opts:["deberán","deberían","habían debido","debieron de"],
+ a:0,
+ tr:"Tüm ziyaretçiler girişte kimliklerini göstermek zorunda olacak.",
+ exp:"Futuro Simple bazen kural, resmî talimat veya zorunluluk tonu verebilir.",
+ rule:"deberán + infinitivo",
+ clue:"İpucu: Gelecekte uygulanacak kural."
+},
+{
+ sec:"F",
+ story:"La directora hace una lista de verbos irregulares.",
+ q:"Hangisinde Futuro Simple kökü yanlıştır?",
+ opts:["tener → tendr-","venir → vendr-","hacer → har-","decir → decir-"],
+ a:3,
+ tr:"“decir” fiilinin futuro kökü “dir-” olmalıdır.",
+ exp:"Decir düzensizdir: diré, dirás, dirá…",
+ rule:"decir → dir-",
+ clue:"İpucu: ekler düzenli kalır, kök değişir."
+},
+
+{
+ sec:"C",
+ story:"La directora pregunta al equipo qué harían si el presupuesto fuera mayor.",
+ q:"«Si tuviéramos más dinero, ________ un jardín interior.»",
+ opts:["construiríamos","construiremos","habíamos construido","construimos"],
+ a:0,
+ tr:"Daha fazla paramız olsa iç bahçe yapardık.",
+ exp:"Gerçek olmayan / varsayımsal durum: si + Imperfecto de Subjuntivo, ardından Condicional Simple.",
+ rule:"Si tuviéramos... construiríamos...",
+ clue:"İpucu: hayal / varsayım."
+},
+{
+ sec:"C",
+ story:"Un empleado está muy cansado después de trabajar todo el día.",
+ q:"En uygun tavsiye hangisidir?",
+ opts:["Deberías descansar un poco.","Descansarás un poco.","Habías descansado.","Fuiste descansado."],
+ a:0,
+ tr:"Biraz dinlensen iyi olur.",
+ exp:"“Deberías + infinitivo” tavsiye vermenin tipik yollarındandır.",
+ rule:"Condicional → tavsiye",
+ clue:"İpucu: HTİNÖ içindeki T."
+},
+{
+ sec:"C",
+ story:"Un huésped llama por teléfono para hacer una reserva.",
+ q:"En nazik seçenek hangisidir?",
+ opts:[
+ "Quiero una habitación.",
+ "Querría reservar una habitación para dos noches.",
+ "Reservé una habitación.",
+ "Habré una habitación."
+ ],
+ a:1,
+ tr:"İki gecelik bir oda ayırtmak isterim.",
+ exp:"“Querría…” isteği daha nazik ve yumuşak biçimde ifade eder.",
+ rule:"Querría + infinitivo → nazik istek",
+ clue:"İpucu: HTİNÖ içindeki İ/N."
+},
+{
+ sec:"C",
+ story:"El equipo no sabe qué actividad organizar para la inauguración.",
+ q:"Ortak öneri hangisidir?",
+ opts:[
+ "Podríamos hacer una visita guiada.",
+ "Haremos una visita guiada.",
+ "Habíamos hecho una visita guiada.",
+ "La visita fue hecha."
+ ],
+ a:0,
+ tr:"Rehberli bir tur yapabiliriz / yapsak olur.",
+ exp:"“Podríamos…” ortak öneri ifade eder.",
+ rule:"Podríamos + infinitivo → öneri",
+ clue:"İpucu: HTİNÖ içindeki Ö."
+},
+{
+ sec:"C",
+ story:"La directora recuerda una conversación del año pasado: «El arquitecto dijo que terminaría las obras en octubre».",
+ q:"“terminaría” burada hangi anlamdadır?",
+ opts:["Geçmiş hakkında tahmin","Geçmişin geleceği","Nazik rica","Hayal"],
+ a:1,
+ tr:"Mimar çalışmaların ekimde biteceğini söyledi.",
+ exp:"“dijo” geçmişteki referans noktasıdır; bitirme eylemi o ana göre gelecektedir.",
+ rule:"dijo que terminaría → futuro del pasado",
+ clue:"İpucu: geçmişte söylenen gelecekteki olay."
+},
+{
+ sec:"C",
+ story:"La directora encuentra una factura vieja sin fecha exacta.",
+ q:"«La reparación ________ unos cinco mil euros.»",
+ opts:["costaría","costará","había costado","fue costando"],
+ a:0,
+ tr:"Tamir herhalde yaklaşık beş bin avroya mal olmuştu.",
+ exp:"Condicional Simple geçmiş hakkında yaklaşık tahmin veya belirsizlik ifade edebilir.",
+ rule:"costaría unos... → geçmişe ilişkin tahmin",
+ clue:"İpucu: GT kullanımı."
+}
+];
+
+let current=0;
+let score=0;
+let answered=false;
+
+const stats={
+  P:{correct:0,total:0},
+  V:{correct:0,total:0},
+  S:{correct:0,total:0},
+  F:{correct:0,total:0},
+  C:{correct:0,total:0}
+};
+
+const storyEl=document.getElementById("story");
+const questionEl=document.getElementById("question");
+const choicesEl=document.getElementById("choices");
+const feedbackEl=document.getElementById("feedback");
+const nextBtn=document.getElementById("nextBtn");
+const questionCounter=document.getElementById("questionCounter");
+const scoreCounter=document.getElementById("scoreCounter");
+const progressBar=document.getElementById("progressBar");
+const sectionBadge=document.getElementById("sectionBadge");
+const caseNo=document.getElementById("caseNo");
+
+function renderQuestion(){
+  answered=false;
+  const q=questions[current];
+  const sec=sections[q.sec];
+
+  questionCounter.textContent=`Görev ${current+1} / ${questions.length}`;
+  scoreCounter.textContent=`Doğru: ${score}`;
+  progressBar.style.width=`${(current/questions.length)*100}%`;
+
+  sectionBadge.textContent=`${sec.icon} ${sec.label}`;
+  caseNo.textContent=`Konu: ${sec.topic}`;
+  storyEl.textContent=q.story;
+  questionEl.textContent=q.q;
+
+  feedbackEl.className="feedback";
+  feedbackEl.innerHTML="";
+  nextBtn.className="next";
+  nextBtn.textContent=current===questions.length-1 ? "Dosyayı Kapat →" : "Sonraki Görev →";
+
+  choicesEl.innerHTML="";
+  q.opts.forEach((opt,i)=>{
+    const btn=document.createElement("button");
+    btn.className="choice";
+    btn.dataset.index=i;
+    btn.textContent=`${String.fromCharCode(65+i)}) ${opt}`;
+    btn.addEventListener("click",()=>selectAnswer(i,btn));
+    choicesEl.appendChild(btn);
+  });
+}
+
+function selectAnswer(selected,clickedBtn){
+  if(answered)return;
+  answered=true;
+
+  const q=questions[current];
+  stats[q.sec].total++;
+
+  const allBtns=[...document.querySelectorAll(".choice")];
+  allBtns.forEach(b=>{
+    b.disabled=true;
+    if(Number(b.dataset.index)===q.a)b.classList.add("correct");
+  });
+
+  const correct=selected===q.a;
+  if(correct){
+    score++;
+    stats[q.sec].correct++;
+  }else{
+    clickedBtn.classList.add("wrong");
+  }
+
+  feedbackEl.innerHTML=`
+    <h3>${correct ? "✅ Doğru! Dosya çözülüyor." : "❌ Bu kez değil."}</h3>
+    <p><strong>Doğru cevap:</strong> ${String.fromCharCode(65+q.a)}) ${q.opts[q.a]}</p>
+    <div class="translation">🇹🇷 ${q.tr}</div>
+    <p><strong>Açıklama:</strong> ${q.exp}</p>
+    <div class="rule">📌 ${q.rule}</div>
+    <div class="clue">🗝️ ${q.clue}</div>
+  `;
+  feedbackEl.classList.add("show");
+  scoreCounter.textContent=`Doğru: ${score}`;
+  nextBtn.classList.add("show");
+}
+
+nextBtn.addEventListener("click",()=>{
+  if(current<questions.length-1){
+    current++;
+    renderQuestion();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }else{
+    showResult();
+  }
+});
+
+function showResult(){
+  document.getElementById("quizCard").style.display="none";
+  const resultCard=document.getElementById("resultCard");
+  resultCard.classList.add("show");
+
+  progressBar.style.width="100%";
+  document.getElementById("finalScore").textContent=`${score} / ${questions.length}`;
+
+  const ratio=score/questions.length;
+  let msg=
+    ratio===1 ? "Mükemmel. Dosyadaki bütün dil ipuçlarını çözdünüz. 🌟" :
+    ratio>=.85 ? "Çok güçlü bir A2.2 kapanışı. Ana yapılar oldukça net. 👏" :
+    ratio>=.70 ? "İyi gidiyor. Birkaç bölümdeki ayrımları tekrar etmek faydalı olur. 💪" :
+    ratio>=.50 ? "Dosyanın önemli kısmını çözdünüz; özellikle düşük çıkan bölümleri tekrar edin. 🔎" :
+    "A2.2 yapılarını yeniden gözden geçirip dosyayı bir kez daha açın. 📚";
+
+  document.getElementById("finalMessage").textContent=msg;
+
+  let html="";
+  Object.keys(sections).forEach(k=>{
+    const st=stats[k];
+    html+=`
+      <div class="summary-row">
+        <span>${sections[k].icon} ${sections[k].topic}</span>
+        <span>${st.correct} / ${st.total}</span>
+      </div>`;
+  });
+  document.getElementById("summary").innerHTML=html;
+
+  const codes=[
+    score>=27 ? "MIRADOR · 1928 · CASO RESUELTO" :
+    score>=22 ? "ARCHIVO ABIERTO · CASI RESUELTO" :
+    score>=16 ? "PISTAS ENCONTRADAS · SIGUE INVESTIGANDO" :
+                "EXPEDIENTE INCOMPLETO · REVISA LAS PISTAS"
+  ];
+  document.getElementById("finalCodeText").textContent=codes[0];
+
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function restartQuiz(){
+  current=0;
+  score=0;
+  answered=false;
+  Object.keys(stats).forEach(k=>stats[k]={correct:0,total:0});
+  document.getElementById("quizCard").style.display="block";
+  document.getElementById("resultCard").classList.remove("show");
+  renderQuestion();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+renderQuestion();
+</script>
+</body>
+</html>

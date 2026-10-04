@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A2.2 — Gran Final A1.1 → A2.2 | 31-32. Ders</title>
+<style>
+:root{
+  --bg:#f4f0ff;
+  --card:#ffffff;
+  --text:#252238;
+  --muted:#6d687f;
+  --accent:#6f5ae8;
+  --accent2:#9a82ff;
+  --gold:#c8993b;
+  --ok:#1f9d65;
+  --bad:#d64545;
+  --border:#e8e1ff;
+  --shadow:0 18px 45px rgba(79,58,155,.14);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at top left,#ece5ff 0,transparent 32%),
+    radial-gradient(circle at bottom right,#fff0dc 0,transparent 28%),
+    linear-gradient(135deg,#f7f4ff,#f6f1ff 45%,#fffaf1);
+  padding:24px;
+}
+.app{width:min(1040px,100%);margin:0 auto}
+.hero{
+  background:linear-gradient(135deg,#332866,#5b47b7 52%,#7c65df);
+  color:#fff;
+  border-radius:30px;
+  padding:28px 30px;
+  box-shadow:var(--shadow);
+  margin-bottom:18px;
+  position:relative;
+  overflow:hidden;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:220px;height:220px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:50%;
+  right:-70px;top:-80px;
+}
+.kicker{font-size:13px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;opacity:.88}
+.hero h1{margin:8px 0 8px;font-size:clamp(28px,5vw,48px);line-height:1}
+.hero p{margin:0;max-width:760px;line-height:1.65;color:#ece7ff;font-weight:650}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.meta span{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.18);
+  padding:7px 11px;border-radius:999px;
+  font-size:13px;font-weight:800
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+  border-radius:28px;
+  padding:clamp(20px,4vw,38px);
+}
+.progress-wrap{margin-bottom:22px}
+.progress-info{
+  display:flex;justify-content:space-between;gap:16px;
+  margin-bottom:9px;font-weight:900;font-size:14px
+}
+.progress{height:12px;background:#eee9ff;border-radius:999px;overflow:hidden}
+.progress>div{
+  height:100%;width:0;
+  background:linear-gradient(90deg,var(--accent),var(--accent2),#d7b66f);
+  transition:width .25s ease
+}
+.case-head{
+  display:flex;justify-content:space-between;gap:12px;align-items:center;
+  flex-wrap:wrap;margin-bottom:18px
+}
+.section-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#f0ecff;color:#5847c8;
+  padding:8px 12px;border-radius:999px;
+  font-size:13px;font-weight:900
+}
+.case-no{font-size:13px;color:var(--muted);font-weight:850}
+.story{
+  background:linear-gradient(180deg,#fffdfa,#fff);
+  border:1px solid #efe7d5;
+  border-left:5px solid var(--gold);
+  border-radius:18px;
+  padding:18px 20px;
+  margin-bottom:22px;
+  line-height:1.7;
+  color:#4c465a;
+  font-weight:650
+}
+.question{
+  font-size:clamp(22px,3.5vw,34px);
+  line-height:1.35;
+  font-weight:950;
+  margin:8px 0 10px;
+}
+.instruction{color:var(--muted);font-weight:750;margin-bottom:18px}
+.choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+button.choice{
+  border:2px solid var(--border);
+  background:#fff;color:var(--text);
+  border-radius:18px;padding:15px 14px;
+  min-height:64px;
+  font-size:15px;font-weight:850;
+  cursor:pointer;transition:.16s ease;
+  text-align:left
+}
+button.choice:hover:not(:disabled){
+  transform:translateY(-2px);
+  border-color:#b8adff;
+  background:#fbfaff
+}
+button.choice.correct{border-color:var(--ok);background:#eaf8f1;color:#176b49}
+button.choice.wrong{border-color:var(--bad);background:#fff0f0;color:#9d2f2f}
+button.choice:disabled{cursor:default;opacity:.8}
+.feedback{
+  display:none;
+  margin-top:22px;
+  border-radius:20px;
+  padding:20px;
+  border:1px solid var(--border);
+  background:#faf9ff
+}
+.feedback.show{display:block}
+.feedback h3{margin:0 0 10px;font-size:22px}
+.feedback p{margin:8px 0;line-height:1.65;color:#49435b}
+.rule{
+  background:#f2efff;
+  border-radius:14px;
+  padding:12px 14px;
+  font-weight:850;
+  margin-top:12px
+}
+.nav{display:flex;justify-content:space-between;gap:10px;margin-top:20px;flex-wrap:wrap}
+.navbtn{
+  border:none;border-radius:16px;
+  padding:14px 20px;
+  font-size:15px;font-weight:950;cursor:pointer
+}
+.prev{background:#fff;border:2px solid var(--border);color:var(--text)}
+.next{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#fff}
+.finish{background:linear-gradient(90deg,#d8b15c,#c28b2f);color:#fff}
+.result{display:none;text-align:center}
+.result.show{display:block}
+.score{font-size:clamp(48px,8vw,82px);font-weight:1000;color:#604ddc;margin:6px 0}
+.summary{margin:24px auto 0;text-align:left;max-width:760px}
+.summary-row{
+  display:flex;justify-content:space-between;gap:18px;
+  padding:12px 0;border-bottom:1px solid #eeeaf8;
+  font-weight:800
+}
+.restart{
+  margin-top:26px;border:none;border-radius:16px;
+  background:#25223a;color:#fff;
+  padding:14px 22px;font-size:16px;font-weight:900;cursor:pointer
+}
+.footer{
+  text-align:center;color:#726d80;font-weight:700;font-size:13px;
+  margin:16px 0 4px
+}
+@media(max-width:720px){
+  body{padding:14px}
+  .choices{grid-template-columns:1fr}
+  .hero{padding:24px 22px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <section class="hero">
+    <div class="kicker">A2.2 · 8. Hafta · 31–32. Ders</div>
+    <h1>🏁 Gran Final · A1.1 → A2.2</h1>
+    <p>
+      Dört seviyeyi tek finalde buluşturuyoruz. Sorular doğrudan ezber değil;
+      bağlam, kullanım amacı, hata avı ve benzer yapıları ayırt etme üzerine kurulu.
+    </p>
+    <div class="meta">
+      <span>🌱 A1.1 · 10 soru</span>
+      <span>🌿 A1.2 · 10 soru</span>
+      <span>🌳 A2.1 · 10 soru</span>
+      <span>✨ A2.2 · 10 soru</span>
+      <span>40 görev</span>
+    </div>
+  </section>
+
+  <section class="card" id="quizCard">
+    <div class="progress-wrap">
+      <div class="progress-info">
+        <span id="questionCounter">Görev 1 / 40</span>
+        <span id="scoreCounter">Doğru: 0</span>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+    </div>
+
+    <div class="case-head">
+      <div class="section-badge" id="sectionBadge"></div>
+      <div class="case-no" id="caseNo"></div>
+    </div>
+
+    <div class="story" id="story"></div>
+
+    <div class="question" id="question"></div>
+    <div class="instruction">Doğru seçeneği işaretleyin.</div>
+
+    <div class="choices" id="choices"></div>
+    <div class="feedback" id="feedback"></div>
+
+    <div class="nav">
+      <button class="navbtn prev" id="prevBtn">← Önceki</button>
+      <button class="navbtn finish" id="finishBtn">✔ Etkinliği Bitir</button>
+      <button class="navbtn next" id="nextBtn">Sonraki →</button>
+    </div>
+  </section>
+
+  <section class="card result" id="resultCard">
+    <div class="section-badge">GRAN FINAL TAMAMLANDI 🎉</div>
+    <h2>A1.1 → A2.2 Sonuç</h2>
+    <div class="score" id="finalScore"></div>
+    <p id="finalMessage" style="font-size:18px;color:#5f5b73;font-weight:750"></p>
+
+    <div class="summary" id="summary"></div>
+    <button class="restart" onclick="restartQuiz()">🔄 Baştan Başla</button>
+  </section>
+
+  <div class="footer">@ispanyolcacim · Profe Hazel</div>
+</div>
+
+<script>
+const QUESTIONS=[{"level":"A1.1","q":"María ___ profesora y trabaja en una academia.","options":["es","hay","está","tiene"],"exp":"Meslek ve kimlik için SER kullanılır: María es profesora.","answer":"A"},{"level":"A1.1","q":"Ahora Juan ___ cansado después del trabajo.","options":["tiene","hay","es","está"],"exp":"Geçici durum için ESTAR kullanılır: está cansado.","answer":"D"},{"level":"A1.1","q":"En mi barrio ___ dos supermercados grandes.","options":["son","están","hay","tienen"],"exp":"Bir şeyin varlığını belirtmek için HAY kullanılır.","answer":"C"},{"level":"A1.1","q":"Todos los días yo ___ a las siete.","options":["me levantar","levanto me","me levanto","se levanto"],"exp":"Reflexivo fiilde zamir çekimli fiilden önce gelir: me levanto.","answer":"C"},{"level":"A1.1","q":"No puedo salir. ___ estudiar para el examen.","options":["Tengo que","Suelo que","Acabo","Hay que yo"],"exp":"Kişisel zorunluluk: tener que + infinitivo.","answer":"A"},{"level":"A1.1","q":"¿Qué frase expresa una rutina habitual?","options":["Voy a caminar mañana.","Acabo de caminar.","Estoy caminando ahora.","Suelo caminar por la mañana."],"exp":"Soler + infinitivo alışkanlık/rutin anlatır.","answer":"D"},{"level":"A1.1","q":"A mí ___ mucho la música latina.","options":["me gustan","le gusta","gusto","me gusta"],"exp":"La música tekildir: me gusta.","answer":"D"},{"level":"A1.1","q":"A Pedro y a Ana ___ los perros.","options":["les gusta","les gustan","le gustan","se gustan"],"exp":"A Pedro y a Ana → les; los perros çoğul → gustan.","answer":"B"},{"level":"A1.1","q":"¿___ hora es? — Son las tres.","options":["Cuál","Dónde","Cuánto","Qué"],"exp":"Saat sormak için ¿Qué hora es?","answer":"D"},{"level":"A1.1","q":"Veo ___ casa de Marta desde aquí.","options":["estos","estas","esta","este"],"exp":"Casa dişil tekil olduğu için esta casa.","answer":"C"},{"level":"A1.2","q":"Mi hermano es ___ alto que yo.","options":["muy","más","mucho","tan"],"exp":"Karşılaştırmada más + adjetivo + que.","answer":"B"},{"level":"A1.2","q":"Ahora mismo nosotros ___ una película.","options":["vamos a ver","hemos visto","vemos","estamos viendo"],"exp":"Şu an devam eden eylem: estar + gerundio.","answer":"D"},{"level":"A1.2","q":"¿Cuál es el gerundio correcto de “dormir”?","options":["dormiendo","durmiendo","duermiendo","dormando"],"exp":"Dormir → durmiendo, düzensiz gerundio.","answer":"B"},{"level":"A1.2","q":"Mañana Ana ___ visitar a su abuela.","options":["ha","va a","suele","está"],"exp":"Yakın gelecek planı: ir a + infinitivo.","answer":"B"},{"level":"A1.2","q":"He comprado ___ libros este mes.","options":["muchos","mucho","más de","muy"],"exp":"İsimle kullanılan miktar sözcüğü nombre ile uyum gösterir: muchos libros.","answer":"A"},{"level":"A1.2","q":"Este café está ___ bueno.","options":["muy","muchos","mucho","más que"],"exp":"Sıfatı güçlendirmek için muy + adjetivo.","answer":"A"},{"level":"A1.2","q":"Hoy ___ tres correos importantes.","options":["estoy escribir","he escrito","escribí ayer","voy escribiendo"],"exp":"Hoy gibi hâlâ devam eden zaman diliminde Pretérito Perfecto uygundur.","answer":"B"},{"level":"A1.2","q":"El participio correcto de “hacer” es…","options":["haciendo","hacho","hacido","hecho"],"exp":"Hacer fiilinin düzensiz participio biçimi hecho.","answer":"D"},{"level":"A1.2","q":"Es mi ___ viaje a España.","options":["primer","primero","uno","primera"],"exp":"Eril tekil isimden önce primero → primer olur: primer viaje.","answer":"A"},{"level":"A1.2","q":"“Ana es tan organizada como Marta.” ne anlatır?","options":["gelecek planı","süregelen eylem","eşitlik karşılaştırması","üstünlük"],"exp":"tan + adjetivo + como = eşitlik karşılaştırması.","answer":"C"},{"level":"A2.1","q":"Ayer Marta ___ al médico y después volvió a casa.","options":["iba","ha ido","fue","irá"],"exp":"Tamamlanmış tekil geçmiş olay: Pretérito Indefinido.","answer":"C"},{"level":"A2.1","q":"Cuando era niño, siempre ___ con mis primos en verano.","options":["jugaba","jugué","he jugado","jugaré"],"exp":"Geçmiş alışkanlık/rutin: Imperfecto.","answer":"A"},{"level":"A2.1","q":"Mientras yo cocinaba, Pedro ___ a la puerta.","options":["había llamado","llamaba siempre","llamaría","llamó"],"exp":"Devam eden arka plan içinde bir anda gerçekleşen olay: llamó.","answer":"D"},{"level":"A2.1","q":"Compré las entradas y ___ di a Marta.","options":["se las","le las","las le","se le"],"exp":"Le + las birlikte kullanılamaz; le → se: se las di.","answer":"A"},{"level":"A2.1","q":"¿Has visto a Carlos? — Sí, ___ vi ayer.","options":["se","lo","la","le lo"],"exp":"Carlos eril tekil doğrudan nesne: lo.","answer":"B"},{"level":"A2.1","q":"Escribí una carta a mis padres. → ___ escribí una carta.","options":["Se la","Les","Las","Los"],"exp":"A mis padres dolaylı nesnedir: les.","answer":"B"},{"level":"A2.1","q":"La calle estaba tranquila y de repente ___ un coche muy rápido.","options":["ha pasado","pasaría","pasó","pasaba"],"exp":"Arka plan Imperfecto, ani olay Indefinido.","answer":"C"},{"level":"A2.1","q":"Cuando vivíamos en Sevilla, ___ al mercado cada sábado.","options":["fuimos","íbamos","iremos","hemos ido"],"exp":"Tekrarlanan geçmiş alışkanlık: Imperfecto.","answer":"B"},{"level":"A2.1","q":"Di el libro a Ana. Doğru zamirli biçim hangisi?","options":["Se lo di.","Le lo di.","La le di.","Lo se di."],"exp":"le + lo birleşiminde le → se olur: se lo di.","answer":"A"},{"level":"A2.1","q":"“Ayer llovía cuando salí de casa.” cümlesinde llovía neyi kurar?","options":["dolaylı nesne","tamamlanmış ana olay","arka plan / devam eden durum","gelecek tahmini"],"exp":"Imperfecto anlatının arka planını verir; salí ana olaydır.","answer":"C"},{"level":"A2.2","q":"Cuando llegamos, ellos ya ___ la cena.","options":["terminaban","habían terminado","terminarán","terminaron"],"exp":"Başka bir geçmiş eylemden daha önce tamamlanmış eylem: Pluscuamperfecto.","answer":"B"},{"level":"A2.2","q":"“Las ventanas fueron cambiadas el año pasado.” hangi yapı?","options":["Futuro","Condicional","SER + participio","Pasiva con SE"],"exp":"fueron + cambiadas = klasik edilgen.","answer":"C"},{"level":"A2.2","q":"“Se venden apartamentos.” neden venden?","options":["apartamentos çoğul","se çoğul","gelecek zaman","vender düzensiz"],"exp":"Pasiva con SE’de fiil pasif özneyle uyumlu olur.","answer":"A"},{"level":"A2.2","q":"Mañana ___ los resultados.","options":["se saben","habíamos sabido","sabríamos","sabremos"],"exp":"saber → sabr-; Futuro nosotros = sabremos.","answer":"D"},{"level":"A2.2","q":"No contesta al teléfono. ___ ocupado.","options":["Fue","Estará","Había estado mañana","Estaría ayer"],"exp":"Futuro Simple şimdi hakkında tahmin: herhalde meşguldür.","answer":"B"},{"level":"A2.2","q":"“Yo en tu lugar no iría.” hangi kullanım?","options":["pasif","geçmiş tahmini","tavsiye","gelecek"],"exp":"Yo en tu lugar + Condicional = tavsiye.","answer":"C"},{"level":"A2.2","q":"“Serían unas cincuenta personas.” hangi anlam?","options":["rica","pasif","geçmiş hakkında yaklaşık tahmin","kesin gelecek"],"exp":"Condicional yaklaşık geçmiş tahmininde kullanılabilir.","answer":"C"},{"level":"A2.2","q":"“El informe será enviado mañana.” cümlesinde zamanı ne taşır?","options":["será","enviado","informe","mañana"],"exp":"Pasif yapıda zaman SER üzerinde taşınır.","answer":"A"},{"level":"A2.2","q":"“Podríamos cenar fuera.” hangi kullanım?","options":["pasif","geçmişin geleceği","emir","ortak öneri"],"exp":"Podríamos... = ortak öneri.","answer":"D"},{"level":"A2.2","q":"“María dijo que vendría.” neden vendría?","options":["şimdiki tahmin","nazik rica","pasiva con SE","geçmişin geleceği"],"exp":"dijo geçmişte; gelme eylemi o ana göre gelecekte.","answer":"D"}];
+
+const LEVELS={
+  "A1.1":{icon:"🌱",title:"A1.1 · Temeller",desc:"Presente · SER/ESTAR/HAY · Reflexivos · Gustar · Perífrasis"},
+  "A1.2":{icon:"🌿",title:"A1.2 · Temel Devam",desc:"Comparativas · Gerundio · Ir a + infinitivo · Perfecto · Participio"},
+  "A2.1":{icon:"🌳",title:"A2.1 · Orta Başlangıç",desc:"Indefinido · Imperfecto · OD/OI · se lo / se la"},
+  "A2.2":{icon:"✨",title:"A2.2 · Orta Seviye",desc:"Pluscuamperfecto · Pasiva · Futuro · Condicional"}
+};
+
+let current=0;
+let score=0;
+const state={};
+
+const questionEl=document.getElementById("question");
+const choicesEl=document.getElementById("choices");
+const feedbackEl=document.getElementById("feedback");
+const nextBtn=document.getElementById("nextBtn");
+const prevBtn=document.getElementById("prevBtn");
+const finishBtn=document.getElementById("finishBtn");
+const questionCounter=document.getElementById("questionCounter");
+const scoreCounter=document.getElementById("scoreCounter");
+const progressBar=document.getElementById("progressBar");
+const sectionBadge=document.getElementById("sectionBadge");
+const caseNo=document.getElementById("caseNo");
+const storyEl=document.getElementById("story");
+
+function answeredCount(){return Object.keys(state).length}
+
+function renderQuestion(){
+  const q=QUESTIONS[current];
+  const no=current+1;
+  const level=LEVELS[q.level];
+
+  questionCounter.textContent=`Görev ${no} / ${QUESTIONS.length}`;
+  scoreCounter.textContent=`Doğru: ${score}`;
+  progressBar.style.width=`${(answeredCount()/QUESTIONS.length)*100}%`;
+
+  sectionBadge.textContent=`${level.icon} ${level.title}`;
+  caseNo.textContent=`${q.level} · Soru ${(current%10)+1} / 10`;
+  storyEl.textContent=level.desc;
+  questionEl.innerHTML=q.q;
+
+  feedbackEl.className="feedback";
+  feedbackEl.innerHTML="";
+  choicesEl.innerHTML="";
+
+  const letters=["A","B","C","D"];
+  q.options.forEach((opt,i)=>{
+    const btn=document.createElement("button");
+    btn.className="choice";
+    btn.dataset.index=i;
+    btn.innerHTML=`<strong>${letters[i]})</strong> ${opt}`;
+    btn.addEventListener("click",()=>selectAnswer(i,btn));
+    choicesEl.appendChild(btn);
+  });
+
+  const saved=state[no];
+  if(saved){
+    [...document.querySelectorAll(".choice")].forEach((b,i)=>{
+      b.disabled=true;
+      if(letters[i]===q.answer)b.classList.add("correct");
+      if(i===saved.choice && letters[i]!==q.answer)b.classList.add("wrong");
+    });
+    feedbackEl.innerHTML=`
+      <h3>${saved.correct?"✅ Doğru!":"❌ Bu kez değil."}</h3>
+      <p><strong>Doğru cevap:</strong> ${q.answer} — ${q.options[letters.indexOf(q.answer)]}</p>
+      <div class="rule">📌 ${q.exp}</div>`;
+    feedbackEl.classList.add("show");
+  }
+
+  prevBtn.disabled=current===0;
+  nextBtn.textContent=current===QUESTIONS.length-1?"Sonucu Gör →":"Sonraki →";
+}
+
+function selectAnswer(selected,clickedBtn){
+  const no=current+1;
+  if(state[no])return;
+
+  const q=QUESTIONS[current];
+  const letters=["A","B","C","D"];
+  const correct=letters[selected]===q.answer;
+  state[no]={choice:selected,correct};
+  if(correct)score++;
+
+  [...document.querySelectorAll(".choice")].forEach((b,i)=>{
+    b.disabled=true;
+    if(letters[i]===q.answer)b.classList.add("correct");
+  });
+  if(!correct)clickedBtn.classList.add("wrong");
+
+  feedbackEl.innerHTML=`
+    <h3>${correct?"✅ Doğru!":"❌ Bu kez değil."}</h3>
+    <p><strong>Doğru cevap:</strong> ${q.answer} — ${q.options[letters.indexOf(q.answer)]}</p>
+    <div class="rule">📌 ${q.exp}</div>`;
+  feedbackEl.classList.add("show");
+
+  scoreCounter.textContent=`Doğru: ${score}`;
+  progressBar.style.width=`${(answeredCount()/QUESTIONS.length)*100}%`;
+}
+
+prevBtn.addEventListener("click",()=>{
+  if(current>0){current--;renderQuestion();window.scrollTo({top:0,behavior:"smooth"});}
+});
+
+nextBtn.addEventListener("click",()=>{
+  if(current<QUESTIONS.length-1){
+    current++;
+    renderQuestion();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }else showResult();
+});
+
+finishBtn.addEventListener("click",showResult);
+
+function showResult(){
+  document.getElementById("quizCard").style.display="none";
+  const resultCard=document.getElementById("resultCard");
+  resultCard.classList.add("show");
+
+  document.getElementById("finalScore").textContent=`${score} / ${QUESTIONS.length}`;
+
+  const ratio=score/QUESTIONS.length;
+  let msg=
+    ratio===1 ? "Mükemmel. Dört seviyeyi de hatasız kapattınız. 🌟" :
+    ratio>=.85 ? "Çok güçlü bir dönem finali. 👏" :
+    ratio>=.70 ? "Genel tablo çok iyi; birkaç başlığı yeniden gözden geçirin. 💪" :
+    ratio>=.50 ? "Temel yapıların önemli kısmı oturmuş; düşük çıkan seviyeleri tekrar edin. 🔎" :
+    "Seviye bazlı sonuçlara bakıp eksik başlıkları yeniden çalışın. 📚";
+  document.getElementById("finalMessage").textContent=msg;
+
+  let html="";
+  Object.keys(LEVELS).forEach(level=>{
+    const indexes=QUESTIONS.map((q,i)=>q.level===level?i+1:null).filter(Boolean);
+    const correct=indexes.filter(i=>state[i]?.correct).length;
+    html+=`
+      <div class="summary-row">
+        <span>${LEVELS[level].icon} ${level}</span>
+        <span>${correct} / 10</span>
+      </div>`;
+  });
+  document.getElementById("summary").innerHTML=html;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function restartQuiz(){
+  current=0;score=0;
+  Object.keys(state).forEach(k=>delete state[k]);
+  document.getElementById("quizCard").style.display="block";
+  document.getElementById("resultCard").classList.remove("show");
+  renderQuestion();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+renderQuestion();
+</script>
+</body>
+</html>

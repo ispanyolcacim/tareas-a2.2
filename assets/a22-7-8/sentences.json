@@ -1,0 +1,242 @@
+[
+  {
+    "paragraph":0,
+    "subject":"(Yo): recuerdo ve tuve fiillerinin gizli öznesi.",
+    "tr":"Şili’den Amerika Birleşik Devletleri’ne yaptığım bir yolculuk sırasında havaalanında bir sorun yaşadığım günü açıkça hatırlıyorum.",
+    "en":"I clearly remember the day when I had a problem at the airport during a trip from Chile to the United States.",
+    "parts":[
+      ["Recuerdo claramente","Verbo + complemento de modo","açıkça hatırlıyorum","I clearly remember","Recuerdo yüklem fiili; claramente, hatırlama biçimini belirten zarftır."],
+      ["el día en que tuve un problema","Complemento directo + oración de relativo","bir sorun yaşadığım günü","the day when I had a problem","Neyi hatırlıyorum? El día. En que tuve un problema, hangi gün olduğunu açıklar. Bu yan cümlede un problema, tuve fiilinin doğrudan nesnesidir."],
+      ["en el aeropuerto","Complemento de lugar","havaalanında","at the airport","Sorun nerede yaşandı? En el aeropuerto. En + yer adı birlikte okunur."],
+      ["durante un viaje","Complemento de tiempo","bir yolculuk sırasında","during a trip","Olayın hangi zaman diliminde yaşandığını belirtir."],
+      ["de Chile a Estados Unidos.","Origen y destino del viaje","Şili’den Amerika Birleşik Devletleri’ne","from Chile to the United States","De çıkış noktasını, a varış noktasını gösterir; birlikte viaje ismini açıklar."]
+    ],
+    "verbs":[["recuerdo","Presente · recordar · yo","Anlatıcı olayı şimdi hatırlıyor. Recordar fiilinde o → ue değişimi vardır."],["tuve","Pretérito indefinido · tener · yo","Geçmişte yaşanmış, tamamlanmış sorunu belirtir. Düzensiz kök: tuv-."]],
+    "notes":["Ana cümle: Recuerdo claramente el día. En que ile başlayan ilgi cümlesi el día ismini açıklar.","En que, burada «o gün / … olduğu gün» anlamını kurar. En edatını que’den bağımsız bir kelime gibi çevirmiyoruz."]
+  },
+  {
+    "paragraph":0,
+    "subject":"Estaba ve llegué: (yo), gizli özne. Cambió: todo, açık özne.",
+    "tr":"New York’u ziyaret edeceğim için heyecanlıydım, ama check-in yapmak üzere havaalanına vardığımda her şey değişti.",
+    "en":"I was excited to visit New York, but everything changed when I arrived at the airport to check in.",
+    "parts":[
+      ["Estaba emocionado","Verbo + atributo","heyecanlıydım","I was excited","Estaba + emocionado, anlatıcının duygu durumunu bildirir."],
+      ["por visitar Nueva York,","Complemento del adjetivo: causa","New York’u ziyaret edeceğim için","about visiting New York","Por visitar…, heyecanın nedenini açıklar; Nueva York, visitar fiilinin doğrudan nesnesidir."],
+      ["pero todo cambió","Oración coordinada adversativa","ama her şey değişti","but everything changed","Pero karşıtlık kurar. Todo özne, cambió fiildir."],
+      ["cuando llegué al aeropuerto","Oración subordinada temporal","havaalanına vardığımda","when I arrived at the airport","Cuando…, değişimin ne zaman olduğunu belirtir. Al = a + el."],
+      ["para hacer el check-in.","Complemento de finalidad","check-in yapmak için","to check in","Para + infinitivo, havaalanına gitmenin amacını bildirir."]
+    ],
+    "verbs":[["estaba","Pretérito imperfecto · estar · yo","Hikâyenin arka planındaki duyguyu anlatır."],["cambió","Pretérito indefinido · cambiar · todo","Hikâyeyi değiştiren tamamlanmış olaydır."],["llegué","Pretérito indefinido · llegar · yo","Tamamlanmış varış eylemi; sesi korumak için g → gu olur."],["visitar / hacer","Infinitivos","Por ve para edatlarından sonra bu fiiller mastar biçimindedir."]],
+    "notes":["Imperfecto (estaba) arka planı; indefinido (cambió, llegué) tamamlanan olayları anlatır.","Emocionado bir durum/sıfat bildirir. Burada estar + gerundio yapısı yoktur."]
+  },
+  {
+    "paragraph":1,
+    "subject":"Esperaba ve escuché: (yo). Edilgen yan cümlenin öznesi: mi vuelo.",
+    "tr":"Sırada beklerken, uçuşumun kötü hava koşulları nedeniyle iptal edilmiş olduğunu hoparlörden duydum.",
+    "en":"While I was waiting in line, I heard over the loudspeaker that my flight had been cancelled due to bad weather conditions.",
+    "parts":[
+      ["Mientras esperaba en la fila,","Oración subordinada temporal","sırada beklerken","while I was waiting in line","Mientras ile başlayan bölüm, duymanın gerçekleştiği sıradaki devam eden eylemi anlatır."],
+      ["escuché por el altavoz","Verbo + complemento de medio","hoparlörden duydum","I heard over the loudspeaker","Escuché ana fiildir. Por el altavoz, haberin hangi kanalla duyulduğunu gösterir."],
+      ["que mi vuelo había sido cancelado","Oración subordinada sustantiva: CD","uçuşumun iptal edilmiş olduğunu","that my flight had been cancelled","Neyi duydum? Que ile başlayan bu yan cümleyi. Mi vuelo, edilgen yapıda eylemden etkilenen öznedir."],
+      ["debido a malas condiciones climáticas.","Complemento de causa","kötü hava koşulları nedeniyle","due to bad weather conditions","Debido a + isim grubu, iptalin nedenini belirtir."]
+    ],
+    "verbs":[["esperaba","Pretérito imperfecto · esperar · yo","Bekleme, o sırada devam eden arka plandır."],["escuché","Pretérito indefinido · escuchar · yo","Anonsu duyma, bu arka plan içinde gerçekleşen olaydır."],["había sido cancelado","Pluscuamperfecto · voz pasiva","Había + sido + cancelado. İptal, anonsu duyma anından önce gerçekleşmiştir. Cancelado, vuelo ile eril-tekil uyumludur."]],
+    "notes":["Zaman sırası: uçuş iptal edildi → anlatıcı anonsu duydu. Bu öncelik, había sido cancelado ile gösterilir.","Había sido, ser fiilinin pluscuamperfecto biçimidir; sonuna cancelado eklenmesiyle edilgen yapı kurulur."]
+  },
+  {
+    "paragraph":1,
+    "subject":"Me sentí ve tenía: (yo), gizli özne.",
+    "tr":"Hayal kırıklığına uğradım ve endişelendim; çünkü ertesi sabah New York’ta önemli planlarım vardı.",
+    "en":"I felt frustrated and worried because I had important plans in New York the following morning.",
+    "parts":[
+      ["Me sentí frustrado y preocupado,","Verbo pronominal + estado","kendimi hayal kırıklığına uğramış ve endişeli hissettim","I felt frustrated and worried","Sentirse, kişinin kendisini nasıl hissettiğini anlatır. İki sıfat y ile bağlanmıştır."],
+      ["ya que tenía planes importantes","Oración subordinada causal","çünkü önemli planlarım vardı","because I had important plans","Ya que nedeni açıklar. Planes importantes, tenía fiilinin doğrudan nesnesidir."],
+      ["a la mañana siguiente","Complemento de tiempo","ertesi sabah","the following morning","Planların ne zaman olduğunu belirtir. La mañana siguiente, anlatıdaki güne göre ertesi sabahtır."],
+      ["en Nueva York.","Complemento de lugar","New York’ta","in New York","Planların gerçekleşeceği yeri belirtir."]
+    ],
+    "verbs":[["me sentí","Pretérito indefinido · sentirse · yo","Habere verilen tamamlanmış duygusal tepkiyi anlatır. Sentir → sentí."],["tenía","Pretérito imperfecto · tener · yo","Haber duyulduğu sırada zaten var olan planları anlatır."]],
+    "notes":["Me, burada bana anlamında bir dolaylı nesne değildir; sentirse fiilinin zamiridir.","Ya que + çekimli cümle neden bildirir; bir önceki cümledeki debido a ise isim grubuyla kullanılmıştı."]
+  },
+  {
+    "paragraph":2,
+    "subject":"Me acerqué, obtener ve buscar: (yo), gizli/ortak özne.",
+    "tr":"Daha fazla bilgi almak ve bir çözüm aramak için havayolu şirketinin bankosuna yaklaştım.",
+    "en":"I approached the airline counter to get more information and look for a solution.",
+    "parts":[
+      ["Me acerqué","Verbo pronominal","yaklaştım","I approached","Acercarse: yaklaşmak. Me, yo öznesiyle uyumlu fiil zamiridir."],
+      ["al mostrador de la aerolínea","Destino / lugar","havayolu şirketinin bankosuna","the airline counter","Al mostrador hedefi; de la aerolínea ise bankonun hangi şirkete ait olduğunu belirtir."],
+      ["para obtener más información","Complemento de finalidad","daha fazla bilgi almak için","to get more information","Para + infinitivo amaç bildirir. Más información, obtener fiilinin doğrudan nesnesidir."],
+      ["y buscar una solución.","Coordinación de infinitivos","ve bir çözüm aramak için","and look for a solution","İlk amaçla y üzerinden bağlanır; para, buscar için de geçerlidir."]
+    ],
+    "verbs":[["me acerqué","Pretérito indefinido · acercarse · yo","Tamamlanmış yaklaşma eylemi. Acercar → acerqué: c → qu."],["obtener / buscar","Infinitivos de finalidad","Her iki eylemin amacı para ile kurulmuştur; una solución, buscar fiilinin doğrudan nesnesidir."]],
+    "notes":["İskelet: me acerqué + hedef + amaç. Edat ve isim gruplarını birlikte okumak anlamı kolaylaştırır.","Al mostrador = a + el mostrador; de la aerolínea = havayolu şirketinin."]
+  },
+  {
+    "paragraph":2,
+    "subject":"Había: öznesiz haber yapısı. Estaban tratando: que → pasajeros, çoğul özne.",
+    "tr":"Kendi sorunlarını çözmeye çalışan yolculardan oluşan uzun bir sıra vardı.",
+    "en":"There was a long line of passengers who were also trying to resolve their problems.",
+    "parts":[
+      ["Había una larga fila de pasajeros","Oración impersonal con haber","yolculardan oluşan uzun bir sıra vardı","there was a long line of passengers","Había varlık bildirir. Una larga fila de pasajeros, öznesiz haber fiilinin doğrudan nesnesidir."],
+      ["que también estaban tratando","Oración de relativo: sujeto + verbo","onlar da çalışıyorlardı","who were also trying","Que, pasajeros ismine gönderme yapar. Bu nedenle estaban çoğuldur; fila tekil olmasına rağmen fiil ona bağlanmaz."],
+      ["de resolver sus problemas.","Complemento de tratar de","kendi sorunlarını çözmeye","to resolve their problems","Tratar de + infinitivo = yapmaya çalışmak. Sus problemas, resolver fiilinin doğrudan nesnesidir."]
+    ],
+    "verbs":[["había","Pretérito imperfecto · haber impersonal","Vardı anlamındadır; ardından participio gelmediği için pluscuamperfecto değildir."],["estaban tratando","Imperfecto de estar + gerundio","Çalışma/deneme eyleminin o sırada devam ettiğini gösterir."],["resolver","Infinitivo · tratar de + infinitivo","Çözmeye çalışılan eylemdir; de, tratar de yapısının parçasıdır."]],
+    "notes":["Varlık bildiren haber öznesizdir ve bu kullanımda tekil kalır: había una fila / había muchos pasajeros.","Que ile başlayan ilgi cümlesi yolcuları tanımlar. Sus, burada yolcuların kendi sorunlarını ifade eder."]
+  },
+  {
+    "paragraph":2,
+    "subject":"Esperar mastarının anlaşılan öznesi: (yo). Fue mi turno: sıra bildiren ana ifade.",
+    "tr":"Bir saatten fazla sabırla bekledikten sonra sonunda sıra bana geldi.",
+    "en":"After waiting patiently for more than an hour, it was finally my turn.",
+    "parts":[
+      ["Después de esperar pacientemente","Complemento de tiempo","sabırla bekledikten sonra","after waiting patiently","Después de + infinitivo = yaptıktan sonra. Pacientemente, esperar fiilini açıklar."],
+      ["durante más de una hora,","Complemento de duración","bir saatten fazla süre boyunca","for more than an hour","Beklemenin süresini belirtir. Más de + miktar: o miktardan fazla."],
+      ["finalmente fue mi turno.","Oración principal: expresión de turno","sonunda sıra bana geldi","it was finally my turn","Fue mi turno kalıbı, o anda sıranın anlatıcıya geldiğini belirtir."]
+    ],
+    "verbs":[["esperar","Infinitivo · después de + infinitivo","Çekimli bir fiil değildir; zamanı, ana cümleyle ilişkisi üzerinden anlaşılır."],["fue","Pretérito indefinido · ser","Bu cümlede ir değil ser fiilidir. Sıra anlatıcıya gelmiştir."]],
+    "notes":["Después de esperar… bölümünü tek bir zaman öbeği olarak düşün: bekledikten sonra.","Durante más de una hora beklemeye; finalmente ise ana olayın sonunda gerçekleşmesine bağlanır."]
+  },
+  {
+    "paragraph":3,
+    "subject":"Expresé, pregunté ve podía: (yo). Había: öznesiz varlık yapısı.",
+    "tr":"Endişemi nazik uçuş görevlisine dile getirdim ve başka bir seçenek olup olmadığını ya da başka bir uçuşta yer ayırtıp ayırtamayacağımı sordum.",
+    "en":"I expressed my concern to the kind flight attendant and asked her whether there was an alternative or whether I could book another flight.",
+    "parts":[
+      ["Expresé mi preocupación","Verbo + complemento directo","endişemi dile getirdim","I expressed my concern","Neyi dile getirdim? Mi preocupación: doğrudan nesne."],
+      ["a la amable asistente de vuelo","Complemento indirecto","nazik uçuş görevlisine","to the kind flight attendant","Kime söyledim? A la… grubu, sözün yöneltildiği kişiyi gösterir."],
+      ["y le pregunté","Coordinación: CI + verbo","ve ona sordum","and I asked her","Le, görevliye anlamında dolaylı nesne zamiridir."],
+      ["si había alguna alternativa","Interrogativa indirecta: CD","başka bir seçenek olup olmadığını","whether there was an alternative","Ne sordum? Bu dolaylı soru, pregunté fiilinin nesnesidir."],
+      ["o si podía reservar en otro vuelo.","Interrogativa indirecta coordinada","veya başka bir uçuşta yer ayırtıp ayırtamayacağımı","or whether I could book another flight","O si ikinci dolaylı soruyu birinciye bağlar. Podía fiilinin gizli öznesi anlatıcıdır."]
+    ],
+    "verbs":[["expresé / pregunté","Pretérito indefinido · yo","İki tamamlanmış konuşma eylemini peş peşe anlatır."],["había","Pretérito imperfecto · haber impersonal","Bir alternatifin var olup olmadığını sorar."],["podía reservar","Imperfecto de poder + infinitivo","Geçmişteki imkânı bildirir: yer ayırtabilir miydim? Reservar mastardır."]],
+    "notes":["Si burada koşul bildiren eğer değildir; olup olmadığı / yapıp yapamayacağı anlamında dolaylı soru kurar.","Asistente de vuelo kabin memuru demektir. Bankodaki kişi için havayolu görevlisi anlamındaki agente de la aerolínea daha doğaldır."]
+  },
+  {
+    "paragraph":3,
+    "subject":"Explicó: ella. Estaban llenos: todos los vuelos. Era limitada: la disponibilidad.",
+    "tr":"Görevli bana, kötü hava koşulları nedeniyle bütün uçuşların dolu olduğunu ve yer bulunabilirliğinin sınırlı olduğunu açıkladı.",
+    "en":"She explained to me that, due to the bad weather conditions, all the flights were full and availability was limited.",
+    "parts":[
+      ["Ella me explicó","Sujeto + CI + verbo","o bana açıkladı","she explained to me","Ella özne; me, bana anlamındaki dolaylı nesne; explicó fiildir."],
+      ["que debido a las malas condiciones climáticas,","Nexo + complemento de causa","kötü hava koşulları nedeniyle","that due to the bad weather conditions","Que, açıklanan içeriğin tamamını başlatır. Debido a… araya giren neden öbeğidir."],
+      ["todos los vuelos estaban llenos","Sujeto + predicado nominal","bütün uçuşların dolu olduğunu","all the flights were full","Todos los vuelos özne, estaban fiil, llenos durum bildiren yüklem sıfatıdır."],
+      ["y la disponibilidad era limitada.","Oración coordinada: sujeto + atributo","ve yer bulunabilirliğinin sınırlı olduğunu","and availability was limited","La disponibilidad dişil tekildir; limitada onunla uyumludur."]
+    ],
+    "verbs":[["explicó","Pretérito indefinido · explicar · ella","Açıklama, tamamlanmış konuşma eylemidir."],["estaban","Pretérito imperfecto · estar · los vuelos","Uçuşların o sıradaki doluluk durumunu bildirir."],["era","Pretérito imperfecto · ser · la disponibilidad","Müsaitliğin sınırlı olduğunu anlatır."]],
+    "notes":["Que ile başlayan bölümün tamamı, explicó fiilinin doğrudan nesnesidir: neyi açıkladı?", "Llenos ve limitada bu bağlamda durum/nitelik bildirir. Llenos eril-çoğul, limitada dişil-tekil özneleriyle uyumludur."]
+  },
+  {
+    "paragraph":4,
+    "subject":"Sentí ve estaba: (yo), gizli özne.",
+    "tr":"O anda zor bir durumda sıkışıp kaldığımı hissettim.",
+    "en":"At that moment, I felt that I was trapped in a difficult situation.",
+    "parts":[
+      ["En ese momento,","Complemento de tiempo","o anda","at that moment","Hissetme eyleminin zamanını belirtir."],
+      ["sentí que estaba atrapado","Verbo + oración subordinada sustantiva","sıkışıp kalmış olduğumu hissettim","I felt that I was trapped","Sentí ana fiildir. Que estaba atrapado, ne hissettiğini açıklayan yan cümledir."],
+      ["en una situación difícil.","Complemento de situación / lugar figurado","zor bir durumda","in a difficult situation","Fiziksel bir yerden çok, içinde bulunulan zor durumu anlatır."]
+    ],
+    "verbs":[["sentí","Pretérito indefinido · sentir · yo","O anda ortaya çıkan algı/duyguyu anlatır."],["estaba atrapado","Imperfecto de estar + participio con valor de estado","Atrapado, içinde bulunulan durumu anlatır; eylemin kim tarafından yapıldığını bildiren ser + participio yapısı değildir."]],
+    "notes":["Que ile başlayan bölüm, sentí fiilinin doğrudan nesnesidir. Yan cümledeki durum o hissetme anında sürmektedir.","Durum: estaba atrapado → sıkışıp kalmıştım. Olay/tepki: sentí → hissettim."]
+  },
+  {
+    "paragraph":4,
+    "subject":"Decidí ve pregunté: (yo). Había: öznesiz varlık yapısı.",
+    "tr":"Sakin kalmaya karar verdim ve bir aktarma uçuşu veya mevcut alternatif rotalar olup olmadığını sordum.",
+    "en":"I decided to stay calm and asked whether there was a connecting flight or any alternative routes available.",
+    "parts":[
+      ["Decidí mantener la calma","Verbo + complemento de infinitivo","sakinliğimi korumaya karar verdim","I decided to stay calm","Neye karar verdim? Mantener la calma: mastarlı nesne. La calma, mantener fiilinin doğrudan nesnesidir."],
+      ["y pregunté","Coordinación de verbos","ve sordum","and I asked","Y, iki tamamlanmış eylemi ortak yo öznesiyle bağlar."],
+      ["si había algún vuelo de conexión","Interrogativa indirecta: CD","herhangi bir aktarma uçuşu olup olmadığını","whether there was a connecting flight","Si dolaylı soru kurar; algún, eril tekil vuelo isminden önce kullanılır."],
+      ["o rutas alternativas disponibles.","Grupo nominal coordinado","veya mevcut alternatif rotalar","or alternative routes available","O, varlığı sorulan ikinci seçeneği bağlar. Alternativas ve disponibles, rutas ismini niteler."]
+    ],
+    "verbs":[["decidí / pregunté","Pretérito indefinido · yo","Karar verme ve soru sorma, tamamlanmış anlatı adımlarıdır."],["mantener","Infinitivo · decidir + infinitivo","Decidí fiilinin ardından kararın içeriğini belirtir."],["había","Pretérito imperfecto · haber impersonal","Uçuş veya alternatif rota var mıydı sorusunun varlık fiilidir."]],
+    "notes":["Mantener la calma bir bütün olarak sakinliğini korumak demektir; sözcükleri ayrı ayrı çevirmek yerine ifadeyi birlikte oku.","Algún vuelo de conexión ve rutas alternativas disponibles aynı dolaylı soruda alternatif seçeneklerdir."]
+  },
+  {
+    "paragraph":4,
+    "subject":"Revisó ve encontró: la asistente. Llegar mastarının anlaşılan öznesi: yolcu/anlatıcı.",
+    "tr":"Görevli sistemini kontrol etti ve bir seçenek buldu: New York’a varmadan önce São Paulo’da aktarma yapan bir uçuş.",
+    "en":"The assistant checked her system and found an option: a flight with a stopover in São Paulo before arriving in New York.",
+    "parts":[
+      ["La asistente revisó su sistema","Sujeto + verbo + CD","görevli sistemini kontrol etti","the assistant checked her system","La asistente özne, revisó fiil, su sistema doğrudan nesnedir."],
+      ["y encontró una opción:","Oración coordinada: verbo + CD","ve bir seçenek buldu","and found an option","Özne ikinci kez yazılmaz; yine görevli anlaşılır. Una opción doğrudan nesnedir."],
+      ["un vuelo con escala en Sao Paulo","Aposición explicativa de opción","São Paulo’da aktarmalı bir uçuş","a flight with a stopover in São Paulo","İki noktadan sonra seçenek açıklanır. Con escala, uçuşun aktarmalı olduğunu belirtir."],
+      ["antes de llegar a Nueva York.","Complemento de tiempo","New York’a varmadan önce","before arriving in New York","Antes de + infinitivo, aktarmanın son varıştan önce olduğunu anlatır."]
+    ],
+    "verbs":[["revisó / encontró","Pretérito indefinido · ella","Sistemi kontrol etme ve seçeneği bulma, peş peşe tamamlanmış olaylardır."],["llegar","Infinitivo · antes de + infinitivo","Antes de edat grubunun ardından mastar gelir."]],
+    "notes":["İki nokta, bulunan seçeneğin ne olduğunu açar; yeni bir çekimli fiil başlatmaz.","Con escala en Sao Paulo ifadesini birlikte oku: São Paulo aktarmalı. Özgün metindeki şehir yazımı korunmuştur."]
+  },
+  {
+    "paragraph":5,
+    "subject":"Era: söz konusu güzergâh. Había planeado, acepté ve agradecí: (yo).",
+    "tr":"Başlangıçta planladığım güzergâh olmasa da seçeneği kabul ettim ve yardımı için görevliye teşekkür ettim.",
+    "en":"Although it was not the itinerary I had originally planned, I accepted the option and thanked the assistant for her help.",
+    "parts":[
+      ["Aunque no era el itinerario","Oración subordinada concesiva","o güzergâh olmasa da","although it was not the itinerary","Aunque, ana sonuca engel olmayan bir karşıtlık kurar. El itinerario, ser ile kurulan yüklemin isim bölümüdür."],
+      ["que había planeado originalmente,","Oración subordinada de relativo","başlangıçta planlamış olduğum","that I had originally planned","Que, el itinerario ismini açıklar; yan cümlede planlanan şeyin yerini alır."],
+      ["acepté la opción","Oración principal: verbo + CD","seçeneği kabul ettim","I accepted the option","La opción doğrudan nesnedir. Bu, karşıtlık bildiren giriş bölümüne rağmen gerçekleşen ana olaydır."],
+      ["y agradecí a la asistente","Coordinación: verbo + CI","ve görevliye teşekkür ettim","and thanked the assistant","A la asistente, teşekkürün yöneltildiği kişiyi belirtir."],
+      ["por su ayuda.","Complemento de causa","yardımı için","for her help","Ne için teşekkür edildiğini açıklar."]
+    ],
+    "verbs":[["era","Pretérito imperfecto · ser","Güzergâhın, önceki planla aynı olmadığını anlatır."],["había planeado","Pluscuamperfecto · planear · yo","İlk planlama, seçeneği kabul etmeden daha önce gerçekleşmiştir."],["acepté / agradecí","Pretérito indefinido · yo","Kabul etme ve teşekkür etme tamamlanmış olaylardır."]],
+    "notes":["Aunque ile burada bilinen, gerçek bir durum anlatıldığı için indicativo kullanılır: no era…", "Había planeado = planlamıştım. Había + participio, geçmişteki bir andan önceki eylemi kurar."]
+  },
+  {
+    "paragraph":5,
+    "subject":"Entregó: (ella), yani görevli. Llegar: anlatıcı/yolcu.",
+    "tr":"Son varış noktama ulaşmam için bana yeni biniş kartlarını verdi.",
+    "en":"She handed me the new boarding passes so that I could reach my final destination.",
+    "parts":[
+      ["Me entregó","Complemento indirecto + verbo","bana verdi","she handed me","Me = bana; kartları alan kişidir. Gizli özne ella’dır."],
+      ["las nuevas tarjetas de embarque","Complemento directo","yeni biniş kartlarını","the new boarding passes","Neyi verdi? Bu isim grubu doğrudan nesnedir. Tarjetas de embarque bir bütün olarak biniş kartları demektir."],
+      ["para llegar al destino final.","Complemento de finalidad","son varış noktasına ulaşmak için","to reach the final destination","Para + infinitivo amacı gösterir. Al = a + el; destino final hedefi belirtir."]
+    ],
+    "verbs":[["entregó","Pretérito indefinido · entregar · ella","Kartları verme, tamamlanmış olaydır."],["llegar","Infinitivo de finalidad","Ulaşma eyleminin anlaşılan öznesi kartları veren görevli değil, kartları alan yolcudur."]],
+    "notes":["Cümlede me özne değildir. Özne görevlidir; me, alıcı olan bana anlamındadır.","Las, nuevas ve tarjetas dişil-çoğul uyumludur. De embarque, kartın türünü birlikte belirtir."]
+  },
+  {
+    "paragraph":5,
+    "subject":"Había estado, aproveché, explorar ve experimentar: (yo).",
+    "tr":"Daha önce hiç Brezilya’da bulunmamıştım; bu yüzden biraz keşfetmek ve yeni bir şey deneyimlemek için fırsatı değerlendirdim.",
+    "en":"I had never been to Brazil, so I took the opportunity to explore a little and experience something new.",
+    "parts":[
+      ["Nunca había estado en Brasil,","Negación + verbo + lugar","daha önce hiç Brezilya’da bulunmamıştım","I had never been to Brazil","Nunca, anlatıdaki o ana kadar böyle bir deneyimin bulunmadığını belirtir."],
+      ["así que aproveché la oportunidad","Oración coordinada consecutiva","bu yüzden fırsatı değerlendirdim","so I took the opportunity","Así que sonuç bildirir. La oportunidad, aproveché fiilinin doğrudan nesnesidir."],
+      ["para explorar un poco","Complemento de finalidad","biraz keşfetmek için","to explore a little","Para + infinitivo amaç bildirir; un poco, keşfetmenin miktarını sınırlar."],
+      ["y experimentar algo nuevo.","Coordinación de infinitivos","ve yeni bir şey deneyimlemek için","and experience something new","İki amaç aynı para’ya bağlanır. Algo nuevo, experimentar fiilinin doğrudan nesnesidir."]
+    ],
+    "verbs":[["había estado","Pluscuamperfecto · estar · yo","Geçmişteki Brezilya aktarmasına kadar yaşanmamış deneyimi anlatır."],["aproveché","Pretérito indefinido · aprovechar · yo","Fırsatı değerlendirme, hikâyenin tamamlanmış eylemidir."],["explorar / experimentar","Infinitivos de finalidad","İkisi de aynı para ile amaç bildirir."]],
+    "notes":["Nunca fiilden önceyse ayrıca no eklenmez: Nunca había estado…", "Algo nuevo = yeni bir şey. Belirsiz zamir algo’dan sonra sıfat eril-tekil biçimdedir: nuevo."]
+  },
+  {
+    "paragraph":6,
+    "subject":"Se vio afectado: mi itinerario. Aprendí, mantener ve buscar: (yo). Surgen: problemas inesperados.",
+    "tr":"Seyahat planım etkilenmiş olsa da beklenmedik sorunlar ortaya çıktığında sakin kalmanın ve alternatif çözümler aramanın önemini öğrendim.",
+    "en":"Although my itinerary was affected, I learned the importance of staying calm and looking for alternative solutions when unexpected problems arise.",
+    "parts":[
+      ["Aunque mi itinerario se vio afectado,","Oración subordinada concesiva","seyahat planım etkilenmiş olsa da","although my itinerary was affected","Aunque karşıtlık kurar. Mi itinerario özne; se vio afectado, etkilendi anlamındaki yapıdır."],
+      ["aprendí la importancia","Verbo + complemento directo","önemini öğrendim","I learned the importance","Aprendí ana fiildir. La importancia doğrudan nesnedir; devamındaki mastarlar neyin önemli olduğunu açıklar."],
+      ["de mantener la calma","Complemento del nombre importancia","sakinliğini korumanın","of staying calm","De… öbeği, importancia ismini tamamlar."],
+      ["y buscar soluciones alternativas","Coordinación de infinitivos","ve alternatif çözümler aramanın","and looking for alternative solutions","Buscar, mantener ile aynı de yapısına bağlanır; soluciones alternativas onun nesnesidir."],
+      ["cuando surgen problemas inesperados.","Oración subordinada temporal: valor general","beklenmedik sorunlar ortaya çıktığında","when unexpected problems arise","Surgen fiilinin öznesi, fiilden sonra gelen problemas inesperados grubudur."]
+    ],
+    "verbs":[["se vio afectado","Pretérito indefinido · verse afectado","Etkilenmek anlamındaki zamirli yapıdır. Ser + participio ile kurulan edilgen yapıyla bire bir aynı değildir."],["aprendí","Pretérito indefinido · aprender · yo","Bu deneyim sonucunda öğrenilen tamamlanmış dersi anlatır."],["mantener / buscar","Infinitivos · complemento de importancia","Neyin önemli olduğunu açıklayan iki mastardır."],["surgen","Presente · surgir · ellos","Anlatıcı tek bir geçmiş olaydan genel bir yaşam dersine geçer."]],
+    "notes":["Se vio afectado içindeki se, me veya le gibi kişiyi gösteren bir dolaylı nesne değildir; verse afectado yapısının parçasıdır.","Geçmiş anlatının içinde presente kullanılması burada anlamlıdır: sorunlar genel olarak ortaya çıktığında ne yapmalı?"]
+  },
+  {
+    "paragraph":6,
+    "subject":"Enseñó: esta experiencia en el aeropuerto. Ser ve adaptarme: öğretilen eylemleri yapacak kişi, anlatıcı.",
+    "tr":"Havaalanındaki bu deneyim bana seyahatler sırasında esnek olmayı ve öngörülmeyen durumlara uyum sağlamayı öğretti.",
+    "en":"This experience at the airport taught me to be flexible and adapt to unforeseen situations during trips.",
+    "parts":[
+      ["Esta experiencia en el aeropuerto","Sujeto","havaalanındaki bu deneyim","this experience at the airport","Ana cümlenin öznesidir. En el aeropuerto, deneyimin nerede yaşandığını açıklayan isim grubu içindeki yer öbeğidir."],
+      ["me enseñó","Complemento indirecto + verbo","bana öğretti","taught me","Me = bana. Enseñó fiilinin öznesi deneyimdir."],
+      ["a ser flexible","Complemento de enseñar a + infinitivo","esnek olmayı","to be flexible","Enseñar a + infinitivo = birine bir şeyi yapmayı öğretmek. Flexible, ser ile kurulan niteliktir."],
+      ["y adaptarme a situaciones imprevistas","Coordinación de infinitivos + régimen","ve öngörülmeyen durumlara uyum sağlamayı","and adapt to unforeseen situations","Adaptarme = adaptar + me; adaptarse a, bir şeye uyum sağlamak demektir."],
+      ["durante los viajes.","Complemento de tiempo","seyahatler sırasında","during trips","Esnek olma ve uyum sağlama davranışlarının hangi bağlamda/zamanda geçerli olduğunu belirtir."]
+    ],
+    "verbs":[["enseñó","Pretérito indefinido · enseñar · esta experiencia","Geçmişteki deneyimin kazandırdığı dersi anlatır; özne yo değildir."],["ser / adaptarme","Infinitivos · enseñar a + infinitivo","Öğrenilen iki eylem a yapısına bağlanır. Adaptarme içindeki zamir mastara bitişik yazılır."]],
+    "notes":["Me enseñó içindeki me dolaylı nesnedir: bana. Adaptarme içindeki me ise adaptarse fiilinin zamiridir; görevleri farklıdır.","İskelet: deneyim + bana öğretti + ne yapmayı? İki mastarlı bölüm, öğrenilen içeriği birlikte açıklar."]
+  }
+]

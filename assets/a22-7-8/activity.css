@@ -14,3 +14,12 @@
 @media(max-width:720px){.family-grid{grid-template-columns:1fr}.family-chain{font-size:16px}}
 @media(max-width:520px){.family-card summary{padding:18px 40px 18px 18px}.family-body{padding:18px}.family-rule{padding:16px 18px;font-size:11px}.family-rule strong{font-size:12px}.family-chain{font-size:15px}.family-brief{font-size:10px}.family-example{font-size:13px}.family-body dd{font-size:11px}.family-note{font-size:10px}.family-expand{right:16px;top:23px}}
 .family-card:first-child{grid-column:1 / -1}
+
+
+/* Sentence phrase colors shared with A2.1. */
+.syntax-chunk{border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone;transition:background-color .13s;position:relative}
+.sentence:hover .syntax-chunk,.sentence:focus-within .syntax-chunk,.sentence.is-active .syntax-chunk{background-color:var(--chunk-color)}
+.reading-color-help{font-size:13px;line-height:1.7;color:var(--muted,#796581);margin:14px 0 22px}
+@media(prefers-reduced-motion:reduce){.syntax-chunk{transition:none}}
+
+.story .sentence .phrase-unit{background:transparent;color:inherit;border-color:transparent;box-shadow:none}.story .sentence:hover .phrase-unit,.story .sentence:focus-within .phrase-unit,.story .sentence.is-active .phrase-unit{background-color:var(--chunk-color)}.story .sentence .phrase-unit.speaking{outline:2px solid var(--accent);outline-offset:1px}

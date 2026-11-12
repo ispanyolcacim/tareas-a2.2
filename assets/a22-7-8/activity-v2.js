@@ -1,6 +1,7 @@
 'use strict';
 (() => {
   const BASE='assets/a22-7-8/';
+  const chunkColors=["#f8d4e3", "#d6e5ff", "#ffedb3", "#d4eedb", "#e6d6fa", "#ffdac5", "#d2eff2", "#f4d0cf", "#dfe8bb", "#e6d2e8", "#d8e0ef", "#f8e1be", "#cce6dc", "#e4e0f6"];
   const $=(s,root=document)=>root.querySelector(s), $$=(s,root=document)=>[...root.querySelectorAll(s)];
   const audio=$('#narration'), popup=$('#word-popup');
   const storageKey='ispanyolcacim-a22-7-8-ifadeler-v2';
@@ -19,7 +20,7 @@
       s.text=s.parts.map(p=>p[0]).join(' ');
       s.units=s.parts.map((p,j)=>{
         const count=p[0].match(tokenPattern).length,start=counts[s.paragraph];counts[s.paragraph]+=count;
-        const entry={id:`s${i+1}-p${j+1}`,es:p[0],role:p[1],tr:p[2],en:p[3],note:p[4],paragraph:s.paragraph,start,end:counts[s.paragraph]-1};
+        const entry={id:`s${i+1}-p${j+1}`,es:p[0],role:p[1],tr:p[2],en:p[3],note:p[4],paragraph:s.paragraph,color:chunkColors[j%chunkColors.length],start,end:counts[s.paragraph]-1};
         entries[entry.id]=entry;paragraphParts[s.paragraph].push(entry);return entry;
       });
     });
@@ -31,7 +32,7 @@
   }
 
   function phraseButton(entry) {
-    const button=document.createElement('button');button.type='button';button.className='phrase-unit';button.lang='es';
+    const button=document.createElement('button');button.type='button';button.className='phrase-unit syntax-chunk';button.style.setProperty('--chunk-color',entry.color);button.lang='es';
     button.textContent=entry.es;button.dataset.phraseId=entry.id;
     button.setAttribute('aria-label',`${entry.es} — ${entry.role}: Türkçe ve İngilizce anlamını gör`);
     return button;
@@ -94,10 +95,10 @@
   }
 
   function stopClip(){clipRequest++;if(clipSource){try{clipSource.stop();}catch(_){}clipSource=null;}if('speechSynthesis'in window)speechSynthesis.cancel();}
-  function closePopup(restore=true){const previous=activePhrase;popup.hidden=true;stopClip();activePhrase?.classList.remove('selected');activePhrase=null;currentKey=null;if(restore&&previous?.isConnected)previous.focus({preventScroll:true});}
+  function closePopup(restore=true){const previous=activePhrase;popup.hidden=true;stopClip();activePhrase?.closest('.sentence')?.classList.remove('is-active');activePhrase?.classList.remove('selected');activePhrase=null;currentKey=null;if(restore&&previous?.isConnected)previous.focus({preventScroll:true});}
   function openPhrase(button){
     closePopup(false);activePhrase=button;currentKey=button.dataset.phraseId;const e=entries[currentKey];if(!e)return;
-    button.classList.add('selected');$('#popup-word').textContent=e.es;$('#popup-lemma').textContent=e.role;
+    button.classList.add('selected');button.closest('.sentence')?.classList.add('is-active');$('#popup-word').textContent=e.es;$('#popup-lemma').textContent=e.role;
     $('#popup-tr').textContent=e.tr;$('#popup-en').textContent=e.en;
     $('#popup-phrase').hidden=false;$('#phrase-es').textContent='Cümledeki görevi';$('#phrase-tr').textContent=e.note;$('#phrase-en').textContent='';
     $('#pronunciation-status').textContent='';popup.hidden=false;updateSaved();positionPopup();$('#close-popup').focus({preventScroll:true});
@@ -199,3 +200,4 @@
   }
   init();
 })();
+

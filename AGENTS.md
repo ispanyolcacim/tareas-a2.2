@@ -19,3 +19,7 @@ This applies to homework (ödev); do not confuse homework with classroom activit
 ## Media provider restriction
 
 User instruction, 15 November 2026: never use Fal for future work. Do not invoke Fal tools, upload to Fal, start Fal generations, suggest Fal, or resume previously prepared Fal jobs. Continue with other available methods.
+
+## Required homework panel in every classroom activity
+
+User instruction, 15 November 2026: every new or updated classroom activity at every level must include its lesson homework. Always add the established homework panel with a visible entry near lesson navigation. Verify the level and lesson against the current student portal and actual homework files; include every existing part and any real writing, listening or video assignment. Include the next lesson's Quizlet preparation when listed in the portal. Never invent a missing task or copy another lesson's links. Before publication, verify the panel opens and closes and that its links point to the correct live assignments. Treat a missing homework panel as unfinished work.

@@ -27,13 +27,62 @@ body .classroom-header+section.classroom-context{margin-top:0!important}
 body header.classroom-header--standalone{max-width:1100px!important;margin:36px auto 28px!important;padding:0 30px!important}
 @media(max-width:540px){body header.classroom-header--standalone{margin-top:20px!important;padding:0 16px!important}}
 @media print{body .classroom-header .classroom-header__actions{display:none!important}}
-</style></head>
+</style><style id="classroom-homework-style">
+/* Classroom print and lesson homework · v1 */
+.classroom-print,.classroom-homework-button,.classroom-homework-close,.classroom-homework-link{font:800 14px/1.4 "Nunito Sans","Nunito",Arial,sans-serif;box-sizing:border-box;letter-spacing:0;text-transform:none}
+.classroom-print{display:inline-flex!important;align-items:center;justify-content:center;gap:7px;width:auto!important;height:auto!important;min-height:40px;padding:9px 14px!important;border:1px solid #d9deea!important;border-radius:14px!important;color:#27334a!important;background:#fff!important;cursor:pointer;white-space:nowrap;box-shadow:0 3px 12px #20304a09}
+.classroom-print svg{width:18px;height:18px;flex:none}.classroom-print:hover{background:#f4f6fb!important}
+.classroom-print:focus-visible,.classroom-homework-button:focus-visible,.classroom-homework-close:focus-visible,.classroom-homework-link:focus-visible{outline:3px solid var(--classroom-hw-accent,#6c4eb8);outline-offset:3px}
+.classroom-homework-dock{box-sizing:border-box;width:min(1080px,calc(100% - 32px));margin:24px auto 38px;padding:20px;text-align:right;border-top:1px solid #dce1eb}
+.classroom-homework-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;grid-column:1/-1;flex:0 0 auto;min-height:46px;padding:12px 19px;margin:4px 0;border:1px solid var(--classroom-hw-accent,#6c4eb8);border-radius:18px;background:var(--classroom-hw-soft,#f1ebff);color:var(--classroom-hw-accent,#6c4eb8);cursor:pointer;text-align:center;white-space:normal;box-shadow:none}
+.classroom-homework-button:hover{filter:brightness(.97);transform:translateY(-1px)}
+#classroom-homework{--classroom-hw-accent:#6c4eb8;--classroom-hw-soft:#f1ebff;box-sizing:border-box;inset:0;width:min(920px,calc(100% - 28px));max-width:920px;max-height:calc(100dvh - 32px);margin:auto;padding:0;border:1px solid #e0dfeb;border-radius:28px;background:#fffdfb;color:#25324a;box-shadow:0 22px 90px #18253d38;font:400 16px/1.65 "Nunito Sans","Nunito",Arial,sans-serif;overflow:auto;text-align:left}
+#classroom-homework::backdrop{background:#18253d88;backdrop-filter:blur(4px)}
+#classroom-homework:not([open]){display:none!important}
+#classroom-homework[open]{display:block}
+#classroom-homework *{box-sizing:border-box}
+#classroom-homework .classroom-homework-head{padding:27px 30px 22px;background:var(--classroom-hw-soft);border-bottom:1px solid #25324a12}
+#classroom-homework .classroom-homework-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+#classroom-homework .classroom-homework-eyebrow{margin:0;font-size:12px;letter-spacing:1px;font-weight:900;color:var(--classroom-hw-accent)}
+#classroom-homework .classroom-homework-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.classroom-homework-close{min-height:40px;padding:9px 14px;border:1px solid #d9deea;border-radius:14px;background:#fff;color:#27334a;cursor:pointer}
+#classroom-homework h2{margin:0 0 8px;font:900 clamp(25px,4vw,36px)/1.2 "Nunito","Nunito Sans",Arial,sans-serif;letter-spacing:-.6px;color:#25324a}
+#classroom-homework .classroom-homework-intro{margin:0;color:#5c6980;font-size:15px}
+#classroom-homework .classroom-homework-body{padding:26px 30px 30px}
+#classroom-homework .classroom-homework-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#classroom-homework .classroom-homework-card{display:flex;flex-direction:column;gap:12px;margin:0;padding:21px;border:1px solid #e0e4ed;border-radius:22px;background:#fff;box-shadow:0 4px 16px #20304a05;break-inside:avoid}
+#classroom-homework h3{margin:0;font:900 18px/1.35 "Nunito","Nunito Sans",Arial,sans-serif;letter-spacing:0;color:#25324a}
+#classroom-homework .classroom-homework-description{margin:0;color:#5c6980;font-size:15px;line-height:1.7;flex:1}
+.classroom-homework-link{display:inline-flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 15px;border-radius:13px;border:1px solid var(--classroom-hw-accent);background:var(--classroom-hw-soft);color:var(--classroom-hw-accent);text-decoration:none}
+.classroom-homework-link:hover{text-decoration:underline}
+#classroom-homework .classroom-homework-prep{margin-top:25px;padding-top:24px;border-top:1px dashed #d6dce7}
+#classroom-homework .classroom-homework-prep>h3{margin-bottom:14px}
+#classroom-homework .classroom-homework-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:25px;padding-top:20px;border-top:1px solid #e0e4ed}
+#classroom-homework .classroom-homework-portal{color:var(--classroom-hw-accent);font-size:14px;font-weight:800;text-decoration:underline}
+#classroom-homework .classroom-homework-note{margin:0;font-size:13px;color:#637089}
+@media(max-width:640px){#classroom-homework{width:calc(100% - 18px);max-height:calc(100dvh - 18px);border-radius:22px}#classroom-homework .classroom-homework-head,#classroom-homework .classroom-homework-body{padding:21px 18px}#classroom-homework .classroom-homework-grid{grid-template-columns:1fr}.classroom-homework-dock{text-align:center}.classroom-homework-dock>.classroom-homework-button{width:100%}.classroom-print{font-size:12px;padding:8px 11px!important}}
+@media print{
+ .classroom-print,.classroom-homework-dock,.classroom-homework-button,.classroom-homework-actions{display:none!important}
+ body.classroom-homework-open{display:block!important;overflow:visible!important;background:#fff!important;height:auto!important}
+ body.classroom-homework-open> :not(#classroom-homework){display:none!important}
+ body.classroom-homework-open>#classroom-homework[open]{display:block!important;position:static!important;inset:auto!important;width:100%!important;max-width:none!important;max-height:none!important;height:auto!important;overflow:visible!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff!important}
+ #classroom-homework::backdrop{display:none!important}
+ #classroom-homework .classroom-homework-head,#classroom-homework .classroom-homework-body{padding:16px 0!important}
+ #classroom-homework .classroom-homework-card{box-shadow:none!important;break-inside:avoid}
+ #classroom-homework .classroom-homework-grid{display:block!important}
+ #classroom-homework .classroom-homework-card{margin-bottom:14px!important}
+ #classroom-homework .classroom-homework-link{color:#25324a!important;border:0!important;padding:0!important;display:block!important}
+ #classroom-homework .classroom-homework-link::after{content:attr(href);display:block;font:10px/1.5 Arial,sans-serif;word-break:break-all}
+ #classroom-homework .classroom-homework-footer{display:none!important}
+}
+</style>
+</head>
 <body>
   <a class="skip" href="#main">Etkinliğe geç</a>
   
   <main id="main" class="shell">
     
-    <header class="classroom-header" data-classroom-header="v1" style="--classroom-accent:#b74328"><div class="classroom-header__masthead"><a class="classroom-header__brand" href="https://www.ispanyolcacim.com">ESPAÑOL CON PROFE HAZEL</a><div class="classroom-header__meta"><span>A2.2 · 7+8. DERS</span></div></div><div class="classroom-header__logo-wrap"><img class="classroom-header__logo" src="https://ispanyolcacim.github.io/a1.1-tareas/assets/a11-profe-hazel-logo-transparent.png" alt="İspanyolcacım Dil Akademisi · Profe Hazel logosu" width="2174" height="723" decoding="async"></div><div class="classroom-header__title-wrap"><p class="classroom-header__eyebrow">DERS İÇİ ETKİNLİK · (7+8) A2.2</p><h1 class="classroom-header__topic" lang="es" id="page-title">Un imprevisto en el aeropuerto</h1></div></header><section class="classroom-context" style="margin-bottom:26px"><p style="font-size:14px;color:#69534b;margin:0 0 16px">Havaalanında beklenmedik bir olay</p><div class="boarding" aria-label="Hikâyenin rotası"><span class="boarding-label">BİR YOLCULUK, YENİ BİR ROTA</span><div class="route"><span>Chile<small>BAŞLANGIÇ</small></span><span class="route-line" aria-hidden="true">✈</span><span>Nueva York<small>VARIŞ</small></span></div><div class="boarding-bottom"><span>↳ São Paulo aktarması</span><span>7+8. DERS</span></div></div></section>
+    <header class="classroom-header" data-classroom-header="v1" style="--classroom-accent:#b74328"><div class="classroom-header__masthead"><a class="classroom-header__brand" href="https://www.ispanyolcacim.com">ESPAÑOL CON PROFE HAZEL</a><div class="classroom-header__meta"><span>A2.2 · 7+8. DERS</span><span class="classroom-header__actions"><button type="button" class="classroom-print" data-classroom-print title="Yazdır / PDF olarak kaydet">🖨️ Yazdır / PDF</button></span></div></div><div class="classroom-header__logo-wrap"><img class="classroom-header__logo" src="https://ispanyolcacim.github.io/a1.1-tareas/assets/a11-profe-hazel-logo-transparent.png" alt="İspanyolcacım Dil Akademisi · Profe Hazel logosu" width="2174" height="723" decoding="async"></div><div class="classroom-header__title-wrap"><p class="classroom-header__eyebrow">DERS İÇİ ETKİNLİK · (7+8) A2.2</p><h1 class="classroom-header__topic" lang="es" id="page-title">Un imprevisto en el aeropuerto</h1></div></header><section class="classroom-context" style="margin-bottom:26px"><p style="font-size:14px;color:#69534b;margin:0 0 16px">Havaalanında beklenmedik bir olay</p><div class="boarding" aria-label="Hikâyenin rotası"><span class="boarding-label">BİR YOLCULUK, YENİ BİR ROTA</span><div class="route"><span>Chile<small>BAŞLANGIÇ</small></span><span class="route-line" aria-hidden="true">✈</span><span>Nueva York<small>VARIŞ</small></span></div><div class="boarding-bottom"><span>↳ São Paulo aktarması</span><span>7+8. DERS</span></div></div></section>
     <nav class="tabs" aria-label="Etkinlik bölümleri" role="tablist">
       <button id="tab-reading" class="tab active" role="tab" aria-selected="true" aria-controls="reading" data-tab="reading"><span>01</span>📖 Metin</button>
       <button id="tab-listening" class="tab" role="tab" aria-selected="false" aria-controls="listening" tabindex="-1" data-tab="listening"><span>02</span>🎧 Dinleme</button>
@@ -133,6 +182,32 @@ body header.classroom-header--standalone{max-width:1100px!important;margin:36px 
   </div>
   <audio id="narration" preload="metadata"></audio>
   <noscript><div class="notice">Bu etkinlikte cümle öbeklerini ve dinlemeyi kullanmak için JavaScript’i etkinleştir.</div></noscript>
+
+<!-- Lesson homework from the student portal · A2.2 · 7-8 -->
+<div id="classroom-homework-dock" class="classroom-homework-dock"><button type="button" id="classroom-homework-button" class="classroom-homework-button" style="--classroom-hw-accent:#b74328;--classroom-hw-soft:#fff0e8" aria-haspopup="dialog" aria-controls="classroom-homework" aria-expanded="false">📚 7–8. Ders Ödevleri</button></div>
+<dialog id="classroom-homework" aria-labelledby="classroom-homework-title" aria-describedby="classroom-homework-intro" style="--classroom-hw-accent:#b74328;--classroom-hw-soft:#fff0e8">
+ <div class="classroom-homework-head"><div class="classroom-homework-top"><p class="classroom-homework-eyebrow">DERS SONRASI · A2.2 · 7+8</p><div class="classroom-homework-actions"><button type="button" class="classroom-print" data-classroom-print title="Yazdır / PDF olarak kaydet">🖨️ Yazdır / PDF</button><button type="button" class="classroom-homework-close" data-classroom-close aria-label="Ödevleri kapat ve etkinliğe dön">← Etkinliğe dön</button></div></div><h2 id="classroom-homework-title">📚 7–8. Ders Ödevleri</h2><p id="classroom-homework-intro" class="classroom-homework-intro">Derste öğrendiklerini pekiştirmek için bu dersin ödevlerini tamamla. 🌱</p></div>
+ <div class="classroom-homework-body"><div class="classroom-homework-grid"><article class="classroom-homework-card"><h3>✍️ Yazma Ödevi</h3><p class="classroom-homework-description">En son gittiğiniz yer ve gözlemleriniz · Geçmiş zamanları birleştirerek en az 450 kelime ve 6 paragraf yazın.</p><a class="classroom-homework-link" href="https://ispanyolcacim.github.io/tareas-a2.2/7-8.html" target="_blank" rel="noopener noreferrer"><span>Ödevi aç</span><span aria-hidden="true">↗</span></a></article></div><div class="classroom-homework-prep"><h3>🧠 Sonraki derse hazırlık</h3><div class="classroom-homework-grid"><article class="classroom-homework-card"><h3>A2.2 - 9+10. DERS HAZIRLIK SETİ</h3><p class="classroom-homework-description">34 kelime · Sonraki dersten önce çalışılacak hazırlık seti.</p><a class="classroom-homework-link" href="https://quizlet.com/tr/908772099/a22-910-ders-hazirlik-seti-flash-cards" target="_blank" rel="noopener noreferrer"><span>Quizlet setini aç</span><span aria-hidden="true">↗</span></a></article></div></div><div class="classroom-homework-footer"><p class="classroom-homework-note">Teslim yönergeleri her ödevin kendi sayfasında yer alıyor.</p><a class="classroom-homework-portal" href="https://www.ispanyolcacim.com/ogrenci-portali.html" target="_blank" rel="noopener noreferrer">Öğrenci Portalı ↗</a></div></div>
+</dialog>
+<script id="classroom-homework-script">
+/* The homework view is independent of lesson answers and navigation state. */
+(()=>{'use strict';
+ const init=()=>{
+  const dialog=document.getElementById('classroom-homework');
+  const trigger=document.getElementById('classroom-homework-button');
+  if(!dialog||!trigger)return;
+  const nav=document.querySelector("nav.tabs");
+  if(nav){nav.appendChild(trigger);document.getElementById('classroom-homework-dock').remove();}
+  const close=()=>dialog.close();
+  trigger.addEventListener('click',()=>{dialog.showModal();document.body.classList.add('classroom-homework-open');trigger.setAttribute('aria-expanded','true');dialog.scrollTop=0;});
+  dialog.querySelectorAll('[data-classroom-close]').forEach(b=>b.addEventListener('click',close));
+  dialog.addEventListener('close',()=>{document.body.classList.remove('classroom-homework-open');trigger.setAttribute('aria-expanded','false');trigger.focus({preventScroll:true});});
+  dialog.addEventListener('click',e=>{if(e.target!==dialog)return;const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)close();});
+  document.querySelectorAll('[data-classroom-print]').forEach(b=>b.addEventListener('click',()=>window.print()));
+ };
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(init,0),{once:true});else setTimeout(init,0);
+})();
+</script>
 </body>
 </html>
 

@@ -15,3 +15,7 @@ This applies to homework (ödev); do not confuse homework with classroom activit
 - Preserve question content, listening assets and existing student drafts unless a user explicitly requests changes. Keep full listening transcripts locked until the relevant recording's questions are checked, unless the user specifies otherwise.
 - Verify the changed interactions and submission payload without sending test student submissions to production.
 - Reference implementation of the adapted layout: https://ispanyolcacim.github.io/a1.1-tareas/a11-9-10-ida.html
+
+## Media provider restriction
+
+User instruction, 15 November 2026: never use Fal for future work. Do not invoke Fal tools, upload to Fal, start Fal generations, suggest Fal, or resume previously prepared Fal jobs. Continue with other available methods.

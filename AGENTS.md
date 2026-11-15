@@ -23,3 +23,13 @@ User instruction, 15 November 2026: never use Fal for future work. Do not invoke
 ## Required homework panel in every classroom activity
 
 User instruction, 15 November 2026: every new or updated classroom activity at every level must include its lesson homework. Always add the established homework panel with a visible entry near lesson navigation. Verify the level and lesson against the current student portal and actual homework files; include every existing part and any real writing, listening or video assignment. Include the next lesson's Quizlet preparation when listed in the portal. Never invent a missing task or copy another lesson's links. Before publication, verify the panel opens and closes and that its links point to the correct live assignments. Treat a missing homework panel as unfinished work.
+
+## Classroom activity file names
+
+User instruction, 15 November 2026: use `DD-DD-ders-ici-ispanyolcacim-LEVEL.html` for classroom activity entry files. Both lesson numbers use two digits: `01-02`, `03-04`, `07-08`, `09-10`, `11-12`, etc. Level suffixes are `a11`, `a12`, `a21`, `a22`, `b11` and must match the page's actual level. For example, A1.1 uses `09-10-ders-ici-ispanyolcacim-a11.html` and `11-12-ders-ici-ispanyolcacim-a11.html`.
+
+- Keep each activity in its level's existing repository. The canonical HTML entry is at the repository root; preserve its relative asset URLs.
+- Preserve previously published entry URLs as small redirects to the canonical file, carrying both the query string and hash. Keep the full activity in the canonical file only.
+- Retain existing localStorage keys, lesson content, embedded resources, homework links and student data when renaming. Update maintained indexes, documentation and edited backlinks to the canonical URL.
+- A compatibility redirect is a routing file, not another activity page; do not duplicate the lesson UI in it.
+- This naming rule applies to classroom activities, not homework filenames. Do not invent an activity for a lesson that has not been prepared.

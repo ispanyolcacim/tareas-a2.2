@@ -29,7 +29,11 @@ User instruction, 15 November 2026: every new or updated classroom activity at e
 User instruction, 15 November 2026: use `DD-DD-ders-ici-ispanyolcacim-LEVEL.html` for classroom activity entry files. Both lesson numbers use two digits: `01-02`, `03-04`, `07-08`, `09-10`, `11-12`, etc. Level suffixes are `a11`, `a12`, `a21`, `a22`, `b11` and must match the page's actual level. For example, A1.1 uses `09-10-ders-ici-ispanyolcacim-a11.html` and `11-12-ders-ici-ispanyolcacim-a11.html`.
 
 - Keep each activity in its level's existing repository. The canonical HTML entry is at the repository root; preserve its relative asset URLs.
-- Preserve previously published entry URLs as small redirects to the canonical file, carrying both the query string and hash. Keep the full activity in the canonical file only.
+- Preserve previously published entry URLs as small redirects to the canonical file, carrying the query string and any legacy hash for initial section selection; the canonical activity then removes the hash from the address. Keep the full activity in the canonical file only.
 - Retain existing localStorage keys, lesson content, embedded resources, homework links and student data when renaming. Update maintained indexes, documentation and edited backlinks to the canonical URL.
 - A compatibility redirect is a routing file, not another activity page; do not duplicate the lesson UI in it.
 - This naming rule applies to classroom activities, not homework filenames. Do not invent an activity for a lesson that has not been prepared.
+
+## Clean classroom activity URLs
+
+User instruction, 15 November 2026: share and display classroom URLs ending in `.html`, without section fragments such as `#dictation-1`, `#estructura`, `#futuro` or `#bolum-2`, at every level. Tabs, keyboard navigation and previous/next controls must update the activity directly without adding a fragment. Honor an incoming legacy fragment for the initial section, then remove it with `history.replaceState` while preserving the path, query string, existing history state, answers and storage keys. Never append a default section on load. Use clean canonical URLs in messages, indexes and maintained activity links.

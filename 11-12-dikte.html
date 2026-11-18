@@ -320,7 +320,7 @@ document.getElementById('confirm-form').addEventListener('submit', event => {
     studentName:student,
     taskColumn:TASK_COLUMN,
     score,correct,wrong,blank,
-    formatted:`✅ ${score}/100\n✓${correct} ✗${errors}\n${date}`
+    formatted:`✅ ${score}/100\n✓${correct} doğru kelime ✗${errors} yanlış kelime\n${date}`
   };
 
   input.readOnly = true;

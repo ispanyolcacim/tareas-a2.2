@@ -8,40 +8,48 @@
 <style>
 :root{font-family:system-ui,sans-serif;color:#3c251f;background:#fff5ee;--coral:#a43426;--line:#edc8ba}*{box-sizing:border-box}body{margin:0}header{background:linear-gradient(125deg,#ffd9ba,#ff9d8a);padding:48px max(5vw,calc((100vw - 1040px)/2));border-bottom:1px solid var(--line)}header p{margin:0;letter-spacing:.1em;font-weight:750;font-size:.85rem}h1,h2{font-family:Georgia,serif}h1{font-size:clamp(3rem,8vw,6rem);margin:.12em 0}h2{font-size:clamp(1.8rem,4vw,2.5rem);margin:0 0 .65em}h3{margin:1.2em 0 .45em}header div{font-size:1.1rem}nav{background:#fffaf7;border-bottom:1px solid var(--line)}nav div,main{max-width:1040px;margin:auto;padding:0 18px}nav div{display:flex;gap:6px;flex-wrap:wrap;padding-block:12px}nav a{padding:8px 11px;border-radius:8px;color:var(--coral);font-weight:700;text-decoration:none}nav a:hover{background:#ffe1d5}main{padding-block:22px 48px}section{background:#fffdfa;border:1px solid var(--line);border-radius:20px;padding:clamp(16px,4vw,36px);margin-bottom:20px}p,li{line-height:1.6}.formula{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:18px 0}.formula span,mark{background:#ffdfd0;color:#742518;border-radius:7px;padding:.28em .45em}mark{padding:.1em .2em}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:12px}.card,details{border:1px solid var(--line);padding:14px;border-radius:12px;background:#fff9f5}.card p{margin:.35em 0}.exercise{margin:12px 0 18px}.exercise>p{margin:0 0 8px}.exercise details{margin-top:8px;padding:8px 12px}details p{margin:.5em 0}summary{cursor:pointer;color:var(--coral);font-weight:700;width:fit-content}input,textarea{width:100%;font:inherit;border:1px solid #bc8b7c;border-radius:8px;padding:9px 10px;color:inherit;background:white}textarea{min-height:155px;resize:vertical}label{display:block;margin:.8em 0 .3em;font-weight:650}table{border-collapse:collapse;width:100%}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}thead{background:#ffe2d4}button{font:inherit;font-weight:700;background:var(--coral);color:white;padding:9px 14px;border:0;border-radius:8px;cursor:pointer}button:hover{background:#802419}:focus-visible{outline:3px solid #a43426;outline-offset:3px}.muted{color:#6f4d43}.checklist label{font-weight:400}.checklist input{width:auto}.note{background:#fff0e6;border-left:4px solid #c75342;padding:10px 14px;border-radius:4px}.table-wrap{overflow-x:auto}footer{color:#6f4d43;text-align:center}@media(max-width:540px){th,td{padding:7px;font-size:.9rem}}
 dialog{max-width:min(640px,92vw);border:1px solid var(--line);border-radius:18px;padding:24px;color:inherit}dialog::backdrop{background:#3c251f88}dialog a{color:var(--coral)}
+
+[hidden]{display:none!important}.lesson-nav button{background:#fff5ee;color:#76281e;border:1px solid var(--line)}.lesson-nav button[aria-pressed="true"],.lesson-nav #open-homework{background:#a43426;color:white}.role{display:inline;padding:.11em .23em;border-radius:5px;box-decoration-break:clone;-webkit-box-decoration-break:clone;color:var(--fg);background:var(--bg)}.S{--bg:#dcecff;--fg:#164477}.V{--bg:#ffd9d0;--fg:#781e19}.P{--bg:#eee1ff;--fg:#533180}.O{--bg:#ffefad;--fg:#594100}.A{--bg:#d8f3e2;--fg:#14553a}.C{--bg:#e9ecef;--fg:#344454}.formula .role{color:var(--fg);background:var(--bg)}.examples{margin-block:14px 22px}.legend{display:flex;flex-wrap:wrap;gap:6px;margin-block:0 18px;font-size:.9rem}.panel-actions{margin-bottom:15px}.examples .card b{color:#76281e}td{line-height:1.6}nav button{min-height:42px}
 </style>
 </head>
 <body>
-<header><p>ESPAÑOL CON PROFE HAZEL · A2.2 · 13+14. DERS</p><img style="display:block;width:min(175px,50%);height:auto;margin-top:16px" src="https://ispanyolcacim.github.io/a1.1-tareas/assets/a11-profe-hazel-logo-transparent.png" alt="İspanyolcacım · Profe Hazel"><h1 lang="es">La voz pasiva</h1><div>Etken cümleden haber başlığına</div></header>
-<nav aria-label="Ders bölümleri"><div><a href="#formula">Konu özeti</a><a href="#transforma">Dönüştür</a><a href="#contraste">Eylem mi, sonuç mu?</a><a href="#se">Pasiva refleja</a><a href="#traduccion">Çeviri</a><button type="button" id="open-homework">📚 13–14. Ders Ödevleri</button></div></nav>
-<main>
-<section id="formula">
+<header id="cover"><p>ESPAÑOL CON PROFE HAZEL · A2.2 · 13+14. DERS</p><img style="display:block;width:min(175px,50%);height:auto;margin-top:16px" src="https://ispanyolcacim.github.io/a1.1-tareas/assets/a11-profe-hazel-logo-transparent.png" alt="İspanyolcacım · Profe Hazel"><h1 lang="es">La voz pasiva</h1><div>Etken cümleden haber başlığına</div></header>
+<nav aria-label="Ders bölümleri"><div class="lesson-nav"><button type="button" data-view="cover" aria-controls="cover" aria-pressed="true">Kapak</button><button type="button" data-view="formula" aria-controls="formula" aria-pressed="false">Konu özeti</button><button type="button" data-view="transforma" aria-controls="transforma" aria-pressed="false">Dönüştür</button><button type="button" data-view="contraste" aria-controls="contraste" aria-pressed="false">Eylem mi, sonuç mu?</button><button type="button" data-view="se" aria-controls="se" aria-pressed="false">Medyada edilgen · Pasiva refleja</button><button type="button" data-view="traduccion" aria-controls="traduccion" aria-pressed="false">Çeviri</button><button type="button" id="open-homework">📚 13–14. Ders Ödevleri</button></div></nav>
+<main><div id="lesson-content" hidden><div class="panel-actions"><button type="button" id="back-cover">← Kapağa dön</button></div>
+<div class="legend" aria-label="Cümle öğelerinin renk anahtarı"><span class="role S" title="Özne">Özne</span> <span class="role V" title="Yüklem / çekimli fiil">Yüklem / çekimli fiil</span> <span class="role P" title="Participio / yüklemin parçası">Participio / yüklemin parçası</span> <span class="role O" title="Doğrudan nesne">Doğrudan nesne</span> <span class="role A" title="Eylemi yapan / por + agente">Eylemi yapan / por + agente</span> <span class="role C" title="Tümleç">Tümleç</span></div><section id="formula" hidden>
 <h2>Etken cümleden edilgen cümleye</h2>
 <p>Eylemden etkilenen kişi veya şeyi öne çıkarmak için <b lang="es">ser + participio</b> kullanabiliriz. Eylemi yapanı belirtmek istediğimizde <b lang="es">por</b> ekleriz.</p>
-<div class="formula" lang="es"><span>Sujeto paciente</span> + <span>ser conjugado</span> + <span>participio</span> + <span>(por + agente)</span></div>
-<div class="cards" lang="es"><div class="card"><b>Activa</b><p>Pablo Neruda escribió <mark>muchos poemas</mark>.</p></div><div class="card"><b>Pasiva</b><p><mark>Muchos poemas</mark> fueron escritos por Pablo Neruda.</p></div></div>
-<p><b lang="es">Ser</b> cümlenin zamanını ve öznenin sayısını gösterir. <b lang="es">Participio</b> ise özneye hem cinsiyet hem sayı bakımından uyar. Birleşik zamanlarda <b lang="es">sido</b> değişmez.</p>
-<p lang="es">El poema fue <b>escrito</b>. · La carta fue <b>escrita</b>. · Los poemas fueron <b>escritos</b>. · Las cartas fueron <b>escritas</b>.</p>
-<div id="pairs"></div>
-<details><summary>PDF’deki diğer örnekler</summary><ul lang="es">
-<li>Las cartas fueron escritas por Bernardo O’Higgins.</li><li>El edificio fue destruido por un terremoto.</li><li>La comida es preparada por mi abuelita.</li><li>El paciente será trasladado por helicóptero al hospital.</li><li>El ladrón roba el dinero del centro comercial. → El dinero del centro comercial es robado por el ladrón.</li><li>Las fuerzas enemigas derrotaron a las tropas. → Las tropas fueron derrotadas por las fuerzas enemigas.</li>
-</ul></details>
-<div class="table-wrap"><table lang="es"><thead><tr><th scope="col">Tiempo</th><th scope="col">Activa</th><th scope="col">Pasiva</th></tr></thead><tbody id="tiempos"></tbody></table></div>
-<p class="note"><b lang="es">Por</b> her zaman eylemi yapanı göstermez. <span lang="es">El paciente será trasladado por helicóptero.</span> cümlesinde <span lang="es">por helicóptero</span> ulaşım aracını belirtir.</p>
+<div class="formula" lang="es"><span class="role S" title="Özne">Sujeto paciente</span> + <span class="role V" title="Yüklem / çekimli fiil">ser conjugado</span> + <span class="role P" title="Participio / yüklemin parçası">participio</span> + <span class="role A" title="Eylemi yapan / por + agente">(por + agente)</span></div><div class="formula" lang="tr"><span class="role S" title="Özne">Eylemden etkilenen özne</span> + <span class="role V" title="Yüklem / çekimli fiil">çekimli ser fiili</span> + <span class="role P" title="Participio / yüklemin parçası">özneyle uyumlu fiil ortacı</span> + <span class="role A" title="Eylemi yapan / por + agente">(por + eylemi yapan)</span></div>
+<div class="cards"><article class="card"><b>Activa</b><p lang="es"><span class="role S" title="Özne">Pablo Neruda</span> <span class="role V" title="Yüklem / çekimli fiil">escribió</span> <span class="role O" title="Doğrudan nesne">muchos poemas.</span></p></article><article class="card"><b>Pasiva</b><p lang="es"><span class="role S" title="Özne">Muchos poemas</span> <span class="role V" title="Yüklem / çekimli fiil">fueron</span> <span class="role P" title="Participio / yüklemin parçası">escritos</span> <span class="role A" title="Eylemi yapan / por + agente">por Pablo Neruda.</span></p></article></div>
+<p><b lang="es">Ser</b> cümlenin zamanını ve öznenin sayısını gösterir. <b lang="es">Participio</b> özneye cinsiyet ve sayı bakımından uyar. Birleşik zamanlarda <b lang="es">sido</b> değişmez.</p>
+<div class="cards"><article class="card"><b>Eril tekil</b><p lang="es"><span class="role S" title="Özne">El poema</span> <span class="role V" title="Yüklem / çekimli fiil">fue</span> <span class="role P" title="Participio / yüklemin parçası">escrito.</span></p></article><article class="card"><b>Dişil tekil</b><p lang="es"><span class="role S" title="Özne">La carta</span> <span class="role V" title="Yüklem / çekimli fiil">fue</span> <span class="role P" title="Participio / yüklemin parçası">escrita.</span></p></article><article class="card"><b>Eril çoğul</b><p lang="es"><span class="role S" title="Özne">Los poemas</span> <span class="role V" title="Yüklem / çekimli fiil">fueron</span> <span class="role P" title="Participio / yüklemin parçası">escritos.</span></p></article><article class="card"><b>Dişil çoğul</b><p lang="es"><span class="role S" title="Özne">Las cartas</span> <span class="role V" title="Yüklem / çekimli fiil">fueron</span> <span class="role P" title="Participio / yüklemin parçası">escritas.</span></p></article></div>
+<h3>Örnek cümleler</h3><div class="cards examples"><article class="card"><b>Şiir</b><p lang="es"><span class="role S" title="Özne">Pablo Neruda</span> <span class="role V" title="Yüklem / çekimli fiil">escribió</span> <span class="role O" title="Doğrudan nesne">ese poema.</span></p><p lang="es"><span class="role S" title="Özne">Ese poema</span> <span class="role V" title="Yüklem / çekimli fiil">fue</span> <span class="role P" title="Participio / yüklemin parçası">escrito</span> <span class="role A" title="Eylemi yapan / por + agente">por Pablo Neruda.</span></p></article><article class="card"><b>Şehir</b><p lang="es"><span class="role S" title="Özne">El ejército</span> <span class="role V" title="Yüklem / çekimli fiil">destruyó</span> <span class="role O" title="Doğrudan nesne">la ciudad</span> <span class="role C" title="Tümleç">en 1943.</span></p><p lang="es"><span class="role S" title="Özne">La ciudad</span> <span class="role V" title="Yüklem / çekimli fiil">fue</span> <span class="role P" title="Participio / yüklemin parçası">destruida</span> <span class="role A" title="Eylemi yapan / por + agente">por el ejército</span> <span class="role C" title="Tümleç">en 1943.</span></p></article><article class="card"><b>Ziyaret</b><p lang="es"><span class="role S" title="Özne">Juan</span> <span class="role V" title="Yüklem / çekimli fiil">visitó</span> <span class="role O" title="Doğrudan nesne">esas ciudades.</span></p><p lang="es"><span class="role S" title="Özne">Esas ciudades</span> <span class="role V" title="Yüklem / çekimli fiil">fueron</span> <span class="role P" title="Participio / yüklemin parçası">visitadas</span> <span class="role A" title="Eylemi yapan / por + agente">por Juan.</span></p></article><article class="card"><b>Mektuplar</b><p lang="es"><span class="role S" title="Özne">Las cartas</span> <span class="role V" title="Yüklem / çekimli fiil">fueron</span> <span class="role P" title="Participio / yüklemin parçası">escritas</span> <span class="role A" title="Eylemi yapan / por + agente">por Bernardo O’Higgins.</span></p></article><article class="card"><b>Deprem</b><p lang="es"><span class="role S" title="Özne">El edificio</span> <span class="role V" title="Yüklem / çekimli fiil">fue</span> <span class="role P" title="Participio / yüklemin parçası">destruido</span> <span class="role A" title="Eylemi yapan / por + agente">por un terremoto.</span></p></article><article class="card"><b>Yemek</b><p lang="es"><span class="role S" title="Özne">La comida</span> <span class="role V" title="Yüklem / çekimli fiil">es</span> <span class="role P" title="Participio / yüklemin parçası">preparada</span> <span class="role A" title="Eylemi yapan / por + agente">por mi abuelita.</span></p></article><article class="card"><b>Hasta nakli</b><p lang="es"><span class="role S" title="Özne">El paciente</span> <span class="role V" title="Yüklem / çekimli fiil">será</span> <span class="role P" title="Participio / yüklemin parçası">trasladado</span> <span class="role C" title="Tümleç">por helicóptero</span> <span class="role C" title="Tümleç">al hospital.</span></p></article><article class="card"><b>Hırsızlık</b><p lang="es"><span class="role S" title="Özne">El ladrón</span> <span class="role V" title="Yüklem / çekimli fiil">roba</span> <span class="role O" title="Doğrudan nesne">el dinero del centro comercial.</span></p><p lang="es"><span class="role S" title="Özne">El dinero del centro comercial</span> <span class="role V" title="Yüklem / çekimli fiil">es</span> <span class="role P" title="Participio / yüklemin parçası">robado</span> <span class="role A" title="Eylemi yapan / por + agente">por el ladrón.</span></p></article><article class="card"><b>Birlikler</b><p lang="es"><span class="role S" title="Özne">Las fuerzas enemigas</span> <span class="role V" title="Yüklem / çekimli fiil">derrotaron</span> <span class="role O" title="Doğrudan nesne">a las tropas.</span></p><p lang="es"><span class="role S" title="Özne">Las tropas</span> <span class="role V" title="Yüklem / çekimli fiil">fueron</span> <span class="role P" title="Participio / yüklemin parçası">derrotadas</span> <span class="role A" title="Eylemi yapan / por + agente">por las fuerzas enemigas.</span></p></article></div>
+<h3>Aynı cümle, altı zaman</h3>
+<p>Etken cümledeki <strong>nesne</strong> edilgen cümlede <strong>özne</strong> olur. Zamanı <strong>ser</strong> taşır. <strong>Escrita</strong>, <em lang="es">la carta</em> ile uyum sağlar.</p>
+<div class="table-wrap"><table lang="es"><thead><tr><th scope="col">Tiempo</th><th scope="col">Activa</th><th scope="col">Pasiva</th></tr></thead><tbody>
+<tr><th scope="row">Presente</th><td><span class="role S" title="Özne">Ana</span> <span class="role V" title="Yüklem / çekimli fiil">escribe</span> <span class="role O" title="Doğrudan nesne">la carta.</span></td><td><span class="role S" title="Özne">La carta</span> <span class="role V" title="Yüklem / çekimli fiil">es</span> <span class="role P" title="Participio / yüklemin parçası">escrita</span> <span class="role A" title="Eylemi yapan / por + agente">por Ana.</span></td></tr>
+<tr><th scope="row">Pretérito imperfecto</th><td><span class="role S" title="Özne">Ana</span> <span class="role V" title="Yüklem / çekimli fiil">escribía</span> <span class="role O" title="Doğrudan nesne">la carta.</span></td><td><span class="role S" title="Özne">La carta</span> <span class="role V" title="Yüklem / çekimli fiil">era</span> <span class="role P" title="Participio / yüklemin parçası">escrita</span> <span class="role A" title="Eylemi yapan / por + agente">por Ana.</span></td></tr>
+<tr><th scope="row">Pretérito indefinido</th><td><span class="role S" title="Özne">Ana</span> <span class="role V" title="Yüklem / çekimli fiil">escribió</span> <span class="role O" title="Doğrudan nesne">la carta.</span></td><td><span class="role S" title="Özne">La carta</span> <span class="role V" title="Yüklem / çekimli fiil">fue</span> <span class="role P" title="Participio / yüklemin parçası">escrita</span> <span class="role A" title="Eylemi yapan / por + agente">por Ana.</span></td></tr>
+<tr><th scope="row">Pretérito perfecto</th><td><span class="role S" title="Özne">Ana</span> <span class="role V" title="Yüklem / çekimli fiil">ha escrito</span> <span class="role O" title="Doğrudan nesne">la carta.</span></td><td><span class="role S" title="Özne">La carta</span> <span class="role V" title="Yüklem / çekimli fiil">ha sido</span> <span class="role P" title="Participio / yüklemin parçası">escrita</span> <span class="role A" title="Eylemi yapan / por + agente">por Ana.</span></td></tr>
+<tr><th scope="row">Pretérito pluscuamperfecto</th><td><span class="role S" title="Özne">Ana</span> <span class="role V" title="Yüklem / çekimli fiil">había escrito</span> <span class="role O" title="Doğrudan nesne">la carta.</span></td><td><span class="role S" title="Özne">La carta</span> <span class="role V" title="Yüklem / çekimli fiil">había sido</span> <span class="role P" title="Participio / yüklemin parçası">escrita</span> <span class="role A" title="Eylemi yapan / por + agente">por Ana.</span></td></tr>
+<tr><th scope="row">Futuro simple</th><td><span class="role S" title="Özne">Ana</span> <span class="role V" title="Yüklem / çekimli fiil">escribirá</span> <span class="role O" title="Doğrudan nesne">la carta.</span></td><td><span class="role S" title="Özne">La carta</span> <span class="role V" title="Yüklem / çekimli fiil">será</span> <span class="role P" title="Participio / yüklemin parçası">escrita</span> <span class="role A" title="Eylemi yapan / por + agente">por Ana.</span></td></tr>
+</tbody></table></div>
+<p class="note"><b lang="es">Por</b> her zaman eylemi yapanı göstermez. <span lang="es"><span class="role S" title="Özne">El paciente</span> <span class="role V" title="Yüklem / çekimli fiil">será</span> <span class="role P" title="Participio / yüklemin parçası">trasladado</span> <span class="role C" title="Tümleç">por helicóptero.</span></span> cümlesinde <span lang="es">por helicóptero</span> ulaşım aracını belirtir.</p>
 </section>
-<section id="transforma"><h2 lang="es">De activa a pasiva</h2><p>Etken cümleyi edilgene çevir. Zamanı koru ve <i lang="es">participio</i> uyumunu kontrol et.</p><div id="transforma-items"></div></section>
-<section id="contraste"><h2>Eylem mi, sonuç mu?</h2>
+<section id="transforma" hidden><h2 lang="es">De activa a pasiva</h2><p>Etken cümleyi edilgene çevir. Zamanı koru ve <i lang="es">participio</i> uyumunu kontrol et.</p><div id="transforma-items"></div></section>
+<section id="contraste" hidden><h2>Eylem mi, sonuç mu?</h2>
 <div class="cards">
-<div class="card"><b>Eylem tamamlandı</b><p lang="es">La puerta <strong>fue cerrada</strong>.</p><p>Kapı kapatıldı.</p></div>
-<div class="card"><b>Eylem devam ediyor</b><p lang="es">La puerta <strong>está siendo cerrada</strong>.</p><p>Kapı kapatılıyor.</p></div>
-<div class="card"><b>Ortaya çıkan durum</b><p lang="es">La puerta <strong>está cerrada</strong>.</p><p>Kapı kapalı.</p></div></div>
+<div class="card"><b>Eylem tamamlandı</b><p lang="es"><span class="role S" title="Özne">La puerta</span> <span class="role V" title="Yüklem / çekimli fiil">fue</span> <span class="role P" title="Participio / yüklemin parçası">cerrada.</span></p><p>Kapı kapatıldı.</p></div>
+<div class="card"><b>Eylem devam ediyor</b><p lang="es"><span class="role S" title="Özne">La puerta</span> <span class="role V" title="Yüklem / çekimli fiil">está siendo</span> <span class="role P" title="Participio / yüklemin parçası">cerrada.</span></p><p>Kapı kapatılıyor.</p></div>
+<div class="card"><b>Ortaya çıkan durum</b><p lang="es"><span class="role S" title="Özne">La puerta</span> <span class="role V" title="Yüklem / çekimli fiil">está</span> <span class="role P" title="Participio / yüklemin parçası">cerrada.</span></p><p>Kapı kapalı.</p></div></div>
 <p><b lang="es">Estar + siendo + participio</b> yapısında zaman ve sayı için <i lang="es">estar</i> çekimlenir. <i lang="es">Siendo</i> sabit kalır, <i lang="es">participio</i> özneye uyar.</p>
-<p><span lang="es">La comida fue preparada.</span> → Yemek hazırlandı. <span lang="es">La comida está siendo preparada.</span> → Yemek hazırlanıyor.</p>
+<p><span lang="es"><span class="role S" title="Özne">La comida</span> <span class="role V" title="Yüklem / çekimli fiil">fue</span> <span class="role P" title="Participio / yüklemin parçası">preparada.</span></span> → Yemek hazırlandı. <span lang="es"><span class="role S" title="Özne">La comida</span> <span class="role V" title="Yüklem / çekimli fiil">está siendo</span> <span class="role P" title="Participio / yüklemin parçası">preparada.</span></span> → Yemek hazırlanıyor.</p>
 <p>Parantezdeki fiili kullanarak bağlama uygun yapıyı yaz.</p><div id="contraste-items"></div></section>
-<section id="se"><h2>Medyada edilgen yapı</h2><p>Gazete başlıklarında <i lang="es">ser</i> bazen düşer.</p><ul lang="es"><li>Niño de ocho años rescatado de un incendio. (= fue rescatado)</li><li>Pequeño pueblo de Santa Fe visitado por el Papa. (= fue visitado)</li></ul><h3 lang="es">Pasiva refleja</h3><p>İlanlarda ve duyurularda eylemi yapan kişi belirtilmeden <b lang="es">se + çekimli fiil</b> kullanılabilir. Fiil özneye göre tekil ya da çoğul olur.</p>
-<div class="cards" lang="es"><div class="card">Se <b>vende</b> una casa.</div><div class="card">Se <b>venden</b> varias casas.</div></div>
+<section id="se" hidden><h2>Medyada edilgen yapı</h2><p>Gazete başlıklarında <i lang="es">ser</i> bazen düşer.</p><ul lang="es"><li><span class="role S" title="Özne">Niño de ocho años</span> <span class="role P" title="Participio / yüklemin parçası">rescatado</span> <span class="role C" title="Tümleç">de un incendio.</span> (= <span class="role V" title="Yüklem / çekimli fiil">fue</span> <span class="role P" title="Participio / yüklemin parçası">rescatado</span> )</li><li><span class="role S" title="Özne">Pequeño pueblo de Santa Fe</span> <span class="role P" title="Participio / yüklemin parçası">visitado</span> <span class="role A" title="Eylemi yapan / por + agente">por el Papa.</span> (= <span class="role V" title="Yüklem / çekimli fiil">fue</span> <span class="role P" title="Participio / yüklemin parçası">visitado</span> )</li></ul><h3 lang="es">Pasiva refleja</h3><p>İlanlarda ve duyurularda eylemi yapan kişi belirtilmeden <b lang="es">se + çekimli fiil</b> kullanılabilir. Fiil özneye göre tekil ya da çoğul olur.</p>
+<div class="cards" lang="es"><div class="card"><span class="role V" title="Yüklem / çekimli fiil">Se vende</span> <span class="role S" title="Özne">una casa.</span></div><div class="card"><span class="role V" title="Yüklem / çekimli fiil">Se venden</span> <span class="role S" title="Özne">varias casas.</span></div></div>
 <p>Boşluğu parantezde verilen fiilin uygun biçimiyle doldur.</p><div id="se-items"></div></section>
-<section id="traduccion"><h2 lang="es">Traducción al español</h2><p>Türkçe cümleleri İspanyolcaya çevir. Parantezdeki ipucu hangi yapıyı kullanacağını gösterir.</p><h3>1. Kısım · 1–20</h3><div id="traduccion-items"></div><h3>2. Kısım · 21–40</h3><div id="traduccion2-items"></div></section>
-<footer>Profe Hazel · @ispanyolcacim</footer>
+<section id="traduccion" hidden><h2 lang="es">Traducción al español</h2><p>Türkçe cümleleri İspanyolcaya çevir. Parantezdeki ipucu hangi yapıyı kullanacağını gösterir.</p><h3>1. Kısım · 1–20</h3><div id="traduccion-items"></div><h3>2. Kısım · 21–40</h3><div id="traduccion2-items"></div></section>
+</div><footer>Profe Hazel · @ispanyolcacim</footer>
 </main>
 <dialog id="classroom-homework" aria-labelledby="homework-title">
 <h2 id="homework-title">📚 A2.2 · 13–14. Ders Ödevleri</h2>
@@ -50,216 +58,206 @@ dialog{max-width:min(640px,92vw);border:1px solid var(--line);border-radius:18px
 <form method="dialog"><button>Kapat</button></form>
 </dialog>
 <script>
-const tiempos = [
-  ['Presente', 'inaugura', 'es'],
-  ['Pretérito imperfecto', 'inauguraba', 'era'],
-  ['Pretérito indefinido', 'inauguró', 'fue'],
-  ['Pretérito perfecto', 'ha inaugurado', 'ha sido'],
-  ['Pretérito pluscuamperfecto', 'había inaugurado', 'había sido'],
-  ['Futuro simple', 'inaugurará', 'será']
-];
-for (const [tiempo, activa, pasiva] of tiempos) {
-  const row = document.getElementById('tiempos').insertRow();
-  for (const value of [tiempo, 'El rey ' + activa + ' la exposición de Alfonso X en Toledo.', 'La exposición de Alfonso X ' + pasiva + ' inaugurada en Toledo por el rey.']) {
-    row.insertCell().textContent = value;
-  }
-}
-
-const ejemplos = [
-  ['Pablo Neruda escribió ese poema.', 'Ese poema fue escrito por Pablo Neruda.'],
-  ['El ejército destruyó la ciudad en 1943.', 'La ciudad fue destruida por el ejército en 1943.'],
-  ['Juan visitó esas ciudades.', 'Esas ciudades fueron visitadas por Juan.']
-];
-for (const [active, passive] of ejemplos) {
-  const example = document.createElement('p');
-  example.lang = 'es';
-  example.textContent = active + ' → ' + passive;
-  document.getElementById('pairs').append(example);
+function renderSentence(node, text) {
+  const roles = {S:'Özne', V:'Yüklem / çekimli fiil', P:'Participio / yüklemin parçası', O:'Doğrudan nesne', A:'Eylemi yapan', C:'Tümleç'};
+  text.split('|').forEach((part, index) => {
+    if (index) node.append(' ');
+    const role = part[0];
+    if (part[1] !== ':' || !roles[role]) {
+      node.append(part);
+      return;
+    }
+    const span = document.createElement('span');
+    span.className = 'role ' + role;
+    span.title = roles[role];
+    span.textContent = part.slice(2);
+    node.append(span);
+  });
 }
 const ejercicios = {
   transforma: [
-    ['La editorial publica nuevas novelas cada año.', 'Cada año, nuevas novelas son publicadas por la editorial.'],
-    ['El personal revisaba las salas cada mañana.', 'Las salas eran revisadas por el personal cada mañana.'],
-    ['El jardinero plantó los árboles ayer.', 'Los árboles fueron plantados ayer por el jardinero.'],
-    ['La arquitecta ha diseñado el parque.', 'El parque ha sido diseñado por la arquitecta.'],
-    ['El equipo ya había enviado las invitaciones.', 'Las invitaciones ya habían sido enviadas por el equipo.'],
-    ['El jurado anunciará los resultados mañana.', 'Los resultados serán anunciados mañana por el jurado.']
+    ["S:La editorial|V:publica|O:nuevas novelas|C:cada año.", "C:Cada año,|S:nuevas novelas|V:son|P:publicadas|A:por la editorial."],
+    ["S:El personal|V:revisaba|O:las salas|C:cada mañana.", "S:Las salas|V:eran|P:revisadas|A:por el personal|C:cada mañana."],
+    ["S:El jardinero|V:plantó|O:los árboles|C:ayer.", "S:Los árboles|V:fueron|P:plantados|C:ayer|A:por el jardinero."],
+    ["S:La arquitecta|V:ha diseñado|O:el parque.", "S:El parque|V:ha sido|P:diseñado|A:por la arquitecta."],
+    ["S:El equipo|C:ya|V:había enviado|O:las invitaciones.", "S:Las invitaciones|C:ya|V:habían sido|P:enviadas|A:por el equipo."],
+    ["S:El jurado|V:anunciará|O:los resultados|C:mañana.", "S:Los resultados|V:serán|P:anunciados|C:mañana|A:por el jurado."]
   ],
   contraste: [
-    ['La sala ya no está abierta. Ahora ___ con llave. (cerrar)', 'está cerrada · La sala está cerrada con llave.'],
-    ['Mira cómo trabajan los obreros: el puente ___ en este momento. (reparar)', 'está siendo reparado · El puente está siendo reparado en este momento.'],
-    ['La obra terminó el lunes. Las ventanas ___ ese día. (instalar)', 'fueron instaladas · Las ventanas fueron instaladas ese día.'],
-    ['La operación seguía en curso cuando llegó la noticia. El paciente ___ en ese momento. (operar)', 'estaba siendo operado · El paciente estaba siendo operado en ese momento.']
+    ["S:La sala|C:ya no|V:está|P:abierta.|C:Ahora|___|C:con llave.|(cerrar)", "V:está|P:cerrada|·|S:La sala|V:está|P:cerrada|C:con llave."],
+    ["V:Mira|cómo|V:trabajan|S:los obreros:|S:el puente|___|C:en este momento.|(reparar)", "V:está siendo|P:reparado|·|S:El puente|V:está siendo|P:reparado|C:en este momento."],
+    ["S:La obra|V:terminó|C:el lunes.|S:Las ventanas|___|C:ese día.|(instalar)", "V:fueron|P:instaladas|·|S:Las ventanas|V:fueron|P:instaladas|C:ese día."],
+    ["S:La operación|V:seguía|C:en curso|C:cuando llegó la noticia.|S:El paciente|___|C:en ese momento.|(operar)", "V:estaba siendo|P:operado|·|S:El paciente|V:estaba siendo|P:operado|C:en ese momento."]
   ],
   se: [
-    ['Se ___ una casa cerca del puerto. (alquilar, presente)', 'alquila'],
-    ['Se ___ entradas en la taquilla. (vender, presente)', 'venden'],
-    ['Ayer se ___ los resultados. (publicar, indefinido)', 'publicaron'],
-    ['Mañana se ___ una nueva exposición. (inaugurar, futuro)', 'inaugurará'],
-    ['En esta biblioteca se ___ libros en español. (prestar, presente)', 'prestan']
+    ["V:Se|___|S:una casa|C:cerca del puerto.|(alquilar, presente)", "V:alquila"],
+    ["V:Se|___|S:entradas|C:en la taquilla.|(vender, presente)", "V:venden"],
+    ["C:Ayer|V:se|___|S:los resultados.|(publicar, indefinido)", "V:publicaron"],
+    ["C:Mañana|V:se|___|S:una nueva exposición.|(inaugurar, futuro)", "V:inaugurará"],
+    ["C:En esta biblioteca|V:se|___|S:libros en español.|(prestar, presente)", "V:prestan"]
   ],
   traduccion: [
   [
     "Yemek annem tarafından hazırlandı.",
-    "La comida fue preparada por mi madre."
+    "S:La comida|V:fue|P:preparada|A:por mi madre."
   ],
   [
     "Pencere çocuk tarafından kırıldı.",
-    "La ventana fue rota por el niño."
+    "S:La ventana|V:fue|P:rota|A:por el niño."
   ],
   [
     "Mektup arkadaşım tarafından gönderildi.",
-    "La carta fue enviada por mi amigo."
+    "S:La carta|V:fue|P:enviada|A:por mi amigo."
   ],
   [
     "Şarkı şarkıcı tarafından söylendi.",
-    "La canción fue cantada por el cantante."
+    "S:La canción|V:fue|P:cantada|A:por el cantante."
   ],
   [
     "Ağaç bahçıvan tarafından dikildi.",
-    "El árbol fue plantado por el jardinero."
+    "S:El árbol|V:fue|P:plantado|A:por el jardinero."
   ],
   [
     "Film ünlü bir yönetmen tarafından yönetildi.",
-    "La película fue dirigida por un director famoso."
+    "S:La película|V:fue|P:dirigida|A:por un director famoso."
   ],
   [
     "Hediye senin için alındı.",
-    "El regalo fue comprado para ti."
+    "S:El regalo|V:fue|P:comprado|C:para ti."
   ],
   [
     "Ev beyaz renge boyandı.",
-    "La casa fue pintada de blanco."
+    "S:La casa|V:fue|P:pintada|C:de blanco."
   ],
   [
     "Sınavı tüm öğrenciler geçti. (Edilgen çeviride özne: sınav.)",
-    "El examen fue aprobado por todos los estudiantes."
+    "S:El examen|V:fue|P:aprobado|A:por todos los estudiantes."
   ],
   [
     "Maç yerel takım tarafından kazanıldı.",
-    "El partido fue ganado por el equipo local."
+    "S:El partido|V:fue|P:ganado|A:por el equipo local."
   ],
   [
     "Kitap İngilizceye çevrildi.",
-    "El libro fue traducido al inglés."
+    "S:El libro|V:fue|P:traducido|C:al inglés."
   ],
   [
     "Kapı kilitlendi.",
-    "Se cerró la puerta con llave."
+    "V:Se cerró|S:la puerta|C:con llave."
   ],
   [
     "Masa akşam yemeği için hazırlandı.",
-    "La mesa fue preparada para la cena."
+    "S:La mesa|V:fue|P:preparada|C:para la cena."
   ],
   [
     "Pasta meyvelerle süslendi.",
-    "La tarta fue decorada con fruta."
+    "S:La tarta|V:fue|P:decorada|C:con fruta."
   ],
   [
     "Köpek sahibi tarafından gezdirildi.",
-    "El perro fue paseado por su dueño."
+    "S:El perro|V:fue|P:paseado|A:por su dueño."
   ],
   [
     "Bisiklet tamirci tarafından tamir edildi.",
-    "La bicicleta fue reparada por el mecánico."
+    "S:La bicicleta|V:fue|P:reparada|A:por el mecánico."
   ],
   [
     "Mektup kırmızı mürekkeple yazıldı.",
-    "La carta fue escrita con tinta roja."
+    "S:La carta|V:fue|P:escrita|C:con tinta roja."
   ],
   [
     "Fotoğraf dijital bir kamerayla çekildi.",
-    "La foto fue tomada con una cámara digital."
+    "S:La foto|V:fue|P:tomada|C:con una cámara digital."
   ],
   [
     "Şarkı radyoda dinlendi.",
-    "La canción se escuchó en la radio."
+    "S:La canción|V:se escuchó|C:en la radio."
   ],
   [
     "Mesaj e-posta ile gönderildi.",
-    "El mensaje fue enviado por correo electrónico."
+    "S:El mensaje|V:fue|P:enviado|C:por correo electrónico."
   ]
 ],
   traduccion2: [
   [
     "Yemek hazırlanıyor.",
-    "La comida está siendo preparada."
+    "S:La comida|V:está siendo|P:preparada."
   ],
   [
     "Bina deprem olduğunda inşa ediliyordu",
-    "El edificio estaba siendo construido cuando ocurrió el terremoto."
+    "S:El edificio|V:estaba siendo|P:construido|C:cuando ocurrió el terremoto."
   ],
   [
     "Proje yıl sonunda tamamlanıyor olacak.",
-    "El proyecto estará siendo terminado a finales de año."
+    "S:El proyecto|V:estará siendo|P:terminado|C:a finales de año."
   ],
   [
     "Park ünlü bir mimar tarafından tasarlandı.",
-    "El parque fue diseñado por un arquitecto famoso."
+    "S:El parque|V:fue|P:diseñado|A:por un arquitecto famoso."
   ],
   [
     "Cam yanlışlıkla kırıldı.",
-    "El cristal se rompió por accidente."
+    "S:El cristal|V:se rompió|C:por accidente."
   ],
   [
     "Şarkı tüm dünyada dinleniyor.",
-    "La canción se escucha en todo el mundo."
+    "S:La canción|V:se escucha|C:en todo el mundo."
   ],
   [
     "Kitap birçok dile çevrilmişti.",
-    "El libro había sido traducido a varios idiomas."
+    "S:El libro|V:había sido|P:traducido|C:a varios idiomas."
   ],
   [
     "Kapı kilitlenecek.",
-    "La puerta será cerrada con llave."
+    "S:La puerta|V:será|P:cerrada|C:con llave."
   ],
   [
     "Hasta haber geldiğinde ameliyat ediliyordu.",
-    "El paciente estaba siendo operado cuando llegó la noticia."
+    "S:El paciente|V:estaba siendo|P:operado|C:cuando llegó la noticia."
   ],
   [
     "Ev satılıyor.",
-    "Se vende la casa."
+    "V:Se vende|S:la casa."
   ],
   [
     "Sınavı tüm öğrenciler geçti. (Edilgen çeviride özne: sınav.)",
-    "El examen fue aprobado por todos los estudiantes."
+    "S:El examen|V:fue|P:aprobado|A:por todos los estudiantes."
   ],
   [
     "Film sinemada gösterilecek.",
-    "La película será proyectada en el cine."
+    "S:La película|V:será|P:proyectada|C:en el cine."
   ],
   [
     "Hediye hediye kağıdına sarıldı.",
-    "El regalo fue envuelto en papel de regalo."
+    "S:El regalo|V:fue|P:envuelto|C:en papel de regalo."
   ],
   [
     "Pasta kremayla süsleniyor.",
-    "La tarta está siendo decorada con crema."
+    "S:La tarta|V:está siendo|P:decorada|C:con crema."
   ],
   [
     "Araba serviste tamir edildi.",
-    "El coche fue reparado en el taller."
+    "S:El coche|V:fue|P:reparado|C:en el taller."
   ],
   [
     "Karar yarın verilecek.",
-    "Se tomará la decisión mañana."
+    "V:Se tomará|S:la decisión|C:mañana."
   ],
   [
     "Sen gelmeden önce mesaj gönderilmişti.",
-    "El mensaje había sido enviado antes de que llegaras."
+    "S:El mensaje|V:había sido|P:enviado|C:antes de que llegaras."
   ],
   [
     "Fotoğraf bilgisayarda düzenleniyor.",
-    "La foto está siendo editada en el ordenador."
+    "S:La foto|V:está siendo|P:editada|C:en el ordenador."
   ],
   [
     "Kitap kütüphanede bulundu.",
-    "El libro fue encontrado en la biblioteca."
+    "S:El libro|V:fue|P:encontrado|C:en la biblioteca."
   ],
   [
     "Pencere taze hava girmesi için açılacak.",
-    "La ventana será abierta para que entre aire fresco."
+    "S:La ventana|V:será|P:abierta|C:para que entre aire fresco."
   ]
 ]
 };
@@ -275,7 +273,9 @@ for (const [section, items] of Object.entries(ejercicios)) {
     input.lang = 'es';
     label.htmlFor = input.id;
     label.lang = section.startsWith('traduccion') ? 'tr' : 'es';
-    label.textContent = (index + (section === 'traduccion2' ? 21 : 1)) + '. ' + question;
+    label.append((index + (section === 'traduccion2' ? 21 : 1)) + '. ');
+    if (label.lang === 'es') renderSentence(label, question);
+    else label.append(question);
     const details = document.createElement('details');
     const summary = document.createElement('summary');
     summary.textContent = '🔒 Cevabı aç';
@@ -284,7 +284,7 @@ for (const [section, items] of Object.entries(ejercicios)) {
     });
     const response = document.createElement('p');
     response.lang = 'es';
-    response.textContent = answer;
+    renderSentence(response, answer);
     details.append(summary, response);
     exercise.append(label, input, details);
     container.append(exercise);
@@ -294,18 +294,36 @@ for (const [section, items] of Object.entries(ejercicios)) {
 const homework = document.getElementById('classroom-homework');
 document.getElementById('open-homework').addEventListener('click', () => homework.showModal());
 
-function showSection(id) {
-  document.getElementById(id)?.scrollIntoView();
+const cover = document.getElementById('cover');
+const lesson = document.getElementById('lesson-content');
+const viewButtons = [...document.querySelectorAll('[data-view]')];
+const panels = [...lesson.querySelectorAll('section')];
+
+function showView(id, moveFocus = true) {
+  const active = panels.find(panel => panel.id === id);
+  cover.hidden = Boolean(active);
+  lesson.hidden = !active;
+  for (const panel of panels) panel.hidden = panel !== active;
+  for (const button of viewButtons) {
+    button.setAttribute('aria-pressed', String(button.dataset.view === (active?.id ?? 'cover')));
+  }
+  if (moveFocus) {
+    const heading = active?.querySelector('h2') ?? cover.querySelector('h1');
+    heading.tabIndex = -1;
+    heading.focus({preventScroll: true});
+    window.scrollTo(0, 0);
+  }
 }
-for (const link of document.querySelectorAll('nav a[href^="#"]')) {
-  link.addEventListener('click', event => {
-    event.preventDefault();
-    showSection(link.hash.slice(1));
-  });
+
+for (const button of viewButtons) {
+  button.addEventListener('click', () => showView(button.dataset.view));
 }
-if (location.hash && location.protocol !== 'file:') {
-  showSection(location.hash.slice(1));
-  history.replaceState(history.state, '', location.pathname + location.search);
+document.getElementById('back-cover').addEventListener('click', () => showView('cover'));
+if (location.hash) {
+  showView(location.hash.slice(1), false);
+  if (location.protocol !== 'file:') {
+    history.replaceState(history.state, '', location.pathname + location.search);
+  }
 }
 </script>
 </body>

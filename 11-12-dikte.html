@@ -50,16 +50,19 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1
 .wta:disabled{background:#f3f3f3;color:var(--mid);cursor:not-allowed}
 .wcount{font-size:11.5px;color:var(--mid);text-align:right;margin-top:5px;margin-bottom:16px}
 .finrow{text-align:center;margin-bottom:6px}
-.send-status{display:none;align-items:center;gap:7px;padding:9px 20px;border-radius:50px;font-size:13px;font-weight:700;margin-top:12px}
-.stok{background:rgba(63,143,82,.15);border:1.5px solid rgba(63,143,82,.4);color:#2c6b3a}
-.ster{background:rgba(217,112,112,.15);border:1.5px solid rgba(217,112,112,.4);color:#a04040}
-.stpnd{background:rgba(220,172,72,.2);border:1.5px solid rgba(220,172,72,.5);color:#8a6a1a}
-.correctbox{display:none;background:var(--c1);border:1.5px dashed var(--c4);border-radius:12px;padding:16px 18px;margin-top:18px;font-size:13.5px;line-height:1.85;color:var(--dark)}
-.correctbox.show{display:block}
-.correctl{font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--c5);margin-bottom:10px;display:flex;align-items:center;gap:6px}
-.correctbox p{margin-bottom:12px}
-.correctbox p:last-child{margin-bottom:0}
-.remind{display:flex;align-items:flex-start;gap:10px;background:var(--blue1);border:1.5px solid var(--blue2);border-radius:var(--r);padding:12px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.65;color:#1a3a4c;text-align:left}
+[hidden]{display:none!important}
+.result{margin-top:22px;line-height:1.75}
+.result h2,.result h3{margin:0 0 8px}
+.score-card,.review-text{background:var(--c1);border:1px solid var(--c3);border-radius:12px;padding:14px 17px;margin-bottom:16px;overflow-wrap:anywhere}
+.score-card strong{font-size:28px}
+.review-text{white-space:pre-wrap}
+.review-text mark{background:#ffe4e6;color:#a5112a;font-weight:800;text-decoration:underline;text-underline-offset:3px;border-radius:3px}
+.review-text .missing{padding:0 .2em;font-size:.92em}
+.confirm-dialog{border:1px solid var(--c3);border-radius:16px;max-width:420px;width:calc(100% - 30px);padding:20px;color:var(--dark)}
+.confirm-dialog::backdrop{background:#24202070}
+.confirm-dialog p{margin:0 0 15px}
+.confirm-actions{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap}
+.input-error{color:#a5112a;margin-top:8px}
 </style>
 <script src="student-roster.js" defer></script>
 <link rel="stylesheet" href="a22-theme.css?v=20261103-vivid">
@@ -91,7 +94,7 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1
     <div class="ib">
       <div class="ibr"><div class="ibd"></div><span><strong>Görev:</strong> Ses kaydını dinleyip duyduğunuz metni yazıya dökeceksiniz (dictado).</span></div>
       <div class="ibr"><div class="ibd"></div><span>Kaydı istediğiniz kadar tekrar dinleyebilirsiniz.</span></div>
-      <div class="ibr"><div class="ibd"></div><span>Yazmayı bitirince <strong>"Bitirdim"</strong> butonuna basınca hem doğru metni göreceksiniz hem de yazınız otomatik olarak Profe Hazel'e gönderilecektir.</span></div>
+      <div class="ibr"><div class="ibd"></div><span><strong>Ödevi Teslim Et</strong> düğmesine bastıktan sonra puanınızı, doğru metni ve yazınızdaki hataları göreceksiniz.</span></div>
       <div class="ibh"></div>
       <div class="ibr"><div class="ibd" style="background:var(--c5)"></div><span>&#x26a0;&#xfe0f; Doğru metni gördükten sonra yazınızı <strong>değiştiremezsiniz</strong>, bu yüzden göndermeden önce dikkatlice kontrol edin.</span></div>
     </div>
@@ -101,7 +104,7 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1
 
 <div class="screen" id="sc-writing">
   <div class="ww">
-    <div class="tb"><div class="ts" id="top-st">&#x2014;</div></div>
+    <div class="tb"><div class="ts" id="top-st">&#x2014;</div><button class="btn bm" type="button" id="btn-finish">✔ Ödevi Teslim Et</button></div>
 
     <div class="card">
       <div class="cardhead">&#x1F3A7; &nbsp;Dictado — Ses Kaydını Dinleyin</div>
@@ -118,33 +121,35 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1
         <div class="audiofallback"><a href="https://soundcloud.com/profe-hazel/a2-2-11-12-dictado#t=0:38" target="_blank" rel="noopener">SoundCloud'da aç (0:38'den itibaren) &#x2197;</a></div>
 
         <div class="wlabel">&#x270f;&#xfe0f; Duyduğunuzu buraya yazın:</div>
-        <textarea class="wta" id="dictate-input" placeholder="Ses kaydında duyduğunuz metni buraya yazın…" oninput="updateCount()"></textarea>
+        <textarea class="wta" id="dictate-input" maxlength="4000" aria-label="Dikte metni" placeholder="Ses kaydında duyduğunuz metni buraya yazın…" oninput="updateCount()"></textarea>
         <div class="wcount"><span id="wc-num">0</span> kelime yazıldı</div>
 
-        <div class="finrow">
-          <button class="btn bg bf" id="btn-finish" onclick="finishDictation()">&#x2705; Yazma / Dikte Çalışmamı Bitirdim — Doğru Metni Gör</button>
-          <div class="send-status" id="send-status"></div>
-        </div>
-
-        <div class="correctbox" id="correctbox">
-          <div class="correctl">&#x2705; Doğru Metin — Kendinizi Kontrol Edin</div>
-          <p>En mi tiempo libre me gusta aprender cosas nuevas. Una de mis aficiones es estudiar español. Leo textos fáciles, hago dictados y veo vídeos cortos. También me gusta hacer deporte. Tres veces por semana voy al gimnasio y los fines de semana hago senderismo o corro en el parque. Además, me encanta viajar. Disfruto organizando viajes y conociendo nuevas culturas.</p>
-          <p>Mis amigos tienen aficiones diferentes. Ana prefiere leer el periódico y escribir en su diario. Pedro toca la guitarra y escucha música. Los fines de semana salimos juntos. A veces tomamos un café y hablamos. Otras veces vemos una película o damos un paseo. Tener aficiones diferentes es bueno porque aprendemos unos de otros y disfrutamos del tiempo libre.</p>
-        </div>
+        <p id="input-error" class="input-error" role="alert" hidden>Lütfen duyduğunuz metni yazın.</p>
+        <section class="result" id="dictation-result" aria-labelledby="result-heading" hidden>
+          <h2 id="result-heading" tabindex="-1">Dikte sonucunuz</h2>
+          <div class="score-card"><strong id="result-score"></strong><p id="result-summary"></p></div>
+          <h3>Yazdığınız metin</h3>
+          <p>Kırmızı işaretler yazım hatalarını, fazla yazılanları ve eksikleri gösterir. Köşeli parantez içinde eksik olan bölüm yazılıdır.</p>
+          <div class="review-text" lang="es" id="student-review"></div>
+          <h3>Doğru metin</h3>
+          <div class="review-text" lang="es" id="reference-review"></div>
+        </section>
       </div>
     </div>
-
-    <div class="remind"><span>&#x2139;&#xfe0f;</span><span>Yazınız gönderildikten sonra bu sayfayı kapatabilirsiniz. Sonuç veya geri bildirim Profe Hazel tarafından ayrıca paylaşılacaktır.</span></div>
   </div>
 </div>
+<dialog class="confirm-dialog" id="confirm-submit" aria-labelledby="confirm-heading">
+  <h2 id="confirm-heading">Dikte teslimi</h2>
+  <p>Adınız <strong id="confirm-student"></strong></p>
+  <p>Teslimden sonra metniniz kilitlenecek ve sonucunuz gösterilecek.</p>
+  <form method="dialog" class="confirm-actions">
+    <button class="btn bo" value="cancel">Geri dön</button>
+    <button class="btn bm" value="submit">✔ Ödevi Teslim Et</button>
+  </form>
+</dialog>
 
 <script src="https://w.soundcloud.com/player/api.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
-emailjs.init('xNYEbUQNiWJPvbyoJ');
-const EMAILJS_SERVICE='service_4ee1wh7';
-const EMAILJS_TEMPLATE='template_xjyyxhf';
-const LESSON_NAME='A2.2 – H3 11-12. Ders (Dictado – Yazma Ödevi)';
 const CLIP_START_MS=38000;
 const CLIP_END_MS=653000;
 
@@ -166,65 +171,125 @@ const CORRECT_TEXT=`En mi tiempo libre me gusta aprender cosas nuevas. Una de mi
 
 Mis amigos tienen aficiones diferentes. Ana prefiere leer el periódico y escribir en su diario. Pedro toca la guitarra y escucha música. Los fines de semana salimos juntos. A veces tomamos un café y hablamos. Otras veces vemos una película o damos un paseo. Tener aficiones diferentes es bueno porque aprendemos unos de otros y disfrutamos del tiempo libre.`;
 
-let student='',revealed=false;
+const input = document.getElementById('dictate-input');
+const confirmDialog = document.getElementById('confirm-submit');
+const submitButton = document.getElementById('btn-finish');
+const inputError = document.getElementById('input-error');
+let student = '';
 
-function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById('sc-'+id).classList.add('active');window.scrollTo(0,0);}
-
-function startWriting(){
-  const s=document.getElementById('name-sel');
-  if(!s.value){alert('Lütfen adınızı seçin!');return;}
-  student=s.value;
-  document.getElementById('top-st').textContent=student;
-  showScreen('writing');
-}
-
-function countWords(t){t=t.trim();return t===''?0:t.split(/\s+/).length;}
-function updateCount(){
-  document.getElementById('wc-num').textContent=countWords(document.getElementById('dictate-input').value);
-}
-
-async function finishDictation(){
-  if(revealed)return;
-  const ta=document.getElementById('dictate-input');
-  const text=ta.value.trim();
-  if(text.length<3){
-    if(!confirm('Henüz hiçbir şey yazmamışsınız gibi görünüyor. Yine de doğru metni görüp göndermek istiyor musunuz?'))return;
+function startWriting() {
+  const select = document.getElementById('name-sel');
+  if (!select.value) {
+    alert('Lütfen adınızı seçin!');
+    select.focus();
+    return;
   }
-  if(!confirm('Doğru metni gördükten sonra yazınızı değiştiremezsiniz ve yazınız öğretmeninize gönderilecektir. Devam edilsin mi?'))return;
-
-  revealed=true;
-  ta.disabled=true;
-  document.getElementById('correctbox').classList.add('show');
-  const btn=document.getElementById('btn-finish');
-  btn.disabled=true;
-  btn.textContent='&#x2705; Doğru Metin Gösterildi';
-  btn.innerHTML='&#x2705; Doğru Metin Gösterildi';
-
-  const st=document.getElementById('send-status');
-  st.style.display='inline-flex';
-  st.className='send-status stpnd';
-  st.textContent='&#x23f3; Gönderiliyor…';
-  st.innerHTML='&#x23f3; Gönderiliyor…';
-
-  const now=new Date();
-  const tarih=now.toLocaleDateString('tr-TR')+' '+now.toLocaleTimeString('tr-TR');
-  const wc=countWords(text);
-  const fullText='ÖĞRENCİ: '+student+'\nDERS: '+LESSON_NAME+'\nTARİH: '+tarih+'\nKELİME SAYISI: '+wc+'\n\n--- ÖĞRENCİNİN YAZDIĞI (DİCTADO) ---\n\n'+text+'\n\n--- DOĞRU METİN (KARŞILAŞTIRMA İÇİN) ---\n\n'+CORRECT_TEXT;
-
-  try{
-    await emailjs.send(EMAILJS_SERVICE,EMAILJS_TEMPLATE,{
-      student_name:student,
-      lesson:LESSON_NAME,
-      submit_date:tarih,
-      writing_text:fullText
-    });
-    st.className='send-status stok';
-    st.innerHTML='&#x2705; Yazınız gönderildi!';
-  }catch(e){
-    st.className='send-status ster';
-    st.innerHTML='&#x26a0;&#xfe0f; Gönderilemedi — internetinizi kontrol edip öğretmeninize bildirin';
-  }
+  student = select.value;
+  document.getElementById('top-st').textContent = student;
+  document.getElementById('sc-name').classList.remove('active');
+  document.getElementById('sc-writing').classList.add('active');
+  window.scrollTo(0,0);
 }
+
+function updateCount() {
+  document.getElementById('wc-num').textContent = (input.value.match(/[\p{L}\p{M}\p{N}]+/gu) || []).length;
+  inputError.hidden = true;
+}
+
+function tokens(text) {
+  return [...text.matchAll(/[\p{L}\p{M}\p{N}]+|[^\s]/gu)].map(match => ({
+    text:match[0],
+    key:match[0].normalize('NFC'),
+    start:match.index,
+    end:match.index + match[0].length
+  }));
+}
+
+function align(reference, written) {
+  const rows = Array.from({length:reference.length + 1}, (_, i) => {
+    const row = new Uint16Array(written.length + 1);
+    row[0] = i;
+    return row;
+  });
+  for (let j = 1; j <= written.length; j++) rows[0][j] = j;
+  for (let i = 1; i <= reference.length; i++) {
+    for (let j = 1; j <= written.length; j++) {
+      rows[i][j] = Math.min(rows[i-1][j]+1, rows[i][j-1]+1,
+        rows[i-1][j-1] + Number(reference[i-1].key !== written[j-1].key));
+    }
+  }
+  const edits = [];
+  let i = reference.length;
+  let j = written.length;
+  while (i || j) {
+    const expected = reference[i-1];
+    const actual = written[j-1];
+    if (i && j && rows[i][j] === rows[i-1][j-1] + Number(expected.key !== actual.key)) {
+      edits.push({type:expected.key === actual.key ? 'correct' : 'wrong',expected,actual});
+      i--;
+      j--;
+    } else if (i && rows[i][j] === rows[i-1][j] + 1) {
+      edits.push({type:'missing',expected});
+      i--;
+    } else {
+      edits.push({type:'extra',actual});
+      j--;
+    }
+  }
+  return {edits:edits.reverse(),errors:rows[reference.length][written.length]};
+}
+
+function renderReview(text, edits) {
+  const review = document.getElementById('student-review');
+  let offset = 0;
+  for (const {type,expected,actual} of edits) {
+    if (actual) review.append(text.slice(offset,actual.start));
+    if (type === 'correct') {
+      review.append(actual.text);
+    } else {
+      const highlight = document.createElement('mark');
+      if (type === 'missing') {
+        highlight.className = 'missing';
+        highlight.textContent = '[+' + expected.text + ']';
+        highlight.title = 'Eksik: ' + expected.text;
+        review.append(' ',highlight);
+      } else {
+        highlight.textContent = actual.text;
+        highlight.title = expected ? 'Doğrusu: ' + expected.text : 'Fazladan yazıldı';
+        review.append(highlight);
+      }
+    }
+    if (actual) offset = actual.end;
+  }
+  review.append(text.slice(offset));
+}
+
+submitButton.addEventListener('click', () => {
+  if (!input.value.trim()) {
+    inputError.hidden = false;
+    input.focus();
+    return;
+  }
+  document.getElementById('confirm-student').textContent = student;
+  confirmDialog.returnValue = '';
+  confirmDialog.showModal();
+});
+confirmDialog.addEventListener('close', () => {
+  if (confirmDialog.returnValue !== 'submit' || input.readOnly) return;
+  const text = input.value.trim();
+  const reference = tokens(CORRECT_TEXT);
+  const {edits,errors} = align(reference,tokens(text));
+  const score = Math.max(0,Math.round(100 * (reference.length-errors) / reference.length));
+  input.readOnly = true;
+  submitButton.disabled = true;
+  document.getElementById('result-score').textContent = score + ' / 100';
+  const correct = edits.filter(edit => edit.type === 'correct').length;
+  document.getElementById('result-summary').textContent = correct + ' doğru · ' + errors + ' hata. Kelimeler ve noktalama ayrı değerlendirilir; büyük harfler ve aksanlar dikkate alınır.';
+  document.getElementById('reference-review').textContent = CORRECT_TEXT;
+  renderReview(text,edits);
+  document.getElementById('dictation-result').hidden = false;
+  document.getElementById('result-heading').focus();
+});
 </script>
 </body>
 </html>

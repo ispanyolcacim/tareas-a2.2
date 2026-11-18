@@ -37,3 +37,7 @@ User instruction, 15 November 2026: use `DD-DD-ders-ici-ispanyolcacim-LEVEL.html
 ## Clean classroom activity URLs
 
 User instruction, 15 November 2026: share and display classroom URLs ending in `.html`, without section fragments such as `#dictation-1`, `#estructura`, `#futuro` or `#bolum-2`, at every level. Tabs, keyboard navigation and previous/next controls must update the activity directly without adding a fragment. Honor an incoming legacy fragment for the initial section, then remove it with `history.replaceState` while preserving the path, query string, existing history state, answers and storage keys. Never append a default section on load. Use clean canonical URLs in messages, indexes and maintained activity links.
+
+## Sentence-role colors in every classroom activity
+
+User instruction, 18 November 2026: in every classroom activity at every level, color-code Spanish sentences by meaningful grammatical groups. Use consistent colors for subject, verb or predicate, direct object, agent and other complements, and distinguish the participle when it is part of the target structure. Include a visible legend and apply the colors to examples, tables, Spanish exercise prompts and individual revealed answers. Keep a phrase together when it serves a single grammatical role, and preserve existing lock/reveal and interactive reading behavior.

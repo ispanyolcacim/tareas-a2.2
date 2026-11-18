@@ -41,3 +41,7 @@ User instruction, 15 November 2026: share and display classroom URLs ending in `
 ## Sentence-role colors in every classroom activity
 
 User instruction, 18 November 2026: in every classroom activity at every level, color-code Spanish sentences by meaningful grammatical groups. Use consistent colors for subject, verb or predicate, direct object, agent and other complements, and distinguish the participle when it is part of the target structure. Include a visible legend and apply the colors to examples, tables, Spanish exercise prompts and individual revealed answers. Keep a phrase together when it serves a single grammatical role, and preserve existing lock/reveal and interactive reading behavior.
+
+## Clickable Spanish vocabulary in classroom activities
+
+User instruction, 18 November 2026: make every Spanish word in classroom lesson content clickable, including explanations, formulas, examples, tables, questions and individually revealed answers. Show its context-appropriate meaning in Turkish and English, support mouse, touch and keyboard, and preserve sentence-role colors and existing answer locks. Verify glossary coverage of all visible Spanish lesson content and revealed answers before publishing.

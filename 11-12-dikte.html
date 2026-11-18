@@ -127,7 +127,9 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1
         <p id="input-error" class="input-error" role="alert" hidden>Lütfen duyduğunuz metni yazın.</p>
         <section class="result" id="dictation-result" aria-labelledby="result-heading" hidden>
           <h2 id="result-heading" tabindex="-1">Dikte sonucunuz</h2>
-          <div class="score-card"><strong id="result-score"></strong><p id="result-summary"></p></div>
+          <div class="score-card"><strong id="result-score"></strong><p id="result-summary"></p>
+            <p id="portal-status" role="status"></p><button type="button" class="btn bo" id="retry-score" hidden>Portal kaydını yeniden gönder</button>
+          </div>
           <h3>Yazdığınız metin</h3>
           <p>Kırmızı işaretler yazım hatalarını, fazla yazılanları ve eksikleri gösterir. Köşeli parantez içinde eksik olan bölüm yazılıdır.</p>
           <div class="review-text" lang="es" id="student-review"></div>
@@ -142,9 +144,9 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1
   <h2 id="confirm-heading">Dikte teslimi</h2>
   <p>Adınız <strong id="confirm-student"></strong></p>
   <p>Teslimden sonra metniniz kilitlenecek ve sonucunuz gösterilecek.</p>
-  <form method="dialog" class="confirm-actions">
-    <button class="btn bo" value="cancel">Geri dön</button>
-    <button class="btn bm" value="submit">✔ Ödevi Teslim Et</button>
+  <form id="confirm-form" class="confirm-actions">
+    <button class="btn bo" type="button" id="cancel-confirm">Geri dön</button>
+    <button class="btn bm" type="submit" id="confirm-finish">✔ Ödevi Teslim Et</button>
   </form>
 </dialog>
 
@@ -175,7 +177,32 @@ const input = document.getElementById('dictate-input');
 const confirmDialog = document.getElementById('confirm-submit');
 const submitButton = document.getElementById('btn-finish');
 const inputError = document.getElementById('input-error');
+const portalStatus = document.getElementById('portal-status');
+const retryScore = document.getElementById('retry-score');
+const TRACKER_URL = 'https://script.google.com/macros/s/AKfycbw-BwEhVOhO6GkkQHNWJA8LQLMkEGwNCtJ3BXSqik1RnzqZLl4a_a3HmYEoIlJAgY4Wkg/exec';
+const SPREADSHEET_ID = '1wziyxdRdIGL7OEq4yRib0i_CaCWJGI14fwDyMKB4abw';
+const SHEET_NAME = 'A2.2';
+const TASK_COLUMN = '11-12 / YAZMA (Dikte Çalışması)';
 let student = '';
+let submission = null;
+
+async function sendScore() {
+  retryScore.hidden = true;
+  portalStatus.textContent = 'Puan portala gönderiliyor…';
+  try {
+    await fetch(TRACKER_URL, {
+      method:'POST',
+      mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=UTF-8'},
+      body:JSON.stringify(submission)
+    });
+    portalStatus.textContent = 'Puan portala gönderildi. Kaydı Ödev Takip Merkezi’nde görebilirsiniz.';
+  } catch {
+    portalStatus.textContent = 'Portala ulaşılamadı. Puanınız aşağıdaki değerlendirmeyle birlikte ekranda duruyor.';
+    retryScore.hidden = false;
+  }
+}
+retryScore.addEventListener('click',sendScore);
 
 function startWriting() {
   const select = document.getElementById('name-sel');
@@ -271,24 +298,44 @@ submitButton.addEventListener('click', () => {
     return;
   }
   document.getElementById('confirm-student').textContent = student;
-  confirmDialog.returnValue = '';
   confirmDialog.showModal();
 });
-confirmDialog.addEventListener('close', () => {
-  if (confirmDialog.returnValue !== 'submit' || input.readOnly) return;
+document.getElementById('cancel-confirm').addEventListener('click', () => confirmDialog.close());
+document.getElementById('confirm-form').addEventListener('submit', event => {
+  event.preventDefault();
+  if (input.readOnly) return;
   const text = input.value.trim();
   const reference = tokens(CORRECT_TEXT);
   const {edits,errors} = align(reference,tokens(text));
   const score = Math.max(0,Math.round(100 * (reference.length-errors) / reference.length));
+  const correct = edits.filter(edit => edit.type === 'correct').length;
+  const blank = edits.filter(edit => edit.type === 'missing').length;
+  const wrong = errors - blank;
+  const date = new Intl.DateTimeFormat('tr-TR',{
+    timeZone:'Europe/Istanbul',dateStyle:'short',timeStyle:'medium'
+  }).format(new Date());
+  submission = {
+    spreadsheetId:SPREADSHEET_ID,
+    sheetName:SHEET_NAME,
+    studentName:student,
+    taskColumn:TASK_COLUMN,
+    score,correct,wrong,blank,
+    formatted:`✅ ${score}/100\n✓${correct} ✗${errors}\n${date}`
+  };
+
   input.readOnly = true;
   submitButton.disabled = true;
+  submitButton.textContent = 'Sonuç · ' + score + ' / 100';
   document.getElementById('result-score').textContent = score + ' / 100';
-  const correct = edits.filter(edit => edit.type === 'correct').length;
   document.getElementById('result-summary').textContent = correct + ' doğru · ' + errors + ' hata. Kelimeler ve noktalama ayrı değerlendirilir; büyük harfler ve aksanlar dikkate alınır.';
   document.getElementById('reference-review').textContent = CORRECT_TEXT;
   renderReview(text,edits);
   document.getElementById('dictation-result').hidden = false;
-  document.getElementById('result-heading').focus();
+  confirmDialog.close();
+  const heading = document.getElementById('result-heading');
+  heading.focus({preventScroll:true});
+  heading.scrollIntoView({block:'start'});
+  void sendScore();
 });
 </script>
 </body>

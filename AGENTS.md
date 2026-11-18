@@ -45,3 +45,7 @@ User instruction, 18 November 2026: in every classroom activity at every level, 
 ## Clickable Spanish vocabulary in classroom activities
 
 User instruction, 18 November 2026: make every Spanish word in classroom lesson content clickable, including explanations, formulas, examples, tables, questions and individually revealed answers. Show its context-appropriate meaning in Turkish and English, support mouse, touch and keyboard, and preserve sentence-role colors and existing answer locks. Verify glossary coverage of all visible Spanish lesson content and revealed answers before publishing.
+
+## A2.2 classroom activity design reference
+
+User instruction, 18 November 2026: use the A2.2 9–10 classroom activity (`09-10-ders-ici-ispanyolcacim-a22.html`) as the A2.2 visual and interaction reference. Reuse its typography, peach/coral layout, numbered section tabs, homework dialog layout and sentence-level pastel highlighting. Moving the pointer over or focusing a Spanish sentence should highlight its meaningful grammatical chunks together. Preserve individual clickable Spanish vocabulary and answer locks. Start with the first lesson section immediately visible.

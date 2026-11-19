@@ -1,5 +1,5 @@
-import { sections } from './translations.js';
-import { glossary } from './glossary.js';
+import { sections } from './translations.js?v=20261119-pronouns';
+import { glossary } from './glossary.js?v=20261119-pronouns';
 
 const roles = {
   S: 'Özne', V: 'Fiil öbeği', P: 'Ortaç ve devamındaki fiil öbeği', O: 'Doğrudan nesne',
@@ -54,7 +54,7 @@ function createSentence(encoded) {
   return line;
 }
 
-function createExercise([prompt, solution], index) {
+function createExercise([prompt, ...solutions], index) {
   const row = element('div', 'exercise');
   const number = element('span', 'number', String(index));
   number.setAttribute('aria-hidden', 'true');
@@ -67,22 +67,35 @@ function createExercise([prompt, solution], index) {
   input.autocomplete = 'off';
   input.spellcheck = false;
 
-  const model = element('p', 'answer-example');
+  const multiple = solutions.length > 1;
+  const model = element('div', 'answer-example');
   model.id = 'translation-model-' + index;
   model.hidden = true;
-  model.append(element('small', '', 'Örnek çeviri'), createSentence(solution));
+  model.append(element('small', '', multiple ? 'Örnek çeviriler' : 'Örnek çeviri'));
+  if (multiple) {
+    const options = element('ol', 'answer-options');
+    for (const solution of solutions) {
+      const option = element('li');
+      option.append(createSentence(solution));
+      options.append(option);
+    }
+    model.append(options);
+  } else {
+    model.append(createSentence(solutions[0]));
+  }
+  const lockLabel = index + '. çevirinin ' + (multiple ? 'örneklerini ' : 'örneğini ');
   const lock = element('button', 'answer-lock', '🔒');
   lock.type = 'button';
   lock.setAttribute('aria-controls', model.id);
   lock.setAttribute('aria-expanded', 'false');
-  lock.setAttribute('aria-label', index + '. çevirinin örneğini göster');
+  lock.setAttribute('aria-label', lockLabel + 'göster');
   lock.addEventListener('click', () => {
     closeWord();
     const reveal = model.hidden;
     model.hidden = !reveal;
     lock.textContent = reveal ? '🔓' : '🔒';
     lock.setAttribute('aria-expanded', String(reveal));
-    lock.setAttribute('aria-label', index + '. çevirinin örneğini ' + (reveal ? 'gizle' : 'göster'));
+    lock.setAttribute('aria-label', lockLabel + (reveal ? 'gizle' : 'göster'));
   });
 
   content.append(label, input, model);

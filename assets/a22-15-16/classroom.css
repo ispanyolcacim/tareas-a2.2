@@ -97,6 +97,9 @@ p { margin: 0 0 12px; }
 .answer-lock:hover { background: var(--soft); }
 .answer-example { margin: 6px 0 0; }
 .answer-example small { display: block; color: var(--muted); font-size: 13px; margin-bottom: 2px; }
+.answer-options { margin: 0; padding-inline-start: 23px; }
+.answer-options li + li { margin-top: 4px; }
+.answer-options li::marker { color: var(--dark); font-weight: 900; }
 .sentence { color: #392b27; font-weight: 800; }
 .phrase { border-radius: 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
 .phrase:nth-child(7n+1) { --phrase-color: #f9d7e7; }

@@ -23,8 +23,6 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1
 .ibr{display:flex;align-items:flex-start;gap:9px;margin-bottom:5px}
 .ibd{width:8px;height:8px;border-radius:50%;background:var(--c4);flex-shrink:0;margin-top:5px}
 .ibh{height:1px;background:var(--c3);margin:9px 0}
-.remind{display:flex;align-items:flex-start;gap:10px;background:var(--blue1);border:1.5px solid var(--blue2);border-radius:var(--r);padding:12px 16px;margin-bottom:16px;font-size:12.5px;line-height:1.65;color:#1a3a4c;text-align:left}
-.remind .ric{font-size:18px;flex-shrink:0}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:12px 24px;border:none;border-radius:var(--r);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;font-family:inherit}
 .bm{background:linear-gradient(135deg,var(--c4),var(--c5));color:#fff;box-shadow:0 4px 12px rgba(85,157,106,.35)}
 .bm:hover:not(:disabled){transform:translateY(-2px)}
@@ -125,7 +123,7 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1
 <div class="header">
   <div class="htag">4. Hafta Ödevi &nbsp;|&nbsp; A2.2 (13-14. Ders)</div>
   <h1>&#x1F1EA;&#x1F1F8; A2.2 – H4 13-14. Ders</h1>
-  <div class="header-sub">La Voz Pasiva &nbsp;&bull;&nbsp; Práctica Pro &nbsp;&bull;&nbsp; 4 Parte &nbsp;&bull;&nbsp; 70 soru &nbsp;&bull;&nbsp; @ispanyolcacim &nbsp;&bull;&nbsp; Profe Hazel</div>
+  <div class="header-sub">La Voz Pasiva &nbsp;&bull;&nbsp; Práctica Pro &nbsp;&bull;&nbsp; 4 Parte &nbsp;&bull;&nbsp; <span data-question-total></span> soru &nbsp;&bull;&nbsp; @ispanyolcacim &nbsp;&bull;&nbsp; Profe Hazel</div>
 </div>
 <div class="screen active" id="sc-name">
   <div class="nb">
@@ -136,7 +134,6 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1
       <option>Didem Dundar</option><option>Ebru Ozgen</option><option>Ece Turhanoglu</option>
       <option>Gulsah Gundogdu</option><option>Irem Savas</option><option>Kardelen Kuscu</option><option>Sevde Ozdemir</option>
       <option>Zumeyra Dogan</option></select>
-    <div class="remind"><span class="ric">&#x270D;&#xfe0f;</span><span><strong>Unutmayın:</strong> Bu haftanın <strong>yazma ödevi</strong> bu sayfada değildir — ayrı bir <strong>bağlantı (link)</strong> olarak size iletilecektir. Lütfen onu da tamamlamayı unutmayınız.</span></div>
     <div class="ib">
       <div class="ibr"><div class="ibd"></div><span><strong>PARTE 1 — Comprensión Lectora:</strong> İki metni okuyup 10 soruyu yanıtlayın.</span></div>
       <div class="ibr"><div class="ibd"></div><span><strong>PARTE 2 — Completa la Transformación:</strong> 10 soru, her birinde 4 cümle (a-d) — toplam 40 dönüşüm.</span></div>
@@ -162,7 +159,7 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1
     </div>
     <div class="pgw">
       <div class="pgb"><div class="pgf" id="pgf"></div></div>
-      <div class="pgi"><span id="pg-tarea">Parte 1 / 4</span><span><span id="fin-ans">0</span> / 70 yanıtlandı</span></div>
+      <div class="pgi"><span id="pg-tarea">Parte 1 / 4</span><span><span id="fin-ans">0</span> / <span data-question-total></span> yanıtlandı</span></div>
     </div>
     <div id="tarea-area"></div>
     <div class="tnav">
@@ -206,7 +203,6 @@ body{font-family:'Segoe UI',sans-serif;background:linear-gradient(160deg,#f5fbf1
         <div class="ri rbl"><div class="rnum" id="rs-b">0</div><div class="rl">Boş</div></div>
       </div>
       <div class="stb stpnd" id="rs-status">&#x23f3; Kaydediliyor&#x2026;</div>
-      <div class="remind" style="margin-bottom:0"><span class="ric">&#x270D;&#xfe0f;</span><span><strong>Unutmayın:</strong> Yazma ödeviniz bu testten ayrı olarak, size özel bir <strong>link</strong> ile paylaşılacaktır.</span></div>
     </div>
     <div class="ra"><button class="btn bo" onclick="goName()">&#x1F504; Yeniden Başla</button></div>
   </div>
@@ -404,7 +400,9 @@ const PARTES=[
  items:P4_ITEMS}
 ];
 const PARTE_TOTALS={1:10,2:40,3:10,4:10};
-const TOTAL_Q=70;
+const TOTAL_QUESTIONS=PARTES.reduce((total,p)=>total+(p.type==='transform'?p.groups.length:p.items.length),0);
+const TOTAL_SCORED_ANSWERS=Object.values(PARTE_TOTALS).reduce((total,count)=>total+count,0);
+document.querySelectorAll('[data-question-total]').forEach(el=>{el.textContent=TOTAL_QUESTIONS;});
 
 let student='',answers={},userAnswers={},curP=0;
 let transformState={},transformLocked={};
@@ -516,16 +514,11 @@ function renderTransformGroup(group){
   return h;
 }
 
-function countProgress(){
-  let done=0,total=0;
-  PARTES.forEach(p=>{
-    if(p.type==='transform'){
-      p.groups.forEach(g=>{total+=4;if(transformLocked[g.id])done+=4;});
-    }else{
-      p.items.forEach(it=>{total++;if(answers[it.id]!==undefined)done++;});
-    }
-  });
-  return {done,total};
+function countAnsweredQuestions(){
+  return PARTES.reduce((total,p)=>{
+    if(p.type==='transform')return total+p.groups.filter(g=>transformLocked[g.id]).length;
+    return total+p.items.filter(it=>answers[it.id]!==undefined).length;
+  },0);
 }
 function countScore(){
   let ok=0,er=0;
@@ -541,10 +534,10 @@ function countScore(){
 
 function render(){
   const p=PARTES[curP];
-  const prog=countProgress();
-  document.getElementById('pgf').style.width=(prog.done/prog.total*100)+'%';
+  const answered=countAnsweredQuestions();
+  document.getElementById('pgf').style.width=(answered/TOTAL_QUESTIONS*100)+'%';
   document.getElementById('pg-tarea').textContent='Parte '+(curP+1)+' / 4';
-  document.getElementById('fin-ans').textContent=prog.done;
+  document.getElementById('fin-ans').textContent=answered;
   document.getElementById('tnav-ctr').textContent='Parte '+(curP+1)+' / 4 — '+p.code;
   document.getElementById('btn-prev').disabled=(curP===0);
   document.getElementById('btn-next').disabled=(curP===PARTES.length-1);
@@ -590,10 +583,10 @@ function doSubmit(){
   PARTES[1].groups.forEach(g=>{['a','b','c','d'].forEach(l=>{const k=g.id+'_'+l;const a=answers[k];if(a===undefined)bl++;else if(a===true){ok++;secCounts[2]++;}else er++;});});
   PARTES[2].items.forEach(it=>{const a=answers[it.id];if(a===undefined)bl++;else if(a===it.ans){ok++;secCounts[3]++;}else er++;});
   PARTES[3].items.forEach(it=>{const a=answers[it.id];if(a===undefined)bl++;else if(a===it.ans){ok++;secCounts[4]++;}else er++;});
-  const score=Math.round(ok/TOTAL_Q*100);
+  const score=Math.round(ok/TOTAL_SCORED_ANSWERS*100);
   document.getElementById('rs-name').textContent=student;
   document.getElementById('rs-score').innerHTML=score+'<span>/100</span>';
-  document.getElementById('rs-pct').textContent=ok+' / '+TOTAL_Q+' doğru';
+  document.getElementById('rs-pct').textContent=ok+' / '+TOTAL_SCORED_ANSWERS+' doğru yanıt';
   document.getElementById('rs-c').textContent=ok;
   document.getElementById('rs-w').textContent=er;
   document.getElementById('rs-b').textContent=bl;

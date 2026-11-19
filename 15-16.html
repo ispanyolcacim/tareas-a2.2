@@ -7,9 +7,9 @@
   <title>A2.2 (15+16) · Çeviri Ödevi</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
   <link rel="stylesheet" href="a22-theme.css?v=20261103-vivid">
-  <link rel="stylesheet" href="assets/a22-15-16/homework.css">
+  <link rel="stylesheet" href="assets/a22-15-16/homework.css?v=20261119-submit">
   <script src="student-roster.js" defer></script>
-  <script type="module" src="assets/a22-15-16/homework.js"></script>
+  <script type="module" src="assets/a22-15-16/homework.js?v=20261119-submit"></script>
 </head>
 <body>
   <header class="header">
@@ -39,7 +39,6 @@
       </div>
       <div class="submit-bar">
         <button type="button" class="btn bg" id="review">✔ Ödevi Teslim Et</button>
-        <p id="review-note" role="status"></p>
       </div>
       <div class="progress-row">
         <progress id="progress" max="25" value="0" aria-label="Kontrol edilen cevaplar"></progress>
@@ -67,12 +66,13 @@
       <form id="confirm-form" class="qcard">
         <h2 tabindex="-1">Ödevi teslim et</h2>
         <p>Sonucunu göndermek için adını onayla.</p>
+        <p id="submit-summary"></p>
         <label for="cf-sel">Adını doğrula</label>
         <select class="sel" id="cf-sel" required><option value="">Adını seç</option></select>
         <p id="submission-error" role="alert" hidden></p>
         <div class="confirm-actions">
           <button type="button" class="btn bo" id="back-to-quiz">← Sorulara dön</button>
-          <button type="submit" class="btn bg" id="submit-score">✔ Ödevi Teslim Et</button>
+          <button type="submit" class="btn bg" id="submit-score">✔ Evet, Teslim Et</button>
         </div>
       </form>
     </section>

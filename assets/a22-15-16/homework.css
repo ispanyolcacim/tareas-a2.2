@@ -14,8 +14,7 @@ body { margin: 0; }
 .classroom-link { display: inline-block; margin: 12px 0 0 8px; color: var(--theme-primary); font-weight: 800; }
 .top-info, .progress-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 7px 0; }
 .submit-bar { margin: 7px 0; }
-.submit-bar p:empty { display: none; }
-.submit-bar p { margin: 8px 0 0; font-weight: 750; color: var(--theme-primary); }
+#submit-summary { font-weight: 800; color: var(--theme-primary); }
 .progress-row progress { width: 100%; accent-color: #b74328; }
 #progress-note { white-space: nowrap; font-variant-numeric: tabular-nums; }
 #question-list { margin: 6px 0 11px; }

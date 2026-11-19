@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#b74328">
+  <title>A2.2 (15+16) · Çeviri Ödevi</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap">
+  <link rel="stylesheet" href="a22-theme.css?v=20261103-vivid">
+  <link rel="stylesheet" href="assets/a22-15-16/homework.css">
+  <script src="student-roster.js" defer></script>
+  <script type="module" src="assets/a22-15-16/homework.js"></script>
+</head>
+<body>
+  <header class="header">
+    <p class="htag">A2.2 · 4. HAFTA · 15+16. DERS</p>
+    <h1>Çeviri Ödevi</h1>
+    <p>Türkçeden İspanyolcaya · 25 soru · Profe Hazel</p>
+  </header>
+
+  <main class="homework-shell">
+    <noscript><p>Ödevi açmak için tarayıcında JavaScript’i etkinleştir.</p></noscript>
+    <section id="sc-name" class="screen active">
+      <form class="nb" id="start-form">
+        <h2 tabindex="-1">Adını seç</h2>
+        <p>25 cümleyi İspanyolcaya çevir. Her soruda hedef fiil yapısı 4 puan. “Kontrol et” düğmesi kullandığın fiil yapısını değerlendirir ve çevirinin örneğini gösterir.</p>
+        <label for="name-sel">Öğrenci adı</label>
+        <select class="sel" id="name-sel" required><option value="">Adını seç</option></select>
+        <p id="roster-status" role="status">Öğrenci listesi yükleniyor…</p>
+        <button class="btn bm bf" type="submit">▶ Başla</button>
+        <a class="classroom-link" href="15-16-ders-ici-ispanyolcacim-a22.html">Ders içi etkinliğe dön</a>
+      </form>
+    </section>
+
+    <section id="sc-quiz" class="screen" hidden>
+      <div class="top-info">
+        <strong id="student"></strong>
+        <span>✓ <b id="correct">0</b> · ✗ <b id="incorrect">0</b></span>
+      </div>
+      <div class="submit-bar">
+        <button type="button" class="btn bg" id="review">✔ Ödevi Teslim Et</button>
+        <p id="review-note" role="status"></p>
+      </div>
+      <div class="progress-row">
+        <progress id="progress" max="25" value="0" aria-label="Kontrol edilen cevaplar"></progress>
+        <span id="progress-note">0 / 25</span>
+      </div>
+      <details id="question-list"><summary>Soru listesi</summary><div id="jump-buttons"></div></details>
+      <form id="question-form" class="qcard">
+        <label id="prompt" for="translation"></label>
+        <textarea id="translation" lang="es" rows="3" maxlength="650" spellcheck="false" required></textarea>
+        <button class="btn bm" id="check" type="submit">Kontrol et</button>
+        <div id="feedback" aria-live="polite" hidden>
+          <strong id="feedback-status"></strong>
+          <p>Örnek çeviri</p>
+          <p id="model" lang="es"></p>
+        </div>
+      </form>
+      <div class="pager">
+        <button type="button" class="btn bo" id="prev-question">← Geri</button>
+        <span id="question-number">1 / 25</span>
+        <button type="button" class="btn bm" id="next-question">İleri →</button>
+      </div>
+    </section>
+
+    <section id="sc-confirm" class="screen" hidden>
+      <form id="confirm-form" class="qcard">
+        <h2 tabindex="-1">Ödevi teslim et</h2>
+        <p>Sonucunu göndermek için adını onayla.</p>
+        <label for="cf-sel">Adını doğrula</label>
+        <select class="sel" id="cf-sel" required><option value="">Adını seç</option></select>
+        <p id="submission-error" role="alert" hidden></p>
+        <div class="confirm-actions">
+          <button type="button" class="btn bo" id="back-to-quiz">← Sorulara dön</button>
+          <button type="submit" class="btn bg" id="submit-score">✔ Ödevi Teslim Et</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="sc-result" class="screen" hidden>
+      <article class="qcard result">
+        <h2 tabindex="-1">Çeviri ödevi sonucu</h2>
+        <p id="result-student"></p>
+        <strong id="result-score"></strong>
+        <p id="result-detail"></p>
+        <p role="status">Sonucun için kayıt isteği gönderildi. Teslim durumunu Ödev Takip Merkezi’nden kontrol edebilirsin.</p>
+        <a class="classroom-link" href="https://www.ispanyolcacim.com/ogrenci-portali.html">Ödev Takip Merkezi’ni aç</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,146 @@
+/* Classroom print and lesson homework · v1 */
+.classroom-print,.classroom-homework-button,.classroom-homework-close,.classroom-homework-link{font:800 14px/1.4 "Nunito Sans","Nunito",Arial,sans-serif;box-sizing:border-box;letter-spacing:0;text-transform:none}
+.classroom-print{display:inline-flex!important;align-items:center;justify-content:center;gap:7px;width:auto!important;height:auto!important;min-height:40px;padding:9px 14px!important;border:1px solid #d9deea!important;border-radius:14px!important;color:#27334a!important;background:#fff!important;cursor:pointer;white-space:nowrap;box-shadow:0 3px 12px #20304a09}
+.classroom-print svg{width:18px;height:18px;flex:none}.classroom-print:hover{background:#f4f6fb!important}
+.classroom-print:focus-visible,.classroom-homework-button:focus-visible,.classroom-homework-close:focus-visible,.classroom-homework-link:focus-visible{outline:3px solid var(--classroom-hw-accent,#6c4eb8);outline-offset:3px}
+.classroom-homework-dock{box-sizing:border-box;width:min(1080px,calc(100% - 32px));margin:24px auto 38px;padding:20px;text-align:right;border-top:1px solid #dce1eb}
+.classroom-homework-button{display:inline-flex;align-items:center;justify-content:center;gap:9px;grid-column:1/-1;flex:0 0 auto;min-height:46px;padding:12px 19px;margin:4px 0;border:1px solid var(--classroom-hw-accent,#6c4eb8);border-radius:18px;background:var(--classroom-hw-soft,#f1ebff);color:var(--classroom-hw-accent,#6c4eb8);cursor:pointer;text-align:center;white-space:normal;box-shadow:none}
+.classroom-homework-button:hover{filter:brightness(.97);transform:translateY(-1px)}
+#classroom-homework{--classroom-hw-accent:#6c4eb8;--classroom-hw-soft:#f1ebff;box-sizing:border-box;inset:0;width:min(920px,calc(100% - 28px));max-width:920px;max-height:calc(100dvh - 32px);margin:auto;padding:0;border:1px solid #e0dfeb;border-radius:28px;background:#fffdfb;color:#25324a;box-shadow:0 22px 90px #18253d38;font:400 16px/1.65 "Nunito Sans","Nunito",Arial,sans-serif;overflow:auto;text-align:left}
+#classroom-homework::backdrop{background:#18253d88;backdrop-filter:blur(4px)}
+#classroom-homework:not([open]){display:none!important}
+#classroom-homework[open]{display:block}
+#classroom-homework *{box-sizing:border-box}
+#classroom-homework .classroom-homework-head{padding:27px 30px 22px;background:var(--classroom-hw-soft);border-bottom:1px solid #25324a12}
+#classroom-homework .classroom-homework-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+#classroom-homework .classroom-homework-eyebrow{margin:0;font-size:12px;letter-spacing:1px;font-weight:900;color:var(--classroom-hw-accent)}
+#classroom-homework .classroom-homework-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.classroom-homework-close{min-height:40px;padding:9px 14px;border:1px solid #d9deea;border-radius:14px;background:#fff;color:#27334a;cursor:pointer}
+#classroom-homework h2{margin:0 0 8px;font:900 clamp(25px,4vw,36px)/1.2 "Nunito","Nunito Sans",Arial,sans-serif;letter-spacing:-.6px;color:#25324a}
+#classroom-homework .classroom-homework-intro{margin:0;color:#5c6980;font-size:15px}
+#classroom-homework .classroom-homework-body{padding:26px 30px 30px}
+#classroom-homework .classroom-homework-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#classroom-homework .classroom-homework-card{display:flex;flex-direction:column;gap:12px;margin:0;padding:21px;border:1px solid #e0e4ed;border-radius:22px;background:#fff;box-shadow:0 4px 16px #20304a05;break-inside:avoid}
+#classroom-homework h3{margin:0;font:900 18px/1.35 "Nunito","Nunito Sans",Arial,sans-serif;letter-spacing:0;color:#25324a}
+#classroom-homework .classroom-homework-description{margin:0;color:#5c6980;font-size:15px;line-height:1.7;flex:1}
+.classroom-homework-link{display:inline-flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 15px;border-radius:13px;border:1px solid var(--classroom-hw-accent);background:var(--classroom-hw-soft);color:var(--classroom-hw-accent);text-decoration:none}
+.classroom-homework-link:hover{text-decoration:underline}
+#classroom-homework .classroom-homework-prep{margin-top:25px;padding-top:24px;border-top:1px dashed #d6dce7}
+#classroom-homework .classroom-homework-prep>h3{margin-bottom:14px}
+#classroom-homework .classroom-homework-footer{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:25px;padding-top:20px;border-top:1px solid #e0e4ed}
+#classroom-homework .classroom-homework-portal{color:var(--classroom-hw-accent);font-size:14px;font-weight:800;text-decoration:underline}
+#classroom-homework .classroom-homework-note{margin:0;font-size:13px;color:#637089}
+@media(max-width:640px){#classroom-homework{width:calc(100% - 18px);max-height:calc(100dvh - 18px);border-radius:22px}#classroom-homework .classroom-homework-head,#classroom-homework .classroom-homework-body{padding:21px 18px}#classroom-homework .classroom-homework-grid{grid-template-columns:1fr}.classroom-homework-dock{text-align:center}.classroom-homework-dock>.classroom-homework-button{width:100%}.classroom-print{font-size:12px;padding:8px 11px!important}}
+@media print{
+ .classroom-print,.classroom-homework-dock,.classroom-homework-button,.classroom-homework-actions{display:none!important}
+ body.classroom-homework-open{display:block!important;overflow:visible!important;background:#fff!important;height:auto!important}
+ body.classroom-homework-open> :not(#classroom-homework){display:none!important}
+ body.classroom-homework-open>#classroom-homework[open]{display:block!important;position:static!important;inset:auto!important;width:100%!important;max-width:none!important;max-height:none!important;height:auto!important;overflow:visible!important;margin:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff!important}
+ #classroom-homework::backdrop{display:none!important}
+ #classroom-homework .classroom-homework-head,#classroom-homework .classroom-homework-body{padding:16px 0!important}
+ #classroom-homework .classroom-homework-card{box-shadow:none!important;break-inside:avoid}
+ #classroom-homework .classroom-homework-grid{display:block!important}
+ #classroom-homework .classroom-homework-card{margin-bottom:14px!important}
+ #classroom-homework .classroom-homework-link{color:#25324a!important;border:0!important;padding:0!important;display:block!important}
+ #classroom-homework .classroom-homework-link::after{content:attr(href);display:block;font:10px/1.5 Arial,sans-serif;word-break:break-all}
+ #classroom-homework .classroom-homework-footer{display:none!important}
+}
+
+:root {
+  --primary: #b74328; --dark: #92321f; --ink: #342a25; --muted: #70584d;
+  --line: #efd5c8; --soft: #ffe6d9; --bg: #fff4ec;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Nunito Sans", system-ui, sans-serif; }
+body.classroom-homework-open { overflow: hidden; }
+[hidden] { display: none !important; }
+a { color: var(--dark); }
+button, input { font: inherit; }
+button, summary { cursor: pointer; }
+:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
+h1, h2, h3, h4 { font: 900 1em/1.2 "Nunito", system-ui, sans-serif; margin: 0; }
+h1 { color: var(--dark); font-size: clamp(32px, 6vw, 58px); letter-spacing: -.04em; }
+h2 { font-size: clamp(25px, 4vw, 36px); }
+h3 { font-size: 18px; }
+p { margin: 0 0 12px; }
+.skip { position: fixed; left: 15px; top: -100px; padding: 12px; background: #fff; z-index: 11; }
+.skip:focus { top: 12px; }
+.shell { max-width: 1100px; margin: auto; padding: 36px 30px 58px; }
+.masthead { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; font-weight: 800; letter-spacing: .08em; }
+.brand { font-weight: 900; text-decoration: none; }
+.lesson-logo-wrap { margin-top: 18px; }
+.lesson-logo { display: block; width: 180px; max-width: 100%; height: auto; }
+.hero { padding: 18px 0 24px; }
+.hero p:last-child { color: var(--muted); margin: 9px 0 0; }
+.eyebrow { color: var(--primary); font-size: 13px; font-weight: 900; letter-spacing: .1em; margin-bottom: 8px; }
+.lesson-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px; padding-bottom: 14px; margin-bottom: 22px; border-bottom: 1px solid var(--line); }
+.tabs, .nav-actions { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.tab, .btn { min-height: 44px; border: 1px solid transparent; border-radius: 10px; padding: 8px 13px; background: transparent; color: var(--muted); font-size: 14px; font-weight: 800; }
+.tab:hover, .btn:hover { background: var(--soft); color: var(--dark); }
+.tab[aria-selected="true"] { background: var(--primary); color: #fff; }
+.reminder-button, .btn { border-color: var(--line); background: #fff9f6; color: var(--dark); }
+.lesson-nav .classroom-homework-button { border-radius: 12px; padding: 9px 13px; margin: 0; font-size: 14px; }
+.intro { max-width: 800px; color: var(--muted); }
+.legend { margin-bottom: 20px; font-size: 14px; }
+.legend summary { color: var(--dark); font-weight: 800; width: fit-content; }
+.legend ul { display: flex; flex-wrap: wrap; list-style: none; gap: 5px; margin: 0; padding: 0; }
+.legend li, .chip { color: var(--dark); background: #ffe8dc; border: 1px solid var(--line); padding: 3px 8px; border-radius: 20px; font-size: 13px; font-weight: 800; }
+.legend p { margin: 5px 0 8px; }
+.section-head { display: flex; justify-content: space-between; gap: 8px; align-items: center; margin-bottom: 14px; }
+.paper { background: #fff; border: 1px solid var(--line); border-radius: 17px; padding: 8px 18px; margin-bottom: 12px; box-shadow: 0 5px 14px #8e3b2010; }
+.exercise { display: grid; grid-template-columns: 32px minmax(0, 1fr) 42px; align-items: start; gap: 4px 10px; padding: 9px 0; }
+.exercise + .exercise { border-top: 1px solid #f7e7df; }
+.number { display: grid; place-items: center; align-self: start; min-height: 30px; border-radius: 8px; background: #fff0e8; color: var(--dark); font-size: 13px; font-weight: 900; }
+.prompt { display: block; margin-bottom: 5px; font-weight: 800; }
+.answer-input { width: 100%; min-height: 36px; border: 0; border-bottom: 1px dashed #cc9b87; border-radius: 4px 4px 0 0; background: #fffaf7; color: var(--ink); padding: 3px 7px; font-size: 16px; }
+.answer-lock { min-width: 42px; min-height: 42px; border: 1px solid var(--line); border-radius: 10px; background: #fff9f6; }
+.answer-lock:hover { background: var(--soft); }
+.answer-example { margin: 6px 0 0; }
+.answer-example small { display: block; color: var(--muted); font-size: 13px; margin-bottom: 2px; }
+.sentence { color: #392b27; font-weight: 800; }
+.phrase { border-radius: 4px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.phrase:nth-child(7n+1) { --phrase-color: #f9d7e7; }
+.phrase:nth-child(7n+2) { --phrase-color: #dfe5fb; }
+.phrase:nth-child(7n+3) { --phrase-color: #fff0bd; }
+.phrase:nth-child(7n+4) { --phrase-color: #d1efe8; }
+.phrase:nth-child(7n+5) { --phrase-color: #ece0f6; }
+.phrase:nth-child(7n+6) { --phrase-color: #ffe1cf; }
+.phrase:nth-child(7n+7) { --phrase-color: #e9e7ed; }
+.sentence:is(:hover, :focus-within, .word-active) .phrase { background: var(--phrase-color); box-shadow: 0 0 0 2px var(--phrase-color); }
+.vocab-word { display: inline; border: 0; border-radius: 3px; background: transparent; color: inherit; font: inherit; padding: 0; }
+.vocab-word:hover, .vocab-word[aria-expanded=true] { text-decoration: underline; text-underline-offset: 3px; }
+.vocab-word[aria-expanded=true] { background: var(--soft); }
+.word-popover { position: fixed; z-index: 10; width: min(335px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); overflow: auto; padding: 15px 17px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: 0 12px 35px #6e2c1d33; font-size: 14px; }
+.word-head { display: flex; justify-content: space-between; align-items: center; }
+#word-close { width: 36px; height: 36px; padding: 0; border: 0; border-radius: 50%; background: var(--soft); font-size: 22px; }
+.word-popover dl { margin: 9px 0; }
+.word-popover dt, .word-popover summary { font-weight: 900; }
+.word-popover dd { margin: 0 0 6px; }
+.word-popover details p { margin: 5px 0 0; }
+.reminder { max-width: min(560px, calc(100% - 24px)); padding: 24px; border: 1px solid var(--line); border-top: 4px solid var(--primary); border-radius: 18px; background: #fff9f6; color: var(--ink); }
+.reminder::backdrop { background: #18253d88; backdrop-filter: blur(4px); }
+.reminder form { float: right; margin: -8px -8px 0 10px; }
+.reminder h2 { color: var(--dark); margin-bottom: 12px; }
+.reminder p:last-child { margin-bottom: 0; }
+.footer { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 9px; margin-top: 22px; padding-top: 14px; border-top: 1px solid var(--line); }
+#previous { grid-column: 1; justify-self: start; }
+#section-count { grid-column: 2; color: var(--muted); white-space: nowrap; }
+#next, #finish { grid-column: 3; justify-self: end; }
+@media (max-width: 540px) {
+  .shell { padding: 18px 14px 35px; }
+  .masthead { letter-spacing: .02em; }
+  .lesson-logo { width: 160px; }
+  .paper { padding: 6px 10px; }
+  .exercise { grid-template-columns: 24px minmax(0, 1fr) 42px; column-gap: 7px; }
+  .footer .btn { font-size: 13px; padding-inline: 6px; }
+}
+@media print {
+  body { background: #fff; }
+  .shell { max-width: none; padding: 0; }
+  .lesson-nav, .footer, .legend, .word-popover, .answer-lock, .answer-example, .reminder { display: none !important; }
+  .panel[hidden] { display: block !important; }
+  .panel + .panel { break-before: page; }
+  .exercise { break-inside: avoid; grid-template-columns: 32px 1fr; }
+  .answer-input[hidden] { display: block !important; }
+  .paper { box-shadow: none; }
+}
